@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>KU游娱乐城-存款专区/在线支付</title>
+    <link href="./style/webBank.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  </head>
+  <body>
+    <div class="mask" id="mask" style="display: none;">
+      <div class="alert">
+        <img id="close" src="./images/Close.svg" alt="">
+        <h3>付款确认</h3>
+        <div>
+          <p>确认您已向卖家付款</p>
+          <p>恶意点击将直接冻结账户</p>
+        </div>
+        <div class="button">
+          <a href="javascript:;" id="cancel">取消</a>
+          <a href="javascript:;" id="confirm">确认</a>
+        </div>
+      </div>
+    </div>
+    <div class="main_title"></div>
+    <div class="contain_main">
+      <div class="titleboxWrap">
+        <div class="titlebox">
+          <img id="unionPay" src="./images/UnionPay.svg" alt="" />
+          <h3 id="payTitle">请付款</h3>
+        </div>
+      </div>
+      <div class="inforData_box">
+        <ul>
+          <li>
+            <div class="inforData_tile" id="money_top">請向以下帳戶付款</div>
+            <div class="inforData_right color_gray">
+              <span>
+                订单号：
+              </span>
+              <span class="inforData_txt color_gray">
+                P972555892950507521
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="money">¥100.00</div>
+            <div class="inforData_right align_start">
+                 <span class="color_gray pl5"> 數量: </span>
+                 <span class="color_gray pl5"> 4.05 </span>
+                 <span class="color_gray pl5"> USDT </span>
+            </div>
+          </li>
+
+          <li class="inforData_li">
+            <span class="inforData_tile">
+              收款人：
+            </span>
+            <div class="inforData_right">
+              <span class="inforData_txt color_gray" id="name"></span> 
+              <a href="javascript:;">
+                复制
+              </a>
+            </div>
+          </li>
+          <li class="inforData_li">
+            <span class="inforData_tile">
+              銀行卡号：
+            </span>
+            <div class="inforData_right">
+              <span class="inforData_txt color_gray" id="bankNumber"></span>
+              <a href="javascript:;">
+                复制
+              </a>
+            </div>
+          </li>
+
+          <li class="inforData_li">
+            <div>
+                <span class="inforData_tile" id="bank"></span>
+                <span class="inforData_tile" id="branch"></span>
+            </div>
+              <a href="javascript:;">
+                复制
+              </a>
+          </li>
+
+          <li class="inforData_cancel" style="display: none;">
+            <div>下单时间</div> <span class="color_gray">2020-04-28</span>
+          </li>
+          <li class="inforData_cancel" style="display: none;">
+            <div>取消时间</div> <span class="color_gray">2020-04-28 15:54:58</span>
+          </li>
+          <li class="inforData_cancel" style="display: none;">
+            <div>取消原因</div> <span>用户取消</span>
+          </li>
+        </ul>
+        <div class="prompt_t" style="display: none;">
+          <img src="./images/icon_check.svg" />
+          <span><label id="typeName"></label> <label id="typeValue"></label> 已复制</span>
+        </div>
+        <div class="inforData_box_bottom">
+          <div class="color_blue bottomTxt1">如您已向卖家转账付款, <span>请务必点击“我已付款”按钮,</span>否则有可能造成资金损失</div>
+          <div class="color_blue bottomTxt2" style="display:none">如您确实已付款，但超过10分钟充值未到账,你可以在下方发起申诉</div>
+          <div class="color_blue bottomTxt3" style="display:none">订单已取消，无法查看支付信息</div>
+        </div>
+
+      </div>
+
+      <div class="remind" id="remind">
+        <img id="remindImg" src="./images/Test.svg" alt="">
+        <div class="remindTxt1">
+          请在<span id="min">14</span><span>:</span><span id="sec">51</span>内使用<span>测试</span>的银行卡实名付款给卖家***, 
+          <div>超时交易将自动取消</div>
+        </div>
+        <div class="remindTxt2" style="display:none">卖家正在确认中，预计将在3分钟内充值到账，请不要离开此页面。</div>
+      </div>
+      <div class="buttonItem" id="buttonItem">
+        <button class="cancel" id="cancelBtn">取消訂單</button>
+        <button class="pay" id="pay">我已付款</button>
+      </div>
+
+      <div class="notice">
+        <div class="title">注意事項</div>
+        <ul>
+          <li>1.请使用实名制的银行卡、支付宝等进行转账。</li>
+          <li>2.法定节假日或工作日下午17:00点以后转账金额不能超过￥5万，如超过请分批支付。因此原因造成充值不能及时到账, 平台概不负责。</li>
+          <li>3.
+            <span>请按照每次所显示的付款信息打款，请勿直接打款到之前充值过的卡号。</span>
+            否则充值无法到账造成的损失平台概不负责。
+          </li>
+          <li>4.专账时请勿填写任何备注』包括数字货币、USDT、充值、美金、外汇等字样。</li>
+          <li>5.重要声明:作为全球领先的合规的数字货币兑换平台，biOTC平台坚決反对任何机构和个人利用biOTC产品从事不符合法律的商业行为。</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <script src="./js/clipboard.js"></script>
+
+
+    <script type="text/javascript">
+
+      window.Clipboard = (function (window, document, navigator) {
+        var input, copy
+        var div
+        function isOS() {
+          return navigator.userAgent.match(/ipad|iphone/i)
+        }
+
+        function createInput(text) {
+          input = document.createElement('input')
+          input.setAttribute('id','copyValue') 
+          input.setAttribute('value',text) 
+          document.body.appendChild(input)
+          div = document.createElement('div')
+          div.setAttribute('class','copy') 
+          div.setAttribute('data-clipboard-target','#copyValue') 
+          document.body.appendChild(div)
+          var clipboard = new ClipboardJS('.copy');
+
+        }
+
+        function copyToClipboard() {
+          document.querySelector('.copy').click()
+          document.body.removeChild(input)
+        }
+
+        function showPromt(text, type) {
+          $('#typeName').empty()
+          $('#typeValue').empty()
+          switch (type) {
+            case 1:
+              $('#typeName').text('收款人')
+              break
+            case 2:
+              $('#typeName').text('帐号')
+              break
+            case 3:
+              $('#typeName').text('银行')
+              break
+            default:
+              $('#typeName').empty()
+          }
+          $('#typeValue').text(text)
+          $('.prompt_t').show().delay(800).hide(0)
+        }
+
+        copy = function (text, type) {
+
+          createInput(text)
+          copyToClipboard()
+          showPromt(text, type)
+        }
+
+        return {
+          copy: copy,
+        }
+      })(window, document, navigator)
+
+        var name = '夏明贵'
+        var bankNumber ='6228 4805 2962 1010'
+        var bank ='农业银行'
+        var branch ='马边支行'
+        document.querySelector('#name').innerText = name
+        document.querySelector('#bankNumber').innerText = bankNumber
+        document.querySelector('#bank').innerText = bank
+        document.querySelector('#branch').innerText = branch
+
+        document.querySelectorAll('.inforData_li a').forEach((item,index)=>{
+
+          item.addEventListener('click',function(){
+            let txt =''
+            switch (index) {
+              case 0: txt = name
+                break;
+              case 1: txt = bankNumber
+                break;
+              case 2: txt = bank +' ' + branch
+                break;
+            }
+            Clipboard.copy(txt, index)
+          })
+        })
+        var time = 900000;//倒數XX秒
+        var min = '15'
+        var sec = '00'
+        !function remindTime(){
+          document.querySelector('#min').innerText = min
+          document.querySelector('#sec').innerText = sec
+          if(time<0){
+            //倒數完成
+          }else{
+            if(time>60){
+              min = Math.floor((time/1000/60))
+              if(time < 60000){
+                min = '0' + min  
+              }
+            }else{
+              min = '00'
+            }
+            sec = (time/1000%60)
+            if(sec<10) sec = '0'+sec
+            setTimeout(remindTime, 1000);
+          }
+          time-=1000; 
+        }();
+
+        var btnTime = 600000;//倒數XX秒
+        var btnMin = '10'
+        var btnSec = '00'
+        var btnFlag = true
+        function btnTimeFn(){
+         
+          if(btnTime<0){
+            //倒數完成
+            btnFlag = true
+          }else{
+            if(btnTime>60){
+              btnMin = Math.floor((btnTime/1000/60))
+            }else{
+              btnMin = '0'
+            }
+            btnSec = (btnTime/1000%60)
+            if(btnSec<10 ) btnSec = '0'+btnSec
+            setTimeout(btnTimeFn, 1000);
+          }
+          btnTime-=1000; 
+          document.querySelector('#pay').innerText =`${btnMin}:${btnSec}后可以发起申诉`
+        }
+
+      function money_pay(){
+        mask()
+        document.querySelector('#money_top').innerText = '已付款金额'
+        document.querySelector('#payTitle').innerText = '已付款'
+        document.querySelector('#payTitle').style.marginRight = '0'
+        document.querySelector('#unionPay').style.display = 'none'
+        document.querySelector('.remindTxt1').style.display = 'none'
+        document.querySelector('.remindTxt2').style.display = 'block'
+        document.querySelector('#remindImg').setAttribute('src',"./images/Stay.svg")
+        document.querySelector('.bottomTxt1').style.display = 'none'
+        document.querySelector('.bottomTxt2').style.display = 'block'
+        if(btnFlag) btnTimeFn()
+        btnFlag = false
+      }
+      function caecel(){
+        if(btnFlag){
+          document.querySelector('#money_top').innerText = '已付款金额'
+          document.querySelector('#payTitle').innerText = '已取消'
+          document.querySelector('#payTitle').style.marginRight = '0'
+          document.querySelector('#unionPay').style.display = 'none'
+          document.querySelector('#remind').style.display = 'none'
+          document.querySelector('#buttonItem').style.display = 'none'
+          document.querySelector('.bottomTxt1').style.display = 'none'
+          document.querySelector('.bottomTxt2').style.display = 'none'
+          document.querySelector('.bottomTxt3').style.display = 'block'
+          document.querySelectorAll('.inforData_li').forEach(item=>{
+            item.style.display = 'none'
+          })
+          document.querySelectorAll('.inforData_cancel').forEach(item=>{
+            item.style.display = 'flex'
+          })
+        }
+      }
+      function mask(){
+        if(btnFlag){
+          var mask = document.querySelector('#mask')
+          var display = mask.style.display
+          if(display === 'none'){
+            mask.style.display = 'block'
+          }else{
+            mask.style.display  = 'none'
+          }
+        }
+      }
+      function close(){
+        let btni = document.querySelector('#buttonItem')
+        btni.style.display = "none";
+      }
+
+  
+      document.querySelector('#pay').addEventListener('click',mask)
+      document.querySelector('#close').addEventListener('click',mask)
+      document.querySelector('#cancel').addEventListener('click',mask)
+      document.querySelector('#confirm').addEventListener('click',money_pay)
+      document.querySelector('#cancelBtn').addEventListener('click',caecel)
+      document.querySelector('#confirm').addEventListener('click',close)
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.FAQ {
+  width: 1006px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 8px;
+  .gt {
+    margin: 0 5px;
+  }
+
+  .location {
+    overflow: hidden;
+    font-weight: bold;
+    height: 20px;
+    margin-top: 8px;
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+  }
+  .lineMargin {
+    margin-bottom: 15px;
+  }
+  .lineX {
+    margin-top: 5px;
+    background: url(../images/line.jpg) repeat-x;
+    height: 1px;
+    line-height: 1px;
+    font-size: 1px;
+  }
+  .clear {
+    clear: both;
+  }
+  .FAQbox {
+    border-radius: 6px;
+    border: 1px solid #d5d5d5;
+    b {
+      font-weight: bold;
+    }
+    .content {
+      display: flex;
+      margin-left: 15px;
+      margin-top: 10px;
+      .contentLeft {
+        width: 285px;
+        float: left;
+        display: block;
+        overflow: hidden;
+        .faq {
+          padding-left: 5px;
+          padding-right: 5px;
+          background-color: #f4f4f4;
+          width: 254px;
+          display: block;
+          overflow: hidden;
+          margin-bottom: 15px;
+          .faqTitle {
+            border-bottom: #000 solid 2px;
+            font-size: 18px;
+            font-weight: bold;
+            padding-top: 10px;
+            margin-bottom: 10px;
+          }
+          .faqContent {
+            line-height: 24px;
+            font-size: 14px;
+            a {
+              color: #000000;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .contentRight {
+        width: 68.5%;
+        float: left;
+        display: block;
+        overflow: hidden;
+        .faqList {
+          font {
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+        .faqListTitle {
+          margin-bottom: 10px;
+        }
+        .faqListContent {
+          margin-bottom: 10px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .FAQ {
+    width: 80%;
+    .FAQbox {
+      .content {
+        .contentLeft{
+          display: none;
+        }
+        .contentRight{
+          width: 97.5%;
+        }
+      }
+    }
+  }
+}

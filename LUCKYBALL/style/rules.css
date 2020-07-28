@@ -1,0 +1,384 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.rules {
+  width: 1006px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 8px;
+}
+
+.rules .rules_button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.rules .rules_button .rulesbtn {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  margin: 0 5px 10px 0;
+  cursor: pointer;
+}
+
+.rules .rules_button .rulesbtn:hover {
+  color: #0055b5;
+}
+
+.rules .gt {
+  margin: 0 5px;
+}
+
+.rules .location {
+  overflow: hidden;
+  font-weight: bold;
+  height: 20px;
+  margin-top: 8px;
+}
+
+.rules .location a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.rules .lineMargin {
+  margin-bottom: 15px;
+}
+
+.rules .lineX {
+  margin-top: 5px;
+  background: url(../images/line.jpg) repeat-x;
+  height: 1px;
+  line-height: 1px;
+  font-size: 1px;
+}
+
+.rules .clear {
+  clear: both;
+}
+
+.rules .rulesbox_ffc {
+  border-radius: 6px;
+  border: 1px solid #d5d5d5;
+}
+
+.rules .rulesbox_ffc b {
+  font-weight: bold;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox {
+  display: block;
+  overflow: hidden;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content {
+  margin-top: 10px;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentLeft2 {
+  width: 63%;
+  float: left;
+  display: block;
+  overflow: hidden;
+  padding-left: 15px;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentLeft2 .about {
+  width: 97%;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentLeft2 .about .aboutTilte {
+  border-bottom: #000 solid 2px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 9px;
+  margin-bottom: 10px;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentLeft2 .about .aboutList {
+  line-height: 23px;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentLeft2 .about .aboutList p {
+  display: block;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentRight2 {
+  width: 264px;
+  float: left;
+  display: block;
+  overflow: hidden;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentRight2 .aboutAd {
+  margin-top: 14px;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentRight2 .aboutAd a {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+}
+
+.rules .rulesbox_ffc .rulesinlinebox .content .contentRight2 .aboutAd a .rules_img {
+  max-width: 100%;
+  height: 732px;
+  background: url(../images/4900079502.png) center center no-repeat;
+  vertical-align: middle;
+  background-size: contain;
+  margin-bottom: 20px;
+}
+
+.rules .rulesbox_sfc {
+  border-radius: 6px;
+  border: 1px solid #d5d5d5;
+}
+
+.rules .rulesbox_sfc b {
+  font-weight: bold;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox {
+  display: block;
+  overflow: hidden;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content {
+  margin-top: 10px;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentLeft2 {
+  width: 63%;
+  float: left;
+  display: block;
+  overflow: hidden;
+  padding-left: 15px;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentLeft2 .about {
+  width: 97%;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentLeft2 .about .aboutTilte {
+  border-bottom: #000 solid 2px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 9px;
+  margin-bottom: 10px;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentLeft2 .about .aboutList {
+  line-height: 23px;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentLeft2 .about .aboutList p {
+  display: block;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentRight2 {
+  width: 264px;
+  float: left;
+  display: block;
+  overflow: hidden;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentRight2 .aboutAd {
+  margin-top: 14px;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentRight2 .aboutAd a {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+}
+
+.rules .rulesbox_sfc .rulesinlinebox .content .contentRight2 .aboutAd a .rules_img {
+  max-width: 100%;
+  height: 732px;
+  background: url(../images/4900079502.png) center center no-repeat;
+  vertical-align: middle;
+  background-size: contain;
+  margin-bottom: 20px;
+}
+
+.rules .rulesbox_wfc {
+  border-radius: 6px;
+  border: 1px solid #d5d5d5;
+}
+
+.rules .rulesbox_wfc b {
+  font-weight: bold;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox {
+  display: block;
+  overflow: hidden;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content {
+  margin-top: 10px;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentLeft2 {
+  width: 63%;
+  float: left;
+  display: block;
+  overflow: hidden;
+  padding-left: 15px;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentLeft2 .about {
+  width: 97%;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentLeft2 .about .aboutTilte {
+  border-bottom: #000 solid 2px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 9px;
+  margin-bottom: 10px;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentLeft2 .about .aboutList {
+  line-height: 23px;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentLeft2 .about .aboutList p {
+  display: block;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentRight2 {
+  width: 264px;
+  float: left;
+  display: block;
+  overflow: hidden;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentRight2 .aboutAd {
+  margin-top: 14px;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentRight2 .aboutAd a {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+}
+
+.rules .rulesbox_wfc .rulesinlinebox .content .contentRight2 .aboutAd a .rules_img {
+  max-width: 100%;
+  height: 732px;
+  background: url(../images/4900079502.png) center center no-repeat;
+  vertical-align: middle;
+  background-size: contain;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1070px) {
+  .rules {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .rules .rulesbox .rulesinlinebox .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .rules .rulesbox .rulesinlinebox .content .contentLeft2 {
+    width: 90%;
+  }
+}
+
+@media (max-width: 918px) {
+  .rules .rulesbox .rulesinlinebox .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .rules .rulesbox .rulesinlinebox .content .contentLeft2 {
+    width: 90%;
+  }
+}
+
+@media (max-width: 414px) {
+  .rules {
+    width: 86%;
+  }
+  .rules .rules_button {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .rules .rulesbox .rulesinlinebox .content .contentRight2 .aboutAd a .rules_img {
+    height: 632px;
+  }
+}
+
+@media (max-width: 375px) {
+  .rules {
+    width: 90%;
+  }
+}
+
+@media (max-width: 320px) {
+  .rules {
+    width: 92%;
+  }
+  .rules .rulesbox .rulesinlinebox .content .contentRight2 .aboutAd a .rules_img {
+    height: 532px;
+  }
+}
+/*# sourceMappingURL=rules.css.map */

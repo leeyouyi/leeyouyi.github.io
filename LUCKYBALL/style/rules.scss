@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.rules {
+  width: 1006px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 8px;
+  .rules_button{
+    display: flex;
+    .rulesbtn{
+      width: 100px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      display: block;
+      border: 1px solid #d5d5d5;
+      border-radius: 6px;
+      margin: 0 5px 10px 0;
+      cursor: pointer;
+      &:hover{
+        color: #0055b5;
+      }
+    }
+  }
+  .gt {
+    margin: 0 5px;
+  }
+
+  .location {
+    // display: block;
+    overflow: hidden;
+    font-weight: bold;
+    height: 20px;
+    margin-top: 8px;
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+  }
+  .lineMargin {
+    margin-bottom: 15px;
+  }
+  .lineX {
+    margin-top: 5px;
+    background: url(../images/line.jpg) repeat-x;
+    height: 1px;
+    line-height: 1px;
+    font-size: 1px;
+  }
+  .clear {
+    clear: both;
+  }
+  .rulesbox_ffc {
+    border-radius: 6px;
+    border: 1px solid #d5d5d5;
+    b {
+      font-weight: bold;
+    }
+    .rulesinlinebox {
+      display: block;
+      overflow: hidden;
+      .content {
+        // margin-left: 15px;
+        margin-top: 10px;
+        .contentLeft2 {
+          width: 63%;
+          float: left;
+          display: block;
+          overflow: hidden;
+          padding-left: 15px;
+          .about {
+            width: 97%;
+            .aboutTilte {
+              border-bottom: #000 solid 2px;
+              font-size: 18px;
+              font-weight: bold;
+              padding-top: 9px;
+              margin-bottom: 10px;
+            }
+            .aboutList {
+              line-height: 23px;
+              p {
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+              }
+            }
+          }
+        }
+        .contentRight2 {
+          width: 264px;
+          float: left;
+          display: block;
+          overflow: hidden;
+          .aboutAd {
+            margin-top: 14px;
+            a {
+              display: block;
+              color: #000000;
+              text-decoration: none;
+              .rules_img {
+                max-width: 100%;
+                height: 732px;
+                background: url(../images/4900079502.png) center center no-repeat;
+                vertical-align: middle;
+                background-size: contain;
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .rulesbox_sfc {
+    border-radius: 6px;
+    border: 1px solid #d5d5d5;
+    b {
+      font-weight: bold;
+    }
+    .rulesinlinebox {
+      display: block;
+      overflow: hidden;
+      .content {
+        // margin-left: 15px;
+        margin-top: 10px;
+        .contentLeft2 {
+          width: 63%;
+          float: left;
+          display: block;
+          overflow: hidden;
+          padding-left: 15px;
+          .about {
+            width: 97%;
+            .aboutTilte {
+              border-bottom: #000 solid 2px;
+              font-size: 18px;
+              font-weight: bold;
+              padding-top: 9px;
+              margin-bottom: 10px;
+            }
+            .aboutList {
+              line-height: 23px;
+              p {
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+              }
+            }
+          }
+        }
+        .contentRight2 {
+          width: 264px;
+          float: left;
+          display: block;
+          overflow: hidden;
+          .aboutAd {
+            margin-top: 14px;
+            a {
+              display: block;
+              color: #000000;
+              text-decoration: none;
+              .rules_img {
+                max-width: 100%;
+                height: 732px;
+                background: url(../images/4900079502.png) center center no-repeat;
+                vertical-align: middle;
+                background-size: contain;
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .rulesbox_wfc {
+    border-radius: 6px;
+    border: 1px solid #d5d5d5;
+    b {
+      font-weight: bold;
+    }
+    .rulesinlinebox {
+      display: block;
+      overflow: hidden;
+      .content {
+        // margin-left: 15px;
+        margin-top: 10px;
+        .contentLeft2 {
+          width: 63%;
+          float: left;
+          display: block;
+          overflow: hidden;
+          padding-left: 15px;
+          .about {
+            width: 97%;
+            .aboutTilte {
+              border-bottom: #000 solid 2px;
+              font-size: 18px;
+              font-weight: bold;
+              padding-top: 9px;
+              margin-bottom: 10px;
+            }
+            .aboutList {
+              line-height: 23px;
+              p {
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+              }
+            }
+          }
+        }
+        .contentRight2 {
+          width: 264px;
+          float: left;
+          display: block;
+          overflow: hidden;
+          .aboutAd {
+            margin-top: 14px;
+            a {
+              display: block;
+              color: #000000;
+              text-decoration: none;
+              .rules_img {
+                max-width: 100%;
+                height: 732px;
+                background: url(../images/4900079502.png) center center no-repeat;
+                vertical-align: middle;
+                background-size: contain;
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// @media (max-width: 1490px) {
+//   .rules {
+//     width: 69%;
+//   }
+// }
+@media (max-width: 1070px) {
+  .rules {
+    width: 80%;
+  }
+}
+@media (max-width: 1024px) {
+  .rules {
+    .rulesbox {
+      .rulesinlinebox {
+        .content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .contentLeft2 {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 918px) {
+  .rules {
+    .rulesbox {
+      .rulesinlinebox {
+        .content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .contentLeft2 {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 414px) {
+  .rules {
+    width: 86%;
+    .rules_button {
+      justify-content: space-evenly;
+    }
+    .rulesbox {
+      .rulesinlinebox {
+        .content {
+          .contentRight2 {
+            .aboutAd {
+              a {
+                .rules_img {
+                  height: 632px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 375px) {
+  .rules {
+    width: 90%;
+  }
+}
+
+@media (max-width: 320px) {
+  .rules {
+    width: 92%;
+    .rulesbox {
+      .rulesinlinebox {
+        .content {
+          .contentRight2 {
+            .aboutAd {
+              a {
+                .rules_img {
+                  height: 532px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

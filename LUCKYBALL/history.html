@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>luckylotto history</title>
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/animate.css">
+  <!-- <link rel="stylesheet" href="./style/history.css"> -->
+  <script src="./js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+</head>
+<body>
+  <input type="hidden" value="historyPage" id="hidden">
+  <div class="head">
+    <div class="headContent">
+      <div class="headLogo">
+        <a href="./index.html"><img src="./images/logo.jpg" /></a>
+      </div>
+      <div class="headNavigation">
+        <div class="headNavigationButton">
+          <a href="./index.html" data-head="home"></a>
+        </div>
+        <div class="headNavigationButton2">
+          <a href="./about.html" data-head="about"></a>
+        </div>
+        <div class="headNavigationButton2">
+          <a href="./game.html" data-head="background"></a>
+        </div>
+        <div class="headNavigationButton">
+          <a href="./rules.html" data-head="rules"></a>
+        </div>
+        <div class="headNavigationButton2 headNavigationButtonSelect">
+          <a href="./history.html" data-head="history"></a>
+        </div>
+      </div>
+      <select id="language">
+        <option value="en" selected="selected" class="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="zh-TW">繁體中文</option>
+      </select>
+    </div>
+
+  </div>
+  <div class="nav-holder">
+    <a href="#" class="nav-opener" id="nav-opener">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+
+  </div>
+  <div class="nav-drop" id="nav-drop">
+    <nav id="nav">
+      <ul>
+        <li class="has-dropdown" >
+          <a href="./index.html" data-head="home"></a>
+        </li>
+        <li class="has-dropdown">
+          <a href="./about.html" data-head="about"></a>
+        </li>
+        <li class="has-dropdown">
+          <a href="./game.html" data-head="background"></a>
+        </li>
+        <li class="has-dropdown">
+          <a href="./rules.html" data-head="rules"></a>
+        </li>
+        <li class="has-dropdown">
+          <a href="./history.html" data-head="history"></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="hisbody">
+    <div class="clear location" data-head="history_tree"></div>
+    <div class="clear lineX lineMargin"></div>
+    <ul class="his_button">
+      <li id="ffc_his" class="hisbtn click" data-rules="rules_ffc">分分彩</li>
+      <li id="sfc_his" class="hisbtn" data-rules="rules_sfc">三分彩</li>
+      <li id="wfc_his" class="hisbtn" data-rules="rules_wfc">五分彩</li>
+    </ul>
+
+    <div class="past1" data-wow-duration="2s">
+      <div class="passhisFF">
+        <div class="history">
+          <div class="historyTitle">
+            <span data-head="history_xyffHis">Past XYFF History records:</span>
+            <font></font>
+          </div>
+          <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+              <thead>
+                <tr role="row">
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_date">Date</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 115px;" data-head="history_installments">Installments</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_number">Numbers</th>
+                </tr>
+              </thead>
+              <tbody class="cont">
+          <!-- <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:34:25</td>
+            <td class="sorting_2">202005220814</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+              <span class="ball1">8</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:33:25</td>
+            <td class="sorting_2">202005220813</td>
+            <td class="sort0">
+              <span class="ball1">3</span>
+              <span class="ball1">9</span>
+              <span class="ball1">4</span>
+              <span class="ball1">2</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:32:24</td>
+            <td class="sorting_2">202005220812</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+              <span class="ball1">0</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:31:26</td>
+            <td class="sorting_2">202005220811</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">2</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:30:26</td>
+            <td class="sorting_2">202005220810</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">0</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:29:25</td>
+            <td class="sorting_2">202005220809</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">6</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:28:24</td>
+            <td class="sorting_2">202005220808</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+              <span class="ball1">5</span>
+              <span class="ball1">3</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:27:24</td>
+            <td class="sorting_2">202005220807</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">2</span>
+              <span class="ball1">9</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:26:26</td>
+            <td class="sorting_2">202005220806</td>
+            <td class="sort0">
+              <span class="ball1">0</span>
+              <span class="ball1">4</span>
+              <span class="ball1">5</span>
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:25:25</td>
+            <td class="sorting_2">202005220805</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">0</span>
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:34:25</td>
+            <td class="sorting_2">202005220814</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+              <span class="ball1">8</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:33:25</td>
+            <td class="sorting_2">202005220813</td>
+            <td class="sort0">
+              <span class="ball1">3</span>
+              <span class="ball1">9</span>
+              <span class="ball1">4</span>
+              <span class="ball1">2</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:32:24</td>
+            <td class="sorting_2">202005220812</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+              <span class="ball1">0</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:31:26</td>
+            <td class="sorting_2">202005220811</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">2</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:30:26</td>
+            <td class="sorting_2">202005220810</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">0</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:29:25</td>
+            <td class="sorting_2">202005220809</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">6</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:28:24</td>
+            <td class="sorting_2">202005220808</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+              <span class="ball1">5</span>
+              <span class="ball1">3</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:27:24</td>
+            <td class="sorting_2">202005220807</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">2</span>
+              <span class="ball1">9</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:26:26</td>
+            <td class="sorting_2">202005220806</td>
+            <td class="sort0">
+              <span class="ball1">0</span>
+              <span class="ball1">4</span>
+              <span class="ball1">5</span>
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:25:25</td>
+            <td class="sorting_2">202005220805</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">0</span>
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr> -->
+        </tbody>
+            </table>
+          </div>
+          <div class="clear lineX historyAd"></div>
+  
+          <div class="paginator historyAd">
+            <div class="paginator">
+              <a id="previous" class="paginate_button previous disabled" data-head="history_pre" style="cursor: unset;">Previous</a>
+              <span class="page_btn">
+                <!-- <a class="paginate_button" tabindex="0">1</a>
+                <a class="paginate_button" tabindex="0">2</a>
+                <a class="paginate_button" tabindex="0">3</a> -->
+              </span>
+              <a id="next" class="paginate_button next" tabindex="0" data-head="history_next" style="cursor: pointer;">Next</a>
+              <a class="closePast1" class="paginate_button" style="cursor: pointer;" data-head="history_close">Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="past2" data-wow-duration="2s">
+      <div class="passhisFF">
+        <div class="history">
+          <div class="historyTitle">
+            <span data-head="history_xysfcHis">Past XYSFC History records:</span>
+            <font></font>
+          </div>
+          <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+              <thead>
+                <tr role="row">
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_date">Date</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 115px;" data-head="history_installments">Installments</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_number">Numbers</th>
+                </tr>
+              </thead>
+              <tbody class="cont">
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:34:25</td>
+            <td class="sorting_2">202005220814</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+              <span class="ball1">8</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:33:25</td>
+            <td class="sorting_2">202005220813</td>
+            <td class="sort0">
+              <span class="ball1">3</span>
+              <span class="ball1">9</span>
+              <span class="ball1">4</span>
+              <span class="ball1">2</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:32:24</td>
+            <td class="sorting_2">202005220812</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+              <span class="ball1">0</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:31:26</td>
+            <td class="sorting_2">202005220811</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">2</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:30:26</td>
+            <td class="sorting_2">202005220810</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">0</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:29:25</td>
+            <td class="sorting_2">202005220809</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">6</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:28:24</td>
+            <td class="sorting_2">202005220808</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+              <span class="ball1">5</span>
+              <span class="ball1">3</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:27:24</td>
+            <td class="sorting_2">202005220807</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">2</span>
+              <span class="ball1">9</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:26:26</td>
+            <td class="sorting_2">202005220806</td>
+            <td class="sort0">
+              <span class="ball1">0</span>
+              <span class="ball1">4</span>
+              <span class="ball1">5</span>
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:25:25</td>
+            <td class="sorting_2">202005220805</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">0</span>
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:34:25</td>
+            <td class="sorting_2">202005220814</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+              <span class="ball1">8</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:33:25</td>
+            <td class="sorting_2">202005220813</td>
+            <td class="sort0">
+              <span class="ball1">3</span>
+              <span class="ball1">9</span>
+              <span class="ball1">4</span>
+              <span class="ball1">2</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:32:24</td>
+            <td class="sorting_2">202005220812</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+              <span class="ball1">0</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:31:26</td>
+            <td class="sorting_2">202005220811</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">2</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:30:26</td>
+            <td class="sorting_2">202005220810</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">0</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:29:25</td>
+            <td class="sorting_2">202005220809</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">6</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:28:24</td>
+            <td class="sorting_2">202005220808</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+              <span class="ball1">5</span>
+              <span class="ball1">3</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:27:24</td>
+            <td class="sorting_2">202005220807</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">2</span>
+              <span class="ball1">9</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:26:26</td>
+            <td class="sorting_2">202005220806</td>
+            <td class="sort0">
+              <span class="ball1">0</span>
+              <span class="ball1">4</span>
+              <span class="ball1">5</span>
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:25:25</td>
+            <td class="sorting_2">202005220805</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">0</span>
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+        </tbody>
+            </table>
+          </div>
+          <div class="clear lineX historyAd"></div>
+  
+          <div class="paginator historyAd">
+            <div class="paginator">
+              <a id="previous" class="paginate_button previous disabled" data-head="history_pre" style="cursor: unset;">Previous</a>
+              <span class="page_btn">
+                <!-- <a class="paginate_button" tabindex="0">1</a>
+                <a class="paginate_button" tabindex="0">2</a>
+                <a class="paginate_button" tabindex="0">3</a> -->
+              </span>
+              <a id="next" class="paginate_button next" tabindex="0" data-head="history_next" style="cursor: pointer;">Next</a>
+              <a class="closePast2" class="paginate_button" style="cursor: pointer;" data-head="history_close">Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="past3" data-wow-duration="2s">
+      <div class="passhisFF">
+        <div class="history">
+          <div class="historyTitle">
+            <span data-head="history_xywfcHis">Past XYWFC History records:</span>
+            <font></font>
+          </div>
+          <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+              <thead>
+                <tr role="row">
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_date">Date</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 115px;" data-head="history_installments">Installments</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_number">Numbers</th>
+                </tr>
+              </thead>
+              <tbody class="cont">
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:34:25</td>
+            <td class="sorting_2">202005220814</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+              <span class="ball1">8</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:33:25</td>
+            <td class="sorting_2">202005220813</td>
+            <td class="sort0">
+              <span class="ball1">3</span>
+              <span class="ball1">9</span>
+              <span class="ball1">4</span>
+              <span class="ball1">2</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:32:24</td>
+            <td class="sorting_2">202005220812</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+              <span class="ball1">0</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:31:26</td>
+            <td class="sorting_2">202005220811</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">2</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:30:26</td>
+            <td class="sorting_2">202005220810</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">0</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:29:25</td>
+            <td class="sorting_2">202005220809</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">6</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:28:24</td>
+            <td class="sorting_2">202005220808</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+              <span class="ball1">5</span>
+              <span class="ball1">3</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:27:24</td>
+            <td class="sorting_2">202005220807</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">2</span>
+              <span class="ball1">9</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:26:26</td>
+            <td class="sorting_2">202005220806</td>
+            <td class="sort0">
+              <span class="ball1">0</span>
+              <span class="ball1">4</span>
+              <span class="ball1">5</span>
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:25:25</td>
+            <td class="sorting_2">202005220805</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">0</span>
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:34:25</td>
+            <td class="sorting_2">202005220814</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+              <span class="ball1">8</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:33:25</td>
+            <td class="sorting_2">202005220813</td>
+            <td class="sort0">
+              <span class="ball1">3</span>
+              <span class="ball1">9</span>
+              <span class="ball1">4</span>
+              <span class="ball1">2</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:32:24</td>
+            <td class="sorting_2">202005220812</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+              <span class="ball1">0</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:31:26</td>
+            <td class="sorting_2">202005220811</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">2</span>
+              <span class="ball1">1</span>
+              <span class="ball1">3</span>
+              <span class="ball1">2</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:30:26</td>
+            <td class="sorting_2">202005220810</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">0</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:29:25</td>
+            <td class="sorting_2">202005220809</td>
+            <td class="sort0">
+              <span class="ball1">1</span>
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">4</span>
+              <span class="ball1">6</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:28:24</td>
+            <td class="sorting_2">202005220808</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+              <span class="ball1">5</span>
+              <span class="ball1">3</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:27:24</td>
+            <td class="sorting_2">202005220807</td>
+            <td class="sort0">
+              <span class="ball1">5</span>
+              <span class="ball1">6</span>
+              <span class="ball1">2</span>
+              <span class="ball1">9</span>
+              <span class="ball1">9</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:26:26</td>
+            <td class="sorting_2">202005220806</td>
+            <td class="sort0">
+              <span class="ball1">0</span>
+              <span class="ball1">4</span>
+              <span class="ball1">5</span>
+              <span class="ball1">5</span>
+              <span class="ball1">8</span>
+            </td>
+          </tr>
+        
+          <tr class="stagesDate" role="row">
+            <td class="sorting_1">2020-05-22 13:25:25</td>
+            <td class="sorting_2">202005220805</td>
+            <td class="sort0">
+              <span class="ball1">7</span>
+              <span class="ball1">3</span>
+              <span class="ball1">0</span>
+              <span class="ball1">1</span>
+              <span class="ball1">4</span>
+            </td>
+          </tr>
+        </tbody>
+            </table>
+          </div>
+          <div class="clear lineX historyAd"></div>
+  
+          <div class="paginator historyAd">
+            <div class="paginator">
+              <a id="previous" class="paginate_button previous disabled" data-head="history_pre" style="cursor: unset;">Previous</a>
+              <span class="page_btn">
+                <!-- <a class="paginate_button" tabindex="0">1</a>
+                <a class="paginate_button" tabindex="0">2</a>
+                <a class="paginate_button" tabindex="0">3</a> -->
+              </span>
+              <a id="next" class="paginate_button next" tabindex="0" data-head="history_next" style="cursor: pointer;">Next</a>
+              <a class="closePast3" class="paginate_button" style="cursor: pointer;" data-head="history_close">Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div>
+      <b class="b1"></b>
+      <b class="b2 d1"></b>
+      <b class="b3 d1"></b>
+      <b class="b4 d1"></b>
+      <b class="b">
+        <div id="EveryMinute" class="content content1 EveryMinute">
+          <div class="contentLeft2">
+            <div class="history">
+              <div class="historyResult">
+                <span class="historyResultSpan" data-head="history_winNum"></span>&nbsp;&nbsp;&nbsp;<font class="openedPeriodNumber">
+                  20200511180</font><br>
+                <div id="historyResultWait" class="historyResultWait">
+                </div>
+                <div id="historyResult">
+                  <div class="numbersInfoBall">
+                    <span id="ball1" class="ball3">3</span>
+                    <span id="ball2" class="ball3">10</span>
+                    <span id="ball3" class="ball3">4</span>
+                    <span id="ball4" class="ball3">5</span>
+                    <span id="ball5" class="ball3">2</span>
+                  </div>
+                  <div>
+                    <span class="historyResultSpan" data-head="history_current"></span><br>
+                    <strong id="jp" class="jackpot">$1727448</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="clear lineX"></div>
+              <div class="historyTitle">
+                <span data-head="history_records"></span>
+                <font></font>
+              </div>
+              <div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+                  <thead>
+                    <tr role="row">
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_date"></th>
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 115px;" data-head="history_installments"></th>
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 346px;" data-head="history_number"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="cont">
+                    <!-- <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 22:04:05</td>
+                      <td class="sorting_2">20200511180</td>
+                      <td class="sort0">
+                        <span class="ball1">3</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">1</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:59:05</td>
+                      <td class="sorting_2">20200511179</td>
+                      <td class="sort1">
+                        <span class="ball1">2</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">5</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 21:54:05</td>
+                      <td class="sorting_2">20200511178</td>
+                      <td class="sort2">
+                        <span class="ball1">3</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">8</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:49:05</td>
+                      <td class="sorting_2">20200511177</td>
+                      <td class="sort3">
+                        <span class="ball1">7</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">10</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 21:44:05</td>
+                      <td class="sorting_2">20200511176</td>
+                      <td class="sort4">
+                        <span class="ball1">8</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">4</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:39:05</td>
+                      <td class="sorting_2">20200511175</td>
+                      <td class="sort5">
+                        <span class="ball1">8</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">7</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 21:34:05</td>
+                      <td class="sorting_2">20200511174</td>
+                      <td class="sort6">
+                        <span class="ball1">5</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">4</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:29:05</td>
+                      <td class="sorting_2">20200511173</td>
+                      <td class="sort7">
+                        <span class="ball1">4</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">3</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 21:24:05</td>
+                      <td class="sorting_2">20200511172</td>
+                      <td class="sort8">
+                        <span class="ball1">10</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">6</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:19:05</td>
+                      <td class="sorting_2">20200511171</td>
+                      <td class="sort9">
+                        <span class="ball1">7</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">10</span>
+                      </td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+              <div class="clear lineX historyAd"></div>
+
+              <div class="paginator historyAd">
+                <div class="paginator">
+                  <a id="previous" class="paginate_button previous disabled" data-head="history_pre"></a>
+                  <span class="page_btn">
+                    <!-- <a class="paginate_button current" tabindex="0">1</a>
+                    <a class="paginate_button" tabindex="0">2</a>
+                    <a class="paginate_button" tabindex="0">3</a>
+                    <a class="paginate_button" tabindex="0">4</a>
+                    <a class="paginate_button" tabindex="0">5</a>
+                    <span class="ellipsis">…</span>
+                    <a class="paginate_button " tabindex="0">18</a> -->
+                  </span>
+                  <a id="next" class="paginate_button next" tabindex="0" data-head="history_next"></a>
+                </div>
+                <a class="openPast1" data-head="history_open1">Open PastFF</a>
+              </div>
+            </div>
+          </div>
+          <div class="contentRight2">
+            <div class="historyResult">
+              <div class="mobi">
+                <span data-head="history_nextLot"></span>
+                <span>(<font class="nextOpeningDate">20200512001</font>):&nbsp;&nbsp;<font class="ffDate">2020-05-12 07:09:05</font><br></span>
+              </div>
+              <div class="historyResultDate" id="nextOpeningPeriodOverDate">
+                <!-- <span id="bai" class="count1 bai">4</span>
+                <span id="minute" class="count1 minute">5</span>
+                <span id="miao" class="count1 miao">7</span> -->
+                <!-- <span class="count1">5</span> -->
+              </div>
+            </div>
+            <div class="clear lineX historyAd"></div>
+            <div class="historyAd">
+              <a href="javascript:void(0)"><img src="./images/1494835534.png" alt=""></a>
+            </div>
+            <div class="historyAd">
+              <a href="javascript:void(0)"><img src="./images/6803293883.png" alt=""></a>
+            </div>
+            <div class="historyAd"></div>
+            <div class="newsDetailTilte">
+              <div class="left" data-head="history_information"></div>
+              <div class="right">
+                <!-- <a href="#"><img src="./images/more.jpg"></a> -->
+              </div>
+            </div>
+            <div class="newsDetailList">
+              <li>
+                <a href="javascript:void(0)" data-head="history_info1">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="javascript:void(0)" data-head="history_info2">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="javascript:void(0)" data-head="history_info3">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="javascript:void(0)" data-head="history_info4">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="ThirdMinute" class="content content2 ThirdMinute" style="display: none;">
+          <div class="contentLeft2">
+            <div class="history">
+              <div class="historyResult">
+                <span class="historyResultSpan" data-head="history_winNum"></span>&nbsp;&nbsp;&nbsp;<font class="openedPeriodNumber">
+                  20200511181</font><br>
+                <div id="historyResultWait" class="historyResultWait">
+                </div>
+                <div id="historyResult">
+                  <div class="numbersInfoBall">
+                    <span id="ball10" class="ball3">1</span>
+                    <span id="ball1" class="ball3">3</span>
+                    <span id="ball9" class="ball3">7</span>
+                    <span id="ball6" class="ball3">8</span>
+                    <span id="ball3" class="ball3">4</span>
+                  </div>
+                  <div>
+                    <span class="historyResultSpan" data-head="history_current"></span><br>
+                    <strong id="jp" class="jackpot">$1727448</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="clear lineX"></div>
+              <div class="historyTitle">
+                <span data-head="history_records"></span>
+                <font></font>
+              </div>
+              <div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+                  <thead>
+                    <tr role="row">
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_date"></th>
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 115px;" data-head="history_installments"></th>
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 346px;" data-head="history_number"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="cont">
+                    <!-- <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 22:04:05</td>
+                      <td class="sorting_2">20200511180</td>
+                      <td class="sort0">
+                        <span class="ball1">3</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">1</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:59:05</td>
+                      <td class="sorting_2">20200511179</td>
+                      <td class="sort1">
+                        <span class="ball1">2</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">5</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 21:54:05</td>
+                      <td class="sorting_2">20200511178</td>
+                      <td class="sort2">
+                        <span class="ball1">3</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">8</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:49:05</td>
+                      <td class="sorting_2">20200511177</td>
+                      <td class="sort3">
+                        <span class="ball1">7</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">10</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 21:44:05</td>
+                      <td class="sorting_2">20200511176</td>
+                      <td class="sort4">
+                        <span class="ball1">8</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">4</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:39:05</td>
+                      <td class="sorting_2">20200511175</td>
+                      <td class="sort5">
+                        <span class="ball1">8</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">7</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 21:34:05</td>
+                      <td class="sorting_2">20200511174</td>
+                      <td class="sort6">
+                        <span class="ball1">5</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">4</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:29:05</td>
+                      <td class="sorting_2">20200511173</td>
+                      <td class="sort7">
+                        <span class="ball1">4</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">3</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 21:24:05</td>
+                      <td class="sorting_2">20200511172</td>
+                      <td class="sort8">
+                        <span class="ball1">10</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">6</span>
+                      </td>
+                    </tr>
+                    <tr class="stagesDate" role="row" class="even">
+                      <td class="sorting_1">2020-05-11 21:19:05</td>
+                      <td class="sorting_2">20200511171</td>
+                      <td class="sort9">
+                        <span class="ball1">7</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">3</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">1</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">10</span>
+                      </td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+              <div class="clear lineX historyAd"></div>
+
+              <div class="paginator historyAd">
+                <div class="paginator">
+                  <a id="previous2" class="paginate_button previous disabled" data-head="history_pre"></a>
+                  <span class="page_btn">
+                    <!-- <a class="paginate_button current" tabindex="0">1</a>
+                    <a class="paginate_button" tabindex="0">2</a>
+                    <a class="paginate_button" tabindex="0">3</a>
+                    <a class="paginate_button" tabindex="0">4</a>
+                    <a class="paginate_button" tabindex="0">5</a>
+                    <span class="ellipsis">…</span>
+                    <a class="paginate_button " tabindex="0">18</a> -->
+                  </span>
+                  <a id="next2" class="paginate_button next" tabindex="0" data-head="history_next"></a>
+                </div>
+                <a class="openPast2" data-head="history_open2">Open PastSFC</a>
+              </div>
+            </div>
+          </div>
+          <div class="contentRight2">
+            <div class="historyResult">
+              <div class="mobi">
+                <span data-head="history_nextLot"></span>
+                <span>(<font class="nextOpeningDate">20200512001</font>):&nbsp;&nbsp;<font class="sfcDate">2020-05-12 07:09:05</font><br></span>
+              </div>
+              <div class="historyResultDate" id="nextOpeningPeriodOverDate">
+                <span id="bai" class="count1 bai">4</span>
+                <span id="minute" class="count1 minute">5</span>
+                <span id="miao" class="count1 miao">7</span>
+                <!-- <span class="count1">5</span> -->
+              </div>
+            </div>
+            <div class="clear lineX historyAd"></div>
+            <div class="historyAd">
+              <a href="javascript:void(0)"><img src="./images/1494835534.png" alt=""></a>
+            </div>
+            <div class="historyAd">
+              <a href="javascript:void(0)"><img src="./images/6803293883.png" alt=""></a>
+            </div>
+            <div class="historyAd"></div>
+            <div class="newsDetailTilte">
+              <div class="left" data-head="history_information"></div>
+              <div class="right">
+                <!-- <a href="#"><img src="./images/more.jpg"></a> -->
+              </div>
+            </div>
+            <div class="newsDetailList">
+              <li>
+                <a href="#" data-head="history_info1">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="#" data-head="history_info2">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="#" data-head="history_info3">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="#" data-head="history_info4">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="FiveMinute" class="content content3 FiveMinute" style="display: none;">
+          <div class="contentLeft2">
+            <div class="history">
+              <div class="historyResult">
+                <span class="historyResultSpan" data-head="history_winNum"></span>&nbsp;&nbsp;&nbsp;<font class="openedPeriodNumber">
+                  20200511182</font><br>
+                <div id="historyResultWait" class="historyResultWait">
+                </div>
+                <div id="historyResult">
+                  <div class="numbersInfoBall">
+                    <span id="ball3" class="ball3">4</span>
+                    <span id="ball1" class="ball3">3</span>
+                    <span id="ball2" class="ball3">10</span>
+                    <span id="ball8" class="ball3">6</span>
+                    <span id="ball10" class="ball3">1</span>
+                  </div>
+                  <div>
+                    <span class="historyResultSpan" data-head="history_current"></span><br>
+                    <strong id="jp" class="jackpot">$1727448</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="clear lineX"></div>
+              <div class="historyTitle">
+                <span data-head="history_records"></span>
+                <font></font>
+              </div>
+              <div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+                  <thead>
+                    <tr role="row">
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 159px;" data-head="history_date"></th>
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 115px;" data-head="history_installments"></th>
+                      <th tabindex="0" rowspan="1" colspan="1" style="width: 346px;" data-head="history_number"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="cont">
+                    <!-- <tr role="row" class="odd">
+                      <td class="sorting_1">2020-05-11 22:04:05</td>
+                      <td>20200511180</td>
+                      <td>
+                        <span class="ball1">3</span>
+                        <span class="ball1">10</span>
+                        <span class="ball1">4</span>
+                        <span class="ball1">5</span>
+                        <span class="ball1">2</span>
+                        <span class="ball1">8</span>
+                        <span class="ball1">9</span>
+                        <span class="ball1">6</span>
+                        <span class="ball1">7</span>
+                        <span class="ball1">1</span>
+                      </td>
+                    </tr> -->
+                    
+                  </tbody>
+                </table>
+              </div>
+              <div class="clear lineX historyAd"></div>
+
+              <div class="paginator historyAd">
+                <div class="paginator">
+                  <a id="previous3" class="paginate_button previous disabled" data-head="history_pre"></a>
+                  <span class="page_btn">
+                    <!-- <a class="paginate_button current" tabindex="0">1</a>
+                    <a class="paginate_button" tabindex="0">2</a>
+                    <a class="paginate_button" tabindex="0">3</a>
+                    <a class="paginate_button" tabindex="0">4</a>
+                    <a class="paginate_button" tabindex="0">5</a>
+                    <span class="ellipsis">…</span>
+                    <a class="paginate_button " tabindex="0">18</a> -->
+                  </span>
+                  <a id="next3" class="paginate_button next" tabindex="0" data-head="history_next"></a>
+                </div>
+                <a class="openPast3" data-head="history_open3">Open PastWFC</a>
+              </div>
+            </div>
+          </div>
+          <div class="contentRight2">
+            <div class="historyResult">
+              <div class="mobi">
+                <span data-head="history_nextLot"></span>
+                <span>(<font class="nextOpeningDate">20200512001</font>):&nbsp;&nbsp;<font class="wfcDate">2020-05-12 07:09:05</font><br></span>
+              </div>
+              <div class="historyResultDate" id="nextOpeningPeriodOverDate">
+                <span id="bai" class="count1 bai">4</span>
+                <span id="minute" class="count1 minute">5</span>
+                <span id="miao" class="count1 miao">7</span>
+                <!-- <span class="count1">5</span> -->
+              </div>
+            </div>
+            <div class="clear lineX historyAd"></div>
+            <div class="historyAd">
+              <a href="javascript:void(0)"><img src="./images/1494835534.png" alt=""></a>
+            </div>
+            <div class="historyAd">
+              <a href="javascript:void(0)"><img src="./images/6803293883.png" alt=""></a>
+            </div>
+            <div class="historyAd"></div>
+            <div class="newsDetailTilte">
+              <div class="left" data-head="history_information"></div>
+              <div class="right">
+                <!-- <a href="#"><img src="./images/more.jpg"></a> -->
+              </div>
+            </div>
+            <div class="newsDetailList">
+              <li>
+                <a href="#" data-head="history_info1">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="#" data-head="history_info2">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="#" data-head="history_info3">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+
+              <li>
+                <a href="#" data-head="history_info4">
+                  
+                </a>
+              </li>
+              <div class="clear lineX"></div>
+            </div>
+          </div>
+        </div>  
+
+      </b>
+      <b class="b4b"></b>
+      <b class="b3b"></b>
+      <b class="b2b"></b>
+      <b class="b1b"></b>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="footContent">
+      <div class="footTop">
+        <a href="./about.html" data-foot="foot1"></a> ｜
+        <a href="./game.html" data-foot="foot2"></a> ｜
+        <a href="./FAQ.html" data-foot="foot3"></a> ｜
+        <a href="./rules.html" data-foot="foot4"></a><br />
+      </div>
+      <div class="footBottom">
+        <span data-foot="footTxt1"> </span>
+        <span data-foot="footTxt2"> </span>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/jquery.i18n.properties-1.0.9.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/socket.js"></script>
+  <script src="./js/wow.min.js"></script>
+  <script src="./js/history.js"></script>
+  </body>
+</html>
