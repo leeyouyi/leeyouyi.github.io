@@ -1,0 +1,360 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: Tahoma;
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #cbcfd2 url(../images/A40.gif) repeat-x;
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+  font-family: Tahoma;
+  font-size: 12px;
+}
+
+table {
+  border-collapse: collapse !important;
+}
+
+td, th {
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+input {
+  vertical-align: middle;
+}
+
+input[type="button"], input[type="submit"] {
+  border: 0;
+}
+
+.main::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+header .menu {
+  height: 84px;
+  overflow: hidden;
+  background: url(../images/A03.gif);
+}
+
+header .menu .lt {
+  background: #fff;
+  width: 450px;
+  height: 83px;
+  padding-top: 25px;
+}
+
+header .menu .lt div {
+  float: left;
+  height: 55px;
+}
+
+header .menu .menu_right {
+  margin-top: 5px;
+  background: url(../images/A20.gif) no-repeat;
+}
+
+header .menu .lt {
+  float: left;
+}
+
+header .menu .lt .time {
+  width: 130px;
+  margin-left: 10px;
+  font-size: 10px;
+  color: White;
+  background: 0;
+}
+
+header .menu .lt .time .span_time {
+  padding: 4px 0 0 22px;
+  display: block;
+  float: left;
+  line-height: 12px;
+}
+
+header .menu .lt .time * {
+  font-size: 10px;
+}
+
+header .menu .lt .gmt {
+  color: #b1b1b1;
+}
+
+header .menu .gt {
+  overflow: hidden;
+}
+
+header .menu .gt .m_menu {
+  padding-top: 5px;
+  height: 30px;
+  background: #fff;
+}
+
+header .menu .gt .m_menu .main {
+  width: 1010px;
+  float: left;
+  overflow: hidden;
+}
+
+header .menu .gt .m_menu .marquee {
+  width: 515px;
+  margin: 0 auto;
+  float: left;
+  margin-top: 1px;
+  margin-left: 5px;
+}
+
+header .menu .gt .m_menu .marquee .mq {
+  height: 26px;
+  float: left;
+}
+
+header .menu .gt .m_menu .marquee .mq div {
+  height: 24px;
+}
+
+header .menu .gt .m_menu .marquee .md {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  float: left;
+}
+
+header .menu .gt .m_menu .marquee #announcement {
+  color: #ac8c48;
+  font-size: 11px;
+  height: 24px;
+  line-height: 24px;
+  font-weight: bold;
+  cursor: default;
+}
+
+header .menu .gt .m_menu .btns {
+  height: 25px;
+  padding-top: 0;
+  overflow: hidden;
+  float: left;
+}
+
+header .menu .gt .m_menu .btns select {
+  height: 24px;
+}
+
+header .menu .gt .m_menu .btns .btn1 {
+  width: 63px;
+  height: 19px;
+  background: url(../images/A07.gif);
+  font-size: 11px;
+  color: #FFF;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+header .menu .gt .m_menu .btns #btnHome {
+  background: url(../images/A09.png) no-repeat;
+  width: 24px;
+  height: 24px;
+  text-align: left;
+  padding-left: 7px;
+}
+
+header .menu .gt .m_menu .btns .btn3 {
+  background: url(../images/A10_red.png) no-repeat;
+  width: 74px;
+  height: 26px;
+  font-size: 11px;
+  color: #fff;
+  font-weight: bold;
+}
+
+header .menu .gt .m_menu .btns .btn2 {
+  background: url(../images/A10_red_log.png) no-repeat;
+  width: 74px;
+  height: 26px;
+  font-size: 11px;
+  color: #fff;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+header .menu .gt .s_menu {
+  width: 100%;
+  height: 25px;
+  background-image: url(../images/A211.gif);
+  float: left;
+  margin-left: 5px;
+}
+
+header .menu .gt .s_menu a {
+  font-size: 11px;
+  color: #002340;
+}
+
+header .menu .gt .s_menu ul {
+  float: left;
+  display: none;
+}
+
+header .menu .gt .s_menu ul li {
+  float: left;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 10px;
+  font-size: 11px;
+  line-height: 25px;
+  background: url(../images/A14_devide2.gif) no-repeat right;
+  color: #fff;
+}
+
+header .menu .gt .s_menu ul .on {
+  background: url(../images/A14_over_red.gif);
+}
+
+header .menu .gt .s_menu #m_betting2, header .menu .gt .s_menu #m_run_bottom {
+  left: 455px;
+  top: 59px;
+  position: absolute;
+  width: 100px;
+  background-color: #bf989d;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+header .menu .gt .s_menu #m_betlist, header .menu .gt .s_menu #m_result {
+  display: none !important;
+}
+
+header .menu .gt .s_menu #m_betting2 li, header .menu .gt .s_menu #m_run_bottom li {
+  text-align: center;
+  min-width: 90px;
+}
+
+header .menu .gt .s_menu #m_betting2 li a, header .menu .gt .s_menu #m_run_bottom li a {
+  color: #fff;
+  display: block;
+}
+
+header .menu .gt .s_menu #m_betting2 li {
+  position: relative;
+}
+
+header .menu .gt .s_menu #m_betting2 li:hover .s_menu2 {
+  display: block;
+  left: 0;
+}
+
+header .menu .gt .s_menu #m_betting2 li:hover {
+  text-decoration: underline;
+}
+
+header .menu .gt .s_menu #m_run_bottom li:hover {
+  text-decoration: underline;
+}
+
+header .menu .gt .s_menu .s_menu2 {
+  position: absolute;
+  width: 110px;
+  background-color: #417196;
+  z-index: 999;
+}
+
+header .menu .gt .s_menu .s_menu2 li {
+  float: none;
+}
+
+header .menu .gt .s_menu .s_menu2 li a:hover {
+  text-decoration: underline;
+}
+
+header .menu .info {
+  margin: 0 5px;
+}
+
+header .menu .info table {
+  margin-top: 3px;
+  border: 0;
+  border-collapse: collapse;
+  color: White;
+  width: 100%;
+}
+
+header .menu .info table th {
+  text-align: left;
+  font-size: 11px;
+  height: 13px;
+}
+
+header .menu .info table thead th {
+  color: #ffd100;
+}
+
+header .menu .info table td {
+  text-align: right;
+  font-size: 11px;
+  height: 13px;
+}
+
+header .menu .info table td span {
+  font-size: 11px;
+}
+
+header .menu .info table tbody th {
+  font-weight: normal;
+  background: url(../images/A14.png) no-repeat -1px;
+  padding-left: 16px;
+}
+
+header .menu .info #btnRefreshInfo {
+  background: url(../images/A12.gif) no-repeat right;
+  height: 13px;
+  width: 16px;
+  display: block;
+  float: right;
+  cursor: pointer;
+}
+
+header .menu #divInfo {
+  width: 160px;
+}
+
+header .menu .l, header .menu .g {
+  width: 10px;
+}
+
+header .bo_left {
+  float: left;
+  width: 100px;
+  height: 4px;
+  background: url(../images/A22_left.gif);
+}
+
+header .bo_right {
+  height: 4px;
+  background: url(../images/A22_right.gif);
+}
+
+header .left {
+  text-align: left !important;
+  width: 140px;
+  background: url(../images/A011.gif) no-repeat;
+}
+
+header .right {
+  text-align: right !important;
+  height: 30px;
+  float: none;
+}
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style/Statement.css" />
+    <title>Statement</title>
+  </head>
+  <body>
+    <div class="statement">
+        <div class="main">
+            <form id="form" method="get" action="statement.action;jsessionid=abcdbo03hdHqfeCfS0yRw">
+              <input type="hidden" name="finished" value="true" />
+              <input type="hidden" class="dateFrom" name="req.beginDate" value="2019-05-20" />
+              <input type="hidden" class="dateTo" name="req.endDate" value="2019-05-26" />
+              <div class="box">
+                <div class="title">
+                  <div class="lt"></div>
+                  <div data-Statement="0" class="md">Statement</div>
+                  <div class="gt"></div>
+                </div>
+                <div class="body">
+                  <div class="control">
+                    <input data-Statement="1" type="button" name="btn_date" tag="thisWeek" class="btn_com" id="btnThisWeek" value="This Week" />
+                    <input data-Statement="2" type="button" name="btn_date" tag="lastWeek" class="btn_com" id="btnLastWeek" value="Last Week" />
+                    <input data-Statement="3" type="button" name="btn_date" tag="last2Week" class="btn_com_l" id="btnLast2Week" value="Last 2 Week" />
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="report">
+              <table id="tb_report" class="report">
+                <thead>
+                  <tr>
+                    <th data-Statement="4">Date</th>
+                    <th data-Statement="5">Turn Over</th>
+                    <th data-Statement="6">Comm</th>
+                    <th data-Statement="7">Pay Out</th>
+                    <th data-Statement="8">Win/Lose</th>
+                    <th data-Statement="9">Settled</th>
+                    <th data-Statement="10">Balance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="sum">
+                    <td class=""></td>
+                    <td class="right"><span class="blue">0.00</span></td>
+                    <td class="right"><span class="blue">0.00</span></td>
+                    <td class="right"><span class="blue">0.00</span></td>
+                    <td class="right"><span class="blue">0.00</span></td>
+                    <td class="right"><span class="blue">0.00</span></td>
+                    <td class="right"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="divAdd" class="hidden">
+            <div>
+              From
+              <b><span class="dateFrom">2019-05-20</span></b>
+              To
+              <b><span class="dateTo">2019-05-26</span></b>
+            </div>
+          </div>
+          <div id="jql07574209873294488" class="JQ_PL_LOADING_BG" style="width: 1920px; height: 780px; display: none;"><span></span></div>
+          <div id="jql07574209873294488_img" class="JQ_PL_LOADING_IMG" style="width: 1920px; height: 780px; display: none;"></div>
+    </div>
+    <button id="cn">中文</button>
+    <button id="vn">越南</button>
+    <button id="en">英文</button>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.i18n.properties-1.0.9.js"></script>
+    <!-- <script src="./js/main_Neo.js"></script> -->
+    <script>
+        $('#cn').click(function() {
+          loadProperties('zh-CN');
+          // shape(usernum)
+        });
+        $('#vn').click(function() {
+          loadProperties('vn');
+          // shape(usernum)
+        });
+        $('#en').click(function() {
+          loadProperties('en');
+          // shape(usernum)
+        });
+    </script>
+  </body>
+</html>

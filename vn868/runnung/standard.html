@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/bet.css" />
+    <link rel="stylesheet" href="../style/form.css" />
+    <title>standard</title>
+  </head>
+  <body>
+    <div class="top_text">
+      <div class="box">
+        <div class="title">
+          <div class="lt"></div>
+          <div class="md" data-title="betRun">
+            Running &gt; 下注
+          </div>
+          <div class="gt"></div>
+        </div>
+        <div class="body">
+          <div class="context">
+            <script type="text/javascript" src="../js/jquery.timers.js"></script>
+            <script type="text/javascript" src="../js/timeLeft.js"></script>
+            <table id="tbDescription">
+              <tbody>
+                <tr id="description">
+                  <th data-title="timeLeft">剩余时间 :</th>
+                  <td>
+                    <span id="desc_HN"> HN - Hanoi (<span class="sta_S">18:09-18:19,</span>) </span>
+                    <script>
+                      closeTimeArr['HN'] = 'S' == 'S' ? '18:09' : 0;
+                    </script>
+
+                    <span id="desc_BT"> BT - Ben Tre (<span class="sta_F">16:11-16:25,</span>) </span>
+                    <script>
+                      closeTimeArr['BT'] = 'F' == 'S' ? '16:11' : 0;
+                    </script>
+
+                    <span id="desc_VT"> VT - Vung Tau (<span class="sta_F">16:10-16:25,</span>) </span>
+                    <script>
+                      closeTimeArr['VT'] = 'F' == 'S' ? '16:10' : 0;
+                    </script>
+
+                    <span id="desc_BL"> BL - Bac Lieu (<span class="sta_F">16:06-16:22,</span>) </span>
+                    <script>
+                      closeTimeArr['BL'] = 'F' == 'S' ? '16:06' : 0;
+                    </script>
+
+                    <span id="desc_DLK"> DLK - Dak Lak (<span class="sta_S">17:05-17:20,</span>) </span>
+                    <script>
+                      closeTimeArr['DLK'] = 'S' == 'S' ? '17:05' : 0;
+                    </script>
+
+                    <span id="desc_QNM"> QNM - Quang Nam (<span class="sta_S">17:05-17:20,</span>) </span>
+                    <script>
+                      closeTimeArr['QNM'] = 'S' == 'S' ? '17:05' : 0;
+                    </script>
+
+                    <br />
+                  </td>
+                </tr>
+                <tr id="Wildcard">
+                  <th data-title="numberCard">号码通配符 :</th>
+                  <td>
+                    <h6>*</h6>
+                    = any of 0,1,...,9
+                    <h6>11-19</h6>
+                    (11,12,...,19)
+                    <h6>S</h6>
+                    mall(00-49)
+                    <h6>B</h6>
+                    ig(50-99)
+                    <h6>E</h6>
+                    ven(00,02,...,98)
+                    <h6>O</h6>
+                    dd(01,03,...,99)
+                  </td>
+                </tr>
+                <tr id="Shortcut">
+                  <th data-title="shortKey">快捷按键 :</th>
+                  <td>
+                    Next Number(
+                    <h6>Enter</h6>
+                    )
+                  </td>
+                </tr>
+                <tr>
+                  <th data-title="timeLeft">剩余时间 :</th>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form id="betform" action="runningStandard.action;jsessionid=abcG2fiua6kr97FECXzRw" method="post">
+      <div class="bet">
+        <div class="btns bet_btns" style="height: 21px;padding-right:5px;" id="btns">
+          <div style="float:right;">
+            <input type="button" class="btn_com btnBet" id="btnBet" data-btn="submit" value="下注" />
+            <input type="button" class="btn_com btnClear" id="btnClear" data-btn="clear" value="清除" />
+          </div>
+        </div>
+        <table class="bet on" id="tbBet" style="margin-top: 5px;">
+          <thead>
+            <tr class="m_title">
+              <th class="no"></th>
+              <th></th>
+              <th colspan="2" id="game2D">2D</th>
+              <th colspan="2" id="game3D">3D</th>
+              <th colspan="1">4D</th>
+              <th class="company colComp center" id="td_comp_attr">
+                <input type="checkbox" checked="checked" id="comp_N" value="N" />
+                <label for="comp_N">N</label>&nbsp;
+
+                <input type="checkbox" checked="checked" id="comp_S" value="S" />
+                <label for="comp_S">S</label>&nbsp;
+
+                <input type="checkbox" checked="checked" id="comp_M" value="M" />
+                <label for="comp_M">M</label>&nbsp;
+              </th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr class="sub_title" id="sub_title">
+              <th></th>
+              <th>号码</th>
+              <th style="color:#000;" data-title="top">头<br /><input type="checkbox" name="ckAll" tag="Top_2D" /></th>
+              <th style="color:#000" data-title="bottom">尾 <br /><input type="checkbox" name="ckAll" tag="Bottom_2D" /></th>
+              <th style="color:#000" data-title="top">头<br /><input type="checkbox" name="ckAll" tag="Top_3D" /></th>
+              <th style="color:#000" data-title="bottom">尾 <br /><input type="checkbox" name="ckAll" tag="Bottom_3D" /></th>
+              <th style="color:#000" data-title="bottom">尾 <br /><input type="checkbox" name="ckAll" tag="Bottom_4D" /></th>
+              <th class="colComp" id="td_comp_title">
+                <span><input type="checkbox" tag="ckAll" value="clickAll" /><span data-check="all">所有</span></span>
+              </th>
+              <th class="th_total" data-title="totalAmt">总额</th>
+              <th class="th_total" data-title="netAmt">净值</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr class="" idx="1">
+              <td>1</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_1" name="items[0].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_1" name="items[0].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_1"
+                  name="items[0].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_1" name="items[0].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_1" name="items[0].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_1" name="items[0].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_1"
+                  name="items[0].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_1" name="items[0].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_1" name="items[0].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_1" name="items[0].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_1" name="items[0].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_1">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_1">0.00</td>
+              <td class="pink right total" id="net_1">0.00</td>
+            </tr>
+
+            <tr class="tr_lt" idx="2">
+              <td>2</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_2" name="items[1].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_2" name="items[1].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_2"
+                  name="items[1].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_2" name="items[1].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_2" name="items[1].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_2" name="items[1].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_2"
+                  name="items[1].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_2" name="items[1].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_2" name="items[1].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_2" name="items[1].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_2" name="items[1].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_2">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_2">0.00</td>
+              <td class="pink right total" id="net_2">0.00</td>
+            </tr>
+
+            <tr class="" idx="3">
+              <td>3</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_3" name="items[2].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_3" name="items[2].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_3"
+                  name="items[2].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_3" name="items[2].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_3" name="items[2].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_3" name="items[2].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_3"
+                  name="items[2].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_3" name="items[2].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_3" name="items[2].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_3" name="items[2].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_3" name="items[2].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_3">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_3">0.00</td>
+              <td class="pink right total" id="net_3">0.00</td>
+            </tr>
+
+            <tr class="tr_lt" idx="4">
+              <td>4</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_4" name="items[3].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_4" name="items[3].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_4"
+                  name="items[3].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_4" name="items[3].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_4" name="items[3].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_4" name="items[3].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_4"
+                  name="items[3].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_4" name="items[3].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_4" name="items[3].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_4" name="items[3].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_4" name="items[3].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_4">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_4">0.00</td>
+              <td class="pink right total" id="net_4">0.00</td>
+            </tr>
+
+            <tr class="" idx="5">
+              <td>5</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_5" name="items[4].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_5" name="items[4].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_5"
+                  name="items[4].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_5" name="items[4].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_5" name="items[4].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_5" name="items[4].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_5"
+                  name="items[4].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_5" name="items[4].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_5" name="items[4].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_5" name="items[4].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_5" name="items[4].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_5">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_5">0.00</td>
+              <td class="pink right total" id="net_5">0.00</td>
+            </tr>
+
+            <tr class="tr_lt" idx="6">
+              <td>6</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_6" name="items[5].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_6" name="items[5].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_6"
+                  name="items[5].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_6" name="items[5].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_6" name="items[5].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_6" name="items[5].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_6"
+                  name="items[5].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_6" name="items[5].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_6" name="items[5].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_6" name="items[5].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_6" name="items[5].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_6">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_6">0.00</td>
+              <td class="pink right total" id="net_6">0.00</td>
+            </tr>
+
+            <tr class="" idx="7">
+              <td>7</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_7" name="items[6].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_7" name="items[6].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_7"
+                  name="items[6].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_7" name="items[6].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_7" name="items[6].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_7" name="items[6].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_7"
+                  name="items[6].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_7" name="items[6].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_7" name="items[6].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_7" name="items[6].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_7" name="items[6].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_7">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_7">0.00</td>
+              <td class="pink right total" id="net_7">0.00</td>
+            </tr>
+
+            <tr class="tr_lt" idx="8">
+              <td>8</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_8" name="items[7].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_8" name="items[7].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_8"
+                  name="items[7].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_8" name="items[7].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_8" name="items[7].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_8" name="items[7].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_8"
+                  name="items[7].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_8" name="items[7].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_8" name="items[7].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_8" name="items[7].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_8" name="items[7].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_8">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_8">0.00</td>
+              <td class="pink right total" id="net_8">0.00</td>
+            </tr>
+
+            <tr class="" idx="9">
+              <td>9</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_9" name="items[8].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_9" name="items[8].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_9"
+                  name="items[8].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_9" name="items[8].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_9" name="items[8].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_9" name="items[8].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_9"
+                  name="items[8].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_9" name="items[8].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_9" name="items[8].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_9" name="items[8].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_9" name="items[8].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_9">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_9">0.00</td>
+              <td class="pink right total" id="net_9">0.00</td>
+            </tr>
+
+            <tr class="tr_lt" idx="10">
+              <td>10</td>
+              <td class="pink"><input style="color:#000;font-weight: bold;" type="text" id="num_10" name="items[9].number" maxlength="5" /></td>
+              <td>
+                <input type="text" id="amt_Top_2D_10" name="items[9].d2Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_2D_10"
+                  name="items[9].d2Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_2D_10" name="items[9].d2Bottom" />
+                <input type="checkbox" id="beat_Bottom_2D_10" name="items[9].d2Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Top_3D_10" name="items[9].d3Top" disabled="disabled" style="background: rgb(148, 148, 148);" />
+                <input
+                  type="checkbox"
+                  id="beat_Top_3D_10"
+                  name="items[9].d3Topx"
+                  value="true"
+                  title="打"
+                  disabled="disabled"
+                  style="background: rgb(148, 148, 148);"
+                />
+              </td>
+              <td class="blue">
+                <input type="text" id="amt_Bottom_3D_10" name="items[9].d3Bottom" />
+                <input type="checkbox" id="beat_Bottom_3D_10" name="items[9].d3Bottomx" value="true" title="打" />
+              </td>
+              <td>
+                <input type="text" id="amt_Bottom_4D_10" name="items[9].d4Bottom" />
+                <input type="checkbox" id="beat_Bottom_4D_10" name="items[9].d4Bottomx" value="true" title="打" />
+              </td>
+              <td class="blue colComp" id="td_comp_10">
+                <span><input type="checkbox" tag="ckAll" /><span data-check="all">所有</span></span>
+              </td>
+              <td class="right total" id="total_10">0.00</td>
+              <td class="pink right total" id="net_10">0.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="btns bet_btns">
+          <div class="dleft">
+            <input type="button" class="btn_com btnBet" id="btnBet" data-btn="submit" value="下注" />
+            <input type="button" class="btn_com btnClear" id="btnClear" data-btn="clear" value="清除" />
+            &nbsp;&nbsp;
+            <span>
+              <span><b class="t" data-title="limit">单注下注限制 :</b></span>
+              <span id="span_lmt_2D">
+                2D:&nbsp;
+                <b>0 ~5,000</b>&nbsp;&nbsp;</span
+              >
+              <span id="span_lmt_3D">
+                3D:&nbsp;
+                <b>0 ~3,000</b>&nbsp;&nbsp;</span
+              >
+              <span id="span_lmt_4D">
+                4D:&nbsp;
+                <b>0 ~300</b>&nbsp;&nbsp;</span
+              >
+              <span id="span_lmt_5D">
+                5D:&nbsp;
+                <b>0 ~30</b>&nbsp;&nbsp;</span
+              >
+              <span id="span_lmt_PL2">
+                PL2:&nbsp;
+                <b>0 ~3,000</b>&nbsp;&nbsp;</span
+              >
+              <span id="span_lmt_PL3">
+                PL3:&nbsp;
+                <b>0 ~300</b>&nbsp;&nbsp;</span
+              >
+            </span>
+          </div>
+          <span class="span_unit">
+            VND1000 = 1 unit
+          </span>
+          <div class="clear"></div>
+        </div>
+
+        <div id="inputTool">
+          <input type="button" value="Clear" />
+          <input type="button" value="+10" />
+          <input type="button" value="+50" />
+          <input type="button" value="+100" />
+          <input type="button" value="+500" />
+          <input type="button" value="+1000" />
+          <input type="button" value="+2000" />
+          <input type="button" value="+5000" />
+        </div>
+
+        <script src="../js/jquery.i18n.properties-1.0.9.js"></script>
+        <script>
+          // 全部點擊
+          $('input[value=clickAll]').click(function() {
+            if ($(this).prop('checked')) {
+              $('#tbody .colComp input[type=checkbox]').each(function() {
+                $(this).prop('checked', true);
+              });
+            } else {
+              $('#tbody .colComp input[type=checkbox]').each(function() {
+                $(this).prop('checked', false);
+              });
+            }
+          });
+        </script>
+        
+        <script type="text/javascript">
+          $(function() {
+            $('#divBox .close').click(function() {
+              $('#divBox').jqmHide();
+            });
+          });
+        </script>
+
+        <script type="text/javascript">
+          var drawlist = [
+            {
+              drawId: '20190521HN',
+              company: 'HN',
+              companyGroup: 'HN',
+              companyAttr: 'N',
+              day: 3,
+              open: '06:00',
+              close: '18:09',
+              state: 'S',
+              runningState: 'S',
+              runningClose: '18:19'
+            },
+            {
+              drawId: '20190521BT',
+              company: 'BT',
+              companyGroup: '18A',
+              companyAttr: 'S',
+              day: 3,
+              open: '06:00',
+              close: '16:11',
+              state: 'F',
+              runningState: 'F',
+              runningClose: '16:25'
+            },
+            {
+              drawId: '20190521VT',
+              company: 'VT',
+              companyGroup: '18B',
+              companyAttr: 'S',
+              day: 3,
+              open: '06:00',
+              close: '16:10',
+              state: 'F',
+              runningState: 'F',
+              runningClose: '16:25'
+            },
+            {
+              drawId: '20190521BL',
+              company: 'BL',
+              companyGroup: '18C',
+              companyAttr: 'S',
+              day: 3,
+              open: '06:00',
+              close: '16:06',
+              state: 'F',
+              runningState: 'F',
+              runningClose: '16:22'
+            },
+            {
+              drawId: '20190521DLK',
+              company: 'DLK',
+              companyGroup: '18D',
+              companyAttr: 'M',
+              day: 3,
+              open: '06:00',
+              close: '17:05',
+              state: 'S',
+              runningState: 'S',
+              runningClose: '17:20'
+            },
+            {
+              drawId: '20190521QNM',
+              company: 'QNM',
+              companyGroup: '18D',
+              companyAttr: 'M',
+              day: 3,
+              open: '06:00',
+              close: '17:05',
+              state: 'S',
+              runningState: 'S',
+              runningClose: '17:20'
+            }
+          ];
+          var gamePackage = {
+            id: 1,
+            name: 'A',
+            packageType: 1,
+            comm2dn: 24.5,
+            comm3dn: 33.0,
+            comm4dn: 33.0,
+            comm5dn: 33.0,
+            commPl2n: 24.5,
+            commPl3n: 24.5,
+            odds2dn: 75.0,
+            odds3dn: 650.0,
+            odds4dn: 6000.0,
+            odds5dn: 40000.0,
+            oddsPl2n: 650.0,
+            oddsPl3n: 3500.0,
+            comm2da: 24.5,
+            comm3da: 33.0,
+            comm4da: 33.0,
+            comm5da: 33.0,
+            commPl2a: 24.5,
+            commPl3a: 24.5,
+            odds2da: 75.0,
+            odds3da: 650.0,
+            odds4da: 6000.0,
+            odds5da: 40000.0,
+            oddsPl2a: 750.0,
+            oddsPl3a: 3500.0,
+            comm2db: 24.5,
+            comm3db: 33.0,
+            comm4db: 33.0,
+            comm5db: 33.0,
+            commPl2b: 24.5,
+            commPl3b: 24.5,
+            odds2db: 75.0,
+            odds3db: 650.0,
+            odds4db: 6000.0,
+            odds5db: 40000.0,
+            oddsPl2b: 750.0,
+            oddsPl3b: 3500.0,
+            comm2dc: 24.5,
+            comm3dc: 33.0,
+            comm4dc: 33.0,
+            comm5dc: 33.0,
+            commPl2c: 24.5,
+            commPl3c: 24.5,
+            odds2dc: 75.0,
+            odds3dc: 650.0,
+            odds4dc: 6000.0,
+            odds5dc: 40000.0,
+            oddsPl2c: 750.0,
+            oddsPl3c: 3500.0,
+            comm2dd: 24.5,
+            comm3dd: 33.0,
+            comm4dd: 33.0,
+            comm5dd: 33.0,
+            commPl2d: 24.5,
+            commPl3d: 24.5,
+            odds2dd: 75.0,
+            odds3dd: 650.0,
+            odds4dd: 6000.0,
+            odds5dd: 40000.0,
+            oddsPl2d: 750.0,
+            oddsPl3d: 3500.0
+          };
+          var drawTypeCountNorth = {
+            '5D': { Roll: 10 },
+            '4D': { Bottom: 1, Roll: 20 },
+            '3D': { Top: 3, Bottom: 1, TB: 4, Roll: 23, Roll7: 7, TRoll7: 7, MRoll7: 7, BRoll7: 7 },
+            '2D': { Top: 4, Bottom: 1, TB: 5, Roll: 27, Roll7: 7, TRoll7: 7, MRoll7: 7, BRoll7: 7 }
+          };
+          var drawTypeCountSouth = {
+            '5D': { Roll: 12 },
+            '4D': { Bottom: 1, Roll: 16 },
+            '3D': { Top: 1, Bottom: 1, TB: 2, Roll: 17, Roll7: 7, TRoll7: 7, MRoll7: 7, BRoll7: 7 },
+            '2D': { Top: 1, Bottom: 1, TB: 2, Roll: 18, Roll7: 7, TRoll7: 7, MRoll7: 7, BRoll7: 7 }
+          };
+          var serverTime = 1558431789569;
+
+          var confirmBet = '确定下注 ?';
+          var msgInvalidBet = '无效的下注信息';
+        </script>
+      </div>
+    </form>
+  </body>
+</html>

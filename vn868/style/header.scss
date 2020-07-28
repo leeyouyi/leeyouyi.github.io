@@ -1,0 +1,310 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: Tahoma;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+}
+body {
+    background: #cbcfd2 url(../images/A40.gif) repeat-x;
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: hidden;
+    font-family: Tahoma;
+    font-size: 12px;
+}
+table {
+    border-collapse: collapse!important;
+}
+td, th {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+input {
+    vertical-align: middle;
+}
+input[type="button"], input[type="submit"] {
+    border: 0;
+}
+.main::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+header{
+    .menu {
+        height: 84px;
+        overflow: hidden;
+        background: url(../images/A03.gif);
+        .lt {
+            background: #fff;
+            width: 450px;
+            height: 83px;
+            padding-top: 25px;
+            div{
+                float: left;
+                height: 55px;
+            }
+            
+        }
+    
+        .menu_right {
+            margin-top: 5px;
+            background: url(../images/A20.gif) no-repeat;
+        }
+        .lt {
+            float: left;
+            .time {
+                width: 130px;
+                margin-left: 10px;
+                font-size: 10px;
+                color: White;        
+                background: 0;
+                .span_time {
+                    padding: 4px 0 0 22px;
+                    display: block;
+                    float: left;
+                    line-height: 12px;
+                }
+            }
+            .time *{
+                font-size: 10px;
+            }
+            .gmt{
+                color: #b1b1b1;
+            }
+        }
+        .gt {
+            overflow: hidden;
+            .m_menu {
+                padding-top: 5px;
+                height: 30px;
+                background: #fff;
+                .main {
+                    width: 1010px;
+                    float: left;
+                    overflow: hidden;
+                }
+                .marquee {
+                    width: 515px;
+                    margin: 0 auto;
+                    float: left;
+                    margin-top: 1px;
+                    margin-left: 5px;
+                    .mq {
+                        height: 26px;
+                        float: left;
+                        div{
+                            height: 24px;
+                        }
+                    }
+                    .md {
+                        background: #fff;
+                        border: 1px solid #e0e0e0;
+                        float: left;
+                    }
+                    #announcement {
+                        color: #ac8c48;
+                        font-size: 11px;
+                        height: 24px;
+                        line-height: 24px;
+                        font-weight: bold;
+                        cursor: default;
+                    }
+                }
+                .btns {
+                    height: 25px;
+                    padding-top: 0;
+                    overflow: hidden;
+                    float: left;
+                    select {
+                        height: 24px;
+                    }
+                    .btn1 {
+                        width: 63px;
+                        height: 19px;
+                        background: url(../images/A07.gif);
+                        font-size: 11px;
+                        color: #FFF;
+                        cursor: pointer;
+                        font-weight: bold;
+                    }
+                    #btnHome {
+                        background: url(../images/A09.png) no-repeat;
+                        width: 24px;
+                        height: 24px;
+                        text-align: left;
+                        padding-left: 7px;
+                    }
+                    .btn3 {
+                        background: url(../images/A10_red.png) no-repeat;
+                        width: 74px;
+                        height: 26px;
+                        font-size: 11px;
+                        color: #fff;
+                        font-weight: bold;
+                    }
+                    .btn2 {
+                        background: url(../images/A10_red_log.png) no-repeat;
+                        width: 74px;
+                        height: 26px;
+                        font-size: 11px;
+                        color: #fff;
+                        font-weight: bold;
+                        text-align: left;
+                        padding-left: 5px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .s_menu {
+                width: 100%;
+                height: 25px;
+                background-image: url(../images/A211.gif);
+                float: left;
+                margin-left: 5px;
+                a{
+                    font-size: 11px;
+                    color: #002340;
+                }
+                 ul {
+                    float: left;
+                    display: none;
+                    li{
+                        float: left;
+                        font-weight: bold;
+                        cursor: pointer;
+                        padding: 0 10px;
+                        font-size: 11px;
+                        line-height: 25px;
+                        background: url(../images/A14_devide2.gif) no-repeat right;
+                        color: #fff;
+                    }
+                    .on{
+                        background: url(../images/A14_over_red.gif);
+                    }
+                }
+                #m_betting2, #m_run_bottom {
+                    left: 455px;
+                    top: 59px;
+                    position: absolute;
+                    width: 100px;
+                    background-color: #bf989d;
+                    font-size: 11px;
+                    font-weight: bold;
+                }
+                #m_betlist, #m_result {
+                    display: none!important;
+                }
+                #m_betting2 li, #m_run_bottom li {
+                    text-align: center;
+                    min-width: 90px;
+                }
+                #m_betting2 li a, #m_run_bottom li a {
+                    color: #fff;
+                    display: block;
+                }
+                #m_betting2{
+                    li{
+                        position: relative;
+                        &:hover .s_menu2 {
+                            display: block;
+                            left: 0;
+                        }
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                #m_run_bottom{
+                    li{
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .s_menu2{
+                    position: absolute;
+                    width: 110px;
+                    background-color: #417196;
+                    z-index: 999;
+                    li {
+                        float: none;
+                        a:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                } 
+            }
+        }
+        .info {
+            margin: 0 5px;
+            table {
+                margin-top: 3px;
+                border: 0;
+                border-collapse: collapse;
+                color: White;
+                width: 100%;
+                th{
+                    text-align: left;
+                    font-size: 11px;
+                    height: 13px;
+                }
+                thead th {
+                    color: #ffd100;
+                }
+                td{
+                    text-align: right;
+                    font-size: 11px;
+                    height: 13px;
+                     span {
+                        font-size: 11px;
+                    }
+                }
+                 tbody th {
+                    font-weight: normal;
+                    background: url(../images/A14.png) no-repeat -1px;
+                    padding-left: 16px;
+                }
+            }
+            #btnRefreshInfo {
+                background: url(../images/A12.gif) no-repeat right;
+                height: 13px;
+                width: 16px;
+                display: block;
+                float: right;
+                cursor: pointer;
+            }
+        }
+        #divInfo {
+            width: 160px;
+        }
+         .l, .g {
+            width: 10px;
+        }
+    }
+    .bo_left {
+        float: left;
+        width: 100px;
+        height: 4px;
+        background: url(../images/A22_left.gif);
+    }
+    .bo_right {
+        height: 4px;
+        background: url(../images/A22_right.gif);
+    }
+    .left {
+        text-align: left!important;
+        width: 140px;
+        background: url(../images/A011.gif) no-repeat;
+    }
+    .right {
+        text-align: right!important;
+        height: 30px;
+        float: none;
+    }
+    
+}

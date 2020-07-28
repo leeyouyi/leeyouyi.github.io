@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style/phone_rules.css">
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.i18n.properties-1.0.9.js"></script>
+</head>
+<body>
+  <main>
+    <div class="main_rules">
+      <div class="box">
+        <div class="title">
+          <div class="lt"></div>
+          <div class="md">
+            rules.rules.WapRules
+          </div>
+          <div class="gt"></div>
+        </div>
+        <div class="body">
+          <div class="context">
+            <table class="special">
+              <thead>
+                <tr class="m_title">
+                  <th data-Phone = "title" colspan="2">Bet - Standard</th>
+                </tr>
+                <tr class="sub_title">
+                  <th>Input Format</th>
+                  <th data-Phone="method">Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-Phone="eg">
+                    <h6>#12345</h6>
+                    Eg. 12345
+                  </td>
+                  <td data-Phone="bet">
+                    Bet（12345）
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="2d1">
+                    <h6>2D</h6>
+                    Eg. 10#20#30#40
+                  </td>
+                  <td data-Phone="45">
+                    Bet 45 Amount 10#20#30#40<br>
+                    Eg. 2D Top 10，2D Bottom 20， 2D Top Bottom 30， 2D Roll 40
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="3d1">
+                    <h6>3D</h6>
+                    Eg. 10#20#30#40
+                  </td>
+                  <td data-Phone="345">
+                    Bet 345 Amount 10#20#30#40<br>
+                    Eg. 3D Top 10，3D Bottom 20， 3D Top Bottom 30， 3D Roll 40
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="4d1">
+                    <h6>4D</h6>
+                    Eg. 10#20
+                  </td>
+                  <td data-Phone="2345">
+                    Bet 2345 Amount 10#20<br>
+                    Eg. 4D Bottom 10， 4D Roll 20
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="5d1">
+                    <h6>5D</h6>
+                    Eg. 10
+                  </td>
+                  <td data-Phone="12345">
+                    Bet 12345 Amount 10<br>
+                    Eg. 5D Roll 20
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="td_title" data-Phone="mix">
+                    Mix Input Method
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="1234">
+                    <h6>*1234</h6>
+                    Eg. *1234
+                  </td>
+                  <td>
+                    4D 1234 Mix, 3D 234 Mix,2D 34 Mix
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="1_234">
+                    <h6>1*234</h6>
+                    Eg. 1*234
+                  </td>
+                  <td>
+                    4D 1234, 3D 234 Mix, 2D 34 Mix
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="12_34">
+                    <h6>12*34</h6>
+                    Eg. 12*34
+                  </td>
+                  <td>
+                    4D 1234, 3D 234, 2D 34 Mix
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="special">
+              <thead>
+                <tr class="m_title">
+                  <th colspan="2" data-Phone="title2">Bet - Roll7</th>
+                </tr>
+                <tr class="sub_title">
+                  <th>Input Format</th>
+                  <th data-Phone="method">Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-Phone="_123">
+                    <h6>#123</h6>
+                    Eg. 123
+                  </td>
+                  <td data-Phone="bet2">
+                    Bet（123）
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="2d2">
+                    <h6>2D</h6>
+                    Eg. 10
+                  </td>
+                  <td data-Phone="23">
+                    Bet 23 Amount 10<br>
+                    Eg. 2D Roll7 10
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="3d2">
+                    <h6>3D</h6>
+                    Eg. 10
+                  </td>
+                  <td data-Phone="123">
+                    Bet 123 Amount 10<br>
+                    Eg. 3D Roll7 10
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="td_title" data-Phone="mix">
+                    Mix Input Method
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="0123">
+                    <h6>*123</h6>
+                    Eg. *123
+                  </td>
+                  <td>
+                    3D 123 Mix,2D 23 Mix
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="1_23">
+                    <h6>1*23</h6>
+                    Eg. 1*23
+                  </td>
+                  <td>
+                    3D 123, 2D 23 Mix
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="x23">
+                    <h6>*23</h6>
+                    Eg. *23
+                  </td>
+                  <td>
+                    2D 23 Mix
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="special">
+              <thead>
+                <tr class="m_title">
+                  <th colspan="2" data-Phone="title3">Bet - Parlay</th>
+                </tr>
+                <tr class="sub_title">
+                  <th>Input Format</th>
+                  <th data-Phone="method">Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-Phone="11_22">
+                    <h6>11#22</h6>
+                    Eg. 11#22
+                  </td>
+                  <td data-Phone="pl2"> 
+                    Bet PL2（11#22）
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="11_22_33">
+                    <h6>11#22#33</h6>
+                    Eg. 11#22#33
+                  </td>
+                  <td data-Phone="pl3">
+                    Bet PL3（11#22#33）
+                  </td>
+                </tr>
+                <tr>
+                  <td data-Phone="2d3">
+                    <h6>2D</h6>
+                    Eg. 10
+                  </td>
+                  <td data-Phone="pl2_2">
+                    Bet PL2 11#22 Parlay PL3 11#22#33 Amount 10<br>
+                    Eg. Parlay Bet 10
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- <script src="./js/main-jeremy.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./style/Drop.css" />
+		<title>Drop</title>
+	</head>
+	<script>
+  
+//   var pack = {"id":1,"name":"A","packageType":1,"comm2dn":24.5000,"comm3dn":33.0000,"comm4dn":33.0000,"comm5dn":33.0000,"commPl2n":24.5000,"commPl3n":24.5000,"odds2dn":75.0000,"odds3dn":650.0000,"odds4dn":6000.0000,"odds5dn":40000.0000,"oddsPl2n":650.0000,"oddsPl3n":3500.0000,"comm2da":24.5000,"comm3da":33.0000,"comm4da":33.0000,"comm5da":33.0000,"commPl2a":24.5000,"commPl3a":24.5000,"odds2da":75.0000,"odds3da":650.0000,"odds4da":6000.0000,"odds5da":40000.0000,"oddsPl2a":750.0000,"oddsPl3a":3500.0000,"comm2db":24.5000,"comm3db":33.0000,"comm4db":33.0000,"comm5db":33.0000,"commPl2b":24.5000,"commPl3b":24.5000,"odds2db":75.0000,"odds3db":650.0000,"odds4db":6000.0000,"odds5db":40000.0000,"oddsPl2b":750.0000,"oddsPl3b":3500.0000,"comm2dc":24.5000,"comm3dc":33.0000,"comm4dc":33.0000,"comm5dc":33.0000,"commPl2c":24.5000,"commPl3c":24.5000,"odds2dc":75.0000,"odds3dc":650.0000,"odds4dc":6000.0000,"odds5dc":40000.0000,"oddsPl2c":750.0000,"oddsPl3c":3500.0000,"comm2dd":24.5000,"comm3dd":33.0000,"comm4dd":33.0000,"comm5dd":33.0000,"commPl2d":24.5000,"commPl3d":24.5000,"odds2dd":75.0000,"odds3dd":650.0000,"odds4dd":6000.0000,"odds5dd":40000.0000,"oddsPl2d":750.0000,"oddsPl3d":3500.0000};
+// 			function initEvent(){
+// 				validator.initInput();
+// 			}
+		
+  </script>
+	<body>
+		<div class="drop">
+			<div class="main_s">
+				<form id="form" method="get"
+					action="dropList.action;jsessionid=abcdbo03hdHqfeCfS0yRw">
+					<input type="hidden" name="finished" value="true">
+					<div class="box">
+						<div class="title">
+							<div class="lt"></div>
+							<div data-Drop="0" class="md">
+								Drop List
+								<a href="dropGrid.action;jsessionid=abcdbo03hdHqfeCfS0yRw">View By Group</a>
+							</div>
+							<div class="gt"></div>
+						</div>
+						<div class="body">
+							<div class="control">
+								<span data-Drop="1">Number</span>
+								
+								<input class="txt_com v_number" type="text" maxlength="8" id="number"
+									name="req.number" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+									<span data-Drop="2">Company</span>
+								
+								<select id="company" name="req.drawId">
+									<option data-Drop="4" value="">ALL</option>
+
+									<option  value="20190521HN">HN - Hanoi </option>
+
+									<option  value="20190521BT">BT - Ben Tre</option>
+
+									<option  value="20190521VT">VT - Vung Tau </option>
+
+									<option  value="20190521BL">BL - Bac Lieu</option>
+
+									<option  value="20190521DLK">DLK - Dak Lak</option>
+
+									<option  value="20190521QNM">QNM - Quang Nam</option>
+
+								</select>
+								&nbsp;&nbsp;
+								<span data-Drop="3">Game</span>
+							
+								<select id="drawType" name="req.drawType">
+									<option data-Drop="4" value="">ALL</option>
+
+									<option value="2D">2D</option>
+
+									<option value="3D">3D</option>
+
+									<option value="4D">4D</option>
+
+									<option value="5D">5D</option>
+
+									<option value="PL2">PL2</option>
+
+									<option value="PL3">PL3</option>
+
+								</select>
+								<select id="betType" name="req.betType"><option data-Drop="3" value="">ALL</option></select>
+								&nbsp;&nbsp;
+								<input data-Drop="5" type="submit" class="btn_com" value="Search">
+								<input data-Drop="6" type="button" id="btnPrint" value="Print" class="btn_com">
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="report">
+					<table class="report">
+						<thead>
+							<tr>
+								<th> #</th>
+								<th data-Drop="7"> Number</th>
+								<th data-Drop="8"> Company</th>
+								<th data-Drop="9" colspan="2">Game</th>
+								<th data-Drop="12">Drop</th>
+								<th data-Drop="11">Net</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>1</td>
+								<td>10</td>
+								<td>VT</td>
+								<td>2D</td>
+								<td data-Drop="12">TOP</td>
+								<td>10</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 10.0000;
+												// 	var base = pack['comm2db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>85.50
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>2</td>
+								<td>29</td>
+								<td>VT</td>
+								<td>2D</td>
+								<td data-Drop="12">TOP</td>
+								<td>10</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 10.0000;
+												// 	var base = pack['comm2db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>85.50
+								</td>
+							</tr>
+
+							<tr>
+								<td>3</td>
+								<td>368</td>
+								<td>HN</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3dn'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>4</td>
+								<td>368</td>
+								<td>HN</td>
+								<td>3D</td>
+								<td data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3dn'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr>
+								<td>5</td>
+								<td>368</td>
+								<td>BT</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3da'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>6</td>
+								<td>368</td>
+								<td>BT</td>
+								<td>3D</td>
+								<td data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3da'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr>
+								<td>7</td>
+								<td>368</td>
+								<td>VT</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>8</td>
+								<td>368</td>
+								<td>VT</td>
+								<td>3D</td>
+								<td data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr>
+								<td>9</td>
+								<td>39</td>
+								<td>VT</td>
+								<td>2D</td>
+								<td data-Drop="12">TOP</td>
+								<td>10</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 10.0000;
+												// 	var base = pack['comm2db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>85.50
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>10</td>
+								<td>56</td>
+								<td>VT</td>
+								<td>2D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>20</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 20.0000;
+												// 	var base = pack['comm2db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>95.50
+								</td>
+							</tr>
+
+							<tr>
+								<td>11</td>
+								<td>56</td>
+								<td>VT</td>
+								<td>2D</td>
+								<td data-Drop="12">ROLL</td>
+								<td>20</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 20.0000;
+												// 	var base = pack['comm2db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>95.50
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>12</td>
+								<td>56</td>
+								<td>VT</td>
+								<td>2D</td>
+								<td data-Drop="12">TOP</td>
+								<td>20</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 20.0000;
+												// 	var base = pack['comm2db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>95.50
+								</td>
+							</tr>
+
+							<tr>
+								<td>13</td>
+								<td>739</td>
+								<td>HN</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3dn'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>14</td>
+								<td>739</td>
+								<td>HN</td>
+								<td>3D</td>
+								<td data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3dn'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr>
+								<td>15</td>
+								<td>739</td>
+								<td>BT</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3da'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>16</td>
+								<td>739</td>
+								<td>BT</td>
+								<td>3D</td>
+								<td data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3da'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr>
+								<td>10</td>
+								<td>739</td>
+								<td>VT</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>18</td>
+								<td>739</td>
+								<td>VT</td>
+								<td>3D</td>
+								<td data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr>
+								<td>19</td>
+								<td>779</td>
+								<td>HN</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3dn'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>20</td>
+								<td>779</td>
+								<td>HN</td>
+								<td>3D</td>
+								<td data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3dn'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr>
+								<td>21</td>
+								<td>779</td>
+								<td>BT</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3da'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>22</td>
+								<td>779</td>
+								<td>BT</td>
+								<td>3D</td>
+								<td data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3da'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr>
+								<td>23</td>
+								<td>779</td>
+								<td>VT</td>
+								<td>3D</td>
+								<td data-Drop="13">BOTTOM</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+							<tr class="tr_lt">
+								<td>24</td>
+								<td>779</td>
+								<td>VT</td>
+								<td>3D</td>
+								<td  data-Drop="12">TOP</td>
+								<td>50</td>
+								<td><script type="text/javascript">
+												// if(pack){
+												// 	var drop = 50.0000;
+												// 	var base = pack['comm3db'] || 0;
+												// 	var net = 100 - base + drop; 
+												// 	net = net > 100 ? 100 : net;
+												// 	document.write(net.toFixed(2) );
+												// }
+											</script>100.00
+								</td>
+							</tr>
+
+						</tbody>
+						<tfoot>
+							<tr class="page">
+								<td colspan="7"><span class="white">&nbsp;&nbsp;&nbsp;&nbsp;1/1&nbsp;<span data-Drop="14">Page(s)</span>&nbsp;&nbsp;&nbsp;&nbsp;<span data-Drop="15"
+										class="white">first</span>&nbsp;&nbsp;<span data-Drop="16" class="white">previous</span>&nbsp;&nbsp;<span data-Drop="17"
+										class="white">next</span>&nbsp;&nbsp;<span data-Drop="13" class="white">last </span>&nbsp;&nbsp;
+									<select name="page"
+										onchange="javascript:window.location.replace(this.options[this.selectedIndex].value);"
+										style="font-family: Arial;font-size: 12px; vertical-align:middle;"><option
+											value="/member/report/dropList.action;jsessionid=abcdbo03hdHqfeCfS0yRw;jsessionid=abcdbo03hdHqfeCfS0yRw?page.pageSize=100&amp;page.pageNo=1"
+											selected="">1</option></select></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+
+		</div>
+		<button id="cn">中文</button>
+    <button id="vn">越南</button>
+    <button id="en">英文</button>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.i18n.properties-1.0.9.js"></script>
+    <!-- <script src="./js/main_Neo.js"></script> -->
+    <script>
+        $('#cn').click(function() {
+          loadProperties('zh-CN');
+          // shape(usernum)
+        });
+        $('#vn').click(function() {
+          loadProperties('vn');
+          // shape(usernum)
+        });
+        $('#en').click(function() {
+          loadProperties('en');
+          // shape(usernum)
+        });
+    </script>
+	</body>
+</html>

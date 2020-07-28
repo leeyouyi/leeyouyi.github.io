@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>room</title>
+	<link rel="stylesheet" href="./style/room.css">
+	<script src="./js/jquery.min.js"></script>
+</head>
+<body>
+        <form >
+			<div class="body">
+	                <div class="context">
+	                   <img src="./images/A51.jpg"><br>
+	                   <span class="msg">Please choose your prefered betting to access</span>
+	                </div>
+	                <div class="box">
+	                	<input type="hidden" name="stylesheet" value="">
+		                <input type="button" id="Betting1" class="btn_Betting1" value="Betting1">
+		                <input type="button" id="Betting2" class="btn_Betting2" value="Betting2">
+		                <input type="button" id="Betting3" class="btn_Betting3" value="Betting3">
+		                <input type="button" id="Betting4" class="btn_Betting4" value="Betting4">
+	               	</div>
+	               	<div class="foot">
+	               		<span>Copyright VN868 © 2014 | Terms &amp; Conditions | Privacy Policy </span>
+	               	</div>
+	       	</div>
+		</form>
+
+		<script>
+			for (let i = 1; i <5; i++) {
+
+				$('#Betting'+i).on('click',function(){
+					document.location.href=`./home.php?style=${i}#${i}`;
+
+				})
+	
+			}
+
+		
+		</script>
+</body>
+</html>

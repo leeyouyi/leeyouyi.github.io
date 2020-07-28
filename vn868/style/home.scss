@@ -1,0 +1,147 @@
+// *{
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
+//     font-family: Tahoma;
+//     font-size: 12px;
+// }
+// a{
+//     text-decoration: none;
+// }
+// body {
+//     background: #ccc;
+//     font-family: Tahoma;
+//     font-size: 12px;
+// }
+table {
+    border-collapse: collapse;
+    border-spacing: 1px;
+}
+td, th {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+input[type="button"], input[type="submit"] {
+    border: 0;
+}
+.clear {
+    clear: both;
+}
+main{
+    .main {
+        min-width: 933px;
+        float: left;
+        margin: 5px;
+        width: 905px;
+        margin-top: 10px;
+        .crdInfo, .acctInfo {
+            float: left;
+            width: 450px;
+        }
+        .crdInfo {
+            margin-left: 5px;
+        }
+        .context {
+            width: 100%;
+            th{
+                background: #d9dee9;
+                height: 25px;
+                width: 130px;
+                color: #000;
+                font-weight: normal;
+                text-align: left;
+                padding-left: 5px;
+            }
+            td{
+                background: #FFF;
+                text-align: left;
+                padding-left: 5px;
+                height: 25px;
+                color: #023260;
+                font-weight: bold;
+            }
+            thead th {
+                background: url(../images/A24.gif);
+                height: 20px;
+                font-size: 11px;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+            }
+            thead tr th {
+                background: url(../images/A36.gif) repeat scroll 0 0 transparent;
+                height: 21px;
+                color: #ffd100;
+            }
+            .btn_com {
+                background: url(../images/A25.gif);
+                width: 72px;
+                height: 21px;
+                color: #000;
+                font-weight: bold;
+                font-size: 11px;
+                cursor: pointer;
+            }
+            .blue {
+                color: #0082ff;
+            }
+        }
+        table.context, table.context td, table.context th {
+            border: solid 1px #bbb;
+        }
+        table.context td, table.context th {
+            border: solid 1px #b0b0b0;
+        }
+        .package {
+            margin-top: 5px;
+        }
+        .special {
+            width: 100%;
+            thead th {
+                background: url(../images/A24.gif);
+                height: 20px;
+                font-size: 11px;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                padding: 0 5px;
+            }
+            .m_title2 th {
+                background: url(../images/A37.gif);
+            }
+            .sub_title2 th {
+                background: #b0b0b0;
+            }
+            tbody td {
+                background: #FFF;
+                text-align: center;
+                height: 25px;
+                padding: 0 5px;
+            }
+            tr.tr_lt td {
+                background-color: #f0f0f0;
+            }
+    
+        }
+        table.special, table.special td, table.special th {
+            border: solid 1px #bbb;
+        }
+        .txt_com, input[type="text"], input[type="password"] {
+            background: #f7f7f7;
+            border: solid 1px #e5e6e7;
+            border-top-color: #afafaf;
+            height: 18px;
+            line-height: 18px;
+            margin: 0;
+        }
+        #txtNickname {
+            width: 100px;
+        }
+        #txtNickname{
+            margin-right: 10px;
+        }
+        #btnNkSave{
+            margin-right: 5px;
+        }
+    }
+}

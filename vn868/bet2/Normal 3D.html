@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Normal 3D</title>
+  <link rel="stylesheet" href="../style/form.css">
+  <link rel="stylesheet" href="../style/normal3D_bet2.css">
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery.i18n.properties-1.0.9.js"></script>
+</head>
+
+<body>
+    <button id="en">eng</button>
+    <button id="cn">cnn</button>  
+    <button id="vn">vn</button>
+  <div class="top_text">
+    <div class="box">
+      <div class="title">
+        <div class="lt"></div>
+        <div class="md" data-Normal_3D="Normal_3D_bet">
+          Betting &gt; Normal 3D
+        </div>
+        <div class="gt"></div>
+      </div>
+      <div class="body">
+        <div class="context">
+          <script type="text/javascript" src="../js/jquery.timers.js"></script>
+          <script type="text/javascript" src="../js/timeLeft1.js"></script>
+          <table id="tbDescription">
+            <tbody>
+              <tr id="description">
+                <th data-Normal_3D="Normal_3D_com">Company Description :</th>
+                <td>
+                  <span id="desc_HN">
+                    HN - Hanoi
+                    (<span class="sta_S">06:00-18:09,</span>)
+                  </span>
+                  <script>closeTimeArr["HN"] = "S" == "S" ? "18:09" : 0;</script>
+
+                  <span id="desc_DN">
+                    DN - DONG nai
+                    (<span class="sta_T">06:00-16:06,</span>)
+                  </span>
+                  <script>closeTimeArr["DN"] = "T" == "S" ? "16:06" : 0;</script>
+
+                  <span id="desc_CT">
+                    CT - Binh Duong
+                    (<span class="sta_T">06:00-16:11,</span>)
+                  </span>
+                  <script>closeTimeArr["CT"] = "T" == "S" ? "16:11" : 0;</script>
+
+                  <span id="desc_ST">
+                    ST - Tra Vinh
+                    (<span class="sta_T">06:00-16:09,</span>)
+                  </span>
+                  <script>closeTimeArr["ST"] = "T" == "S" ? "16:09" : 0;</script>
+
+                  <span id="desc_DNG">
+                    DNG - Gia Lai
+                    (<span class="sta_S">06:00-17:05,</span>)
+                  </span>
+                  <script>closeTimeArr["DNG"] = "S" == "S" ? "17:05" : 0;</script>
+
+                  <span id="desc_KH">
+                    KH - Ninh Thuan
+                    (<span class="sta_S">06:00-17:05,</span>)
+                  </span>
+                  <script>closeTimeArr["KH"] = "S" == "S" ? "17:05" : 0;</script>
+                  <br>
+                </td>
+              </tr>
+              <tr id="Wildcard" style="display:none;">
+                <th>Number Wildcard :</th>
+                <td>
+                  <h6>*</h6> = any of 0,1,...,9 <h6>11-19</h6>(11,12,...,19) <h6>S</h6>mall(00-49)
+                  <h6>B</h6>ig(50-99) <h6>E</h6>ven(00,02,...,98) <h6>O</h6>dd(01,03,...,99)
+                </td>
+              </tr>
+              <tr id="Shortcut" data-Normal_3D="Normal_3D_key">
+                <th>Key Short :</th>
+                <td>TOP(<h6>h</h6>) BOTTOM(<h6>l</h6>) TOP+BOTTOM(<h6>t</h6>) ROLL(<h6>r</h6>)
+                  Mix(<h6>x</h6>) Next Number(<h6>Enter</h6>)
+                </td>
+              </tr>
+              <tr>
+                <th data-Normal_3D="Normal_3D_time">Time Left :</th>
+                <td>
+                  HN - Hanoi 
+                  (<span id="time_HN" class="red">00:00:00</span>)&nbsp;&nbsp;				
+
+                  DN - Dong nai
+                  (<span id="time_DN" class="red">00:00:00</span>)&nbsp;&nbsp;				
+                
+                  CT - Can Tho 
+                  (<span id="time_CT" class="red">00:00:00</span>)&nbsp;&nbsp;				
+                
+                  ST - Soc Trang
+                  (<span id="time_ST" class="red">00:00:00</span>)&nbsp;&nbsp;				
+                
+                  DNG - Da Nang
+                  (<span id="time_DNG" class="red">00:00:00</span>)&nbsp;&nbsp;				
+                
+                  KH - Khanh Hoa
+                  (<span id="time_KH" class="red">00:00:00</span>)&nbsp;&nbsp;				
+                  <br>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form id="betform">
+    <div class="bet normal3d">
+      <div class="divInput" id="divInput">
+        <div class="spanInput" data-Normal_3D="Normal_3D_title">
+          TOP&nbsp;&nbsp;<input type="text" name="top" id="amt_Top" class="v_decimel">
+          BOTTOM&nbsp;&nbsp;<input type="text" name="bottom" id="amt_Bottom" class="v_decimel">
+          TOP BOTTOM&nbsp;&nbsp;<input type="text" name="topBottom" id="amt_TB" class="v_decimel">
+          ROLL&nbsp;&nbsp;<input type="text" name="roll" class="v_decimel" id="amt_Roll">
+        </div>
+        <span class="spanCompany" id="spanCompany">
+          <span title="HN">
+          <input type="radio" checked name="company" value="HN" tag="20190605HN" id="ck_HN"> 
+          <label for="ck_HN">HN</label>&nbsp;&nbsp;
+          </span>
+        
+          <span title="18A">
+          <input type="radio" name="company" value="DN" tag="20190605DN" id="ck_DN"> 
+          <label for="ck_DN">DN</label>&nbsp;&nbsp;
+          </span>
+        
+          <span title="18B">
+          <input type="radio" name="company" value="CT" tag="20190605CT" id="ck_CT"> 
+          <label for="ck_CT">CT</label>&nbsp;&nbsp;
+          </span>
+        
+          <span title="18C">
+          <input type="radio" name="company" value="ST" tag="20190605ST" id="ck_ST"> 
+          <label for="ck_ST">ST</label>&nbsp;&nbsp;
+          </span>
+        
+          <span title="18D">
+          <input type="radio" name="company" value="DNG" tag="20190605DNG" id="ck_DNG"> 
+          <label for="ck_DNG">DNG</label>&nbsp;&nbsp;
+          </span>
+        
+          <span title="18D">
+          <input type="radio" name="company" value="KH" tag="20190605KH" id="ck_KH"> 
+          <label for="ck_KH">KH</label>&nbsp;&nbsp;
+          </span>
+			  </span>
+        <div class="clear"></div>
+      </div>
+      <div class="divInput ck3D" id="divCK3D"><span class="thousand_title" data-Normal_3D="Normal_3D_Hundred">
+          &nbsp;
+          Hundred</span>
+        <input type="radio" id="ck_3d_0" value="0" name="thousand" checked="checked">
+        <label for="ck_3d_0">0</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_1" value="1" name="thousand">
+        <label for="ck_3d_1">1</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_2" value="2" name="thousand">
+        <label for="ck_3d_2">2</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_3" value="3" name="thousand">
+        <label for="ck_3d_3">3</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_4" value="4" name="thousand">
+        <label for="ck_3d_4">4</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_5" value="5" name="thousand">
+        <label for="ck_3d_5">5</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_6" value="6" name="thousand">
+        <label for="ck_3d_6">6</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_7" value="7" name="thousand">
+        <label for="ck_3d_7">7</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_8" value="8" name="thousand">
+        <label for="ck_3d_8">8</label>&nbsp;&nbsp;
+
+        <input type="radio" id="ck_3d_9" value="9" name="thousand">
+        <label for="ck_3d_9">9</label>&nbsp;&nbsp;
+      </div>
+      <table class="bet on" id="tbBet">
+        <thead>
+          <tr class="sub_title" id="sub_title">
+            <th><input type="checkbox" id="ckCol_0"></th>
+
+            <th><input type="checkbox" id="ckCol_1"></th>
+
+            <th><input type="checkbox" id="ckCol_2"></th>
+
+            <th><input type="checkbox" id="ckCol_3"></th>
+
+            <th><input type="checkbox" id="ckCol_4"></th>
+
+            <th><input type="checkbox" id="ckCol_5"></th>
+
+            <th><input type="checkbox" id="ckCol_6"></th>
+
+            <th><input type="checkbox" id="ckCol_7"></th>
+
+            <th><input type="checkbox" id="ckCol_8"></th>
+
+            <th><input type="checkbox" id="ckCol_9"></th>
+
+            <th><input type="checkbox" id="ckAll"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr_lt">
+            <td id="td_00">
+              <input type="checkbox" tag="0" id="ck_0_0" name="number[0]" value="00">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_0">00</label>
+              <span id="drop_00"></span>
+            </td>
+
+            <td id="td_01">
+              <input type="checkbox" tag="1" id="ck_0_1" name="number[1]" value="01">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_1">01</label>
+              <span id="drop_01"></span>
+            </td>
+
+            <td id="td_02">
+              <input type="checkbox" tag="2" id="ck_0_2" name="number[2]" value="02">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_2">02</label>
+              <span id="drop_02"></span>
+            </td>
+
+            <td id="td_03">
+              <input type="checkbox" tag="3" id="ck_0_3" name="number[3]" value="03">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_3">03</label>
+              <span id="drop_03"></span>
+            </td>
+
+            <td id="td_04">
+              <input type="checkbox" tag="4" id="ck_0_4" name="number[4]" value="04">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_4">04</label>
+              <span id="drop_04"></span>
+            </td>
+
+            <td id="td_05">
+              <input type="checkbox" tag="5" id="ck_0_5" name="number[5]" value="05">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_5">05</label>
+              <span id="drop_05"></span>
+            </td>
+
+            <td id="td_06">
+              <input type="checkbox" tag="6" id="ck_0_6" name="number[6]" value="06">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_6">06</label>
+              <span id="drop_06"></span>
+            </td>
+
+            <td id="td_07">
+              <input type="checkbox" tag="7" id="ck_0_7" name="number[7]" value="07">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_7">07</label>
+              <span id="drop_07"></span>
+            </td>
+
+            <td id="td_08">
+              <input type="checkbox" tag="8" id="ck_0_8" name="number[8]" value="08">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_8">08</label>
+              <span id="drop_08"></span>
+            </td>
+
+            <td id="td_09">
+              <input type="checkbox" tag="9" id="ck_0_9" name="number[9]" value="09">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_0_9">09</label>
+              <span id="drop_09"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_0"></td>
+          </tr>
+          <tr class="">
+            <td id="td_10">
+              <input type="checkbox" tag="0" id="ck_1_0" name="number[10]" value="10">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_0">10</label>
+              <span id="drop_10"></span>
+            </td>
+
+            <td id="td_11">
+              <input type="checkbox" tag="1" id="ck_1_1" name="number[11]" value="11">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_1">11</label>
+              <span id="drop_11"></span>
+            </td>
+
+            <td id="td_12">
+              <input type="checkbox" tag="2" id="ck_1_2" name="number[12]" value="12">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_2">12</label>
+              <span id="drop_12"></span>
+            </td>
+
+            <td id="td_13">
+              <input type="checkbox" tag="3" id="ck_1_3" name="number[13]" value="13">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_3">13</label>
+              <span id="drop_13"></span>
+            </td>
+
+            <td id="td_14">
+              <input type="checkbox" tag="4" id="ck_1_4" name="number[14]" value="14">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_4">14</label>
+              <span id="drop_14"></span>
+            </td>
+
+            <td id="td_15">
+              <input type="checkbox" tag="5" id="ck_1_5" name="number[15]" value="15">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_5">15</label>
+              <span id="drop_15"></span>
+            </td>
+
+            <td id="td_16">
+              <input type="checkbox" tag="6" id="ck_1_6" name="number[16]" value="16">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_6">16</label>
+              <span id="drop_16"></span>
+            </td>
+
+            <td id="td_17">
+              <input type="checkbox" tag="7" id="ck_1_7" name="number[17]" value="17">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_7">17</label>
+              <span id="drop_17"></span>
+            </td>
+
+            <td id="td_18">
+              <input type="checkbox" tag="8" id="ck_1_8" name="number[18]" value="18">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_8">18</label>
+              <span id="drop_18"></span>
+            </td>
+
+            <td id="td_19">
+              <input type="checkbox" tag="9" id="ck_1_9" name="number[19]" value="19">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_1_9">19</label>
+              <span id="drop_19"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_1"></td>
+          </tr>
+          <tr class="tr_lt">
+            <td id="td_20">
+              <input type="checkbox" tag="0" id="ck_2_0" name="number[20]" value="20">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_0">20</label>
+              <span id="drop_20"></span>
+            </td>
+
+            <td id="td_21">
+              <input type="checkbox" tag="1" id="ck_2_1" name="number[21]" value="21">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_1">21</label>
+              <span id="drop_21"></span>
+            </td>
+
+            <td id="td_22">
+              <input type="checkbox" tag="2" id="ck_2_2" name="number[22]" value="22">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_2">22</label>
+              <span id="drop_22"></span>
+            </td>
+
+            <td id="td_23">
+              <input type="checkbox" tag="3" id="ck_2_3" name="number[23]" value="23">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_3">23</label>
+              <span id="drop_23"></span>
+            </td>
+
+            <td id="td_24">
+              <input type="checkbox" tag="4" id="ck_2_4" name="number[24]" value="24">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_4">24</label>
+              <span id="drop_24"></span>
+            </td>
+
+            <td id="td_25">
+              <input type="checkbox" tag="5" id="ck_2_5" name="number[25]" value="25">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_5">25</label>
+              <span id="drop_25"></span>
+            </td>
+
+            <td id="td_26">
+              <input type="checkbox" tag="6" id="ck_2_6" name="number[26]" value="26">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_6">26</label>
+              <span id="drop_26"></span>
+            </td>
+
+            <td id="td_27">
+              <input type="checkbox" tag="7" id="ck_2_7" name="number[27]" value="27">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_7">27</label>
+              <span id="drop_27"></span>
+            </td>
+
+            <td id="td_28">
+              <input type="checkbox" tag="8" id="ck_2_8" name="number[28]" value="28">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_8">28</label>
+              <span id="drop_28"></span>
+            </td>
+
+            <td id="td_29">
+              <input type="checkbox" tag="9" id="ck_2_9" name="number[29]" value="29">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_2_9">29</label>
+              <span id="drop_29"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_2"></td>
+          </tr>
+          <tr class="">
+            <td id="td_30">
+              <input type="checkbox" tag="0" id="ck_3_0" name="number[30]" value="30">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_0">30</label>
+              <span id="drop_30"></span>
+            </td>
+
+            <td id="td_31">
+              <input type="checkbox" tag="1" id="ck_3_1" name="number[31]" value="31">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_1">31</label>
+              <span id="drop_31"></span>
+            </td>
+
+            <td id="td_32">
+              <input type="checkbox" tag="2" id="ck_3_2" name="number[32]" value="32">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_2">32</label>
+              <span id="drop_32"></span>
+            </td>
+
+            <td id="td_33">
+              <input type="checkbox" tag="3" id="ck_3_3" name="number[33]" value="33">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_3">33</label>
+              <span id="drop_33"></span>
+            </td>
+
+            <td id="td_34">
+              <input type="checkbox" tag="4" id="ck_3_4" name="number[34]" value="34">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_4">34</label>
+              <span id="drop_34"></span>
+            </td>
+
+            <td id="td_35">
+              <input type="checkbox" tag="5" id="ck_3_5" name="number[35]" value="35">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_5">35</label>
+              <span id="drop_35"></span>
+            </td>
+
+            <td id="td_36">
+              <input type="checkbox" tag="6" id="ck_3_6" name="number[36]" value="36">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_6">36</label>
+              <span id="drop_36"></span>
+            </td>
+
+            <td id="td_37">
+              <input type="checkbox" tag="7" id="ck_3_7" name="number[37]" value="37">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_7">37</label>
+              <span id="drop_37"></span>
+            </td>
+
+            <td id="td_38">
+              <input type="checkbox" tag="8" id="ck_3_8" name="number[38]" value="38">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_8">38</label>
+              <span id="drop_38"></span>
+            </td>
+
+            <td id="td_39">
+              <input type="checkbox" tag="9" id="ck_3_9" name="number[39]" value="39">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_3_9">39</label>
+              <span id="drop_39"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_3"></td>
+          </tr>
+          <tr class="tr_lt">
+            <td id="td_40">
+              <input type="checkbox" tag="0" id="ck_4_0" name="number[40]" value="40">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_0">40</label>
+              <span id="drop_40"></span>
+            </td>
+
+            <td id="td_41">
+              <input type="checkbox" tag="1" id="ck_4_1" name="number[41]" value="41">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_1">41</label>
+              <span id="drop_41"></span>
+            </td>
+
+            <td id="td_42">
+              <input type="checkbox" tag="2" id="ck_4_2" name="number[42]" value="42">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_2">42</label>
+              <span id="drop_42"></span>
+            </td>
+
+            <td id="td_43">
+              <input type="checkbox" tag="3" id="ck_4_3" name="number[43]" value="43">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_3">43</label>
+              <span id="drop_43"></span>
+            </td>
+
+            <td id="td_44">
+              <input type="checkbox" tag="4" id="ck_4_4" name="number[44]" value="44">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_4">44</label>
+              <span id="drop_44"></span>
+            </td>
+
+            <td id="td_45">
+              <input type="checkbox" tag="5" id="ck_4_5" name="number[45]" value="45">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_5">45</label>
+              <span id="drop_45"></span>
+            </td>
+
+            <td id="td_46">
+              <input type="checkbox" tag="6" id="ck_4_6" name="number[46]" value="46">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_6">46</label>
+              <span id="drop_46"></span>
+            </td>
+
+            <td id="td_47">
+              <input type="checkbox" tag="7" id="ck_4_7" name="number[47]" value="47">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_7">47</label>
+              <span id="drop_47"></span>
+            </td>
+
+            <td id="td_48">
+              <input type="checkbox" tag="8" id="ck_4_8" name="number[48]" value="48">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_8">48</label>
+              <span id="drop_48"></span>
+            </td>
+
+            <td id="td_49">
+              <input type="checkbox" tag="9" id="ck_4_9" name="number[49]" value="49">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_4_9">49</label>
+              <span id="drop_49"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_4"></td>
+          </tr>
+          <tr class="">
+            <td id="td_50">
+              <input type="checkbox" tag="0" id="ck_5_0" name="number[50]" value="50">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_0">50</label>
+              <span id="drop_50"></span>
+            </td>
+
+            <td id="td_51">
+              <input type="checkbox" tag="1" id="ck_5_1" name="number[51]" value="51">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_1">51</label>
+              <span id="drop_51"></span>
+            </td>
+
+            <td id="td_52">
+              <input type="checkbox" tag="2" id="ck_5_2" name="number[52]" value="52">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_2">52</label>
+              <span id="drop_52"></span>
+            </td>
+
+            <td id="td_53">
+              <input type="checkbox" tag="3" id="ck_5_3" name="number[53]" value="53">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_3">53</label>
+              <span id="drop_53"></span>
+            </td>
+
+            <td id="td_54">
+              <input type="checkbox" tag="4" id="ck_5_4" name="number[54]" value="54">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_4">54</label>
+              <span id="drop_54"></span>
+            </td>
+
+            <td id="td_55">
+              <input type="checkbox" tag="5" id="ck_5_5" name="number[55]" value="55">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_5">55</label>
+              <span id="drop_55"></span>
+            </td>
+
+            <td id="td_56">
+              <input type="checkbox" tag="6" id="ck_5_6" name="number[56]" value="56">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_6">56</label>
+              <span id="drop_56"></span>
+            </td>
+
+            <td id="td_57">
+              <input type="checkbox" tag="7" id="ck_5_7" name="number[57]" value="57">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_7">57</label>
+              <span id="drop_57"></span>
+            </td>
+
+            <td id="td_58">
+              <input type="checkbox" tag="8" id="ck_5_8" name="number[58]" value="58">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_8">58</label>
+              <span id="drop_58"></span>
+            </td>
+
+            <td id="td_59">
+              <input type="checkbox" tag="9" id="ck_5_9" name="number[59]" value="59">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_5_9">59</label>
+              <span id="drop_59"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_5"></td>
+          </tr>
+          <tr class="tr_lt">
+            <td id="td_60">
+              <input type="checkbox" tag="0" id="ck_6_0" name="number[60]" value="60">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_0">60</label>
+              <span id="drop_60"></span>
+            </td>
+
+            <td id="td_61">
+              <input type="checkbox" tag="1" id="ck_6_1" name="number[61]" value="61">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_1">61</label>
+              <span id="drop_61"></span>
+            </td>
+
+            <td id="td_62">
+              <input type="checkbox" tag="2" id="ck_6_2" name="number[62]" value="62">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_2">62</label>
+              <span id="drop_62"></span>
+            </td>
+
+            <td id="td_63">
+              <input type="checkbox" tag="3" id="ck_6_3" name="number[63]" value="63">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_3">63</label>
+              <span id="drop_63"></span>
+            </td>
+
+            <td id="td_64">
+              <input type="checkbox" tag="4" id="ck_6_4" name="number[64]" value="64">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_4">64</label>
+              <span id="drop_64"></span>
+            </td>
+
+            <td id="td_65">
+              <input type="checkbox" tag="5" id="ck_6_5" name="number[65]" value="65">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_5">65</label>
+              <span id="drop_65"></span>
+            </td>
+
+            <td id="td_66">
+              <input type="checkbox" tag="6" id="ck_6_6" name="number[66]" value="66">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_6">66</label>
+              <span id="drop_66"></span>
+            </td>
+
+            <td id="td_67">
+              <input type="checkbox" tag="7" id="ck_6_7" name="number[67]" value="67">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_7">67</label>
+              <span id="drop_67"></span>
+            </td>
+
+            <td id="td_68">
+              <input type="checkbox" tag="8" id="ck_6_8" name="number[68]" value="68">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_8">68</label>
+              <span id="drop_68"></span>
+            </td>
+
+            <td id="td_69">
+              <input type="checkbox" tag="9" id="ck_6_9" name="number[69]" value="69">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_6_9">69</label>
+              <span id="drop_69"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_6"></td>
+          </tr>
+          <tr class="">
+            <td id="td_70">
+              <input type="checkbox" tag="0" id="ck_7_0" name="number[70]" value="70">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_0">70</label>
+              <span id="drop_70"></span>
+            </td>
+
+            <td id="td_71">
+              <input type="checkbox" tag="1" id="ck_7_1" name="number[71]" value="71">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_1">71</label>
+              <span id="drop_71"></span>
+            </td>
+
+            <td id="td_72">
+              <input type="checkbox" tag="2" id="ck_7_2" name="number[72]" value="72">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_2">72</label>
+              <span id="drop_72"></span>
+            </td>
+
+            <td id="td_73">
+              <input type="checkbox" tag="3" id="ck_7_3" name="number[73]" value="73">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_3">73</label>
+              <span id="drop_73"></span>
+            </td>
+
+            <td id="td_74">
+              <input type="checkbox" tag="4" id="ck_7_4" name="number[74]" value="74">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_4">74</label>
+              <span id="drop_74"></span>
+            </td>
+
+            <td id="td_75">
+              <input type="checkbox" tag="5" id="ck_7_5" name="number[75]" value="75">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_5">75</label>
+              <span id="drop_75"></span>
+            </td>
+
+            <td id="td_76">
+              <input type="checkbox" tag="6" id="ck_7_6" name="number[76]" value="76">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_6">76</label>
+              <span id="drop_76"></span>
+            </td>
+
+            <td id="td_77">
+              <input type="checkbox" tag="7" id="ck_7_7" name="number[77]" value="77">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_7">77</label>
+              <span id="drop_77"></span>
+            </td>
+
+            <td id="td_78">
+              <input type="checkbox" tag="8" id="ck_7_8" name="number[78]" value="78">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_8">78</label>
+              <span id="drop_78"></span>
+            </td>
+
+            <td id="td_79">
+              <input type="checkbox" tag="9" id="ck_7_9" name="number[79]" value="79">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_7_9">79</label>
+              <span id="drop_79"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_7"></td>
+          </tr>
+          <tr class="tr_lt">
+            <td id="td_80">
+              <input type="checkbox" tag="0" id="ck_8_0" name="number[80]" value="80">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_0">80</label>
+              <span id="drop_80"></span>
+            </td>
+
+            <td id="td_81">
+              <input type="checkbox" tag="1" id="ck_8_1" name="number[81]" value="81">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_1">81</label>
+              <span id="drop_81"></span>
+            </td>
+
+            <td id="td_82">
+              <input type="checkbox" tag="2" id="ck_8_2" name="number[82]" value="82">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_2">82</label>
+              <span id="drop_82"></span>
+            </td>
+
+            <td id="td_83">
+              <input type="checkbox" tag="3" id="ck_8_3" name="number[83]" value="83">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_3">83</label>
+              <span id="drop_83"></span>
+            </td>
+
+            <td id="td_84">
+              <input type="checkbox" tag="4" id="ck_8_4" name="number[84]" value="84">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_4">84</label>
+              <span id="drop_84"></span>
+            </td>
+
+            <td id="td_85">
+              <input type="checkbox" tag="5" id="ck_8_5" name="number[85]" value="85">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_5">85</label>
+              <span id="drop_85"></span>
+            </td>
+
+            <td id="td_86">
+              <input type="checkbox" tag="6" id="ck_8_6" name="number[86]" value="86">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_6">86</label>
+              <span id="drop_86"></span>
+            </td>
+
+            <td id="td_87">
+              <input type="checkbox" tag="7" id="ck_8_7" name="number[87]" value="87">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_7">87</label>
+              <span id="drop_87"></span>
+            </td>
+
+            <td id="td_88">
+              <input type="checkbox" tag="8" id="ck_8_8" name="number[88]" value="88">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_8">88</label>
+              <span id="drop_88"></span>
+            </td>
+
+            <td id="td_89">
+              <input type="checkbox" tag="9" id="ck_8_9" name="number[89]" value="89">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_8_9">89</label>
+              <span id="drop_89"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_8"></td>
+          </tr>
+          <tr class="">
+            <td id="td_90">
+              <input type="checkbox" tag="0" id="ck_9_0" name="number[90]" value="90">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_0">90</label>
+              <span id="drop_90"></span>
+            </td>
+
+            <td id="td_91">
+              <input type="checkbox" tag="1" id="ck_9_1" name="number[91]" value="91">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_1">91</label>
+              <span id="drop_91"></span>
+            </td>
+
+            <td id="td_92">
+              <input type="checkbox" tag="2" id="ck_9_2" name="number[92]" value="92">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_2">92</label>
+              <span id="drop_92"></span>
+            </td>
+
+            <td id="td_93">
+              <input type="checkbox" tag="3" id="ck_9_3" name="number[93]" value="93">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_3">93</label>
+              <span id="drop_93"></span>
+            </td>
+
+            <td id="td_94">
+              <input type="checkbox" tag="4" id="ck_9_4" name="number[94]" value="94">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_4">94</label>
+              <span id="drop_94"></span>
+            </td>
+
+            <td id="td_95">
+              <input type="checkbox" tag="5" id="ck_9_5" name="number[95]" value="95">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_5">95</label>
+              <span id="drop_95"></span>
+            </td>
+
+            <td id="td_96">
+              <input type="checkbox" tag="6" id="ck_9_6" name="number[96]" value="96">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_6">96</label>
+              <span id="drop_96"></span>
+            </td>
+
+            <td id="td_97">
+              <input type="checkbox" tag="7" id="ck_9_7" name="number[97]" value="97">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_7">97</label>
+              <span id="drop_97"></span>
+            </td>
+
+            <td id="td_98">
+              <input type="checkbox" tag="8" id="ck_9_8" name="number[98]" value="98">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_8">98</label>
+              <span id="drop_98"></span>
+            </td>
+
+            <td id="td_99">
+              <input type="checkbox" tag="9" id="ck_9_9" name="number[99]" value="99">
+              <label class="tenthousand">0</label><label class="thousand">0</label><label for="ck_9_9">99</label>
+              <span id="drop_99"></span>
+            </td>
+            <td class="blue"><input type="checkbox" id="ckRow_9"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="btns btns2 bet_btns">
+        <div class="dleft" data-Normal_3D="Normal_3D_place">
+          <input type="button" class="btn_com btnBet" id="btnBet" value="Place Bet">
+          <input type="button" class="btn_com btnClear" id="btnClear" value="Clear">
+          &nbsp;&nbsp;
+          <span>
+            <span><b class="t">Limit Per Bet :</b></span>
+            <span id="span_lmt_2D">
+              2D:&nbsp;
+              <b>0
+                ~5,000</b>&nbsp;&nbsp;</span>
+            <span id="span_lmt_3D">
+              3D:&nbsp;
+              <b>0
+                ~3,000</b>&nbsp;&nbsp;</span>
+            <span id="span_lmt_4D">
+              4D:&nbsp;
+              <b>0
+                ~300</b>&nbsp;&nbsp;</span>
+            <span id="span_lmt_5D">
+              5D:&nbsp;
+              <b>0
+                ~30</b>&nbsp;&nbsp;</span>
+            <span id="span_lmt_PL2">
+              PL2:&nbsp;
+              <b>0
+                ~3,000</b>&nbsp;&nbsp;</span>
+            <span id="span_lmt_PL3">
+              PL3:&nbsp;
+              <b>0
+                ~300</b>&nbsp;&nbsp;</span>
+          </span>
+        </div>
+        <span class="span_unit">
+          VND1000 = 1 unit
+        </span>
+        <div class="clear"></div>
+      </div>
+
+      <div id="inputTool">
+        <input type="button" value="Clear">
+        <input type="button" value="+10">
+        <input type="button" value="+50">
+        <input type="button" value="+100">
+        <input type="button" value="+500">
+        <input type="button" value="+1000">
+        <input type="button" value="+2000">
+        <input type="button" value="+5000">
+      </div>
+
+      <!-- <link type="text/css" rel="stylesheet" href="/20190516978/css/box.css">
+      <link type="text/css" rel="stylesheet" href="/20190516978/css/member/bet/box.css">
+      <script type="text/javascript" src="/20190516978/js/jquery/jquery.drag.js"></script>
+      <script type="text/javascript" src="/20190516978/js/jquery/jquery.modal.js"></script>
+      <script type="text/javascript" src="/20190516978/js/box.js"></script> -->
+      <script type="text/javascript">
+        $(function () {
+          $("#divBox .close").click(function () {
+            $("#divBox").jqmHide();
+          });
+        });
+      </script>
+      <!-- 
+  <div id="divBox" class="divBox jqmWindow">
+    <div class="body">
+      <div class="tit drag"></div>
+      <div class="ctx"></div>
+    </div>
+    <div class="head"></div>
+  </div>
+   -->
+      <div id="divBox" class="divBox jqmWindow jqmID1">
+        <div class="head drag">
+          <div class="lt"></div>
+          <div class="gt"></div>
+          <div class="tit"></div>
+        </div>
+        <div class="body">
+          <div class="context"></div>
+          <div class="btns">
+            <span><input type="button" value="OK" class="btn_com jqmClose" id="btnCancelBox"></span>
+          </div>
+        </div>
+      </div>
+      <div style="display:none;">
+
+        <div id="box_btn">
+          <span><input type="button" value="OK" class="btn_com jqmClose" id="btnCancelBox"></span>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        var drawlist = [{ "drawId": "20190531HN", "company": "HN", "companyGroup": "HN", "companyAttr": "N", "day": 6, "open": "06:00", "close": "18:09", "state": "S", "runningState": "S", "runningClose": "18:19" }, { "drawId": "20190531VL", "company": "VL", "companyGroup": "18A", "companyAttr": "S", "day": 6, "open": "06:00", "close": "16:06", "state": "T", "runningState": "S", "runningClose": "16:21" }, { "drawId": "20190531BD", "company": "BD", "companyGroup": "18B", "companyAttr": "S", "day": 6, "open": "06:00", "close": "16:11", "state": "T", "runningState": "S", "runningClose": "16:24" }, { "drawId": "20190531TV", "company": "TV", "companyGroup": "18C", "companyAttr": "S", "day": 6, "open": "06:00", "close": "16:09", "state": "T", "runningState": "S", "runningClose": "16:24" }, { "drawId": "20190531GL", "company": "GL", "companyGroup": "18D", "companyAttr": "M", "day": 6, "open": "06:00", "close": "17:05", "state": "S", "runningState": "S", "runningClose": "17:15" }, { "drawId": "20190531NT", "company": "NT", "companyGroup": "18D", "companyAttr": "M", "day": 6, "open": "06:00", "close": "17:05", "state": "S", "runningState": "S", "runningClose": "17:15" }];
+        var gamePackage = { "id": 1, "name": "A", "packageType": 1, "comm2dn": 24.5000, "comm3dn": 33.0000, "comm4dn": 33.0000, "comm5dn": 33.0000, "commPl2n": 24.5000, "commPl3n": 24.5000, "odds2dn": 75.0000, "odds3dn": 650.0000, "odds4dn": 6000.0000, "odds5dn": 40000.0000, "oddsPl2n": 650.0000, "oddsPl3n": 3500.0000, "comm2da": 24.5000, "comm3da": 33.0000, "comm4da": 33.0000, "comm5da": 33.0000, "commPl2a": 24.5000, "commPl3a": 24.5000, "odds2da": 75.0000, "odds3da": 650.0000, "odds4da": 6000.0000, "odds5da": 40000.0000, "oddsPl2a": 750.0000, "oddsPl3a": 3500.0000, "comm2db": 24.5000, "comm3db": 33.0000, "comm4db": 33.0000, "comm5db": 33.0000, "commPl2b": 24.5000, "commPl3b": 24.5000, "odds2db": 75.0000, "odds3db": 650.0000, "odds4db": 6000.0000, "odds5db": 40000.0000, "oddsPl2b": 750.0000, "oddsPl3b": 3500.0000, "comm2dc": 24.5000, "comm3dc": 33.0000, "comm4dc": 33.0000, "comm5dc": 33.0000, "commPl2c": 24.5000, "commPl3c": 24.5000, "odds2dc": 75.0000, "odds3dc": 650.0000, "odds4dc": 6000.0000, "odds5dc": 40000.0000, "oddsPl2c": 750.0000, "oddsPl3c": 3500.0000, "comm2dd": 24.5000, "comm3dd": 33.0000, "comm4dd": 33.0000, "comm5dd": 33.0000, "commPl2d": 24.5000, "commPl3d": 24.5000, "odds2dd": 75.0000, "odds3dd": 650.0000, "odds4dd": 6000.0000, "odds5dd": 40000.0000, "oddsPl2d": 750.0000, "oddsPl3d": 3500.0000 };
+        var drawTypeCountNorth = { "5D": { "Roll": 10 }, "4D": { "Bottom": 1, "Roll": 20 }, "3D": { "Top": 3, "Bottom": 1, "TB": 4, "Roll": 23, "Roll7": 7, "TRoll7": 7, "MRoll7": 7, "BRoll7": 7 }, "2D": { "Top": 4, "Bottom": 1, "TB": 5, "Roll": 27, "Roll7": 7, "TRoll7": 7, "MRoll7": 7, "BRoll7": 7 } };
+        var drawTypeCountSouth = { "5D": { "Roll": 12 }, "4D": { "Bottom": 1, "Roll": 16 }, "3D": { "Top": 1, "Bottom": 1, "TB": 2, "Roll": 17, "Roll7": 7, "TRoll7": 7, "MRoll7": 7, "BRoll7": 7 }, "2D": { "Top": 1, "Bottom": 1, "TB": 2, "Roll": 18, "Roll7": 7, "TRoll7": 7, "MRoll7": 7, "BRoll7": 7 } };
+        var serverTime = 1559293995752;
+
+        var confirmBet = 'Confirm Bet ?';
+        var msgInvalidBet = 'Invalid format';
+      </script>
+    </div>
+  </form>
+  <div class="clear"></div>
+
+
+  <script src="../js/main-jeremy.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web-Rules</title>
+  <link rel="stylesheet" href="./style/web_rules.css">
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.i18n.properties-1.0.9.js"></script>
+  <style>
+    main .main .context td {
+      color: #000 !important;
+      font-weight: normal !important;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="web_rules main">
+      <div class="box">
+        <div class="title">
+          <div class="lt"></div>
+          <div class="md" data-Web="rules">
+            Rules
+          </div>
+          <div class="gt"></div>
+        </div>
+        <div class="body">
+          <div class="context">
+            <table id="tb_method" class="special">
+              <thead>
+                <tr>
+                  <th class="left" data-Web="playing">
+                    Playing Method
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text" data-Web="method">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Vitenam lottery is based on the result of Vitenam traditional lottery.
+                    Lottery are drawed by many companies. Lottery result of company named 'Hanoi' has 27 numeric
+                    strings,
+                    other Companies have .
+                    <br>18 strings. Just write down the number strings and choose the game type. If you bet the right
+                    number string in the right position,you win.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table id="tb_bet" class="special">
+              <thead>
+                <tr>
+                  <th colspan="8" class="left" data-Web="type">
+                    Type Of Bet
+                  </th>
+                </tr>
+                <tr class="m_title4">
+                  <th colspan="2" data-Web="g_type">Game Type</th>
+                  <th rowspan="2" data-Web="number">Number</th>
+                  <th rowspan="2" data-Web="winning">Condition Of Winning</th>
+                  <th colspan="2" data-Web="g_type">Game Type</th>
+                  <th rowspan="2" data-Web="number">Number</th>
+                  <th rowspan="2" data-Web="winning">Condition Of Winning</th>
+                </tr>
+                <tr class="sub_title4">
+                  <th data-Web="length">length</th>
+                  <th data-Web="position">Position Range</th>
+                  <th data-Web="length">length</th>
+                  <th data-Web="position">Position Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="10">2D</td>
+                  <td data-Web="head">Head</td>
+                  <td>XX(00-99)</td>
+                  <td class="left" data-Web="2d0">XX equals a numberic string in '2D-Head' at least once</td>
+                  <td rowspan="8">3D</td>
+                  <td data-Web="head">Head</td>
+                  <td>XXX(000-999)</td>
+                  <td class="left" data-Web="3d0">XXX equals a numberic string in '3D-Head' at least once</td>
+                </tr>
+                <tr class="tr_lt">
+                  <td data-Web="last">Last</td>
+                  <td>XX(00-99)</td>
+                  <td class="left" data-Web="2d1">XX equals a numberic string in '2D-Last' at least once</td>
+                  <td data-Web="last">Last</td>
+                  <td>XXX(000-999)</td>
+                  <td class="left" data-Web="3d1">XXX equals a numberic string in '3D-Last' at least once</td>
+                </tr>
+                <tr>
+                  <td data-Web="hlast">Head+Last</td>
+                  <td>XX(00-99)</td>
+                  <td class="left" data-Web="2d2">XX equals a numberic string in '2D-HeadLast' at least once</td>
+                  <td data-Web="hlast">Head+Last</td>
+                  <td>XXX(000-999)</td>
+                  <td class="left" data-Web="3d2">XXX equals a numberic string in '3D-HeadLast' at least once</td>
+                </tr>
+                <tr class="tr_lt">
+                  <td data-Web="roll">Roll</td>
+                  <td>XX(00-99)</td>
+                  <td class="left" data-Web="2d3">XX equals a numberic string in '2D-Roll' at least once</td>
+                  <td data-Web="roll">Roll</td>
+                  <td>XXX(000-999)</td>
+                  <td class="left" data-Web="3d3">XXX equals a numberic string in '3D-Roll' at least once</td>
+                </tr>
+                <tr>
+                  <td data-Web="roll7">Roll7</td>
+                  <td>XX(00-99)</td>
+                  <td class="left" data-Web="2d4">XX equals a numberic string in '2D-Roll7' at least once</td>
+                  <td data-Web="roll7">Roll7</td>
+                  <td>XXX(000-999)</td>
+                  <td class="left" data-Web="3d4">XXX equals a numberic string in '3D-Roll7' at least once</td>
+                </tr>
+                <tr>
+                  <td data-Web="top_roll7">TopRoll7</td>
+                  <td>XX(00-99)</td>
+                  <td class="left" data-Web="2d5">XX equals a numberic string in '2D-TopRoll7' at least once</td>
+                  <td data-Web="top_roll7">TopRoll7</td>
+                  <td>XXX(000-999)</td>
+                  <td class="left" data-Web="3d5">XX equals a numberic string in '3D-TopRoll7' at least once</td>
+                </tr>
+                <tr>
+                  <td data-Web="mid_roll7">MidRoll7</td>
+                  <td>XX(00-99)</td>
+                  <td class="left" data-Web="2d6">XX equals a numberic string in '2D-MidRoll7' at least once</td>
+                  <td data-Web="mid_roll7">MidRoll7</td>
+                  <td>XXX(000-999)</td>
+                  <td class="left" data-Web="3d6">XX equals a numberic string in '3D-MidRoll7' at least once</td>
+                </tr>
+                <tr>
+                  <td data-Web="bot_roll7">BottomRoll7</td>
+                  <td>XX(00-99)</td>
+                  <td class="left" data-Web="2d7">XX equals a numberic string in '2D-BottomRoll7' at least once</td>
+                  <td data-Web="bot_roll7">BottomRoll7</td>
+                  <td>XXX(000-999)</td>
+                  <td class="left" data-Web="3d7">XX equals a numberic string in '3D-BottomRoll7' at least once</td>
+                </tr>
+
+                <tr class="tr_lt">
+                  <td data-Web="pl2">PL2(Roll Parlay2)</td>
+                  <td>AA#BB</td>
+                  <td class="left" data-Web="2d8">AA and BB all equal a numberic string in '2D-Roll' at least once</td>
+                  <td rowspan="2">4D</td>
+                  <td data-Web="last">Last</td>
+                  <td>XXXX(0000-9999)</td>
+                  <td class="left" data-Web="3d8">XXXX equals a numberic string in '4D-Last' at least once</td>
+                </tr>
+                <tr>
+                  <td data-Web="pl3">PL3(Roll Parlay3)</td>
+                  <td>AA#BB#CC</td>
+                  <td class="left" data-Web="2d9">AA, BB and CC all equal a numberic string in '2D-Roll' at least once</td>
+                  <td data-Web="roll">Roll</td>
+                  <td>XXXX(0000-9999)</td>
+                  <td class="left" data-Web="3d9">XXXX equals a numberic string in '4D-Roll' at least once</td>
+                </tr>
+              </tbody>
+            </table>
+            <table id="tb_rules" class="special">
+              <thead>
+                <tr>
+                  <th class="left" data-Web="rules">
+                    Rules
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text">
+                    <ul>
+                      <li data-Web="text1">
+                        'Head' includes n-digit number of the lottery result,'n' is the length of number you bet;
+                      </li>
+                      <li data-Web="text2">
+                        'Last' includes last n digits of the last numberic string of the lottery result;
+                      </li>
+                      <li data-Web="text3">
+                        'Head+Last' includes both numberic strings of 'Head' and 'Last';
+                      </li>
+                      <li data-Web="text4">
+                        'Roll' includes last n digits of all numberic strings in lottery result.
+                      </li>
+                      <li data-Web="text5">
+                        'Roll7' includes last n digits of from first to six or last numberic strings in lottery result.
+                      </li>
+                      <li data-Web="text6">
+                        As for 'Roll parlay 2' and 'Roll Parlay 3',we verify user's bet with strings in '2D-Roll'. If
+                        you
+                        bet AA#BB, the
+                        mulitiple of bonus is the smaller number of occurrences of AA and BB in '2D-Roll'. For example,
+                        if
+                        AA appears in
+                        '2D-Roll' once, <br>BB three times, then the multiple is 1. If AA
+                        appear in '2D-Roll' three time and BB twice, then the multiple is 2.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table id="tb_examples1" class="special">
+              <thead>
+                <tr>
+                  <th colspan="18" class="left" data-Web="example">
+                    Examples
+                  </th>
+                </tr>
+                <tr class="m_title4">
+                  <th rowspan="2" colspan="2" data-Web="company">Company : Hanoi</th>
+                  <th colspan="4" data-Web="2dOdds">2d(Odds:<span id="n_odds_2D">75</span>)</th>
+                  <th colspan="4" data-Web="3dOdds">3d(Odds:<span id="n_odds_3D">650</span>)</th>
+                  <th colspan="2" data-Web="4dOdds">4d(Odds:<span id="n_odds_4D">6000</span>)</th>
+                  <th data-Web="5dOdds">5d(Odds:<span id="n_odds_5D">40000</span>)</th>
+                  <th rowspan="2" colspan="2" data-Web="pl2Odds">PL2<br>(Odds:<span id="n_odds_PL2">650</span>)</th>
+                  <th rowspan="2" colspan="3" data-Web="pl3Odds">PL3<br>(Odds:<span id="n_odds_PL3">3500</span>)</th>
+                </tr>
+                <tr class="sub_title">
+                  <th data-Web="head">TOP</th>
+                  <th data-Web="last">BOTTOM</th>
+                  <th data-Web="hlast">TOP + BOTTOM</th>
+                  <th data-Web="roll">ROLL</th>
+                  <th data-Web="head">TOP</th>
+                  <th data-Web="last">BOTTOM</th>
+                  <th data-Web="hlast">TOP + BOTTOM</th>
+                  <th data-Web="roll">ROLL</th>
+                  <th data-Web="last">BOTTOM</th>
+                  <th data-Web="roll">ROLL</th>
+                  <th data-Web="roll">ROLL</th>
+                </tr>
+                <tr class="m_title4">
+                  <th rowspan="2" colspan="2" data-Web="result">Result</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th data-Web="mix">Mix</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th colspan="2"></th>
+                  <th colspan="3"></th>
+                </tr>
+                <tr class="sub_title">
+                  <th>Odd</th>
+                  <th>Big</th>
+                  <th>48</th>
+                  <th>*0</th>
+                  <th>028</th>
+                  <th>706</th>
+                  <th>050 - 053</th>
+                  <th>249</th>
+                  <th>6036</th>
+                  <th>1218</th>
+                  <th>01218</th>
+                  <th colspan="2">36#46</th>
+                  <th colspan="3">11#24#81</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>2-digit</th>
+                  <td class="normal">85 11 87 48</td>
+                  <td class="pink">
+                    <h6>85 11 87</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">
+                    <h6>48</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">
+                    <h6>11</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr class="tr_lt">
+                  <th>3-digit</th>
+                  <td class="normal">028 051 700</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">7<h6>00</h6>
+                  </td>
+                  <td class="pink">
+                    <h6>028</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">
+                    <h6>051</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>4-digit</th>
+                  <td class="normal">
+                    5610 4746 6090 1846<br>0624 1021 7157 3797<br>3194 2249
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">50<h6>10</h6><br>60<h6>90</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">2<h6>249</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">47<h6>46</h6><br>18<h6>46</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">06<h6>24</h6>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr class="tr_lt">
+                  <th>5-digit</th>
+                  <td class="normal">
+                    12336 09924 87096<br>10830 36306 01218<br>88481 04170 52050<br><b>16076(Last)</b>
+                  </td>
+                  <td></td>
+                  <td class="pink">160<h6>76</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">108<h6>30</h6><br>041<h6>70</h6><br>520<h6>50</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">16<h6>076</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">0<h6>1218</h6>
+                  </td>
+                  <td class="pink">
+                    <h6>01218</h6>
+                  </td>
+                  <td class="pink">122<h6>36</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">099<h6>24</h6>
+                  </td>
+                  <td class="pink">884<h6>81</h6>
+                  </td>
+                </tr>
+                <tr class="bm">
+                  <th colspan="2" data-Web="turnover">Turnover(Bet=10)</th>
+                  <td>2,000</td>
+                  <td>500</td>
+                  <td>50</td>
+                  <td>2,700</td>
+                  <td>30</td>
+                  <td>60</td>
+                  <td>200</td>
+                  <td>230</td>
+                  <td>10</td>
+                  <td>200</td>
+                  <td>100</td>
+                  <td colspan="2">540</td>
+                  <td colspan="3">810</td>
+                </tr>
+                <tr class="bm">
+                  <th colspan="2" data-Web="multiple">Multiple</th>
+                  <td>x<span id="n_mut_Top_2D">3</span></td>
+                  <td>x<span id="n_mut_Bottom_2D">1</span></td>
+                  <td>x<span id="n_mut_TB_2D">1</span></td>
+                  <td>x<span id="n_mut_Roll_2D">6</span></td>
+                  <td>x<span id="n_mut_Top_3D">1</span></td>
+                  <td>x<span id="n_mut_Bottom_3D">1</span></td>
+                  <td>x<span id="n_mut_TB_3D">1</span></td>
+                  <td>x<span id="n_mut_Roll_3D">1</span></td>
+                  <td>--</td>
+                  <td>x<span id="n_mut_Roll_4D">1</span></td>
+                  <td>x<span id="n_mut_Roll_5D">1</span></td>
+                  <td colspan="2">x<span id="n_mut_PL2_PL2">1</span></td>
+                  <td colspan="3">x<span id="n_mut_PL3_PL3">1</span></td>
+                </tr>
+                <tr class="bm">
+                  <th colspan="2" data-Web="win">Win Amount(Bet=10)</th>
+                  <td><span id="n_amt_Top_2D"><span class="">2,250</span></span></td>
+                  <td><span id="n_amt_Bottom_2D"><span class="">750</span></span></td>
+                  <td><span id="n_amt_TB_2D"><span class="">750</span></span></td>
+                  <td><span id="n_amt_Roll_2D"><span class="">4,500</span></span></td>
+                  <td><span id="n_amt_Top_3D"><span class="">6,500</span></span></td>
+                  <td><span id="n_amt_Bottom_3D"><span class="">6,500</span></span></td>
+                  <td><span id="n_amt_TB_3D"><span class="">6,500</span></span></td>
+                  <td><span id="n_amt_Roll_3D"><span class="">6,500</span></span></td>
+                  <td>--</td>
+                  <td><span id="n_amt_Roll_4D"><span class="">60,000</span></span></td>
+                  <td><span id="n_amt_Roll_5D"><span class="">400,000</span></span></td>
+                  <td colspan="2"><span id="n_amt_PL2_PL2"><span class="">6,500</span></span></td>
+                  <td colspan="3"><span id="n_amt_PL3_PL3"><span class="">35,000</span></span></td>
+                </tr>
+                <tr class="rmk">
+                  <th colspan="18" class="left" data-Web="remark">
+                    Remark: Win Amount=Bet*Odds*Multiple
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table id="tb_examples2" class="special all">
+              <thead>
+                <tr>
+                  <th colspan="26" class="left" data-Web="example">
+                    Examples
+                  </th>
+                </tr>
+                <tr class="m_title4">
+                  <th rowspan="2" colspan="2" data-Web="company">Company : Ben Tre</th>
+                  <th colspan="8" data-Web="2dOdds">2d(Odds:<span id="a_odds_2D">75</span>)</th>
+                  <th colspan="8" data-Web="3dOdds">3d(Odds:<span id="a_odds_3D">650</span>)</th>
+                  <th colspan="2" data-Web="4dOdds">4d(Odds:<span id="a_odds_4D">6000</span>)</th>
+                  <th data-Web="5dOdds">5d(Odds:<span id="a_odds_5D">40000</span>)</th>
+                  <th rowspan="2" colspan="2" data-Web="pl2Odds2">PL2<br>(Odds:<span id="a_odds_PL2">750</span>)</th>
+                  <th rowspan="2" colspan="3" data-Web="pl3Odds">PL3<br>(Odds:<span id="a_odds_PL3">3500</span>)</th>
+                </tr>
+                <tr class="sub_title">
+                  <th data-Web="head">TOP</th>
+                  <th data-Web="last">BOTTOM</th>
+                  <th data-Web="hlast">TOP + BOTTOM</th>
+                  <th data-Web="roll">ROLL</th>
+                  <th data-Web="roll7">Roll7</th>
+                  <th data-Web="top_roll7">TopRoll7</th>
+                  <th data-Web="mid_roll7">MidRoll7</th>
+                  <th data-Web="bot_roll7">BottomRoll7</th>
+                  <th data-Web="head">TOP</th>
+                  <th data-Web="last">BOTTOM</th>
+                  <th data-Web="hlast">TOP + BOTTOM</th>
+                  <th data-Web="roll">ROLL</th>
+                  <th data-Web="roll7">Roll7</th>
+                  <th data-Web="top_roll7">TopRoll7</th>
+                  <th data-Web="mid_roll7">MidRoll7</th>
+                  <th data-Web="bot_roll7">BottomRoll7</th>
+                  <th data-Web="last">BOTTOM</th>
+                  <th data-Web="roll">ROLL</th>
+                  <th data-Web="roll">ROLL</th>
+                </tr>
+                <tr class="m_title4">
+                  <th rowspan="2" colspan="2" data-Web="result">Result</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th data-Web="mix">Mix</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th colspan="2"></th>
+                  <th colspan="3"></th>
+                </tr>
+                <tr class="sub_title">
+                  <th>06</th>
+                  <th>Big</th>
+                  <th>Even</th>
+                  <th>*0</th>
+                  <th>*4</th>
+                  <th>327</th>
+                  <th>764</th>
+                  <th>327</th>
+                  <th>327</th>
+                  <th>764</th>
+                  <th>320-330</th>
+                  <th>992</th>
+                  <th>340-350</th>
+                  <th>6036</th>
+                  <th>5288</th>
+                  <th>6036</th>
+                  <th>6036</th>
+                  <th>5288</th>
+                  <th>55288</th>
+                  <th colspan="2">24#89</th>
+                  <th colspan="3">06#50#82</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>2-digit</th>
+                  <td class="normal">06</td>
+                  <td class="pink">
+                    <h6>06</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">
+                    <h6>06</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">
+                    <h6>06</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr class="tr_lt">
+                  <th>3-digit</th>
+                  <td class="normal">327</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">
+                    <h6>327</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">
+                    <h6>327</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>4-digit</th>
+                  <td class="normal">3804 6350 3992 0389</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">63<h6>50</h6>
+                  </td>
+                  <td class="pink">38<h6>04</h6>
+                  </td>
+                  <td class="pink">38<h6>04</h6>
+                  </td>
+                  <td class="pink">38<h6>04</h6>
+                  </td>
+                  <td class="pink">38<h6>04</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">3<h6>992</h6>
+                  </td>
+                  <td class="pink">6<h6>350</h6>
+                  </td>
+                  <td class="pink">6<h6>350</h6>
+                  </td>
+                  <td class="pink">6<h6>350</h6>
+                  </td>
+                  <td class="pink">6<h6>350</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">03<h6>89</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">63<h6>50</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr class="tr_lt">
+                  <th>5-digit</th>
+                  <td class="normal">81340 46996 17361<br>93071 60900 33910<br>55288 09682 22024<br>11650 98163 <b>16674
+                      (Last)</b></td>
+                  <td></td>
+                  <td class="pink">166<h6>74</h6>
+                  </td>
+                  <td class="pink">166<h6>74</h6>
+                  </td>
+                  <td class="pink">813<h6>40</h6><br>609<h6>00</h6><br>339<h6>10</h6><br>116<h6>50</h6>
+                  </td>
+                  <td class="pink">166<h6>74</h6>
+                  </td>
+                  <td class="pink">166<h6>74</h6>
+                  </td>
+                  <td class="pink">166<h6>74</h6>
+                  </td>
+                  <td class="pink">166<h6>74</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">16<h6>674</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">81<h6>340</h6>
+                  </td>
+                  <td class="pink">81<h6>340</h6>
+                  </td>
+                  <td class="pink">81<h6>340</h6>
+                  </td>
+                  <td class="pink">81<h6>340</h6>
+                  </td>
+                  <td></td>
+                  <td class="pink">5<h6>5288</h6>
+                  </td>
+                  <td class="pink">
+                    <h6>55288</h6>
+                  </td>
+                  <td class="pink">220<h6>24</h6>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td class="pink">116<h6>50</h6>
+                  </td>
+                  <td class="pink">096<h6>82</h6>
+                  </td>
+                </tr>
+                <tr class="bm">
+                  <th colspan="2" data-Web="turnover">Turnover(Bet=10)</th>
+                  <td>10</td>
+                  <td>500</td>
+                  <td>1000</td>
+                  <td>1,800</td>
+                  <td>700</td>
+                  <td>700</td>
+                  <td>700</td>
+                  <td>700</td>
+                  <td>10</td>
+                  <td>60</td>
+                  <td>220</td>
+                  <td>170</td>
+                  <td>770</td>
+                  <td>770</td>
+                  <td>770</td>
+                  <td>770</td>
+                  <td>10</td>
+                  <td>160</td>
+                  <td>120</td>
+                  <td colspan="2">360</td>
+                  <td colspan="3">810</td>
+                </tr>
+                <tr class="bm">
+                  <th colspan="2" data-Web="multiple">Multiple</th>
+                  <td>x<span id="a_mut_Top_2D">1</span></td>
+                  <td>x<span id="a_mut_Bottom_2D">1</span></td>
+                  <td>x<span id="a_mut_TB_2D">2</span></td>
+                  <td>x<span id="a_mut_Roll_2D">5</span></td>
+                  <td>x<span id="a_mut_Roll7_2D">2</span></td>
+                  <td>x<span id="a_mut_TopRoll7_3D">2</span></td>
+                  <td>x<span id="a_mut_MidRoll7_3D">2</span></td>
+                  <td>x<span id="a_mut_BottomRoll7_3D">2</span></td>
+                  <td>x<span id="a_mut_Top_3D">1</span></td>
+                  <td>x<span id="a_mut_Bottom_3D">1</span></td>
+                  <td>x<span id="a_mut_TB_3D">1</span></td>
+                  <td>x<span id="a_mut_Roll_3D">1</span></td>
+                  <td>x<span id="a_mut_Roll7_3D">2</span></td>
+                  <td>x<span id="a_mut_TopRoll7_3D">2</span></td>
+                  <td>x<span id="a_mut_MidRoll7_3D">2</span></td>
+                  <td>x<span id="a_mut_BottomRoll7_3D">2</span></td>
+                  <td>--</td>
+                  <td>x<span id="a_mut_Roll_4D">1</span></td>
+                  <td>x<span id="a_mut_Roll_5D">1</span></td>
+                  <td colspan="2">x<span id="a_mut_PL2_PL2">1</span></td>
+                  <td colspan="3">x<span id="a_mut_PL3_PL3">1</span></td>
+                </tr>
+                <tr class="bm">
+                  <th colspan="2" data-Web="win">Win Amount(Bet=10)</th>
+                  <td><span id="a_amt_Top_2D"><span class="">750</span></span></td>
+                  <td><span id="a_amt_Bottom_2D"><span class="">750</span></span></td>
+                  <td><span id="a_amt_TB_2D"><span class="">1,500</span></span></td>
+                  <td><span id="a_amt_Roll_2D"><span class="">3,750</span></span></td>
+                  <td><span id="a_amt_Roll7_2D"><span class="">1,500</span></span></td>
+                  <td><span id="a_amt_TopRoll7_2D">-</span></td>
+                  <td><span id="a_amt_MidRoll7_2D">-</span></td>
+                  <td><span id="a_amt_BottomRoll7_2D">-</span></td>
+                  <td><span id="a_amt_Top_3D"><span class="">6,500</span></span></td>
+                  <td><span id="a_amt_Bottom_3D"><span class="">6,500</span></span></td>
+                  <td><span id="a_amt_TB_3D"><span class="">6,500</span></span></td>
+                  <td><span id="a_amt_Roll_3D"><span class="">6,500</span></span></td>
+                  <td><span id="a_amt_Roll7_3D"><span class="">13,000</span></span></td>
+                  <td><span id="a_amt_TopRoll7_3D">-</span></td>
+                  <td><span id="a_amt_MidRoll7_3D">-</span></td>
+                  <td><span id="a_amt_BottomRoll7_3D">-</span></td>
+                  <td>--</td>
+                  <td><span id="a_amt_Roll_4D"><span class="">60,000</span></span></td>
+                  <td><span id="a_amt_Roll_5D"><span class="">400,000</span></span></td>
+                  <td colspan="2"><span id="a_amt_PL2_PL2"><span class="">7,500</span></span></td>
+                  <td colspan="3"><span id="a_amt_PL3_PL3"><span class="">35,000</span></span></td>
+                </tr>
+                <tr class="rmk">
+                  <th colspan="26" class="left" data-Web="remark">
+                    Remark: Win Amount=Bet*Odds*Multiple
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </main>
+  
+  
+  <!-- <script src="./js/main-jeremy.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Schedule</title>
+  <link rel="stylesheet" href="./style/schedule.css">
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.i18n.properties-1.0.9.js"></script>
+</head>
+
+<body>
+  <main>
+    <div class="schedule">
+      <div class="box">
+        <div class="title2">
+          <div class="lt"></div>
+          <div class="md" data-sche="title">Schedule</div>
+          <div class="gt"></div>
+        </div>
+        <div class="body">
+          <div class="context2">
+            <table class="report3">
+              <thead>
+                <tr>
+                  <th data-sche="date">Day</th>
+                  <th colspan="4">Hanoi </th>
+                  <th colspan="4">18A</th>
+                  <th colspan="4">18B</th>
+                  <th colspan="4">18C</th>
+                  <th colspan="4">18D</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="">
+                  <td data-sche="mon" class="day">Mon</td>
+
+                  <td id="day2_HN"><b>HN</b></td>
+                  <td id="day2_HN_name">Hanoi </td>
+                  <td id="day2_HN_time" class="d_green">06:00 ~ 18:09</td>
+                  <td id="day2_HN_running_time" class="d_green">18:21(close running)</td>
+
+                  <td id="day2_18A"><b>TP</b></td>
+                  <td id="day2_18A_name">TP HCM</td>
+                  <td id="day2_18A_time" class="d_green">06:00 ~ 16:09</td>
+                  <td id="day2_18A_running_time" class="d_green">16:24(close running)</td>
+
+                  <td id="day2_18B"><b>DT</b></td>
+                  <td id="day2_18B_name">Dong Thap</td>
+                  <td id="day2_18B_time" class="d_green">06:00 ~ 16:10</td>
+                  <td id="day2_18B_running_time" class="d_green">16:27(close running)</td>
+
+                  <td id="day2_18C"><b>CM</b></td>
+                  <td id="day2_18C_name">Ca Mau</td>
+                  <td id="day2_18C_time" class="d_green">06:00 ~ 16:10</td>
+                  <td id="day2_18C_running_time" class="d_green">16:25(close running)</td>
+
+                  <td id="day2_18D"><b>TTH</b><br><b>PY</b></td>
+                  <td id="day2_18D_name">Thua Thien<br>Phu Yen</td>
+                  <td id="day2_18D_time" class="d_green">06:00 ~ 17:05<br>06:00 ~ 17:05</td>
+                  <td id="day2_18D_running_time" class="d_green">17:20(close running)<br>17:20(close running)</td>
+
+                </tr>
+
+                <tr class="tr_lt">
+                  <td data-sche="tue" class="day">Tue</td>
+
+                  <td id="day3_HN"><b>HN</b></td>
+                  <td id="day3_HN_name">Hanoi </td>
+                  <td id="day3_HN_time" class="d_green">06:00 ~ 18:09</td>
+                  <td id="day3_HN_running_time" class="d_green">18:19(close running)</td>
+
+                  <td id="day3_18A"><b>BT</b></td>
+                  <td id="day3_18A_name">Ben Tre</td>
+                  <td id="day3_18A_time" class="d_green">06:00 ~ 16:11</td>
+                  <td id="day3_18A_running_time" class="d_green">16:25(close running)</td>
+
+                  <td id="day3_18B"><b>VT</b></td>
+                  <td id="day3_18B_name">Vung Tau </td>
+                  <td id="day3_18B_time" class="d_green">06:00 ~ 16:10</td>
+                  <td id="day3_18B_running_time" class="d_green">16:25(close running)</td>
+
+                  <td id="day3_18C"><b>BL</b></td>
+                  <td id="day3_18C_name">Bac Lieu</td>
+                  <td id="day3_18C_time" class="d_green">06:00 ~ 16:06</td>
+                  <td id="day3_18C_running_time" class="d_green">16:22(close running)</td>
+
+                  <td id="day3_18D"><b>DLK</b><br><b>QNM</b></td>
+                  <td id="day3_18D_name">Dak Lak<br>Quang Nam</td>
+                  <td id="day3_18D_time" class="d_green">06:00 ~ 17:05<br>06:00 ~ 17:05</td>
+                  <td id="day3_18D_running_time" class="d_green">17:20(close running)<br>17:20(close running)</td>
+
+                </tr>
+
+                <tr class="">
+                  <td data-sche="wed" class="day">Wed</td>
+
+                  <td id="day4_HN"><b>HN</b></td>
+                  <td id="day4_HN_name">Hanoi </td>
+                  <td id="day4_HN_time" class="d_green">06:00 ~ 18:09</td>
+                  <td id="day4_HN_running_time" class="d_green">18:19(close running)</td>
+
+                  <td id="day4_18A"><b>DN</b></td>
+                  <td id="day4_18A_name">Dong nai</td>
+                  <td id="day4_18A_time" class="d_green">06:00 ~ 16:11</td>
+                  <td id="day4_18A_running_time" class="d_green">16:25(close running)</td>
+
+                  <td id="day4_18B"><b>CT</b></td>
+                  <td id="day4_18B_name">Can Tho </td>
+                  <td id="day4_18B_time" class="d_green">06:00 ~ 16:11</td>
+                  <td id="day4_18B_running_time" class="d_green">16:24(close running)</td>
+
+                  <td id="day4_18C"><b>ST</b></td>
+                  <td id="day4_18C_name">Soc Trang</td>
+                  <td id="day4_18C_time" class="d_green">06:00 ~ 16:10</td>
+                  <td id="day4_18C_running_time" class="d_green">16:25(close running)</td>
+
+                  <td id="day4_18D"><b>DNG</b><br><b>KH</b></td>
+                  <td id="day4_18D_name">Da Nang<br>Khanh Hoa</td>
+                  <td id="day4_18D_time" class="d_green">06:00 ~ 17:05<br>06:00 ~ 17:05</td>
+                  <td id="day4_18D_running_time" class="d_green">17:15(close running)<br>17:15(close running)</td>
+
+                </tr>
+
+                <tr class="tr_lt">
+                  <td data-sche="thu" class="day">Thu</td>
+
+                  <td id="day5_HN"><b>HN</b></td>
+                  <td id="day5_HN_name">Hanoi </td>
+                  <td id="day5_HN_time" class="d_green">06:00 ~ 18:10</td>
+                  <td id="day5_HN_running_time" class="d_green">18:20(close running)</td>
+
+                  <td id="day5_18A"><b>TN</b></td>
+                  <td id="day5_18A_name">Tay Ninh</td>
+                  <td id="day5_18A_time" class="d_green">06:00 ~ 16:06</td>
+                  <td id="day5_18A_running_time" class="d_green">16:19(close running)</td>
+
+                  <td id="day5_18B"><b>AG</b></td>
+                  <td id="day5_18B_name">An Giang </td>
+                  <td id="day5_18B_time" class="d_green">06:00 ~ 16:11</td>
+                  <td id="day5_18B_running_time" class="d_green">16:26(close running)</td>
+
+                  <td id="day5_18C"><b>BTH</b></td>
+                  <td id="day5_18C_name">Binh Thuan</td>
+                  <td id="day5_18C_time" class="d_green">06:00 ~ 16:09</td>
+                  <td id="day5_18C_running_time" class="d_green">16:20(close running)</td>
+
+                  <td id="day5_18D"><b>BDI</b><br><b>QT</b><br><b>QB</b></td>
+                  <td id="day5_18D_name">Binh Dinh<br>Quang Tri<br>Quang Binh</td>
+                  <td id="day5_18D_time" class="d_green">06:00 ~ 17:05<br>06:00 ~ 17:05<br>06:00 ~ 17:05</td>
+                  <td id="day5_18D_running_time" class="d_green">17:15(close running)<br>17:15(close
+                    running)<br>17:15(close running)</td>
+
+                </tr>
+
+                <tr class="">
+                  <td data-sche="fri" class="day">Fri</td>
+
+                  <td id="day6_HN"><b>HN</b></td>
+                  <td id="day6_HN_name">Hanoi </td>
+                  <td id="day6_HN_time" class="d_green">06:00 ~ 18:09</td>
+                  <td id="day6_HN_running_time" class="d_green">18:19(close running)</td>
+
+                  <td id="day6_18A"><b>VL</b></td>
+                  <td id="day6_18A_name">Vinh Long</td>
+                  <td id="day6_18A_time" class="d_green">06:00 ~ 16:06</td>
+                  <td id="day6_18A_running_time" class="d_green">16:21(close running)</td>
+
+                  <td id="day6_18B"><b>BD</b></td>
+                  <td id="day6_18B_name">Binh Duong</td>
+                  <td id="day6_18B_time" class="d_green">06:00 ~ 16:11</td>
+                  <td id="day6_18B_running_time" class="d_green">16:24(close running)</td>
+
+                  <td id="day6_18C"><b>TV</b></td>
+                  <td id="day6_18C_name">Tra Vinh</td>
+                  <td id="day6_18C_time" class="d_green">06:00 ~ 16:09</td>
+                  <td id="day6_18C_running_time" class="d_green">16:24(close running)</td>
+
+                  <td id="day6_18D"><b>GL</b><br><b>NT</b></td>
+                  <td id="day6_18D_name">Gia Lai<br>Ninh Thuan</td>
+                  <td id="day6_18D_time" class="d_green">06:00 ~ 17:05<br>06:00 ~ 17:05</td>
+                  <td id="day6_18D_running_time" class="d_green">17:15(close running)<br>17:15(close running)</td>
+
+                </tr>
+
+                <tr class="tr_lt">
+                  <td data-sche="sat" class="day">Sat</td>
+
+                  <td id="day7_HN"><b>HN</b></td>
+                  <td id="day7_HN_name">Hanoi </td>
+                  <td id="day7_HN_time" class="d_green">06:00 ~ 18:10</td>
+                  <td id="day7_HN_running_time" class="d_green">18:20(close running)</td>
+
+                  <td id="day7_18A"><b>TP</b></td>
+                  <td id="day7_18A_name">TP HCM</td>
+                  <td id="day7_18A_time" class="d_green">06:00 ~ 16:11</td>
+                  <td id="day7_18A_running_time" class="d_green">16:26(close running)</td>
+
+                  <td id="day7_18B"><b>LA</b></td>
+                  <td id="day7_18B_name">Long An </td>
+                  <td id="day7_18B_time" class="d_green">06:00 ~ 16:11</td>
+                  <td id="day7_18B_running_time" class="d_green">16:26(close running)</td>
+
+                  <td id="day7_18C"><b>HG</b></td>
+                  <td id="day7_18C_name">Hau Giang </td>
+                  <td id="day7_18C_time" class="d_green">06:00 ~ 16:09</td>
+                  <td id="day7_18C_running_time" class="d_green">16:24(close running)</td>
+
+                  <td id="day7_18D"><b>DNG</b><br><b>QNG</b><br><b>DNO</b></td>
+                  <td id="day7_18D_name">Da Nang<br>Quang Ngai<br>Dak Nong</td>
+                  <td id="day7_18D_time" class="d_green">06:00 ~ 17:05<br>06:00 ~ 17:11<br>06:00 ~ 17:11</td>
+                  <td id="day7_18D_running_time" class="d_green">17:15(close running)<br>17:15(close
+                    running)<br>17:15(close running)</td>
+
+                </tr>
+
+                <tr class="">
+                  <td data-sche="sun" class="day">Sun</td>
+
+                  <td id="day1_HN"><b>HN</b></td>
+                  <td id="day1_HN_name">Hanoi </td>
+                  <td id="day1_HN_time" class="d_green">06:00 ~ 18:08</td>
+                  <td id="day1_HN_running_time" class="d_green">18:19(close running)</td>
+
+                  <td id="day1_18A"><b>TG</b></td>
+                  <td id="day1_18A_name">Tien Giang</td>
+                  <td id="day1_18A_time" class="d_green">06:00 ~ 16:12</td>
+                  <td id="day1_18A_running_time" class="d_green">16:25(close running)</td>
+
+                  <td id="day1_18B"><b>KG</b></td>
+                  <td id="day1_18B_name">Kien Giang </td>
+                  <td id="day1_18B_time" class="d_green">06:00 ~ 16:12</td>
+                  <td id="day1_18B_running_time" class="d_green">16:27(close running)</td>
+
+                  <td id="day1_18C"><b>DAL</b></td>
+                  <td id="day1_18C_name">Da Lat</td>
+                  <td id="day1_18C_time" class="d_green">06:00 ~ 16:05</td>
+                  <td id="day1_18C_running_time" class="d_green">16:20(close running)</td>
+
+                  <td id="day1_18D"><b>KT</b><br><b>KH</b></td>
+                  <td id="day1_18D_name">Kon Tum<br>Khanh Hoa</td>
+                  <td id="day1_18D_time" class="d_green">06:00 ~ 17:05<br>06:00 ~ 17:05</td>
+                  <td id="day1_18D_running_time" class="d_green">17:15(close running)<br>17:15(close running)</td>
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- <script src="./js/main-jeremy.js"></script> -->
+</body>
+</html>

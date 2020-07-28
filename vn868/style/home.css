@@ -1,0 +1,157 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 1px;
+}
+
+td, th {
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+input[type="button"], input[type="submit"] {
+  border: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+main .main {
+  min-width: 933px;
+  float: left;
+  margin: 5px;
+  width: 905px;
+  margin-top: 10px;
+}
+
+main .main .crdInfo, main .main .acctInfo {
+  float: left;
+  width: 450px;
+}
+
+main .main .crdInfo {
+  margin-left: 5px;
+}
+
+main .main .context {
+  width: 100%;
+}
+
+main .main .context th {
+  background: #d9dee9;
+  height: 25px;
+  width: 130px;
+  color: #000;
+  font-weight: normal;
+  text-align: left;
+  padding-left: 5px;
+}
+
+main .main .context td {
+  background: #FFF;
+  text-align: left;
+  padding-left: 5px;
+  height: 25px;
+  color: #023260;
+  font-weight: bold;
+}
+
+main .main .context thead th {
+  background: url(../images/A24.gif);
+  height: 20px;
+  font-size: 11px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+main .main .context thead tr th {
+  background: url(../images/A36.gif) repeat scroll 0 0 transparent;
+  height: 21px;
+  color: #ffd100;
+}
+
+main .main .context .btn_com {
+  background: url(../images/A25.gif);
+  width: 72px;
+  height: 21px;
+  color: #000;
+  font-weight: bold;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+main .main .context .blue {
+  color: #0082ff;
+}
+
+main .main table.context, main .main table.context td, main .main table.context th {
+  border: solid 1px #bbb;
+}
+
+main .main table.context td, main .main table.context th {
+  border: solid 1px #b0b0b0;
+}
+
+main .main .package {
+  margin-top: 5px;
+}
+
+main .main .special {
+  width: 100%;
+}
+
+main .main .special thead th {
+  background: url(../images/A24.gif);
+  height: 20px;
+  font-size: 11px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+main .main .special .m_title2 th {
+  background: url(../images/A37.gif);
+}
+
+main .main .special .sub_title2 th {
+  background: #b0b0b0;
+}
+
+main .main .special tbody td {
+  background: #FFF;
+  text-align: center;
+  height: 25px;
+  padding: 0 5px;
+}
+
+main .main .special tr.tr_lt td {
+  background-color: #f0f0f0;
+}
+
+main .main table.special, main .main table.special td, main .main table.special th {
+  border: solid 1px #bbb;
+}
+
+main .main .txt_com, main .main input[type="text"], main .main input[type="password"] {
+  background: #f7f7f7;
+  border: solid 1px #e5e6e7;
+  border-top-color: #afafaf;
+  height: 18px;
+  line-height: 18px;
+  margin: 0;
+}
+
+main .main #txtNickname {
+  width: 100px;
+}
+
+main .main #txtNickname {
+  margin-right: 10px;
+}
+
+main .main #btnNkSave {
+  margin-right: 5px;
+}
+/*# sourceMappingURL=home.css.map */

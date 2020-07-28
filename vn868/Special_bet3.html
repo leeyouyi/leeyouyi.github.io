@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.i18n.properties-1.0.9.js"></script>
+  <link rel="stylesheet" href="./style/special_bet3.css">
+</head>
+
+<body>
+    <button id="en">eng</button>
+    <button id="cn">cnn</button>  
+    <button id="vn">vn</button>
+  <div class="top_text">
+    <div class="box">
+      <div class="title">
+        <div class="lt"></div>
+        <div class="md" data-SpecBet3="SpecBet3_bet">
+          Betting 4 &gt; Special
+        </div>
+        <div class="gt"></div>
+      </div>
+      <div class="body">
+        <div class="context">
+          <script type="text/javascript" src="./js/jquery.timers.js"></script>
+          <script type="text/javascript" src="./js/timeLeft1.js"></script>
+          <table id="tbDescription">
+            <tbody>
+              <tr id="description">
+                <th data-SpecBet3="SpecBet3_com">Company Description :</th>
+                <td>
+                  <span id="desc_HN">
+                    HN - Hanoi
+                    (<span class="sta_S">06:00-18:09,</span>)
+                  </span>
+                  <script>closeTimeArr["HN"] = "S" == "S" ? "18:09" : 0;</script>
+
+                  <span id="desc_VL">
+                    VL - Vinh Long
+                    (<span class="sta_S">06:00-16:06,</span>)
+                  </span>
+
+                  <script>closeTimeArr["VL"] = "S" == "S" ? "16:06" : 0;</script>
+
+                  <span id="desc_BD">
+                    BD - Binh Duong
+                    (<span class="sta_S">06:00-16:11,</span>)
+                  </span>
+
+                  <script>closeTimeArr["BD"] = "S" == "S" ? "16:11" : 0;</script>
+
+                  <span id="desc_TV">
+                    TV - Tra Vinh
+                    (<span class="sta_S">06:00-16:09,</span>)
+                  </span>
+
+                  <script>closeTimeArr["TV"] = "S" == "S" ? "16:09" : 0;</script>
+
+                  <span id="desc_GL">
+                    GL - Gia Lai
+                    (<span class="sta_S">06:00-17:05,</span>)
+                  </span>
+
+                  <script>closeTimeArr["GL"] = "S" == "S" ? "17:05" : 0;</script>
+
+                  <span id="desc_NT">
+                    NT - Ninh Thuan
+                    (<span class="sta_S">06:00-17:05,</span>)
+                  </span>
+
+                  <script>closeTimeArr["NT"] = "S" == "S" ? "17:05" : 0;</script>
+                  <br>
+                </td>
+              </tr>
+              <tr>
+                <th data-SpecBet3="SpecBet3_time">Time Left :</th>
+                <td>
+                  HN - Hanoi
+                  (<span id="time_HN" class="timeleft">08:26:33</span>)&nbsp;&nbsp;
+
+                  VL - Vinh Long
+                  (<span id="time_VL" class="timeleft">06:23:33</span>)&nbsp;&nbsp;
+
+                  BD - Binh Duong
+                  (<span id="time_BD" class="timeleft">06:28:33</span>)&nbsp;&nbsp;
+
+                  TV - Tra Vinh
+                  (<span id="time_TV" class="timeleft">06:26:33</span>)&nbsp;&nbsp;
+
+                  GL - Gia Lai
+                  (<span id="time_GL" class="timeleft">07:22:33</span>)&nbsp;&nbsp;
+
+                  NT - Ninh Thuan
+                  (<span id="time_NT" class="timeleft">07:22:33</span>)&nbsp;&nbsp;
+                  <br>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form id="betform">
+    <table class="tbCon">
+      <thead>
+        <tr>
+          <th class="col1" data-SpecBet3="SpecBet3_spec">Special</th>
+          <th>
+            <div class="btns bet_btns" style="height: 21px;padding-right:5px;">
+              <div data-SpecBet3="SpecBet3_place" style="float:right;">
+                <input type="button" class="btn TODO" name="btnBet" value="Place Bet">
+                <input type="button" class="btn" name="btnReset" value="Clear">
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="2">
+            <!-- bet form begin -->
+            <table class="bet" id="tbBet">
+              <thead>
+                <tr class="title">
+                  <th data-SpecBet3="SpecBet3_num" rowspan="2">Number</th>
+                  <th data-SpecBet3="SpecBet3_top" class="r1" style="color:#000">TOP</th>
+                  <th data-SpecBet3="SpecBet3_bottom" class="r1" style="color:#000">BOTTOM</th>
+
+                  <th data-SpecBet3="SpecBet3_market" class="r1">Market</th>
+                  <th data-SpecBet3="SpecBet3_total" rowspan="2" class="th_total">Total Amt</th>
+                  <th data-SpecBet3="SpecBet3_commidis" rowspan="2" class="th_total">Commission/Discount</th>
+                  <th data-SpecBet3="SpecBet3_net" rowspan="2" class="th_total">Net Amt</th>
+                </tr>
+                <tr class="title">
+                  <th class="r2">
+                    <input type="text" class="v_decimel" tag="TOP"><br>
+                    <input type="button" class="ok" value="OK">
+                  </th>
+                  <th class="r2">
+                    <input type="text" class="v_decimel" tag="BOTTOM"><br>
+                    <input type="button" class="ok" value="OK">
+                  </th>
+
+                  <th data-SpecBet3="SpecBet3_allt" class="r2" id="td_comp_title"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N"
+                      title="HN"> <input type="checkbox" id="comp_HN_t" name="items[t].drawCompany" vsta="HN" vtag="N"
+                        value="HN"> <label for="comp_HN_t">HN</label></span><span class="company" vtag="S" title="18A">
+                      <input type="checkbox" id="comp_BT_t" name="items[t].drawCompany" vsta="18A" vtag="S" value="BT">
+                      <label for="comp_BT_t">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_t" name="items[t].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_t">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_t" name="items[t].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_t">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_t" name="items[t].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_t">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_t" name="items[t].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_t">QNM</label></span></th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="Even Odd (25 N°)">
+                    <input type="checkbox" id="ck_EvenOdd" name="items[0].number" value="EvenOdd">
+                    <label for="ck_EvenOdd"><b data-SpecBet3="SpecBet3_even_odd">Even Odd (25 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_EvenOdd_1" name="items[0].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_EvenOdd_1" name="items[0].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_eodd" id="td_comp_1"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_0" name="items[0].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_0">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_0" name="items[0].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_0">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_0" name="items[0].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_0">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_0" name="items[0].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_0">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_0" name="items[0].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_0">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_0" name="items[0].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_0">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="Odd Even (25 N°)">
+                    <input type="checkbox" id="ck_OddEven" name="items[1].number" value="OddEven">
+                    <label for="ck_OddEven"><b data-SpecBet3="SpecBet3_odd_even">Odd Even (25 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_OddEven_2" name="items[1].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_OddEven_2" name="items[1].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_odde" id="td_comp_2"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_1" name="items[1].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_1">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_1" name="items[1].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_1">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_1" name="items[1].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_1">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_1" name="items[1].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_1">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_1" name="items[1].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_1">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_1" name="items[1].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_1">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="Even Even (25 N°)">
+                    <input type="checkbox" id="ck_EvenEven" name="items[2].number" value="EvenEven">
+                    <label for="ck_EvenEven"><b data-SpecBet3="SpecBet3_even_even">Even Even (25 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_EvenEven_3" name="items[2].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_EvenEven_3" name="items[2].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_evev" id="td_comp_3"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_2" name="items[2].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_2">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_2" name="items[2].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_2">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_2" name="items[2].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_2">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_2" name="items[2].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_2">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_2" name="items[2].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_2">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_2" name="items[2].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_2">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="Odd Odd (25 N°)">
+                    <input type="checkbox" id="ck_OddOdd" name="items[3].number" value="OddOdd">
+                    <label for="ck_OddOdd"><b data-SpecBet3="SpecBet3_odd_odd">Odd Odd (25 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_OddOdd_4" name="items[3].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_OddOdd_4" name="items[3].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_odod" id="td_comp_4"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_3" name="items[3].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_3">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_3" name="items[3].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_3">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_3" name="items[3].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_3">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_3" name="items[3].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_3">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_3" name="items[3].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_3">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_3" name="items[3].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_3">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="Big Even (25 N°)">
+                    <input type="checkbox" id="ck_BigEven" name="items[4].number" value="BigEven">
+                    <label for="ck_BigEven"><b data-SpecBet3="SpecBet3_big_even">Big Even (25 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_BigEven_5" name="items[4].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_BigEven_5" name="items[4].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_bige" id="td_comp_5"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_4" name="items[4].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_4">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_4" name="items[4].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_4">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_4" name="items[4].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_4">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_4" name="items[4].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_4">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_4" name="items[4].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_4">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_4" name="items[4].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_4">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="Small Even (25 N°)">
+                    <input type="checkbox" id="ck_SmallEven" name="items[5].number" value="SmallEven">
+                    <label for="ck_SmallEven"><b data-SpecBet3="SpecBet3_small_even">Small Even (25 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_SmallEven_6" name="items[5].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_SmallEven_6" name="items[5].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_smalle" id="td_comp_6"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_5" name="items[5].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_5">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_5" name="items[5].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_5">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_5" name="items[5].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_5">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_5" name="items[5].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_5">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_5" name="items[5].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_5">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_5" name="items[5].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_5">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="Big Odd (25 N°)">
+                    <input type="checkbox" id="ck_BigOdd" name="items[6].number" value="BigOdd">
+                    <label for="ck_BigOdd"><b data-SpecBet3="SpecBet3_big_odd">Big Odd (25 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_BigOdd_7" name="items[6].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_BigOdd_7" name="items[6].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_bigo" id="td_comp_7"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_6" name="items[6].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_6">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_6" name="items[6].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_6">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_6" name="items[6].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_6">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_6" name="items[6].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_6">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_6" name="items[6].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_6">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_6" name="items[6].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_6">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="Small Odd (25 N°)">
+                    <input type="checkbox" id="ck_SmallOdd" name="items[7].number" value="SmallOdd">
+                    <label for="ck_SmallOdd"><b data-SpecBet3="SpecBet3_small_odd">Small Odd (25 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_SmallOdd_8" name="items[7].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_SmallOdd_8" name="items[7].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_smallo" id="td_comp_8"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_7" name="items[7].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_7">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_7" name="items[7].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_7">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_7" name="items[7].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_7">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_7" name="items[7].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_7">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_7" name="items[7].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_7">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_7" name="items[7].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_7">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="50 Small (00->49)">
+                    <input type="checkbox" id="ck_Small" name="items[8].number" value="Small">
+                    <label for="ck_Small"><b data-SpecBet3="SpecBet3_50s">50 Small (00-&gt;49)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_Small_9" name="items[8].d2Top" tag="TOP" class="disabled"
+                      readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_Small_9" name="items[8].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_50s" id="td_comp_9"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_8" name="items[8].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_8">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_8" name="items[8].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_8">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_8" name="items[8].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_8">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_8" name="items[8].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_8">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_8" name="items[8].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_8">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_8" name="items[8].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_8">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="50 Big (50->99)">
+                    <input type="checkbox" id="ck_Big" name="items[9].number" value="Big">
+                    <label for="ck_Big"><b data-SpecBet3="SpecBet3_50b">50 Big (50-&gt;99)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_Big_10" name="items[9].d2Top" tag="TOP" class="disabled"
+                      readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_Big_10" name="items[9].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_50b" id="td_comp_10"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_9" name="items[9].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_9">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_9" name="items[9].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_9">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_9" name="items[9].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_9">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_9" name="items[9].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_9">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_9" name="items[9].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_9">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_9" name="items[9].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_9">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="Odd">
+                    <input type="checkbox" id="ck_Odd" name="items[10].number" value="Odd">
+                    <label for="ck_Odd"><b data-SpecBet3="SpecBet3_odd">Odd</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_Odd_11" name="items[10].d2Top" tag="TOP" class="disabled"
+                      readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_Odd_11" name="items[10].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_odd" id="td_comp_11"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_10" name="items[10].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_10">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_10" name="items[10].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_10">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_10" name="items[10].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_10">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_10" name="items[10].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_10">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_10" name="items[10].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_10">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_10" name="items[10].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_10">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="Even">
+                    <input type="checkbox" id="ck_Even" name="items[11].number" value="Even">
+                    <label for="ck_Even"><b data-SpecBet3="SpecBet3_even">Even</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_Even_12" name="items[11].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_Even_12" name="items[11].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_even" id="td_comp_12"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_11" name="items[11].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_11">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_11" name="items[11].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_11">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_11" name="items[11].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_11">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_11" name="items[11].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_11">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_11" name="items[11].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_11">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_11" name="items[11].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_11">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="From 25-74 (50 N°)">
+                    <input type="checkbox" id="ck_In" name="items[12].number" value="In">
+                    <label for="ck_In"><b data-SpecBet3="SpecBet3_from25">From 25-74 (50 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_In_13" name="items[12].d2Top" tag="TOP" class="disabled"
+                      readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_In_13" name="items[12].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_from25" id="td_comp_13"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_12" name="items[12].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_12">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_12" name="items[12].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_12">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_12" name="items[12].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_12">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_12" name="items[12].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_12">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_12" name="items[12].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_12">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_12" name="items[12].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_12">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="From 00-24 &amp; 75-99 (50 N°)">
+                    <input type="checkbox" id="ck_Out" name="items[13].number" value="Out">
+                    <label for="ck_Out"><b data-SpecBet3="SpecBet3_from00">From 00-24 &amp; 75-99 (50 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_Out_14" name="items[13].d2Top" tag="TOP" class="disabled"
+                      readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_Out_14" name="items[13].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_from00" id="td_comp_14"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_13" name="items[13].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_13">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_13" name="items[13].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_13">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_13" name="items[13].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_13">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_13" name="items[13].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_13">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_13" name="items[13].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_13">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_13" name="items[13].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_13">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="Zodiac (37 N°)">
+                    <input type="checkbox" id="ck_Zodiac" name="items[14].number" value="Zodiac">
+                    <label for="ck_Zodiac"><b data-SpecBet3="SpecBet3_zodiac">Zodiac (37 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_Zodiac_15" name="items[14].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_Zodiac_15" name="items[14].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_zodiac" id="td_comp_15"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_14" name="items[14].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_14">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_14" name="items[14].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_14">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_14" name="items[14].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_14">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_14" name="items[14].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_14">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_14" name="items[14].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_14">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_14" name="items[14].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_14">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="NoZodiac (63 N°)">
+                    <input type="checkbox" id="ck_NoZodiac" name="items[15].number" value="NoZodiac">
+                    <label for="ck_NoZodiac"><b data-SpecBet3="SpecBet3_nozodiac">NoZodiac (63 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_NoZodiac_16" name="items[15].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_NoZodiac_16" name="items[15].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_nozodiac" id="td_comp_16"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_15" name="items[15].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_15">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_15" name="items[15].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_15">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_15" name="items[15].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_15">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_15" name="items[15].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_15">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_15" name="items[15].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_15">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_15" name="items[15].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_15">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="Swimming (47 N°)">
+                    <input type="checkbox" id="ck_Swimming" name="items[16].number" value="Swimming">
+                    <label for="ck_Swimming"><b data-SpecBet3="SpecBet3_swimming">Swimming (47 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_Swimming_17" name="items[16].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_Swimming_17" name="items[16].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_swim" id="td_comp_17"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_16" name="items[16].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_16">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_16" name="items[16].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_16">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_16" name="items[16].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_16">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_16" name="items[16].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_16">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_16" name="items[16].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_16">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_16" name="items[16].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_16">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_lt">
+                  <td class="item" title="Divine (16 N°)">
+                    <input type="checkbox" id="ck_Divine" name="items[17].number" value="Divine">
+                    <label for="ck_Divine"><b data-SpecBet3="SpecBet3_divine">Divine (16 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_Divine_18" name="items[17].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_Divine_18" name="items[17].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_divine" id="td_comp_18"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_17" name="items[17].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_17">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_17" name="items[17].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_17">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_17" name="items[17].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_17">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_17" name="items[17].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_17">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_17" name="items[17].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_17">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_17" name="items[17].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_17">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+
+
+                <tr class="tr_rt">
+                  <td class="item" title="From 30-79 (50 N°)">
+                    <input type="checkbox" id="ck_30-79" name="items[18].number" value="30-79">
+                    <label for="ck_30-79"><b data-SpecBet3="SpecBet3_from30">From 30-79 (50 N°)</b></label>
+                  </td>
+                  <td class="c"><input type="text" id="amt_Top_30-79_19" name="items[18].d2Top" tag="TOP"
+                      class="disabled" readonly=""></td>
+                  <td class="c"><input type="text" id="amt_Bottom_30-79_19" name="items[18].d2Bottom" tag="BOTTOM"
+                      class="disabled" readonly=""></td>
+
+                  <td data-SpecBet3="SpecBet3_all_from30" id="td_comp_19"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_18" name="items[18].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_18">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_18" name="items[18].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_18">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_18" name="items[18].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_18">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_18" name="items[18].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_18">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_18" name="items[18].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_18">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_18" name="items[18].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_18">QNM</label></span></td>
+                  <td name="totalAmt" class="right total">0.00</td>
+                  <td name="discountAmt" class="right total">0.00</td>
+                  <td name="netAmt" class="right total">0.00</td>
+                </tr>
+
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th></th>
+                  <th>
+                    <input type="text" class="v_decimel" tag="TOP"><br>
+                    <input type="button" class="ok" value="OK">
+                  </th>
+                  <th>
+                    <input type="text" class="v_decimel" tag="BOTTOM"><br>
+                    <input type="button" class="ok" value="OK">
+                  </th>
+
+                  <th data-SpecBet3="SpecBet3_allf" id="td_comp_foot"><input type="checkbox" tag="ckAll">ALL<span class="company" vtag="N" title="HN">
+                      <input type="checkbox" id="comp_HN_f" name="items[f].drawCompany" vsta="HN" vtag="N" value="HN">
+                      <label for="comp_HN_f">HN</label></span><span class="company" vtag="S" title="18A"> <input
+                        type="checkbox" id="comp_VL_f" name="items[f].drawCompany" vsta="18A" vtag="S" value="VL">
+                      <label for="comp_VL_f">BT</label></span><span class="company" vtag="S" title="18B"> <input
+                        type="checkbox" id="comp_VT_f" name="items[f].drawCompany" vsta="18B" vtag="S" value="VT">
+                      <label for="comp_VT_f">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_f" name="items[f].drawCompany" vsta="18C" vtag="S" value="BL">
+                      <label for="comp_BL_f">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_f" name="items[f].drawCompany" vsta="18D" vtag="M" value="DLK">
+                      <label for="comp_DLK_f">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_f" name="items[f].drawCompany" vsta="18D" vtag="M" value="QNM">
+                      <label for="comp_QNM_f">QNM</label></span></td>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </tfoot>
+            </table>
+            <!-- bet form end -->
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th class="col1"></th>
+          <th>
+            <div class="btns bet_btns" style="height: 21px;padding-right:5px;">
+              <div data-SpecBet3="SpecBet3_place" style="float:right;">
+                <input type="button" class="btn TODO" name="btnBet" value="Place Bet">
+                <input type="button" class="btn" name="btnReset" value="Clear">
+              </div>
+            </div>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+
+  <form id="betform2">
+    <table class="tbCon">
+      <thead>
+        <tr>
+          <th data-SpecBet3="SpecBet3_2dspec" class="col1">2D Special</th>
+          <th>
+            <div class="btns bet_btns" style="height: 21px;padding-right:5px;">
+              <div data-SpecBet3="SpecBet3_place" style="float:right;">
+                <input type="button" class="btn TODO" name="btnBet" value="Place Bet">
+                <input type="button" class="btn" name="btnReset" value="Clear">
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="2">
+            <!-- bet form begin -->
+            <table class="bet bet2" id="tbBet2D">
+              <thead>
+                <tr class="title">
+                  <th data-SpecBet3="SpecBet3_num" colspan="3">Number</th>
+                  <th data-SpecBet3="SpecBet3_top" style="color:#000">TOP</th>
+                  <th data-SpecBet3="SpecBet3_bottom" style="color:#000">BOTTOM</th>
+                  <th data-SpecBet3="SpecBet3_roll" style="color:#000">ROLL</th>
+                  <th data-SpecBet3="SpecBet3_market">Market</th>
+                  <th data-SpecBet3="SpecBet3_total" class="th_total">Total Amt</th>
+                  <th data-SpecBet3="SpecBet3_commidis" class="th_total">Commission/Discount</th>
+                  <th data-SpecBet3="SpecBet3_net" class="th_total">Net Amt</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td data-SpecBet3="SpecBet3_num1">
+                    Unit <br>
+                    <input type="checkbox" id="ckSpecial1" name="ck1" tag="number1"> &nbsp;
+                  </td>
+                  <td rowspan="11"> X </td>
+                  <td data-SpecBet3="SpecBet3_num2">
+                    Unit <br>
+                    <input type="checkbox" id="ckSpecial2" name="ck2" tag="number2"> &nbsp;
+                  </td>
+                  <td rowspan="11" class="light_blue"><input type="text" name="d2Top" id="txtSp2dTop" class="v_decimel"
+                      tag="TOP"></td>
+                  <td rowspan="11" class="light_blue"><input type="text" name="d2Bottom" id="txtSp2dBottom"
+                      class="v_decimel" tag="BOTTOM"></td>
+                  <td rowspan="11" class="light_blue"><input type="text" name="d2Roll" id="txtSp2dRoll"
+                      class="v_decimel" tag="ROLL"></td>
+                  <td data-SpecBet3="SpecBet3_2d_all" rowspan="11" id="td_comp_2dSpecial" class="light_blue"><input type="checkbox" tag="ckAll">ALL<span
+                      class="company" vtag="N" title="HN"> <input type="checkbox" id="comp_HN_s" name="company"
+                        vsta="HN" vtag="N" value="HN"> <label for="comp_HN_s">HN</label></span><span class="company"
+                      vtag="S" title="18A"> <input type="checkbox" id="comp_BT_s" name="company" vsta="18A" vtag="S"
+                        value="BT"> <label for="comp_BT_s">BT</label></span><span class="company" vtag="S" title="18B">
+                      <input type="checkbox" id="comp_VT_s" name="company" vsta="18B" vtag="S" value="VT"> <label
+                        for="comp_VT_s">VT</label></span><span class="company" vtag="S" title="18C"> <input
+                        type="checkbox" id="comp_BL_s" name="company" vsta="18C" vtag="S" value="BL"> <label
+                        for="comp_BL_s">BL</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_DLK_s" name="company" vsta="18D" vtag="M" value="DLK"> <label
+                        for="comp_DLK_s">DLK</label></span><span class="company" vtag="M" title="18D"> <input
+                        type="checkbox" id="comp_QNM_s" name="company" vsta="18D" vtag="M" value="QNM"> <label
+                        for="comp_QNM_s">QNM</label></span></td>
+                  <td rowspan="11" name="totalAmt" class="right total">0.00</td>
+                  <td class="abc" rowspan="11" name="discountAmt" class="right total">0.00</td>
+                  <td rowspan="11" name="netAmt" class="right total">0.00</td>
+                </tr>
+
+                <tr class="tr_lt">
+                  <td><input type="checkbox" name="number1" value="0"> 0</td>
+                  <td><input type="checkbox" name="number2" value="0"> 0</td>
+                </tr>
+
+                <tr class="">
+                  <td><input type="checkbox" name="number1" value="1"> 1</td>
+                  <td><input type="checkbox" name="number2" value="1"> 1</td>
+                </tr>
+
+                <tr class="tr_lt">
+                  <td><input type="checkbox" name="number1" value="2"> 2</td>
+                  <td><input type="checkbox" name="number2" value="2"> 2</td>
+                </tr>
+
+                <tr class="">
+                  <td><input type="checkbox" name="number1" value="3"> 3</td>
+                  <td><input type="checkbox" name="number2" value="3"> 3</td>
+                </tr>
+
+                <tr class="tr_lt">
+                  <td><input type="checkbox" name="number1" value="4"> 4</td>
+                  <td><input type="checkbox" name="number2" value="4"> 4</td>
+                </tr>
+
+                <tr class="">
+                  <td><input type="checkbox" name="number1" value="5"> 5</td>
+                  <td><input type="checkbox" name="number2" value="5"> 5</td>
+                </tr>
+
+                <tr class="tr_lt">
+                  <td><input type="checkbox" name="number1" value="6"> 6</td>
+                  <td><input type="checkbox" name="number2" value="6"> 6</td>
+                </tr>
+
+                <tr class="">
+                  <td><input type="checkbox" name="number1" value="7"> 7</td>
+                  <td><input type="checkbox" name="number2" value="7"> 7</td>
+                </tr>
+
+                <tr class="tr_lt">
+                  <td><input type="checkbox" name="number1" value="8"> 8</td>
+                  <td><input type="checkbox" name="number2" value="8"> 8</td>
+                </tr>
+
+                <tr class="">
+                  <td><input type="checkbox" name="number1" value="9"> 9</td>
+                  <td><input type="checkbox" name="number2" value="9"> 9</td>
+                </tr>
+
+              </tbody>
+            </table>
+            <!-- bet form end -->
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th class="col1"></th>
+          <th>
+            <div class="btns bet_btns" style="height: 21px;padding-right:5px;">
+              <div data-SpecBet3="SpecBet3_place" style="float:right;">
+                <input type="button" class="btn TODO" name="btnBet" value="Place Bet">
+                <input type="button" class="btn" name="btnReset" value="Clear">
+              </div>
+            </div>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+
+
+
+
+
+    
+    <!-- <script type="text/javascript" src="./js/drag.js"></script>
+    <script type="text/javascript" src="./js/modal.js"></script>
+    <script type="text/javascript" src="./js/box.js"></script> -->
+    <script type="text/javascript">
+      $(function () {
+        $("#divBox .close").click(function () {
+          $("#divBox").jqmHide();
+        });
+      });
+    </script>
+    <!-- 
+  <div id="divBox" class="divBox jqmWindow">
+    <div class="body">
+      <div class="tit drag"></div>
+      <div class="ctx"></div>
+    </div>
+    <div class="head"></div>
+  </div>
+   -->
+    <div id="divBox" class="divBox jqmWindow jqmID1" style="top: 389px;">
+      <div class="head drag">
+        <div class="lt"></div>
+        <div class="gt"></div>
+        <div class="tit"></div>
+      </div>
+      <div class="body">
+        <div class="context"></div>
+        <div class="btns">
+          <span><input type="button" value="OK" class="btn_com jqmClose" id="btnCancelBox"></span>
+        </div>
+      </div>
+    </div>
+    <div style="display:none;">
+      <div id="box_btn">
+        <span><input type="button" value="OK" class="btn_com jqmClose" id="btnCancelBox"></span>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var drawlist = [{ "drawId": "20190531HN", "company": "HN", "companyGroup": "HN", "companyAttr": "N", "day": 6, "open": "06:00", "close": "18:09", "state": "S", "runningState": "S", "runningClose": "18:19" }, { "drawId": "20190531VL", "company": "VL", "companyGroup": "18A", "companyAttr": "S", "day": 6, "open": "06:00", "close": "16:06", "state": "S", "runningState": "S", "runningClose": "16:21" }, { "drawId": "20190531BD", "company": "BD", "companyGroup": "18B", "companyAttr": "S", "day": 6, "open": "06:00", "close": "16:11", "state": "S", "runningState": "S", "runningClose": "16:24" }, { "drawId": "20190531TV", "company": "TV", "companyGroup": "18C", "companyAttr": "S", "day": 6, "open": "06:00", "close": "16:09", "state": "S", "runningState": "S", "runningClose": "16:24" }, { "drawId": "20190531GL", "company": "GL", "companyGroup": "18D", "companyAttr": "M", "day": 6, "open": "06:00", "close": "17:05", "state": "S", "runningState": "S", "runningClose": "17:15" }, { "drawId": "20190531NT", "company": "NT", "companyGroup": "18D", "companyAttr": "M", "day": 6, "open": "06:00", "close": "17:05", "state": "S", "runningState": "S", "runningClose": "17:15" }];
+      var gamePackage = { "id": 1, "name": "A", "packageType": 1, "comm2dn": 24.5000, "comm3dn": 33.0000, "comm4dn": 33.0000, "comm5dn": 33.0000, "commPl2n": 24.5000, "commPl3n": 24.5000, "odds2dn": 75.0000, "odds3dn": 650.0000, "odds4dn": 6000.0000, "odds5dn": 40000.0000, "oddsPl2n": 650.0000, "oddsPl3n": 3500.0000, "comm2da": 24.5000, "comm3da": 33.0000, "comm4da": 33.0000, "comm5da": 33.0000, "commPl2a": 24.5000, "commPl3a": 24.5000, "odds2da": 75.0000, "odds3da": 650.0000, "odds4da": 6000.0000, "odds5da": 40000.0000, "oddsPl2a": 750.0000, "oddsPl3a": 3500.0000, "comm2db": 24.5000, "comm3db": 33.0000, "comm4db": 33.0000, "comm5db": 33.0000, "commPl2b": 24.5000, "commPl3b": 24.5000, "odds2db": 75.0000, "odds3db": 650.0000, "odds4db": 6000.0000, "odds5db": 40000.0000, "oddsPl2b": 750.0000, "oddsPl3b": 3500.0000, "comm2dc": 24.5000, "comm3dc": 33.0000, "comm4dc": 33.0000, "comm5dc": 33.0000, "commPl2c": 24.5000, "commPl3c": 24.5000, "odds2dc": 75.0000, "odds3dc": 650.0000, "odds4dc": 6000.0000, "odds5dc": 40000.0000, "oddsPl2c": 750.0000, "oddsPl3c": 3500.0000, "comm2dd": 24.5000, "comm3dd": 33.0000, "comm4dd": 33.0000, "comm5dd": 33.0000, "commPl2d": 24.5000, "commPl3d": 24.5000, "odds2dd": 75.0000, "odds3dd": 650.0000, "odds4dd": 6000.0000, "odds5dd": 40000.0000, "oddsPl2d": 750.0000, "oddsPl3d": 3500.0000 };
+      var drawTypeCountNorth = { "5D": { "Roll": 10 }, "4D": { "Bottom": 1, "Roll": 20 }, "3D": { "Top": 3, "Bottom": 1, "TB": 4, "Roll": 23, "Roll7": 7, "TRoll7": 7, "MRoll7": 7, "BRoll7": 7 }, "2D": { "Top": 4, "Bottom": 1, "TB": 5, "Roll": 27, "Roll7": 7, "TRoll7": 7, "MRoll7": 7, "BRoll7": 7 } };
+      var drawTypeCountSouth = { "5D": { "Roll": 12 }, "4D": { "Bottom": 1, "Roll": 16 }, "3D": { "Top": 1, "Bottom": 1, "TB": 2, "Roll": 17, "Roll7": 7, "TRoll7": 7, "MRoll7": 7, "BRoll7": 7 }, "2D": { "Top": 1, "Bottom": 1, "TB": 2, "Roll": 18, "Roll7": 7, "TRoll7": 7, "MRoll7": 7, "BRoll7": 7 } };
+      var serverTime = 1559272674288;
+      var companyArea = '';
+      var rowCount = 19;
+      var msgAll = 'ALL';
+
+      var confirmBet = 'Confirm Bet ?';
+      var msgInvalidBet = 'Invalid format';
+    </script>
+  </form>
+  <div class="clear"></div>
+
+  <script src="./js/main-jeremy.js"></script>
+</body>
+
+</html>

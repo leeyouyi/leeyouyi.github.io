@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/bet.css" />
+    <title>north_SPE</title>
+  </head>
+  <body>
+    <div class="top_text">
+      <div class="box">
+        <div class="title">
+          <div class="lt"></div>
+          <div class="md" data-title="betSPE">
+            下注 1 &gt; 特殊
+          </div>
+          <div class="gt"></div>
+        </div>
+        <div class="body">
+          <div class="context">
+            <script type="text/javascript" src="../js/jquery.timers.js"></script>
+            <script type="text/javascript" src="../js/timeLeft.js"></script>
+            <table id="tbDescription">
+              <tbody>
+                <tr id="description">
+                  <th data-title="timeLeft">剩余时间 :</th>
+                  <td>
+                    <span id="desc_HN"> HN - Hanoi (<span class="sta_S">06:00-18:09,</span>) </span>
+                    <script>
+                      closeTimeArr['HN'] = 'S' == 'S' ? '18:09' : 0;
+                    </script>
+
+                    <span id="desc_BT"> BT - Ben Tre (<span class="sta_S">06:00-16:11,</span>) </span>
+                    <script>
+                      closeTimeArr['BT'] = 'S' == 'S' ? '16:11' : 0;
+                    </script>
+
+                    <span id="desc_VT"> VT - Vung Tau (<span class="sta_S">06:00-16:10,</span>) </span>
+                    <script>
+                      closeTimeArr['VT'] = 'S' == 'S' ? '16:10' : 0;
+                    </script>
+
+                    <span id="desc_BL"> BL - Bac Lieu (<span class="sta_S">06:00-16:06,</span>) </span>
+                    <script>
+                      closeTimeArr['BL'] = 'S' == 'S' ? '16:06' : 0;
+                    </script>
+
+                    <span id="desc_DLK"> DLK - Dak Lak (<span class="sta_S">06:00-17:05,</span>) </span>
+                    <script>
+                      closeTimeArr['DLK'] = 'S' == 'S' ? '17:05' : 0;
+                    </script>
+
+                    <span id="desc_QNM"> QNM - Quang Nam (<span class="sta_S">06:00-17:05,</span>) </span>
+                    <script>
+                      closeTimeArr['QNM'] = 'S' == 'S' ? '17:05' : 0;
+                    </script>
+
+                    <br />
+                  </td>
+                </tr>
+                <tr>
+                  <th data-title="timeLeft">剩余时间 :</th>
+                  <td>
+                    HN - Hanoi (<span id="time_HN" class="timeleft">07:39:41</span>)&nbsp;&nbsp; BT - Ben Tre (<span id="time_BT" class="timeleft"
+                      >05:41:41</span
+                    >)&nbsp;&nbsp; VT - Vung Tau (<span id="time_VT" class="timeleft">05:40:41</span>)&nbsp;&nbsp; BL - Bac Lieu (<span
+                      id="time_BL"
+                      class="timeleft"
+                      >05:36:41</span
+                    >)&nbsp;&nbsp; DLK - Dak Lak (<span id="time_DLK" class="timeleft">06:35:41</span>)&nbsp;&nbsp; QNM - Quang Nam (<span
+                      id="time_QNM"
+                      class="timeleft"
+                      >06:35:41</span
+                    >)&nbsp;&nbsp;
+
+                    <br />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form id="betform" action="/member/bet/betStandard.action;jsessionid=abcEJcXEG2NWraQYOzyRw" method="post">
+      <table class="tbCon">
+        <thead>
+          <tr>
+            <th class="col1" data-title="special">特殊</th>
+            <th>
+              <div class="btns bet_btns" style="height: 21px;padding-right:5px;">
+                <div style="float:right;">
+                  <input type="button" class="btn TODO" name="btnBet" data-btn="submit" value="下注" />
+                  <input type="button" class="btn" name="btnReset" data-btn="clear" value="清除" />
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <!-- bet form begin -->
+              <table class="bet" id="tbBet">
+                <thead>
+                  <tr class="title">
+                    <th rowspan="2" data-title="number">号码</th>
+                    <th class="r1" style="color:#000" data-title="top">头</th>
+                    <th class="r1" style="color:#000" data-title="bottom">尾</th>
+
+                    <th class="r1" data-title="market">市场</th>
+                    <th rowspan="2" class="th_total" data-title="totalAmt">总额</th>
+                    <th rowspan="2" class="th_total" data-title="discount">折扣</th>
+                    <th rowspan="2" class="th_total" data-title="netAmt">净值</th>
+                  </tr>
+                  <tr class="title">
+                    <th class="r2">
+                      <input type="text" class="v_decimel" tag="TOP" /><br />
+                      <input type="button" class="ok" value="OK" />
+                    </th>
+                    <th class="r2">
+                      <input type="text" class="v_decimel" tag="BOTTOM" /><br />
+                      <input type="button" class="ok" value="OK" />
+                    </th>
+
+                    <th class="r2" id="td_comp_title">
+                      <input type="checkbox" tag="ckAll" value="clickAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_t" name="items[t].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_t">HN</label></span
+                      >
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                  <tr class="">
+                    <td class="item" title="双单">
+                      <input type="checkbox" id="ck_EvenOdd" name="items[0].number" value="EvenOdd" />
+                      <label for="ck_EvenOdd"><b data-title="evenOdd">双单</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_EvenOdd_1" name="items[0].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_EvenOdd_1" name="items[0].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_1">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_0" name="items[0].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_0">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="单双">
+                      <input type="checkbox" id="ck_OddEven" name="items[1].number" value="OddEven" />
+                      <label for="ck_OddEven"><b data-title="oddEven">单双</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_OddEven_2" name="items[1].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_OddEven_2" name="items[1].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_2">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_1" name="items[1].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_1">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="双双">
+                      <input type="checkbox" id="ck_EvenEven" name="items[2].number" value="EvenEven" />
+                      <label for="ck_EvenEven"><b data-title="eveneven">双双</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_EvenEven_3" name="items[2].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_EvenEven_3" name="items[2].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_3">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_2" name="items[2].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_2">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="单单">
+                      <input type="checkbox" id="ck_OddOdd" name="items[3].number" value="OddOdd" />
+                      <label for="ck_OddOdd"><b data-title="oddodd">单单</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_OddOdd_4" name="items[3].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_OddOdd_4" name="items[3].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_4">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_3" name="items[3].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_3">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="大双">
+                      <input type="checkbox" id="ck_BigEven" name="items[4].number" value="BigEven" />
+                      <label for="ck_BigEven"><b data-title="B_even">大双</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_BigEven_5" name="items[4].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_BigEven_5" name="items[4].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_5">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_4" name="items[4].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_4">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="小双">
+                      <input type="checkbox" id="ck_SmallEven" name="items[5].number" value="SmallEven" />
+                      <label for="ck_SmallEven"><b data-title="S_even">小双</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_SmallEven_6" name="items[5].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_SmallEven_6" name="items[5].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_6">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_5" name="items[5].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_5">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="大单">
+                      <input type="checkbox" id="ck_BigOdd" name="items[6].number" value="BigOdd" />
+                      <label for="ck_BigOdd"><b data-title="B_odd">大单</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_BigOdd_7" name="items[6].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_BigOdd_7" name="items[6].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_7">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_6" name="items[6].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_6">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="小单">
+                      <input type="checkbox" id="ck_SmallOdd" name="items[7].number" value="SmallOdd" />
+                      <label for="ck_SmallOdd"><b data-title="S_odd">小单</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_SmallOdd_8" name="items[7].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_SmallOdd_8" name="items[7].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_8">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_7" name="items[7].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_7">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="小">
+                      <input type="checkbox" id="ck_Small" name="items[8].number" value="Small" />
+                      <label for="ck_Small"><b data-title="small">小</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_Small_9" name="items[8].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_Small_9" name="items[8].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_9">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_8" name="items[8].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_8">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="大">
+                      <input type="checkbox" id="ck_Big" name="items[9].number" value="Big" />
+                      <label for="ck_Big"><b data-title="big">大</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_Big_10" name="items[9].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c"><input type="text" id="amt_Bottom_Big_10" name="items[9].d2Bottom" tag="BOTTOM" class="disabled" readonly="" /></td>
+
+                    <td id="td_comp_10">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_9" name="items[9].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_9">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="单">
+                      <input type="checkbox" id="ck_Odd" name="items[10].number" value="Odd" />
+                      <label for="ck_Odd"><b data-title="odd">单</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_Odd_11" name="items[10].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_Odd_11" name="items[10].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_11">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_10" name="items[10].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_10">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="双">
+                      <input type="checkbox" id="ck_Even" name="items[11].number" value="Even" />
+                      <label for="ck_Even"><b data-title="even">双</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_Even_12" name="items[11].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_Even_12" name="items[11].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_12">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_11" name="items[11].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_11">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="25~74">
+                      <input type="checkbox" id="ck_In" name="items[12].number" value="In" />
+                      <label for="ck_In"><b data-title="25">25~74</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_In_13" name="items[12].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c"><input type="text" id="amt_Bottom_In_13" name="items[12].d2Bottom" tag="BOTTOM" class="disabled" readonly="" /></td>
+
+                    <td id="td_comp_13">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_12" name="items[12].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_12">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="00~24 &amp; 75~99">
+                      <input type="checkbox" id="ck_Out" name="items[13].number" value="Out" />
+                      <label for="ck_Out"><b data-title="0">00~24 &amp; 75~99</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_Out_14" name="items[13].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_Out_14" name="items[13].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_14">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_13" name="items[13].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_13">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="十二生肖">
+                      <input type="checkbox" id="ck_Zodiac" name="items[14].number" value="Zodiac" />
+                      <label for="ck_Zodiac"><b data-title="zodiac">十二生肖</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_Zodiac_15" name="items[14].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_Zodiac_15" name="items[14].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_15">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_14" name="items[14].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_14">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="非十二生肖">
+                      <input type="checkbox" id="ck_NoZodiac" name="items[15].number" value="NoZodiac" />
+                      <label for="ck_NoZodiac"><b data-title="Nozodiac">十二非十二生肖</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_NoZodiac_16" name="items[15].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_NoZodiac_16" name="items[15].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_16">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_15" name="items[15].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_15">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="special2.swimming">
+                      <input type="checkbox" id="ck_Swimming" name="items[16].number" value="Swimming" />
+                      <label for="ck_Swimming"><b data-title="swimming">special2.swimming</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_Swimming_17" name="items[16].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_Swimming_17" name="items[16].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_17">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_16" name="items[16].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_16">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td class="item" title="Divine (16 N°)">
+                      <input type="checkbox" id="ck_Divine" name="items[17].number" value="Divine" />
+                      <label for="ck_Divine"><b data-title="divine">Divine (16 N°)</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_Divine_18" name="items[17].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_Divine_18" name="items[17].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_18">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_17" name="items[17].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_17">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="">
+                    <td class="item" title="30~79">
+                      <input type="checkbox" id="ck_30-79" name="items[18].number" value="30-79" />
+                      <label for="ck_30-79"><b data-title="30">30~79</b></label>
+                    </td>
+                    <td class="c"><input type="text" id="amt_Top_30-79_19" name="items[18].d2Top" tag="TOP" class="disabled" readonly="" /></td>
+                    <td class="c">
+                      <input type="text" id="amt_Bottom_30-79_19" name="items[18].d2Bottom" tag="BOTTOM" class="disabled" readonly="" />
+                    </td>
+
+                    <td id="td_comp_19">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_18" name="items[18].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_18">HN</label></span
+                      >
+                    </td>
+                    <td name="totalAmt" class="right total">0.00</td>
+                    <td name="discountAmt" class="right total">0.00</td>
+                    <td name="netAmt" class="right total">0.00</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th></th>
+                    <th>
+                      <input type="text" class="v_decimel" tag="TOP" /><br />
+                      <input type="button" class="ok" value="OK" />
+                    </th>
+                    <th>
+                      <input type="text" class="v_decimel" tag="BOTTOM" /><br />
+                      <input type="button" class="ok" value="OK" />
+                    </th>
+
+                    <th id="td_comp_foot">
+                      <input type="checkbox" tag="ckAll" value="clickAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_f" name="items[f].drawCompany" vsta="HN" vtag="N" value="HN" />
+                        <label for="comp_HN_f">HN</label></span
+                      >
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </tfoot>
+              </table>
+              <!-- bet form end -->
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th class="col1"></th>
+            <th>
+              <div class="btns bet_btns" style="height: 21px;padding-right:5px;">
+                <div style="float:right;">
+                  <input type="button" class="btn TODO" name="btnBet" data-btn="submit" value="下注" />
+                  <input type="button" class="btn" name="btnReset" data-btn="clear" value="清除" />
+                </div>
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
+    <form id="betform2" action="/member/bet/betConcat.action;jsessionid=abcEJcXEG2NWraQYOzyRw" method="post">
+      <table class="tbCon">
+        <thead>
+          <tr>
+            <th class="col1" data-title="2D_spe">2D 特殊</th>
+            <th>
+              <div class="btns bet_btns" style="height: 21px;padding-right:5px;">
+                <div style="float:right;">
+                  <input type="button" class="btn TODO" name="btnBet2" data-btn="submit" value="下注" />
+                  <input type="button" class="btn" name="btnReset2" data-btn="clear" value="清除" />
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <!-- bet form begin -->
+              <table class="bet" id="tbBet2D">
+                <thead>
+                  <tr class="title">
+                    <th colspan="3" data-title="number">号码</th>
+                    <th style="color:#000" data-title="top">头</th>
+                    <th style="color:#000" data-title="bottom">尾</th>
+                    <th style="color:#000" data-title="roll">包组</th>
+                    <th data-title="market">市场</th>
+                    <th class="th_total" data-title="totalAmt">总额</th>
+                    <th class="th_total" data-title="discount">折扣</th>
+                    <th class="th_total" data-title="netAmt">净值</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span data-title="number1">号码1</span> <br />
+                      <input type="checkbox" id="ckSpecial1" name="ck1" tag="number1" /> &nbsp;
+                    </td>
+                    <td rowspan="11">X</td>
+                    <td>
+                      <span data-title="number2">号码2</span> <br />
+                      <input type="checkbox" id="ckSpecial2" name="ck2" tag="number2" /> &nbsp;
+                    </td>
+                    <td rowspan="11" class="light_blue"><input type="text" name="d2Top" id="txtSp2dTop" class="v_decimel" tag="TOP" /></td>
+                    <td rowspan="11" class="light_blue"><input type="text" name="d2Bottom" id="txtSp2dBottom" class="v_decimel" tag="BOTTOM" /></td>
+                    <td rowspan="11" class="light_blue"><input type="text" name="d2Roll" id="txtSp2dRoll" class="v_decimel" tag="ROLL" /></td>
+                    <td rowspan="11" id="td_comp_2dSpecial" class="light_blue">
+                      <input type="checkbox" tag="ckAll" /><span data-check="all">所有</span
+                      ><span class="company" vtag="N" title="HN">
+                        <input type="checkbox" id="comp_HN_s" name="company" vsta="HN" vtag="N" value="HN" /> <label for="comp_HN_s">HN</label></span
+                      >
+                    </td>
+                    <td rowspan="11" name="totalAmt" class="right total">0.00</td>
+                    <td rowspan="11" name="discountAmt" class="right total">0.00</td>
+                    <td rowspan="11" name="netAmt" class="right total">0.00</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td><input type="checkbox" name="number1" value="0" /> 0</td>
+                    <td><input type="checkbox" name="number2" value="0" /> 0</td>
+                  </tr>
+
+                  <tr class="">
+                    <td><input type="checkbox" name="number1" value="1" /> 1</td>
+                    <td><input type="checkbox" name="number2" value="1" /> 1</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td><input type="checkbox" name="number1" value="2" /> 2</td>
+                    <td><input type="checkbox" name="number2" value="2" /> 2</td>
+                  </tr>
+
+                  <tr class="">
+                    <td><input type="checkbox" name="number1" value="3" /> 3</td>
+                    <td><input type="checkbox" name="number2" value="3" /> 3</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td><input type="checkbox" name="number1" value="4" /> 4</td>
+                    <td><input type="checkbox" name="number2" value="4" /> 4</td>
+                  </tr>
+
+                  <tr class="">
+                    <td><input type="checkbox" name="number1" value="5" /> 5</td>
+                    <td><input type="checkbox" name="number2" value="5" /> 5</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td><input type="checkbox" name="number1" value="6" /> 6</td>
+                    <td><input type="checkbox" name="number2" value="6" /> 6</td>
+                  </tr>
+
+                  <tr class="">
+                    <td><input type="checkbox" name="number1" value="7" /> 7</td>
+                    <td><input type="checkbox" name="number2" value="7" /> 7</td>
+                  </tr>
+
+                  <tr class="tr_lt">
+                    <td><input type="checkbox" name="number1" value="8" /> 8</td>
+                    <td><input type="checkbox" name="number2" value="8" /> 8</td>
+                  </tr>
+
+                  <tr class="">
+                    <td><input type="checkbox" name="number1" value="9" /> 9</td>
+                    <td><input type="checkbox" name="number2" value="9" /> 9</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- bet form end -->
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th class="col1"></th>
+            <th>
+              <div class="btns bet_btns" style="height: 21px;padding-right:5px;">
+                <div style="float:right;">
+                  <input type="button" class="btn TODO" name="btnBet2" data-btn="submit" value="下注" />
+                  <input type="button" class="btn" name="btnReset2" data-btn="clear" value="清除" />
+                </div>
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+
+      <script src="../js/jquery.i18n.properties-1.0.9.js"></script>
+      <script>
+        // 全部點擊
+        $('input[value=clickAll]').click(function() {
+          let allChild = $(this)
+            .parent()
+            .children('span')
+            .children('input[type=checkbox]');
+          if ($(this).prop('checked')) {
+            for (let i = 1; i <= $('#tbody tr').length; i++) {
+              $(`#tbody tr #td_comp_${i} input[type=checkbox]`).each(function() {
+                $(this).prop('checked', true);
+              });
+            }
+            allChild.each(function() {
+              $(this).prop('checked', true);
+            });
+          } else {
+            $('#tbody input[type=checkbox]').each(function() {
+              $(this).prop('checked', false);
+            });
+            allChild.each(function() {
+              $(this).prop('checked', false);
+            });
+          }
+        });
+        //整行全部點擊
+        $('input[tag=ckAll]').click(function() {
+          let allChild = $(this)
+            .parent()
+            .children('span')
+            .children('input[type=checkbox]');
+          if ($(this).prop('checked')) {
+            allChild.each(function() {
+              $(this).prop('checked', true);
+            });
+          } else {
+            allChild.each(function() {
+              $(this).prop('checked', false);
+            });
+          }
+        });
+
+        let ary = ['HN'];
+        // 第一行市場點擊
+        for (let i = 0; i < ary.length; i++) {
+          $(`input[value=${ary[i]}]`)
+            .eq(0)
+            .click(function() {
+              if (
+                $(`input[value=${ary[i]}]`)
+                  .eq(0)
+                  .prop('checked')
+              ) {
+                $(`#tbody input[value=${ary[i]}]`).each(function() {
+                  $(this).prop('checked', true);
+                });
+              } else {
+                $(`#tbody input[value=${ary[i]}]`).each(function() {
+                  $(this).prop('checked', false);
+                });
+              }
+            });
+        }
+        // 最後一行市場點擊
+        for (let i = 0; i < ary.length; i++) {
+          $(`#td_comp_foot input[value=${ary[i]}]`).click(function() {
+            if ($(`#td_comp_foot input[value=${ary[i]}]`).prop('checked')) {
+              $(`#tbody input[value=${ary[i]}]`).each(function() {
+                $(this).prop('checked', true);
+              });
+            } else {
+              $(`#tbody input[value=${ary[i]}]`).each(function() {
+                $(this).prop('checked', false);
+              });
+            }
+          });
+        }
+
+        //號碼點擊
+        let numArr = ['number1', 'number2'];
+        for (let i = 0; i < numArr.length; i++) {
+          $(`input[tag=${numArr[i]}]`).click(function() {
+            if ($(this).prop('checked')) {
+              $(`input[name=${numArr[i]}]`).each(function() {
+                $(this).prop('checked', true);
+              });
+            } else {
+              $(`input[name=${numArr[i]}]`).each(function() {
+                $(this).prop('checked', false);
+              });
+            }
+          });
+        }
+      </script>
+
+      <script type="text/javascript">
+        $(function() {
+          $('#divBox .close').click(function() {
+            $('#divBox').jqmHide();
+          });
+        });
+      </script>
+
+      <div id="divBox" class="divBox jqmWindow">
+        <div class="body">
+          <div class="tit drag"></div>
+          <div class="ctx"></div>
+        </div>
+        <div class="head"></div>
+      </div>
+
+      <div id="divBox" class="divBox jqmWindow jqmID1">
+        <div class="head drag">
+          <div class="lt"></div>
+          <div class="gt"></div>
+          <div class="tit"></div>
+        </div>
+        <div class="body">
+          <div class="context"></div>
+          <div class="btns">
+            <span><input type="button" value="OK" class="btn_com jqmClose" id="btnCancelBox"/></span>
+          </div>
+        </div>
+      </div>
+      <div style="display:none;">
+        <div id="box_btn">
+          <span><input type="button" value="OK" class="btn_com jqmClose" id="btnCancelBox"/></span>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        var drawlist = [
+          {
+            drawId: '20190521HN',
+            company: 'HN',
+            companyGroup: 'HN',
+            companyAttr: 'N',
+            day: 3,
+            open: '06:00',
+            close: '18:09',
+            state: 'S',
+            runningState: 'S',
+            runningClose: '18:19'
+          },
+          {
+            drawId: '20190521BT',
+            company: 'BT',
+            companyGroup: '18A',
+            companyAttr: 'S',
+            day: 3,
+            open: '06:00',
+            close: '16:11',
+            state: 'S',
+            runningState: 'S',
+            runningClose: '16:25'
+          },
+          {
+            drawId: '20190521VT',
+            company: 'VT',
+            companyGroup: '18B',
+            companyAttr: 'S',
+            day: 3,
+            open: '06:00',
+            close: '16:10',
+            state: 'S',
+            runningState: 'S',
+            runningClose: '16:25'
+          },
+          {
+            drawId: '20190521BL',
+            company: 'BL',
+            companyGroup: '18C',
+            companyAttr: 'S',
+            day: 3,
+            open: '06:00',
+            close: '16:06',
+            state: 'S',
+            runningState: 'S',
+            runningClose: '16:22'
+          },
+          {
+            drawId: '20190521DLK',
+            company: 'DLK',
+            companyGroup: '18D',
+            companyAttr: 'M',
+            day: 3,
+            open: '06:00',
+            close: '17:05',
+            state: 'S',
+            runningState: 'S',
+            runningClose: '17:20'
+          },
+          {
+            drawId: '20190521QNM',
+            company: 'QNM',
+            companyGroup: '18D',
+            companyAttr: 'M',
+            day: 3,
+            open: '06:00',
+            close: '17:05',
+            state: 'S',
+            runningState: 'S',
+            runningClose: '17:20'
+          }
+        ];
+        var gamePackage = {
+          id: 1,
+          name: 'A',
+          packageType: 1,
+          comm2dn: 24.5,
+          comm3dn: 33.0,
+          comm4dn: 33.0,
+          comm5dn: 33.0,
+          commPl2n: 24.5,
+          commPl3n: 24.5,
+          odds2dn: 75.0,
+          odds3dn: 650.0,
+          odds4dn: 6000.0,
+          odds5dn: 40000.0,
+          oddsPl2n: 650.0,
+          oddsPl3n: 3500.0,
+          comm2da: 24.5,
+          comm3da: 33.0,
+          comm4da: 33.0,
+          comm5da: 33.0,
+          commPl2a: 24.5,
+          commPl3a: 24.5,
+          odds2da: 75.0,
+          odds3da: 650.0,
+          odds4da: 6000.0,
+          odds5da: 40000.0,
+          oddsPl2a: 750.0,
+          oddsPl3a: 3500.0,
+          comm2db: 24.5,
+          comm3db: 33.0,
+          comm4db: 33.0,
+          comm5db: 33.0,
+          commPl2b: 24.5,
+          commPl3b: 24.5,
+          odds2db: 75.0,
+          odds3db: 650.0,
+          odds4db: 6000.0,
+          odds5db: 40000.0,
+          oddsPl2b: 750.0,
+          oddsPl3b: 3500.0,
+          comm2dc: 24.5,
+          comm3dc: 33.0,
+          comm4dc: 33.0,
+          comm5dc: 33.0,
+          commPl2c: 24.5,
+          commPl3c: 24.5,
+          odds2dc: 75.0,
+          odds3dc: 650.0,
+          odds4dc: 6000.0,
+          odds5dc: 40000.0,
+          oddsPl2c: 750.0,
+          oddsPl3c: 3500.0,
+          comm2dd: 24.5,
+          comm3dd: 33.0,
+          comm4dd: 33.0,
+          comm5dd: 33.0,
+          commPl2d: 24.5,
+          commPl3d: 24.5,
+          odds2dd: 75.0,
+          odds3dd: 650.0,
+          odds4dd: 6000.0,
+          odds5dd: 40000.0,
+          oddsPl2d: 750.0,
+          oddsPl3d: 3500.0
+        };
+        var drawTypeCountNorth = {
+          '5D': { Roll: 10 },
+          '4D': { Bottom: 1, Roll: 20 },
+          '3D': { Top: 3, Bottom: 1, TB: 4, Roll: 23, Roll7: 7, TRoll7: 7, MRoll7: 7, BRoll7: 7 },
+          '2D': { Top: 4, Bottom: 1, TB: 5, Roll: 27, Roll7: 7, TRoll7: 7, MRoll7: 7, BRoll7: 7 }
+        };
+        var drawTypeCountSouth = {
+          '5D': { Roll: 12 },
+          '4D': { Bottom: 1, Roll: 16 },
+          '3D': { Top: 1, Bottom: 1, TB: 2, Roll: 17, Roll7: 7, TRoll7: 7, MRoll7: 7, BRoll7: 7 },
+          '2D': { Top: 1, Bottom: 1, TB: 2, Roll: 18, Roll7: 7, TRoll7: 7, MRoll7: 7, BRoll7: 7 }
+        };
+        var serverTime = 1558409345930;
+        var companyArea = 'N';
+        var rowCount = 19;
+        var msgAll = '<span data-check="all">所有</span>';
+
+        var confirmBet = '确定下注 ?';
+        var msgInvalidBet = '无效的下注信息';
+        initCloseTime();
+      </script>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma;
+  font-size: 12px;
+  text-size-adjust: none;
+}
+
+* a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+main{
+  .schedule{
+    min-width: 933px;
+    float: left;
+    margin: 5px;
+    .box {
+      // width: 1002px;
+      background: #d9dde0;
+      .title2{
+        height: 25px;
+        background: url(../images/A19.gif);
+        .lt{
+          width: 5px;
+          float: left;
+          background: url(../images/A18.gif);
+        }
+        .md{
+          float: left;
+          color: White;
+          font-weight: bold;
+          line-height: 25px;
+          font-size: 11px;
+          padding-left: 5px;
+        }
+        .gt{
+          width: 5px;
+          float: right;
+          background: url(../images/A21.gif);
+        }
+        div{
+          height: 25px !important;
+        }
+      }
+      .body{
+        border: solid 1px #4c4c4c;
+        .context2{
+          margin: 5px;
+          table{
+            border-collapse: collapse;
+            border-spacing: 1px;
+          }
+          table.report3 td, table.report3 th {
+            border: solid 1px #BBB;
+            background-color: White;
+            padding: 5px 5px;
+          }
+          table.report3 tbody tr:hover td {
+            background: #efe4af;
+          }
+          .report3{
+            border-collapse: collapse;
+            border: solid 1px #BBB;
+            width: 100%;
+            thead{
+              th{
+                background: #20344b url(../images/A22.gif);
+                height: 20px;
+                color: White;
+                font-size: 11px;
+                padding: 0 5px;
+                border: solid 1px #BBB;
+              }
+            }
+            td,th{
+              text-align: center;
+              word-break: keep-all;
+              white-space: nowrap;
+            }
+            .day{
+              font-weight: bold;
+              color: #023260;
+            }
+            b{
+              font-weight: bold;
+            }
+            .d_green{
+              color: #003300;
+            }
+          }
+        }
+      }
+    }
+  }
+}

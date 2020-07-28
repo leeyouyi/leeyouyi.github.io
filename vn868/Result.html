@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style/Result.css" />
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/calendar.js"></script>
+    <script src="./js/calendar-en.js"></script>
+    <script src="./js/calendar-setup.js"></script>
+    <script src="./js/date.js"></script>
+    <title>Result</title>
+  </head>
+
+  <body>
+    <div class="Result">
+      <div class="main">
+        <form id="form" method="post">
+          <div class="box">
+            <div class="title" style="width: 1405px;">
+              <div class="lt"></div>
+              <div  class="md">
+                <span data-result="6"> Draw Result</span>
+               </div>
+              <div class="gt"></div>
+            </div>
+            <div class="body">
+              <div class="control">
+                <div class="dleft">
+                  <span data-result="0">  Draw Date</span>
+                  <input type="text" id="drawDate" name="drawDate" value="" class="txt_com txt_calendar dateFrom" readonly="readonly" />
+                  <input type="button" id="btn_drawDate" class="btn_calendar" />&nbsp;&nbsp;
+                  <input data-result="1" type="submit" class="btn_com" id="btn_drawDate" value="Search">
+                  <input data-result="2" type="button" name="btn_date" tag="today" value="Today" class="btn_com" />
+                  <input data-result="3" type="button" name="btn_date" tag="yesterday" value="Yesterday" class="btn_com" />
+                  <input data-result="4" type="button" id="btnPrint" value="Print" class="btn_com" />
+                </div>
+                <span class="res_com">
+                  <a href="#">SMS</a>
+                  <a href="#">XOSO</a>
+                  <a href="#">MINHGOC</a>
+                  <a href="#">1GOM</a>
+                </span>
+                <div class="clear"></div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="calendar" style="position: absolute; display: none; left: 157px; top: 55px;">
+          <table cellspacing="0" cellpadding="0" style="visibility: visible;">
+            <thead>
+              <tr>
+                <td colspan="1" class="button"><div unselectable="on">?</div></td>
+                <td colspan="5" class="title" style="cursor: move;">May, 2019</td>
+                <td colspan="1" class="button"><div unselectable="on">×</div></td>
+              </tr>
+              <tr class="headrow">
+                <td colspan="1" class="button nav"><div unselectable="on">«</div></td>
+                <td colspan="1" class="button nav"><div unselectable="on">‹</div></td>
+                <td colspan="3" class="button"><div unselectable="on">Today</div></td>
+                <td colspan="1" class="button nav"><div unselectable="on">›</div></td>
+                <td colspan="1" class="button nav"><div unselectable="on">»</div></td>
+              </tr>
+              <tr class="daynames">
+                <td class="name day weekend">Sun</td>
+                <td class="day name">Mon</td>
+                <td class="day name">Tue</td>
+                <td class="day name">Wed</td>
+                <td class="day name">Thu</td>
+                <td class="day name">Fri</td>
+                <td class="name day weekend">Sat</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="daysrow">
+                <td class="emptycell">&nbsp;</td>
+                <td class="emptycell">&nbsp;</td>
+                <td class="emptycell">&nbsp;</td>
+                <td class="day">1</td>
+                <td class="day">2</td>
+                <td class="day">3</td>
+                <td class="day weekend">4</td>
+              </tr>
+              <tr class="daysrow">
+                <td class="day weekend">5</td>
+                <td class="day">6</td>
+                <td class="day">7</td>
+                <td class="day">8</td>
+                <td class="day">9</td>
+                <td class="day">10</td>
+                <td class="day weekend">11</td>
+              </tr>
+              <tr class="daysrow">
+                <td class="day weekend">12</td>
+                <td class="day">13</td>
+                <td class="day">14</td>
+                <td class="day">15</td>
+                <td class="day">16</td>
+                <td class="day selected">17</td>
+                <td class="day weekend">18</td>
+              </tr>
+              <tr class="daysrow">
+                <td class="day weekend">19</td>
+                <td class="day">20</td>
+                <td class="day">21</td>
+                <td class="day today">22</td>
+                <td class="day">23</td>
+                <td class="day">24</td>
+                <td class="day weekend">25</td>
+              </tr>
+              <tr class="daysrow">
+                <td class="day weekend">26</td>
+                <td class="day">27</td>
+                <td class="day">28</td>
+                <td class="day">29</td>
+                <td class="day">30</td>
+                <td class="day">31</td>
+                <td class="emptycell">&nbsp;</td>
+              </tr>
+              <tr class="emptyrow">
+                <td class="emptycell">&nbsp;</td>
+                <td class="emptycell">&nbsp;</td>
+                <td class="emptycell">&nbsp;</td>
+                <td class="emptycell">&nbsp;</td>
+                <td class="emptycell">&nbsp;</td>
+                <td class="emptycell">&nbsp;</td>
+                <td class="emptycell">&nbsp;</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="footrow">
+                <td colspan="7" class="ttip" style="cursor: move;">Select date</td>
+              </tr>
+            </tfoot>
+          </table>
+          <div class="combo" style="display: none;">
+            <div class="label">Jan</div>
+            <div class="label">Feb</div>
+            <div class="label">Mar</div>
+            <div class="label">Apr</div>
+            <div class="label">May</div>
+            <div class="label">Jun</div>
+            <div class="label">Jul</div>
+            <div class="label">Aug</div>
+            <div class="label">Sep</div>
+            <div class="label">Oct</div>
+            <div class="label">Nov</div>
+            <div class="label">Dec</div>
+          </div>
+          <div class="combo">
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+            <div class="label"></div>
+          </div>
+        </div>
+        <div class="report" style="width: 1405px;">
+          <table class="report tb_n" style="margin-left: 0px;">
+            <thead>
+              <tr class="m_title3">
+                <th colspan="3" class="left">Hanoi [Hanoi ] (<span id="time_HN">03:16:09</span>)</th>
+              </tr>
+              <tr class="sub_title3">
+                <th data-result="5">Bet Type</th>
+                <th>#</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="first">
+                <td rowspan="4" class="group">2D</td>
+                <td class="index">1</td>
+                <td class="left result td_loading" id="result" title="2D"></td>
+              </tr>
+              <tr>
+                <td class="index_lt">2</td>
+                <td class="left result_lt td_loading" id="result" title="2D"></td>
+              </tr>
+              <tr>
+                <td class="index">3</td>
+                <td class="left result td_loading" id="result" title="2D"></td>
+              </tr>
+              <tr>
+                <td class="index_lt">4</td>
+                <td class="left result_lt td_loading" id="result" title="2D"></td>
+              </tr>
+              <tr class="first">
+                <td rowspan="3" class="group">3D</td>
+
+                <td class="index">5</td>
+                <td class="left result td_loading" id="result" title="3D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">6</td>
+                <td class="left result_lt td_loading" id="result" title="3D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">7</td>
+                <td class="left result td_loading" id="result" title="3D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="10" class="group">4D</td>
+
+                <td class="index_lt">8</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">9</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr class="dotted_bm">
+                <td class="index_lt">10</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr class="dotted_tp">
+                <td class="index">11</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">12</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">13</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">14</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">15</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">16</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">17</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="10" class="group">5D</td>
+
+                <td class="index_lt">18</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">19</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">20</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">21</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">22</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">23</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">24</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">25</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">26</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">27</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- S&M -->
+
+          <table class="report tb_s">
+            <thead>
+              <tr class="m_title3">
+                <th colspan="3" class="left">Ben Tre [18A] (<span id="time_BT">01:18:09</span>)</th>
+              </tr>
+              <tr class="sub_title3">
+                <th data-result="5">Bet Type</th>
+                <th>#</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="first">
+                <td rowspan="1" class="group">2D</td>
+
+                <td class="index">1</td>
+                <td class="left result td_loading" id="result" title="2D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="1" class="group">3D</td>
+
+                <td class="index_lt">2</td>
+                <td class="left result_lt td_loading" id="result" title="3D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="4" class="group">4D</td>
+
+                <td class="index">3</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">4</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">5</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">6</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr class="first dotted_bm">
+                <td rowspan="11" class="group">5D</td>
+
+                <td class="index">7</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="dotted_tp">
+                <td class="index_lt">8</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">9</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">10</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">11</td>
+                <td class="left result td_loading" id="result0" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">12</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">13</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">14</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">15</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">16</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">17</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="first">
+                <td class="group">6D</td>
+                <td class="index_lt">18</td>
+                <td class="left result_lt td_loading" id="result" title="6D"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- S&M -->
+
+          <table class="report tb_s">
+            <thead>
+              <tr class="m_title3">
+                <th colspan="3" class="left">Vung Tau [18B] (<span id="time_VT">01:17:09</span>)</th>
+              </tr>
+              <tr class="sub_title3">
+                <th data-result="5">Bet Type</th>
+                <th>#</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="first">
+                <td rowspan="1" class="group">2D</td>
+
+                <td class="index">1</td>
+                <td class="left result td_loading" id="result" title="2D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="1" class="group">3D</td>
+
+                <td class="index_lt">2</td>
+                <td class="left result_lt td_loading" id="result" title="3D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="4" class="group">4D</td>
+
+                <td class="index">3</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">4</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">5</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">6</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr class="first dotted_bm">
+                <td rowspan="11" class="group">5D</td>
+
+                <td class="index">7</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="dotted_tp">
+                <td class="index_lt">8</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">9</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">10</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">11</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">12</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">13</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">14</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">15</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">16</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">17</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="first">
+                <td class="group">6D</td>
+                <td class="index_lt">18</td>
+                <td class="left result_lt td_loading" id="result" title="6D"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- S&M -->
+
+          <table class="report tb_s">
+            <thead>
+              <tr class="m_title3">
+                <th colspan="3" class="left">Bac Lieu [18C] (<span id="time_BL">01:13:09</span>)</th>
+              </tr>
+              <tr class="sub_title3">
+                <th data-result="5">Bet Type</th>
+                <th>#</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="first">
+                <td rowspan="1" class="group">2D</td>
+
+                <td class="index">1</td>
+                <td class="left result td_loading" id="result" title="2D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="1" class="group">3D</td>
+
+                <td class="index_lt">2</td>
+                <td class="left result_lt td_loading" id="result" title="3D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="4" class="group">4D</td>
+
+                <td class="index">3</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">4</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">5</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">6</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr class="first dotted_bm">
+                <td rowspan="11" class="group">5D</td>
+
+                <td class="index">7</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="dotted_tp">
+                <td class="index_lt">8</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">9</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">10</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">11</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">12</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">13</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">14</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">15</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">16</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">17</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="first">
+                <td class="group">6D</td>
+                <td class="index_lt">18</td>
+                <td class="left result_lt td_loading" id="result" title="6D"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- S&M -->
+
+          <table class="report tb_s">
+            <thead>
+              <tr class="m_title3">
+                <th colspan="3" class="left">Quang Nam [18D] (<span id="time_QNM">02:12:09</span>)</th>
+              </tr>
+              <tr class="sub_title3">
+                <th data-result="5">Bet Type</th>
+                <th>#</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="first">
+                <td rowspan="1" class="group">2D</td>
+
+                <td class="index">1</td>
+                <td class="left result td_loading" id="result" title="2D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="1" class="group">3D</td>
+
+                <td class="index_lt">2</td>
+                <td class="left result_lt td_loading" id="result" title="3D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="4" class="group">4D</td>
+
+                <td class="index">3</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">4</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">5</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">6</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr class="first dotted_bm">
+                <td rowspan="11" class="group">5D</td>
+
+                <td class="index">7</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="dotted_tp">
+                <td class="index_lt">8</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">9</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">10</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">11</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">12</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">13</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">14</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">15</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">16</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">17</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="first">
+                <td class="group">6D</td>
+                <td class="index_lt">18</td>
+                <td class="left result_lt td_loading" id="result" title="6D"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- S&M -->
+
+          <table class="report tb_s">
+            <thead>
+              <tr class="m_title3">
+                <th colspan="3" class="left">Dak Lak [18D] (<span id="time_DLK">02:12:09</span>)</th>
+              </tr>
+              <tr class="sub_title3">
+                <th data-result="5">Bet Type</th>
+                <th>#</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="first">
+                <td rowspan="1" class="group">2D</td>
+
+                <td class="index">1</td>
+                <td class="left result td_loading" id="result" title="2D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="1" class="group">3D</td>
+
+                <td class="index_lt">2</td>
+                <td class="left result_lt td_loading" id="result" title="3D"></td>
+              </tr>
+
+              <tr class="first">
+                <td rowspan="4" class="group">4D</td>
+
+                <td class="index">3</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">4</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">5</td>
+                <td class="left result td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">6</td>
+                <td class="left result_lt td_loading" id="result" title="4D"></td>
+              </tr>
+
+              <tr class="first dotted_bm">
+                <td rowspan="11" class="group">5D</td>
+
+                <td class="index">7</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="dotted_tp">
+                <td class="index_lt">8</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">9</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">10</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">11</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">12</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">13</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">14</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">15</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index_lt">16</td>
+                <td class="left result_lt td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr>
+                <td class="index">17</td>
+                <td class="left result td_loading" id="result" title="5D"></td>
+              </tr>
+
+              <tr class="first">
+                <td class="group">6D</td>
+                <td class="index_lt">18</td>
+                <td class="left result_lt td_loading" id="result" title="6D"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button id="cn">中文</button>
+    <button id="vn">越南</button>
+    <button id="en">英文</button>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.i18n.properties-1.0.9.js"></script>
+    <!-- <script src="./js/main_Neo.js"></script> -->
+    <script>
+         $('#cn').click(function() {
+          loadProperties('zh-CN');
+          // shape(usernum)
+        });
+        $('#vn').click(function() {
+          loadProperties('vn');
+          // shape(usernum)
+        });
+        $('#en').click(function() {
+          loadProperties('en');
+          // shape(usernum)
+        });
+      // var drawDate = document.querySelector('#drawDate'),
+      //   btn_drawDate = document.querySelector('#btn_drawDate'),
+      //   result = document.querySelectorAll('#result'),
+      //   btncom = document.querySelectorAll('.btn_com')
+
+        Calendar.setup({
+          inputField: 'drawDate',
+          ifFormat: '%Y/%m/%d',
+          button: 'btn_drawDate',
+
+        })
+
+        $('.btn_com').click(function(){
+          $('.td_loading').html(Math.floor(Math.random()*120+1))
+        })
+
+        let date = new Date()
+        let year = date.getFullYear()
+        let month = date.getMonth() +1 
+        let day = date.getDate()
+
+        if(month < 10) month = '0'+ month
+        if(day < 10) day = '0'+ day
+        let today = `${year}/${month}/${day}`
+        $('#drawDate').val(today)
+    </script>
+    <!-- <script type="text/javascript">
+      // <![CDATA[  <-- For SVG support
+      if ('WebSocket' in window) {
+        ;(function() {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName('link'))
+            var head = document.getElementsByTagName('head')[0]
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i]
+              var parent = elem.parentElement || head
+              parent.removeChild(elem)
+              var rel = elem.rel
+              if ((elem.href && typeof rel != 'string') || rel.length == 0 || rel.toLowerCase() == 'stylesheet') {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '')
+                elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + new Date().valueOf()
+              }
+              parent.appendChild(elem)
+            }
+          }
+          var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://'
+          var address = protocol + window.location.host + window.location.pathname + '/ws'
+          var socket = new WebSocket(address)
+          socket.onmessage = function(msg) {
+            if (msg.data == 'reload') window.location.reload()
+            else if (msg.data == 'refreshcss') refreshCSS()
+          }
+          if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.')
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true)
+          }
+        })()
+      } else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.')
+      }
+      // ]]>
+    </script> -->
+  </body>
+</html>

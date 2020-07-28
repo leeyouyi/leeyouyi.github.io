@@ -1,0 +1,302 @@
+.bet{
+  width: auto;
+}
+.box .title {
+  background: url(../images/A36_2.gif) repeat scroll 0 0 transparent;
+  height: 25px;
+}
+.box .title .gt {
+  width: 5px;
+  float: right;
+  /* background: url(../images/A36_2.gif); */
+}
+.box .title .lt {
+  width: 5px;
+  float: left;
+  /* background: url(../images/A36_2.gif); */
+}
+table.bet thead .m_title th {
+  height: 19px;
+  background: url(../images/A36_2.gif);
+  color: #ffd100;
+  font-size: 14px;
+}
+table.bet thead .sub_title th {
+  height: 39px;
+  background: url(../images/A37_2.gif);
+  color: #fff;
+}
+table.bet th {
+  border: solid 1px #b0b0b0;
+}
+.box .title .md {
+  color: #ffd100;
+}
+table.bet thead .m_title th.company {
+  color: #ffd100;
+}
+.btn_com {
+  color: #000;
+}
+#tbBet {
+  width: 900px;
+}
+.v_decimel {
+  width: 60px;
+  text-align: center;
+}
+
+.divInput {
+  text-align: left;
+  background: #b1b1b1;
+  padding: 5px 0px 5px 10px;
+  margin-bottom: 5px;
+}
+
+.spanInput {
+  float: left;
+}
+
+.spanCompany {
+  float: right;
+  padding-right: 5px;
+  margin-top: 3px;
+}
+
+table.bet td {
+  width: 100px;
+}
+
+table.bet td.red label {
+  color: black;
+  font-weight: bold;
+}
+
+table.ber td.blue {
+  width: auto;
+}
+
+.normal2d .tenthousand,
+.normal2d .thousand {
+  display: none;
+}
+
+.normal3d .tenthousand {
+  display: none;
+}
+
+.bet td label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.thousand_title {
+  width: 70px;
+  display: inline-block;
+}
+/* #Wildcard,
+#span_lmt_3D,
+#span_lmt_4D,
+#span_lmt_5D,
+#span_lmt_PL2,
+#span_lmt_PL3 {
+  display: none;
+} */
+
+table.bet tr.tr_lt .click,
+table.bet .click {
+  background: #ffd100;
+}
+table.bet thead .m_title th.company {
+  color: #ffd100;
+}
+.top_text {
+  float: left;
+}
+.top_text * {
+  font-size: 11px;
+}
+.top_text table th {
+  text-align: left;
+  height: 18px;
+}
+.top_text table td {
+  padding-left: 20px;
+  text-align: left;
+}
+table.bet,
+table.bet td,
+table.bet th {
+  border: solid 1px #bbb;
+}
+table.bet th,
+table.bet td {
+  background: #fff;
+}
+table.bet thead .m_title th {
+  height: 20px;
+  background: url(../images/A36_2.gif);
+  color: #ffd100;
+  font-size: 14px;
+}
+table.bet thead th label {
+  font-size: 11px;
+}
+table.bet tbody td input[type='text'] {
+  width: 50px;
+  text-align: center;
+}
+table.bet tbody td {
+  padding: 0 3px;
+  height: 33px;
+}
+table.bet tr.tr_lt td {
+  background: #f0f0f0;
+}
+table.bet tr td.pink {
+  background: #ffdede;
+}
+table.bet tr td.blue {
+  background: #d9dee9;
+  color: #000 !important;
+}
+table.bet th.roll7 {
+  background: url(../images/A38.gif) !important;
+}
+table.bet th.midRoll7 {
+  background: url(../images/A38.gif) !important;
+}
+table.bet th.bottomRoll7 {
+  background: url(../images/A38.gif) !important;
+}
+table.bet tr td.roll7 {
+  background: #e3cb5e;
+}
+table.bet tr td.midRoll7 {
+  background: #e3cb5e;
+}
+table.bet tr td.bottomRoll7 {
+  background: #e3cb5e;
+}
+table.bet th.no {
+  width: 15px;
+}
+table.bet .colComp {
+  width: 180px;
+  text-align: left;
+  display: block;
+  padding: 0 !important;
+}
+table.bet .colComp span {
+  /* display: block; */
+  /* float: left; */
+  margin-left: 3px;
+  margin-top: 6px;
+  /* width: 40px; */
+}
+table.bet .th_total {
+  width: 70px;
+}
+div.bet {
+  margin-top: 5px;
+  float: left;
+  clear: both;
+}
+div.bet .btns {
+  text-align: left;
+  background: #b1b1b1;
+  padding: 5px 0 5px 10px;
+  margin-top: 5px;
+}
+div.bet .btns span {
+  vertical-align: middle;
+  font-size: 11px;
+}
+div.bet .btns b {
+  font-size: 11px;
+  color: #b93000;
+}
+div.bet .btns b.t {
+  color: black;
+}
+#inputTool {
+  position: absolute;
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 108px;
+  background: #efe4af;
+  height: 92px;
+  padding: 1px;
+}
+#inputTool input {
+  background: url(../images/member/A26.gif);
+  float: left;
+  margin: 1px;
+  width: 52px;
+  height: 21px;
+  color: #002340;
+  font-weight: bold;
+  font-size: 11px;
+}
+.divBox {
+  width: 300px !important;
+  margin-left: -150px !important;
+}
+.divBox .body .context {
+  text-align: left;
+  height: 230px;
+  overflow: auto;
+}
+.box div.context {
+  margin: 0;
+}
+#description td,
+#description th {
+  background: white;
+  height: 20px;
+  line-height: 20px;
+}
+.top_text table td {
+  padding-right: 10px;
+}
+.top_text table th {
+  padding-left: 10px;
+}
+.top_text table {
+  border-collapse: collapse;
+  margin-bottom: 5px;
+}
+span.sta_S {
+  color: #00de00;
+  background: white url(../images/A11_green.gif) no-repeat right;
+  padding-right: 16px;
+}
+span.sta_T,
+span.sta_R,
+span.sta_F {
+  color: #ff292a;
+  background: white url(../images/A11_red.gif) no-repeat right;
+  padding-right: 16px;
+}
+.bet_status {
+  color: #00de00;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+}
+#tbDescription h6 {
+  color: blue;
+  display: inline;
+}
+.span_unit {
+  float: right;
+  margin: 3px 10px 0 0;
+  font-weight: bold;
+}
+div.bet .btns .dleft {
+  float: left;
+}
+.timeleft {
+  color: blue;
+}

@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+}
+
+footer {
+  width: 100vw;
+  background: #626262;
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+footer .foot {
+  width: 1155px;
+  height: 20px;
+  line-height: 20px;
+  text-align: right;
+  font-size: 10px;
+}
+
+footer .clear {
+  clear: both;
+}
+/*# sourceMappingURL=footer.css.map */

@@ -1,0 +1,348 @@
+* {
+  font-family: Tahoma;
+  font-size: 12px;
+}
+
+* a {
+  text-decoration: none;
+}
+
+* ul,
+* ol {
+  list-style: none;
+}
+
+body {
+  background: #ccc;
+}
+
+.top_text {
+  float: left;
+}
+
+.top_text * {
+  font-size: 11px;
+}
+
+.top_text table th {
+  text-align: left;
+  height: 18px;
+}
+
+.top_text table td {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.top_text table td {
+  padding-right: 10px;
+}
+
+.top_text table th {
+  padding-left: 10px;
+}
+
+.top_text table {
+  border-collapse: collapse;
+  margin-bottom: 5px;
+}
+
+.box {
+  background: #d9dde0;
+}
+
+.box .title {
+  background: url(../images/A32_2.gif) repeat scroll 0 0 transparent;
+  height: 25px;
+  padding-left: 5px;
+}
+
+.box .title .md {
+  color: #ffd100;
+  float: left;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 11px;
+  padding-left: 5px;
+}
+
+.box .context {
+  margin: 0;
+}
+
+.box .body {
+  border: 1px solid #4c4c4c;
+}
+
+.box .body #description td, .box .body #description th {
+  background: white;
+  height: 20px;
+  line-height: 20px;
+}
+
+.box .body .timetle {
+  position: relative;
+  top: 3px;
+}
+
+.box .body .timeL {
+  position: relative;
+  top: 3px;
+}
+
+.box .body .timeleft {
+  color: blue;
+}
+
+.box .body span.sta_S {
+  color: #00de00;
+  background: white url(../images/A11_green.gif) no-repeat right;
+  padding-right: 16px;
+}
+
+.box .body span.sta_T, .box .body span.sta_R, .box .body span.sta_F {
+  color: #ff292a;
+  background: white url(../images/A11_red.gif) no-repeat right;
+  padding-right: 16px;
+}
+
+.bet {
+  margin-top: 5px;
+  float: left;
+  clear: both;
+}
+
+.bet .btns {
+  text-align: left;
+  background: #b1b1b1;
+  padding: 5px 0 5px 10px;
+  margin-top: 5px;
+}
+
+.bet .btns .dleft {
+  float: left;
+}
+
+.bet .btns span {
+  vertical-align: middle;
+  font-size: 11px;
+}
+
+.bet input[type="button"], .bet input[type="submit"] {
+  border: 0;
+}
+
+.bet .btn_com {
+  background: url(../images/A25.gif);
+  width: 72px;
+  height: 21px;
+  color: #000;
+  font-weight: bold;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.bet table.bet {
+  width: 930px;
+}
+
+.bet table.bet, .bet table.bet td, .bet table.bet th {
+  border: solid 1px #BBB;
+}
+
+.bet table {
+  border-collapse: collapse;
+  border-spacing: 1px;
+}
+
+.bet table .m_title th {
+  height: 19px;
+  background: url(../images/A32.gif);
+  color: #ffd100;
+  font-size: 14px;
+}
+
+.bet table .m_title th.company {
+  font-size: 11px;
+  color: #ffd100;
+}
+
+.bet table .sub_title th {
+  height: 39px;
+  background: url(../images/A33.gif);
+  color: #fff;
+  padding: 0 5px;
+}
+
+.bet table.bet th {
+  border: solid 1px #b0b0b0;
+}
+
+.bet table.bet th {
+  border: solid 1px #BBB;
+}
+
+.bet table.bet td {
+  background: #FFF;
+}
+
+.bet td, .bet th {
+  text-align: center;
+}
+
+.bet td, .bet th {
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.bet table.bet .colComp {
+  width: 222px;
+  text-align: left;
+  display: block;
+  padding: 0px !important;
+}
+
+.bet table.bet .colComp span {
+  margin-top: 1px;
+  display: block;
+  float: left;
+  margin-left: 2px;
+  width: 40px;
+}
+
+.bet input {
+  vertical-align: middle;
+}
+
+.bet table.bet thead th label {
+  font-size: 11px;
+}
+
+.bet .center {
+  text-align: center !important;
+}
+
+.bet .right {
+  text-align: right !important;
+}
+
+.bet table.bet tbody td {
+  height: 40px;
+  padding: 0 3px;
+}
+
+.bet .pink {
+  background: #ffdede !important;
+}
+
+.bet .white {
+  width: 222px;
+}
+
+.bet .blue {
+  background: #d9dee9 !important;
+  color: #000 !important;
+}
+
+.bet table.bet input[type="text"] {
+  width: 80px;
+}
+
+.bet input[type="text"], .bet input[type="password"] {
+  background: #f7f7f7;
+  border: solid 1px #e5e6e7;
+  border-top-color: #afafaf;
+  height: 18px;
+  line-height: 18px;
+  margin: 0;
+}
+
+.bet table.bet tr.tr_lt td {
+  background: #f0f0f0;
+}
+
+.bet table.bet .th_total {
+  width: 78px;
+}
+
+.bet table.bet.on tbody tr:hover td {
+  background: #efe4af !important;
+}
+
+.bet .btns b.t {
+  color: black;
+}
+
+.bet .btns b {
+  font-size: 11px;
+  color: #b93000;
+}
+
+.bet div[data-Parlay="Parlay_place"] input:nth-last-of-type(1) {
+  margin-left: 5px;
+}
+
+.bet div[data-Parlay="Parlay_place2"] input:nth-last-of-type(1) {
+  margin-left: 5px;
+}
+
+.bet #span_lmt_4D, .bet #span_lmt_5D, .bet #span_lmt_2D, .bet #span_lmt_3D {
+  display: none;
+}
+
+.bet .span_unit {
+  float: right;
+  margin: 3px 10px 0 0;
+  font-weight: bold;
+}
+
+.bet .clear {
+  clear: both;
+}
+
+.bet #inputTool {
+  position: absolute;
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 108px;
+  background: #efe4af;
+  height: 92px;
+  padding: 1px;
+}
+
+.bet #inputTool input {
+  background: url(../images/A26.gif);
+  float: left;
+  margin: 1px;
+  width: 52px;
+  height: 21px;
+  color: #002340;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.bet .btns2 {
+  margin-top: 495px;
+}
+
+.clear {
+  clear: both;
+}
+
+.divBox {
+  z-index: 101;
+  width: 500px;
+  font-size: 11px;
+  display: none;
+  left: 50%;
+  top: 150px;
+  margin-left: -250px;
+  position: absolute;
+}
+
+.divBox {
+  width: 300px !important;
+  margin-left: -150px !important;
+}
+/*# sourceMappingURL=parlay.css.map */

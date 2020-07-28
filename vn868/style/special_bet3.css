@@ -1,0 +1,272 @@
+* {
+  font-family: Tahoma;
+  font-size: 12px;
+}
+
+* a {
+  text-decoration: none;
+}
+
+* ul,
+* ol {
+  list-style: none;
+}
+
+body {
+  background: #ccc;
+}
+
+.top_text {
+  float: left;
+}
+
+.top_text * {
+  font-size: 11px;
+}
+
+.top_text table th {
+  text-align: left;
+  height: 18px;
+}
+
+.top_text table td {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.top_text table td {
+  padding-right: 10px;
+}
+
+.top_text table th {
+  padding-left: 10px;
+}
+
+.top_text table {
+  border-collapse: collapse;
+  margin-bottom: 5px;
+}
+
+.box {
+  background: #d9dde0;
+}
+
+.box .title {
+  background: url(../images/A27_center.gif) repeat scroll 0 0 transparent;
+  height: 25px;
+  padding-left: 5px;
+}
+
+.box .title .md {
+  color: #ffd100;
+  float: left;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 11px;
+  padding-left: 5px;
+}
+
+.box .context {
+  margin: 0;
+}
+
+.box .body {
+  border: 1px solid #4c4c4c;
+}
+
+.box .body #description td, .box .body #description th {
+  background: white;
+  height: 20px;
+  line-height: 20px;
+}
+
+.box .body .timeleft {
+  color: blue;
+}
+
+.box .body span.sta_S {
+  color: #00de00;
+  background: white url(../images/A11_green.gif) no-repeat right;
+  padding-right: 16px;
+}
+
+.box .body span.sta_T, .box .body span.sta_R, .box .body span.sta_F {
+  color: #ff292a;
+  background: white url(../images/A11_red.gif) no-repeat right;
+  padding-right: 16px;
+}
+
+.tbCon {
+  clear: both;
+  float: left;
+  margin-top: 5px;
+  min-width: 880px;
+  border: solid 1px #4c4c4c;
+}
+
+.tbCon td, .tbCon th {
+  word-break: keep-all;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.tbCon input[type=button] {
+  cursor: pointer;
+}
+
+.tbCon input[type="button"], .tbCon input[type="submit"] {
+  border: 0;
+}
+
+.tbCon input {
+  vertical-align: middle;
+}
+
+.tbCon input[type="text"], .tbCon input[type="password"] {
+  background: #f7f7f7;
+  border: solid 1px #e5e6e7;
+  border-top-color: #afafaf;
+  height: 18px;
+  line-height: 18px;
+  margin: 0;
+}
+
+.tbCon .btn {
+  color: #000;
+  font-weight: bold;
+  width: 72px;
+  height: 21px;
+  background: url(../images/A25.gif) no-repeat;
+}
+
+.tbCon .bet {
+  width: 100%;
+}
+
+.tbCon .bet .title th {
+  height: 66px;
+  color: #fff;
+  background: url(../images/A45_h70.gif);
+}
+
+.tbCon .bet .ok {
+  background: url(../images/A25_short.gif);
+  width: 27px;
+  height: 21px;
+  margin-top: 2px;
+}
+
+.tbCon .bet th, .tbCon .bet td {
+  border: solid 1px #bbb;
+}
+
+.tbCon .bet thead tr.title th.r1 {
+  height: 20px;
+}
+
+.tbCon .bet thead tr.title th.r2 {
+  height: 46px;
+}
+
+.tbCon .bet input[type='text'] {
+  width: 60px;
+}
+
+.tbCon .bet tbody td.item {
+  text-align: left;
+  padding-left: 5px;
+}
+
+.tbCon .bet tbody tr td {
+  background-color: #fff;
+}
+
+.tbCon .bet tbody tr.tr_lt td {
+  background-color: #f0f0f0;
+}
+
+.tbCon .bet tfoot tr {
+  background-color: #d9dee9;
+}
+
+.tbCon .disabled {
+  background-color: #949494 !important;
+}
+
+.tbCon .right {
+  text-align: right !important;
+}
+
+.tbCon div[data-SpecBet3="SpecBet3_place"] input:nth-last-of-type(1) {
+  margin-left: 5px;
+}
+
+.tbCon td [data-SpecBet3="SpecBet3_num1"] {
+  padding: 0 5px;
+}
+
+.tbCon td [data-SpecBet3="SpecBet3_num2"] {
+  padding: 0 5px;
+}
+
+.tbCon td [data-SpecBet3="SpecBet3_2d_all"] {
+  padding: 0 22.5px;
+}
+
+.tbCon .tr_rt:hover td, .tbCon .tr_lt:hover td {
+  background: #efe4af !important;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 1px;
+}
+
+.tbCon > thead tr, .tbCon > tfoot tr {
+  height: 30px;
+  background: url(../images/A44_h30.gif);
+}
+
+.tbCon > thead th {
+  text-align: left;
+  color: #ffd100;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+.tbCon > tbody td {
+  padding: 2px;
+}
+
+#tbBet2D thead tr th {
+  height: 25px;
+}
+
+.abc {
+  text-align: right !important;
+}
+
+.light_blue {
+  background-color: #d9dee9 !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.divBox {
+  z-index: 101;
+  width: 500px;
+  font-size: 11px;
+  display: none;
+  left: 50%;
+  top: 150px;
+  margin-left: -250px;
+  position: absolute;
+}
+
+.divBox {
+  width: 300px !important;
+  margin-left: -150px !important;
+}
+/*# sourceMappingURL=special_bet3.css.map */

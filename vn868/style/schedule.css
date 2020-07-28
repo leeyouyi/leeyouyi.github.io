@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma;
+  font-size: 12px;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+* a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+main .schedule {
+  min-width: 933px;
+  float: left;
+  margin: 5px;
+}
+
+main .schedule .box {
+  background: #d9dde0;
+}
+
+main .schedule .box .title2 {
+  height: 25px;
+  background: url(../images/A19.gif);
+}
+
+main .schedule .box .title2 .lt {
+  width: 5px;
+  float: left;
+  background: url(../images/A18.gif);
+}
+
+main .schedule .box .title2 .md {
+  float: left;
+  color: White;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 11px;
+  padding-left: 5px;
+}
+
+main .schedule .box .title2 .gt {
+  width: 5px;
+  float: right;
+  background: url(../images/A21.gif);
+}
+
+main .schedule .box .title2 div {
+  height: 25px !important;
+}
+
+main .schedule .box .body {
+  border: solid 1px #4c4c4c;
+}
+
+main .schedule .box .body .context2 {
+  margin: 5px;
+}
+
+main .schedule .box .body .context2 table {
+  border-collapse: collapse;
+  border-spacing: 1px;
+}
+
+main .schedule .box .body .context2 table.report3 td, main .schedule .box .body .context2 table.report3 th {
+  border: solid 1px #BBB;
+  background-color: White;
+  padding: 5px 5px;
+}
+
+main .schedule .box .body .context2 table.report3 tbody tr:hover td {
+  background: #efe4af;
+}
+
+main .schedule .box .body .context2 .report3 {
+  border-collapse: collapse;
+  border: solid 1px #BBB;
+  width: 100%;
+}
+
+main .schedule .box .body .context2 .report3 thead th {
+  background: #20344b url(../images/A22.gif);
+  height: 20px;
+  color: White;
+  font-size: 11px;
+  padding: 0 5px;
+  border: solid 1px #BBB;
+}
+
+main .schedule .box .body .context2 .report3 td, main .schedule .box .body .context2 .report3 th {
+  text-align: center;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+main .schedule .box .body .context2 .report3 .day {
+  font-weight: bold;
+  color: #023260;
+}
+
+main .schedule .box .body .context2 .report3 b {
+  font-weight: bold;
+}
+
+main .schedule .box .body .context2 .report3 .d_green {
+  color: #003300;
+}
+/*# sourceMappingURL=schedule.css.map */

@@ -1,0 +1,29 @@
+// *{
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
+//     font-family: Tahoma;
+//     font-size: 12px;
+// }
+a{
+    text-decoration: none;
+}
+footer {
+    width: 100vw;
+    background: #626262;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    
+    .foot {
+        width: 1155px;
+        height: 20px;
+        line-height: 20px;
+        text-align: right;
+        font-size: 10px;
+    }
+    .clear{
+        clear: both;
+    }
+}

@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma;
+  font-size: 12px;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+* a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+main .main_rules {
+  width: 800px;
+  min-width: 933px;
+  float: left;
+  margin: 5px;
+  margin-bottom: 25px;
+}
+
+main .main_rules .box {
+  background: #d9dde0;
+}
+
+main .main_rules .box .title {
+  height: 25px;
+  background: url(../images/A36_2.gif);
+}
+
+main .main_rules .box .title .lt {
+  background: url(../images/A36_2.gif);
+  width: 5px;
+  float: left;
+}
+
+main .main_rules .box .title div {
+  height: 25px;
+}
+
+main .main_rules .box .title .md {
+  float: left;
+  color: #ffd100;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 11px;
+  padding-left: 5px;
+}
+
+main .main_rules .box .title .gt {
+  width: 5px;
+  float: right;
+  background: url(../images/A36_2.gif);
+}
+
+main .main_rules .box .body {
+  border: 1px solid #4c4c4c;
+}
+
+main .main_rules .box .body .context {
+  margin: 5px;
+}
+
+main .main_rules .box .body .context table {
+  margin-top: 5px;
+  border-collapse: collapse;
+  border-spacing: 1px;
+}
+
+main .main_rules .box .body .context table.special, main .main_rules .box .body .context table.special td, main .main_rules .box .body .context table.special th {
+  border: solid 1px #bbb;
+}
+
+main .main_rules .box .body .context .special {
+  width: 100%;
+}
+
+main .main_rules .box .body .context .m_title th {
+  background: url(../images/A37_2.gif);
+  color: #fff;
+}
+
+main .main_rules .box .body .context thead th {
+  font-size: 13px;
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+main .main_rules .box .body .context .sub_title th {
+  background: #f7f2dc;
+  color: #000;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+main .main_rules .box .body .context table.special tbody tr:nth-child(2n+1) td {
+  background: #f7f7f7;
+}
+
+main .main_rules .box .body .context table.special tbody td:first-child {
+  width: 200px;
+}
+
+main .main_rules .box .body .context table.special tbody td {
+  height: 25px;
+  padding: 0 5px;
+  text-align: left;
+  background: #FFF;
+  line-height: 23px;
+  padding-left: 10px;
+}
+
+main .main_rules .box .body .context table.special tbody td.td_title {
+  font-weight: bold;
+  background: #d5d5d5;
+  font-size: 11px;
+}
+/*# sourceMappingURL=phone_rules.css.map */
