@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>path</title>
+  </head>
+  <style>
+    body {
+      /* background: blueviolet; */
+      /* background: url('startbg.png'); */
+    }
+    #app {
+      width: 700px;
+
+      position: relative;
+    }
+    #time {
+      width: 100px;
+      font-size: 40px;
+      color: azure;
+      text-align: center;
+      /* background: black; */
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    #start {
+      width: 100px;
+      font-size: 40px;
+      color: azure;
+      text-align: center;
+      /* background: black; */
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      cursor: pointer;
+    }
+    /* #show{
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    color: azure;
+    text-align: center;  
+    background: black;
+    position: absolute;
+    bottom: 10px;
+}
+#show p{
+    margin:0  10px ;
+} */
+    canvas {
+      margin: 0 auto;
+    }
+  </style>
+
+  <body>
+    <div id="app">
+      <div id="start">start</div>
+      <div id="time"></div>
+      <div id="show">
+        <p id="p1"></p>
+        <p id="p2"></p>
+      </div>
+    </div>
+
+    <script src="./js/phaser.js"></script>
+    <script type="text/javascript">
+      let time = document.querySelector("#time");
+      let show = document.querySelector("#show");
+      let p1 = document.querySelector("#p1");
+      let p2 = document.querySelector("#p2");
+      let num = 5;
+
+      var path = [];
+      var pathGraphics = [];
+      var pathCurve = [];
+
+      let x = 50;
+      let xAry = [];
+      let curve = [];
+      let graphics = [];
+      let candy = [];
+      let candy1 = [];
+      let candy2 = [];
+      let circle = [];
+      let circle0 = [];
+      let graphics0 = [];
+
+      let testAry = [];
+      let test1Ary = [];
+      let test2Ary = [];
+      let test3Ary = [];
+      let test4Ary = [];
+      let testGraphics = [];
+      var scene;
+      time.innerText = num;
+      let count = 0;
+      function play() {
+        count += 1;
+        console.log(count);
+        num = 6;
+
+        test4Ary.splice(0);
+
+        if (testGraphics.length !== 0) {
+          for (let i = 0; i < testGraphics.length; i++) {
+            testGraphics[i].clear();
+          }
+          for (let i = 0; i < pathGraphics.length; i++) {
+            pathGraphics[i].clear();
+          }
+        }
+        let interval = setInterval(() => {
+          num -= 1;
+          time.innerText = num;
+
+          if (num <= 0) {
+            start();
+            clearInterval(interval);
+          }
+        }, 1000);
+      }
+
+      // document.querySelector('#start').addEventListener('click',()=>{
+      //     num = 5
+      //     time.innerText = num
+
+      //     play()
+      //     test4Ary.splice(0)
+
+      //     if(testGraphics.length!==0){
+
+      //         for (let i = 0; i < testGraphics.length; i++) {
+      //             testGraphics[i].clear()
+
+      //         }
+      //         for (let i = 0; i < pathGraphics.length; i++) {
+      //             pathGraphics[i].clear()
+      //         }
+      //     }
+
+      // })
+      play();
+      var config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        backgroundColor: "#2d2d2d",
+        // transparent: true,
+        parent: "app",
+        scene: {
+          preload: preload,
+          create: create,
+          update: update
+        }
+      };
+
+      var game = new Phaser.Game(config);
+
+      function preload() {
+        this.load.image("candy", "./assets/candy.png");
+        this.load.image("bg", "./assets/startbg.png");
+        this.load.spritesheet("Items", "./assets/Items.png", {
+          frameWidth: 120,
+          frameHeight: 120
+        });
+      }
+
+      function create() {
+        scene = this;
+
+        for (let i = 0; i < 5; i++) {
+          x += 100;
+          curve[i] = new Phaser.Curves.Line(
+            new Phaser.Math.Vector2(x, 100),
+            new Phaser.Math.Vector2(x, 500)
+          );
+          graphics[i] = this.add.graphics();
+          graphics[i].lineStyle(5, 0xffffff, 1);
+          curve[i].draw(graphics[i]);
+
+          graphics[i].lineGradientStyle(
+            12,
+            0xff0000,
+            0xff0000,
+            0x0000ff,
+            0x0000ff,
+            1
+          );
+          graphics[i].lineBetween(x, 100, x + 5, 500).setDepth(0.5);
+          xAry.push(x);
+
+          this.anims.create({
+            key: "Items" + i,
+            frames: this.anims.generateFrameNumbers("Items", {
+              start: i,
+              end: i
+            })
+          });
+          this.anims.create({
+            key: "Items5",
+            frames: this.anims.generateFrameNumbers("Items", {
+              start: 5,
+              end: 5
+            })
+          });
+          this.anims.create({
+            key: "Items" + (i + 6),
+            frames: this.anims.generateFrameNumbers("Items", {
+              start: i + 6,
+              end: i + 6
+            })
+          });
+          candy[i] = this.add
+            .sprite(x, 100, "Items")
+            .setInteractive()
+            .setDepth(3);
+          candy[i].play("Items" + i);
+          candy1[i] = this.add
+            .sprite(x, 100, "Items")
+            .setInteractive()
+            .setDepth(2);
+          candy1[i].play("Items" + (i + 6));
+          candy2[i] = this.add
+            .sprite(x, 500, "Items")
+            .setInteractive()
+            .setDepth(3);
+          candy2[i].play("Items5");
+
+          candy[i].on("pointerdown", function(pointer) {
+            console.log(i);
+            console.log(tweensAry);
+            for (let i = 0; i < tweensAry.length; i++) {
+              // tweensAry[i].pause(true)
+              tweensAry[i].remove();
+              // let tween = scene.tweens.add({
+              //     targets: candy1[i],
+              //     alpha: 0,
+
+              //     ease: 'Sine.easeInOut',
+              // });
+              // tweensAry.push(tween)
+            }
+            // tweensAry.splice(0)
+            // let tween = scene.tweens.add({
+            //         targets: candy1[i],
+            //         alpha: .1,
+            //         ease: 'Sine.easeInOut',
+            //         yoyo: true,
+            //         repeat: -1,
+            // });
+            // tweensAry.push(tween)
+            clearInterval(alphaInterval);
+          });
+        }
+        let i = 0;
+        let tweensAry = [];
+        let alphaInterval = setInterval(() => {
+          let tween = this.tweens.add({
+            targets: candy1[i],
+            alpha: 0.1,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut"
+          });
+          tweensAry.push(tween);
+          i += 1;
+          if (i >= 5) clearInterval(alphaInterval);
+          // console.log(i)
+        }, 500);
+      }
+
+      function update() {
+        if (test4Ary.length !== 0) {
+          let setDepth = 1;
+          // let y =5
+          for (let i = 0; i < 5; i++) {
+            // pathGraphics[0].setTexture('candy');
+            let color1 = new Phaser.Display.Color(r[i], g[i], b[i]);
+            pathCurve[i].getPoint(path[i].t, path[i].vec);
+            pathGraphics[i].fillStyle(color1.color, 1); // 顏色 透明度
+            pathGraphics[i]
+              .fillPoint(path[i].vec.x, path[i].vec.y, 12)
+              .setDepth(setDepth);
+
+            // pathCurve[3].getPoint(path[3].t, path[3].vec);
+
+            // pathGraphics[i].lineStyle(10, 0x000000, .5);
+            // pathGraphics[i].strokeRect(path[i].vec.x,  path[i].vec.y,5,5)
+
+            // pathGraphics[i].strokeLineShape(path[i].vec.x,  path[i].vec.y,100,100)
+            // pathGraphics[i].fillCircle(path[i].vec.x, path[i].vec.y, 2).setDepth(setDepth);
+            // pathGraphics[i].fillRect(path[i].vec.x, path[i].vec.y, 10,10).setDepth(setDepth);
+            setDepth -= 0.1;
+            // console.log(color1)
+            // y+=1
+            // pathGraphics[i].flash(2000)
+          }
+          // pathGraphics[3].fillStyle(0xffffff, 5); // 顏色 透明度
+          // pathGraphics[3].fillPoint(path[3].vec.x+5, path[3].vec.y, 5).setDepth(3);
+        }
+      }
+
+      let startX = [150, 250, 350, 450, 550];
+      let startY = [100, 500];
+      let r = [];
+      let g = [];
+      let b = [];
+
+      function start() {
+        randomFn();
+        pathGraphics.splice(0);
+
+        for (let i = 0; i < 5; i++) {
+          path[i] = { t: 0, vec: new Phaser.Math.Vector2() };
+          pathGraphics[i] = scene.add.graphics();
+          pathCurve[i] = new Phaser.Curves.Path(candy[i].x, candy[i].y + 15);
+
+          pathGraphics[i].lineStyle(5, 0xffffff, 0.5); // 寬度 顏色 透明度
+          pathCurve[i].draw(pathGraphics[i]);
+
+          // console.log(pathGraphics[i]);
+          // pathGraphics[0].lineGradientStyle(500, 0xff0000, 0xff0000, 0x0000ff, 0x0000ff, 1)
+          // pathGraphics[0].lineBetween(100, 300, 600, 300).setDepth(10);
+        }
+        let i = 0;
+        let pathInterval = setInterval(() => {
+          r[i] = Phaser.Math.Between(0, 255);
+          g[i] = Phaser.Math.Between(0, 255);
+          b[i] = Phaser.Math.Between(0, 255);
+
+          let lineAry = [];
+
+          function filter() {
+            let line = test4Ary
+              .filter(function(item) {
+                return item.x == startX[i];
+              })
+              .sort(function(a, b) {
+                return a.y - b.y;
+              });
+
+            let line1 = test4Ary
+              .filter(function(item) {
+                return item.y == line[0].y && item.x !== line[0].x;
+              })
+              .sort(function(a, b) {
+                return a.y - b.y;
+              });
+
+            let line2 = test4Ary
+              .filter(function(item) {
+                return item.x == line1[0].x && item.y > line1[0].y;
+              })
+              .sort(function(a, b) {
+                return a.y - b.y;
+              });
+            let line3 = test4Ary
+              .filter(function(item) {
+                return item.y == line2[0].y && item.x !== line2[0].x;
+              })
+              .sort(function(a, b) {
+                return a.y - b.y;
+              });
+
+            lineAry.push(line[0], line1[0], line2[0], line3[0]);
+
+            if (line3 && line3.length !== 0) {
+              var line4 = test4Ary
+                .filter(function(item) {
+                  return item.x == line3[0].x && item.y > line3[0].y;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line4 && line4.length !== 0) {
+              lineAry.push(line4[0]);
+              var line5 = test4Ary
+                .filter(function(item) {
+                  return item.y == line4[0].y && item.x !== line4[0].x;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line5 && line5.length !== 0) {
+              lineAry.push(line5[0]);
+              var line6 = test4Ary
+                .filter(function(item) {
+                  return item.x == line5[0].x && item.y > line5[0].y;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line6 && line6.length !== 0) {
+              lineAry.push(line6[0]);
+              var line7 = test4Ary
+                .filter(function(item) {
+                  return item.y == line6[0].y && item.x !== line6[0].x;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line7 && line7.length !== 0) {
+              lineAry.push(line7[0]);
+              var line8 = test4Ary
+                .filter(function(item) {
+                  return item.x == line7[0].x && item.y > line7[0].y;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line8 && line8.length !== 0) {
+              lineAry.push(line8[0]);
+              var line9 = test4Ary
+                .filter(function(item) {
+                  return item.y == line8[0].y && item.x !== line8[0].x;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line9 && line9.length !== 0) {
+              lineAry.push(line9[0]);
+              var line10 = test4Ary
+                .filter(function(item) {
+                  return item.x == line9[0].x && item.y > line9[0].y;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line10 && line10.length !== 0) {
+              lineAry.push(line10[0]);
+              var line11 = test4Ary
+                .filter(function(item) {
+                  return item.y == line10[0].y && item.x !== line10[0].x;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line11 && line11.length !== 0) {
+              lineAry.push(line11[0]);
+              var line12 = test4Ary
+                .filter(function(item) {
+                  return item.x == line11[0].x && item.y > line11[0].y;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line12 && line12.length !== 0) {
+              lineAry.push(line12[0]);
+              var line13 = test4Ary
+                .filter(function(item) {
+                  return item.y == line12[0].y && item.x !== line12[0].x;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line13 && line13.length !== 0) {
+              lineAry.push(line13[0]);
+              var line14 = test4Ary
+                .filter(function(item) {
+                  return item.x == line13[0].x && item.y > line13[0].y;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line14 && line14.length !== 0) {
+              lineAry.push(line14[0]);
+              var line15 = test4Ary
+                .filter(function(item) {
+                  return item.y == line14[0].y && item.x !== line14[0].x;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line15 && line15.length !== 0) {
+              lineAry.push(line15[0]);
+              var line16 = test4Ary
+                .filter(function(item) {
+                  return item.x == line15[0].x && item.y > line15[0].y;
+                })
+                .sort(function(a, b) {
+                  return a.y - b.y;
+                });
+            }
+            if (line16 && line16.length !== 0) {
+              lineAry.push(line16[0]);
+            }
+          }
+          filter();
+
+          // console.log(lineAry)
+
+          for (let j = 0; j < lineAry.length; j++) {
+            pathCurve[i].lineTo(lineAry[j].x, lineAry[j].y);
+          }
+          pathCurve[i].lineTo(lineAry[lineAry.length - 1].x, 500);
+
+          scene.tweens.add({
+            targets: path[i],
+            t: 1,
+            ease: "Sine.easeInOut",
+            duration: 3000
+          });
+          let k = 0;
+          if (i === 0) {
+            k = -3;
+          }
+          if (i === 1) {
+            k = -6;
+          }
+          if (i === 3) {
+            k = 3;
+          }
+          if (i === 4) {
+            k = 6;
+          }
+          scene.tweens.add({
+            targets: pathGraphics[i],
+            y: k,
+            ease: "Sine.easeInOut"
+          });
+
+          i += 1;
+          if (i >= 5) {
+            clearInterval(pathInterval);
+            setTimeout(() => {
+              // scene.tweens.add({
+              //     targets: pathGraphics[3],
+              //     alpha: .1,
+              //     // scale:1.1,
+              //     // y:10,
+              //     ease: 'Sine.easeInOut',
+              //     yoyo: true,
+              //     repeat: -1,
+              // });
+              play();
+            }, 4000);
+          }
+        }, 500);
+      }
+
+      function randomFn() {
+        for (let i = 0; i < xAry.length - 1; i++) {
+          let add = 100;
+          if (i === xAry.length - 1) add = -100;
+          let random = Phaser.Math.Between(200, 299);
+          let random2 = Phaser.Math.Between(300, 400);
+          let test = new Phaser.Curves.Line(
+            new Phaser.Math.Vector2(xAry[i], random),
+            new Phaser.Math.Vector2(xAry[i] + add, random)
+          );
+          let test2 = new Phaser.Curves.Line(
+            new Phaser.Math.Vector2(xAry[i], random2),
+            new Phaser.Math.Vector2(xAry[i] + add, random2)
+          );
+          testGraphics[i] = scene.add.graphics();
+          testGraphics[i].lineStyle(5, 0xffffff, 1);
+          testGraphics[i].lineGradientStyle(
+            12,
+            0xff0000,
+            0xff0000,
+            0x0000ff,
+            0x0000ff,
+            1
+          );
+          testGraphics[i].lineBetween(x, 100, x + 5, 500).setDepth(0.5);
+
+          test.draw(testGraphics[i]);
+          test2.draw(testGraphics[i]);
+
+          test4Ary.push(test.p0);
+          test4Ary.push(test.p1);
+          test4Ary.push(test2.p0);
+          test4Ary.push(test2.p1);
+        }
+      }
+    </script>
+  </body>
+</html>
