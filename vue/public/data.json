@@ -1,0 +1,31 @@
+{
+    "movie": {
+        "title": "好看電影",
+        "imgs": [
+            {
+                "text": "CALL",
+                "img": "@/assets/images/movie01.jpg"
+            },
+            {
+                "text": "CALL",
+                "img": "@/assets/images/movie01.jpg"
+            },
+            {
+                "text": "CALL",
+                "img": "@/assets/images/movie01.jpg"
+            },
+            {
+                "text": "CALL",
+                "img": "@/assets/images/movie01.jpg"
+            },
+            {
+                "text": "CALL",
+                "img": "@/assets/images/movie01.jpg"
+            },
+            {
+                "text": "CALL",
+                "img": "@/assets/images/movie01.jpg"
+            }
+        ]
+    }
+}
