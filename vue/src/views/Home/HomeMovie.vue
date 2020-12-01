@@ -2,10 +2,9 @@
   <div class="movie">
     <div class="title">{{ title }}</div>
     <ul class="list">
-      <li v-for="(img, index) in imgs" :key="index">
-        <!-- <img :src="img.img" alt="電影圖片" /> -->
-        <!-- {{ img.text }} -->
-        {{ img.img }}
+      <li v-for="(item, index) in imgs" :key="index">
+        <img :src="require('@' + item.img)" alt="電影圖片" />
+        {{ item.text }}
       </li>
     </ul>
   </div>
@@ -49,7 +48,9 @@ export default {
     };
   },
   mounted() {
-    console.log(this.obj);
+    console.log(this.obj.movie);
+    console.log(this.imgs);
+    // console.log(this.obj.movie.imgs);
   },
   computed: {
     title() {
@@ -58,10 +59,10 @@ export default {
     imgs() {
       return (
         this.obj.movie &&
-        this.obj.movie.imgs.map((img) => {
+        this.obj.movie.imgs.map((item) => {
           return {
-            text: img.text,
-            img: require(img.img),
+            text: item.text,
+            img: item.img,
           };
         })
       );

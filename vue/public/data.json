@@ -4,27 +4,27 @@
         "imgs": [
             {
                 "text": "CALL",
-                "img": "@/assets/images/movie01.jpg"
+                "img": "/assets/images/movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "@/assets/images/movie01.jpg"
+                "img": "/assets/images/movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "@/assets/images/movie01.jpg"
+                "img": "/assets/images/movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "@/assets/images/movie01.jpg"
+                "img": "/assets/images/movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "@/assets/images/movie01.jpg"
+                "img": "/assets/images/movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "@/assets/images/movie01.jpg"
+                "img": "/assets/images/movie01.jpg"
             }
         ]
     }
