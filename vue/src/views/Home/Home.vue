@@ -31,10 +31,6 @@ export default {
 
   mounted() {
     // console.log(this.$store.state);
-    const userName = localStorage.getItem("userName");
-    if (userName) {
-      this.$store.dispatch("actionLogin", true);
-    }
     const url = "/data.json";
     axios.get(url).then((res) => {
       // console.log(res.data);

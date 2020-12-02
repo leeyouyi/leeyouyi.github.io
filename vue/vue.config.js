@@ -16,17 +16,17 @@ module.exports = {
 
   publicPath: process.env.NODE_ENV === 'production' ? '/m/' : '/',
   productionSourceMap: false,
-  devServer: {
-    proxy: {
-      '/api/web': {
-        target: process.env.VUE_APP_API_TARGET,
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {
-          '^/api/web': '',
-        },
-      },
-    },
-  },
+  // devServer: {
+  //   proxy: {
+  //     '/api/web': {
+  //       target: process.env.VUE_APP_API_TARGET,
+  //       changeOrigin: true,
+  //       ws: true,
+  //       pathRewrite: {
+  //         '^/api/web': '',
+  //       },
+  //     },
+  //   },
+  // },
   runtimeCompiler: true
 };

@@ -45,6 +45,12 @@ export default {
       ],
     };
   },
+  mounted(){
+    const userName = localStorage.getItem("userName");
+    if (userName) {
+      this.$store.dispatch("actionLogin", true);
+    }
+  },
   methods: {
     showMask() {
       this.$store.dispatch("actionMask", true);
