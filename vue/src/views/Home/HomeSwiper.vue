@@ -36,14 +36,15 @@ export default {
 
 <style lang="scss" scoped>
 .wh_content {
-  width: 100vw;
+  width: 100%;
   height: 350px;
   .wh_slide {
     width: 100%;
     height: 350px;
     img {
-      width: 100%;
+      width: 1200px;
       height: 100%;
+      margin: 0 auto;
     }
   }
 }

@@ -1,12 +1,44 @@
 <template>
   <div class="movie">
-    <div class="title">{{ title }}</div>
-    <ul class="list">
-      <li v-for="(item, index) in imgs" :key="index">
-        <img :src="require('@' + item.img)" alt="電影圖片" />
-        {{ item.text }}
-      </li>
-    </ul>
+    <div class="item">
+      <div class="title">{{ movieTitle }}</div>
+      <ul class="list">
+        <li
+          v-for="(item, index) in movies"
+          :key="index"
+          @click="goPage('/movie')"
+        >
+          <img :src="item.img" alt="電影圖片" />
+          <p>{{ item.text }}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="title">{{ dramaTitle }}</div>
+      <ul class="list">
+        <li
+          v-for="(item, index) in dramas"
+          :key="index"
+          @click="goPage('/drama')"
+        >
+          <img :src="item.img" alt="影集圖片" />
+          <p>{{ item.text }}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="title">{{ animationTitle }}</div>
+      <ul class="list">
+        <li
+          v-for="(item, index) in animations"
+          :key="index"
+          @click="goPage('/animation')"
+        >
+          <img :src="item.img" alt="動畫圖片" />
+          <p>{{ item.text }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -17,55 +49,42 @@ export default {
     obj: Object,
   },
   data() {
-    return {
-      // title: "好看電影",
-      // imgs: [
-      //   {
-      //     text: "CALL",
-      //     img: require("@/assets/images/movie01.jpg"),
-      //   },
-      //   {
-      //     text: "CALL",
-      //     img: require("@/assets/images/movie01.jpg"),
-      //   },
-      //   {
-      //     text: "CALL",
-      //     img: require("@/assets/images/movie01.jpg"),
-      //   },
-      //   {
-      //     text: "CALL",
-      //     img: require("@/assets/images/movie01.jpg"),
-      //   },
-      //   {
-      //     text: "CALL",
-      //     img: require("@/assets/images/movie01.jpg"),
-      //   },
-      //   {
-      //     text: "CALL",
-      //     img: require("@/assets/images/movie01.jpg"),
-      //   },
-      // ],
-    };
+    return {};
   },
   mounted() {
-    console.log(this.obj.movie);
-    console.log(this.imgs);
-    // console.log(this.obj.movie.imgs);
+    // console.log(this.obj.movie);
   },
   computed: {
-    title() {
-      return this.obj.movie && this.obj.movie.title;
+    movieTitle() {
+      return this.obj.movie.title;
     },
-    imgs() {
-      return (
-        this.obj.movie &&
-        this.obj.movie.imgs.map((item) => {
-          return {
-            text: item.text,
-            img: item.img,
-          };
-        })
-      );
+    movies() {
+      return this.map(this.obj.movie.imgs);
+    },
+    dramaTitle() {
+      return this.obj.drama.title;
+    },
+    dramas() {
+      return this.map(this.obj.drama.imgs);
+    },
+    animationTitle() {
+      return this.obj.animation.title;
+    },
+    animations() {
+      return this.map(this.obj.animation.imgs);
+    },
+  },
+  methods: {
+    map(obj) {
+      return obj.map((item) => {
+        return {
+          text: item.text,
+          img: require("@/assets/images/" + item.img),
+        };
+      });
+    },
+    goPage(path) {
+      this.$router.push({ path: path });
     },
   },
 };
@@ -73,10 +92,16 @@ export default {
 
 <style lang="scss" scoped>
 .movie {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  min-height: 700px;
+}
+.item {
   width: 1200px;
-  height: 200px;
+  height: 220px;
   display: flex;
   margin: 0 auto;
+  padding-top: 10px;
   .title {
     width: 150px;
     height: 100%;
@@ -89,7 +114,21 @@ export default {
   .list {
     display: flex;
     li {
+      display: flex;
+      flex-direction: column;
       width: 150px;
+      padding-left: 5px;
+      padding-right: 5px;
+      cursor: pointer;
+      img {
+        width: 100%;
+        height: 200px;
+      }
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

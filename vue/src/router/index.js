@@ -29,6 +29,10 @@ const routes = [
     path: '/animation',
     name: 'Animation',
     component: () => import('../views/Animation.vue')
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
 

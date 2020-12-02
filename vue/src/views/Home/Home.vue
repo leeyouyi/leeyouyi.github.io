@@ -3,23 +3,24 @@
     <Header />
     <HomeSwiper />
     <HomeMovie v-if="show" :obj="obj" />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <Footer />
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 import HomeSwiper from "@/views/Home/HomeSwiper.vue";
 import HomeMovie from "@/views/Home/HomeMovie.vue";
-import axios from "axios";
 
 export default {
   name: "Home",
   components: {
-    // HelloWorld,
     Header,
     HomeSwiper,
     HomeMovie,
+    Footer,
   },
   data() {
     return {
@@ -29,6 +30,11 @@ export default {
   },
 
   mounted() {
+    // console.log(this.$store.state);
+    const userName = localStorage.getItem("userName");
+    if (userName) {
+      this.$store.dispatch("actionLogin", true);
+    }
     const url = "/data.json";
     axios.get(url).then((res) => {
       // console.log(res.data);

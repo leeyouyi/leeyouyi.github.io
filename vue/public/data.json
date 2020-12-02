@@ -4,27 +4,85 @@
         "imgs": [
             {
                 "text": "CALL",
-                "img": "/assets/images/movie01.jpg"
+                "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "/assets/images/movie01.jpg"
+                "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "/assets/images/movie01.jpg"
+                "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "/assets/images/movie01.jpg"
+                "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "/assets/images/movie01.jpg"
+                "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
-                "img": "/assets/images/movie01.jpg"
+                "img": "movie01.jpg"
+            }
+        ]
+    },
+    "drama": {
+        "title": "精彩影集",
+        "imgs": [
+            {
+                "text": "后羿棄兵",
+                "img": "album02.jpg"
+            },
+            {
+                "text": "后羿棄兵",
+                "img": "album02.jpg"
+            },
+            {
+                "text": "后羿棄兵",
+                "img": "album02.jpg"
+            },
+            {
+                "text": "后羿棄兵",
+                "img": "album02.jpg"
+            },
+            {
+                "text": "后羿棄兵",
+                "img": "album02.jpg"
+            },
+            {
+                "text": "后羿棄兵",
+                "img": "album02.jpg"
+            }
+        ]
+    },
+    "animation": {
+        "title": "熱血動畫",
+        "imgs": [
+            {
+                "text": "鬼滅之刃",
+                "img": "animation01.png"
+            },
+            {
+                "text": "鬼滅之刃",
+                "img": "animation01.png"
+            },
+            {
+                "text": "鬼滅之刃",
+                "img": "animation01.png"
+            },
+            {
+                "text": "鬼滅之刃",
+                "img": "animation01.png"
+            },
+            {
+                "text": "鬼滅之刃",
+                "img": "animation01.png"
+            },
+            {
+                "text": "鬼滅之刃",
+                "img": "animation01.png"
             }
         ]
     }

@@ -8,6 +8,13 @@
         <li v-for="(item, index) in nav" :key="index">
           <router-link :to="item.link">{{ item.text }}</router-link>
         </li>
+        <li class="login" v-if="!this.$store.state.login" @click="showMask">
+          登入
+        </li>
+        <li v-else class="loginAfter">
+          <span>hi ~ {{ userName }}</span>
+          <span @click="singOut">登出</span>
+        </li>
       </ul>
     </nav>
   </div>
@@ -37,6 +44,21 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    showMask() {
+      this.$store.dispatch("actionMask", true);
+    },
+    singOut() {
+      this.$store.dispatch("actionLogin", false);
+      localStorage.removeItem("userName");
+      alert("登出成功");
+    },
+  },
+  computed: {
+    userName() {
+      return this.$store.state.user.userName;
+    },
   },
 };
 </script>
@@ -73,6 +95,21 @@ export default {
         a {
           color: #fff;
         }
+      }
+    }
+  }
+  .login {
+    cursor: pointer;
+  }
+  .loginAfter {
+    span {
+      &:first-child {
+        color: salmon;
+        font-size: 20px;
+        padding-right: 10px;
+      }
+      &:last-child {
+        cursor: pointer;
       }
     }
   }
