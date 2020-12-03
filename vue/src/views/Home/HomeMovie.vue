@@ -56,19 +56,25 @@ export default {
   },
   computed: {
     movieTitle() {
-      return this.obj.movie.title;
+      return this.$store.state.language === "tw"
+        ? this.obj.movie.title
+        : this.obj.movie.title_en;
     },
     movies() {
       return this.map(this.obj.movie.imgs);
     },
     dramaTitle() {
-      return this.obj.drama.title;
+      return this.$store.state.language === "tw"
+        ? this.obj.drama.title
+        : this.obj.drama.title_en;
     },
     dramas() {
       return this.map(this.obj.drama.imgs);
     },
     animationTitle() {
-      return this.obj.animation.title;
+      return this.$store.state.language === "tw"
+        ? this.obj.animation.title
+        : this.obj.animation.title_en;
     },
     animations() {
       return this.map(this.obj.animation.imgs);
@@ -78,7 +84,7 @@ export default {
     map(obj) {
       return obj.map((item) => {
         return {
-          text: item.text,
+          text: this.$store.state.language === "tw" ? item.text : item.text_en,
           img: require("@/assets/images/" + item.img),
         };
       });

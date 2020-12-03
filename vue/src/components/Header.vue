@@ -1,55 +1,85 @@
 <template>
   <div class="header">
     <div class="logo">
-      <img alt="logo" src="@/assets/images/netflix.png" />
+      <router-link to="/">
+        <img alt="logo" src="@/assets/images/netflix.png" />
+      </router-link>
     </div>
     <nav>
       <ul>
         <li v-for="(item, index) in nav" :key="index">
-          <router-link :to="item.link">{{ item.text }}</router-link>
+          <router-link :to="item.link">{{ $t(item.text) }}</router-link>
         </li>
         <li class="login" v-if="!this.$store.state.login" @click="showMask">
-          登入
+          {{ $t("header.sign_in") }}
         </li>
         <li v-else class="loginAfter">
           <span>hi ~ {{ userName }}</span>
-          <span @click="singOut">登出</span>
+          <span @click="singOut">{{ $t("header.sign_out") }}</span>
         </li>
+        <div class="langBox">
+          {{ $t("header.language") }}
+          <div class="lang">
+            <p
+              v-for="(item, index) in language"
+              :key="index"
+              @click="doLanguage(item.key)"
+            >
+              {{ item.text }}
+            </p>
+          </div>
+        </div>
       </ul>
     </nav>
   </div>
 </template>
 
 <script>
+import i18n from "@/lang";
 export default {
   name: "Header",
   data() {
     return {
       nav: [
         {
-          text: "首頁",
+          text: "header.home",
           link: "/",
         },
         {
-          text: "好看電影",
+          text: "header.movie",
           link: "/movie",
         },
         {
-          text: "精彩影集",
+          text: "header.drama",
           link: "/drama",
         },
         {
-          text: "熱血動畫",
+          text: "header.animation",
           link: "/animation",
+        },
+      ],
+      lang: "tw",
+      language: [
+        {
+          text: "中文",
+          key: "tw",
+        },
+        {
+          text: "english",
+          key: "en",
         },
       ],
     };
   },
-  mounted(){
+  mounted() {
     const userName = localStorage.getItem("userName");
     if (userName) {
       this.$store.dispatch("actionLogin", true);
     }
+    const lang = localStorage.getItem("locale") || this.lang;
+    this.lang = lang;
+    this.switchLang(lang);
+    this.$store.dispatch("actionLanguage", lang);
   },
   methods: {
     showMask() {
@@ -59,6 +89,15 @@ export default {
       this.$store.dispatch("actionLogin", false);
       localStorage.removeItem("userName");
       alert("登出成功");
+    },
+    switchLang(newLang) {
+      i18n.locale = newLang;
+      localStorage.setItem("locale", newLang);
+    },
+    doLanguage(lang) {
+      this.switchLang(lang);
+      this.$store.dispatch("actionLanguage", lang);
+      // console.log(this.$store.state);
     },
   },
   computed: {
@@ -84,7 +123,7 @@ export default {
     }
   }
   nav {
-    width: 600px;
+    width: 700px;
     padding-left: 100px;
     ul {
       width: 100%;
@@ -92,8 +131,9 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       li {
-        width: 33.333%;
+        width: 20%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -101,6 +141,33 @@ export default {
         a {
           color: #fff;
         }
+      }
+      .loginAfter {
+        width: 30%;
+      }
+    }
+  }
+  .langBox {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 14px;
+    &:hover .lang {
+      display: block;
+    }
+    .lang {
+      width: 100px;
+      height: 100px;
+      // background: #fff;
+      position: absolute;
+      left: 50px;
+      top: 0;
+      display: none;
+      p {
+        padding: 5px;
+        padding-top: 0;
+        padding-bottom: 10px;
+        cursor: pointer;
       }
     }
   }
@@ -112,7 +179,7 @@ export default {
       &:first-child {
         color: salmon;
         font-size: 20px;
-        padding-right: 10px;
+        padding-right: 30px;
       }
       &:last-child {
         cursor: pointer;

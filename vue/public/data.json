@@ -1,87 +1,108 @@
 {
     "movie": {
         "title": "好看電影",
+        "title_en": "Movie",
         "imgs": [
             {
                 "text": "CALL",
+                "text_en": "CALL",
                 "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
+                "text_en": "CALL",
                 "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
+                "text_en": "CALL",
                 "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
+                "text_en": "CALL",
                 "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
+                "text_en": "CALL",
                 "img": "movie01.jpg"
             },
             {
                 "text": "CALL",
+                "text_en": "CALL",
                 "img": "movie01.jpg"
             }
         ]
     },
     "drama": {
         "title": "精彩影集",
+        "title_en": "Drama",
         "imgs": [
             {
                 "text": "后羿棄兵",
+                "text_en": "The Queen's Gambit",
                 "img": "album02.jpg"
             },
             {
                 "text": "后羿棄兵",
+                "text_en": "The Queen's Gambit",
                 "img": "album02.jpg"
             },
             {
                 "text": "后羿棄兵",
+                "text_en": "The Queen's Gambit",
                 "img": "album02.jpg"
             },
             {
                 "text": "后羿棄兵",
+                "text_en": "The Queen's Gambit",
                 "img": "album02.jpg"
             },
             {
                 "text": "后羿棄兵",
+                "text_en": "The Queen's Gambit",
                 "img": "album02.jpg"
             },
             {
                 "text": "后羿棄兵",
+                "text_en": "The Queen's Gambit",
                 "img": "album02.jpg"
             }
         ]
     },
     "animation": {
         "title": "熱血動畫",
+        "title_en": "Animation",
         "imgs": [
             {
                 "text": "鬼滅之刃",
+                "text_en": "Kimetsu no Yaiba",
                 "img": "animation01.png"
             },
             {
                 "text": "鬼滅之刃",
+                "text_en": "Kimetsu no Yaiba",
                 "img": "animation01.png"
             },
             {
                 "text": "鬼滅之刃",
+                "text_en": "Kimetsu no Yaiba",
                 "img": "animation01.png"
             },
             {
                 "text": "鬼滅之刃",
+                "text_en": "Kimetsu no Yaiba",
                 "img": "animation01.png"
             },
             {
                 "text": "鬼滅之刃",
+                "text_en": "Kimetsu no Yaiba",
                 "img": "animation01.png"
             },
             {
                 "text": "鬼滅之刃",
+                "text_en": "Kimetsu no Yaiba",
                 "img": "animation01.png"
             }
         ]
