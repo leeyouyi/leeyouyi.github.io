@@ -7,10 +7,5 @@ export default {
     sign_in: '登入',
     sign_out: '登出',
     language: '切換語言'
-  },
-  home: {
-    movie: '',
-    drama: '',
-    animation: ''
   }
 }
