@@ -1,36 +1,51 @@
 <template>
   <div class="header">
+    <div class="menu">
+      <div class="iconbox">
+        <p v-for="(item, index) in 3" :key="index"></p>
+        <ul>
+          <li v-for="(item, index) in nav" :key="index">
+            <router-link :to="item.link">{{ $t(item.text) }}</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="logo">
       <router-link to="/">
         <img alt="logo" src="@/assets/images/netflix.png" />
       </router-link>
     </div>
+
     <nav>
       <ul>
         <li v-for="(item, index) in nav" :key="index">
           <router-link :to="item.link">{{ $t(item.text) }}</router-link>
         </li>
-        <li class="login" v-if="!this.$store.state.login" @click="showMask">
-          {{ $t("header.sign_in") }}
-        </li>
-        <li v-else class="loginAfter">
-          <span>hi ~ {{ userName }}</span>
-          <span @click="singOut">{{ $t("header.sign_out") }}</span>
-        </li>
-        <div class="langBox">
-          {{ $t("header.language") }}
-          <div class="lang">
-            <p
-              v-for="(item, index) in language"
-              :key="index"
-              @click="doLanguage(item.key)"
-            >
-              {{ item.text }}
-            </p>
-          </div>
-        </div>
       </ul>
     </nav>
+    <div class="other">
+      <div class="login" v-if="!this.$store.state.login" @click="showMask">
+        {{ $t("header.sign_in") }}
+      </div>
+      <div v-else class="loginAfter">
+        <span class="username">hi ~ {{ userName }}</span>
+        <span class="sign_out" @click="singOut">{{
+          $t("header.sign_out")
+        }}</span>
+      </div>
+      <div class="langBox">
+        {{ $t("header.language") }}
+        <div class="lang">
+          <p
+            v-for="(item, index) in language"
+            :key="index"
+            @click="doLanguage(item.key)"
+          >
+            {{ item.text }}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -114,6 +129,9 @@ export default {
   background: #000;
   height: 100px;
   justify-content: center;
+  .menu {
+    display: none;
+  }
   .logo {
     width: 150px;
     height: 84px;
@@ -123,7 +141,7 @@ export default {
     }
   }
   nav {
-    width: 700px;
+    width: 400px;
     padding-left: 100px;
     ul {
       width: 100%;
@@ -133,7 +151,7 @@ export default {
       align-items: center;
       position: relative;
       li {
-        width: 20%;
+        width: 25%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -147,6 +165,14 @@ export default {
       }
     }
   }
+  .other {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 10px;
+  }
   .langBox {
     position: absolute;
     top: 5px;
@@ -158,7 +184,6 @@ export default {
     .lang {
       width: 100px;
       height: 100px;
-      // background: #fff;
       position: absolute;
       left: 50px;
       top: 0;
@@ -183,6 +208,98 @@ export default {
       }
       &:last-child {
         cursor: pointer;
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    height: 80px;
+    justify-content: flex-start;
+    align-items: center;
+    .menu {
+      width: 33.333%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .iconbox {
+        padding-left: 20px;
+        position: relative;
+        p {
+          width: 40px;
+          height: 3px;
+          background: #fff;
+          border-radius: 5px;
+          margin-bottom: 5px;
+        }
+        &:hover ul {
+          display: flex;
+        }
+        ul {
+          display: none;
+          position: fixed;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100vw;
+          padding-bottom: 10px;
+          background: #000;
+          top: 0;
+          left: 0;
+          z-index: 999;
+          li {
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+    .logo {
+      width: 33.333%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    nav {
+      display: none;
+    }
+    .other {
+      width: 33.33%;
+      height: 100%;
+      align-items: flex-end;
+      .login {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+      }
+    }
+    .langBox {
+      left: -5px;
+      right: unset;
+      .lang {
+        width: 80px;
+        height: 50px;
+        background: #000;
+        border: white solid 1px;
+        left: unset;
+        right: 60px;
+      }
+    }
+    .loginAfter {
+      width: 100%;
+      height: 50%;
+      span {
+        &:first-child {
+          padding-right: 0px;
+        }
+      }
+      .sign_out {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 14px;
       }
     }
   }

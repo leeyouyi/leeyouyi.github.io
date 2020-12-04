@@ -10,6 +10,10 @@ export default {
   components: {
     Login,
   },
+  created() {
+    this.$store.dispatch("actionScreen", window.screen.width);
+    // console.log(this.$store.state.screen);
+  },
 };
 </script>
 <style>

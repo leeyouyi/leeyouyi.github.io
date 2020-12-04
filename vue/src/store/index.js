@@ -6,13 +6,15 @@ Vue.use(Vuex)
 const types = {
   LOGIN: 'LOGIN',
   MASK: 'MASK',
-  LANGUAGE: 'LANGUAGE'
+  LANGUAGE: 'LANGUAGE',
+  SCREEN: 'SCREEN'
 }
 export default new Vuex.Store({
   state: {
     login: false,
     mask: false,
-    language: 'tw'
+    language: 'tw',
+    screen: null
   },
   mutations: {
     // 在 mutation 改變 state（只有 mutation 可以改變！）
@@ -24,6 +26,9 @@ export default new Vuex.Store({
     },
     [types.LANGUAGE] (state, payload) {
       state.language = payload
+    },
+    [types.SCREEN] (state, payload) {
+      state.screen = payload
     }
   },
   actions: {
@@ -35,6 +40,9 @@ export default new Vuex.Store({
     },
     actionLanguage: ({ commit }, val) => {
       commit(types.LANGUAGE, val)
+    },
+    actionScreen: ({ commit }, val) => {
+      commit(types.SCREEN, val)
     }
   },
   modules: {

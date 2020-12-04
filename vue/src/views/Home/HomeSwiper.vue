@@ -108,15 +108,25 @@ export default {
     width: 100%;
     height: 350px;
     img {
-      width: 1200px;
+      width: 1000px;
       height: 100%;
       margin: 0 auto;
     }
   }
 }
-// .swiper-button-next {
-//   width: 50px;
-//   height: 50px;
-//   background: chartreuse;
-// }
+@media (max-width: 767px) {
+  .wh_content {
+    width: 100%;
+    height: 200px;
+    .wh_slide {
+      width: 100%;
+      height: 200px;
+      img {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
 </style>

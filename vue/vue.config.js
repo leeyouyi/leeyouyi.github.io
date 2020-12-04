@@ -1,20 +1,20 @@
-'use strict';
+'use strict'
 
-const path = require('path');
+const path = require('path')
 
-
-function resolve(dir) {
-  return path.join(__dirname, dir);
+function resolve (dir) {
+  return path.join(__dirname, dir)
 }
 
 module.exports = {
-
-  chainWebpack(config) {
-    config.resolve.alias.set('@', resolve('src')).set('common', resolve('src/assets/style/common'));
-    config.module.rules.delete('eslint');   //remove the eslint rule
+  chainWebpack (config) {
+    config.resolve.alias
+      .set('@', resolve('src'))
+      .set('common', resolve('src/assets/style/common'))
+    config.module.rules.delete('eslint') //remove the eslint rule
   },
 
-  publicPath: process.env.NODE_ENV === 'production' ? '/m/' : '/',
+  // publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   productionSourceMap: false,
   // devServer: {
   //   proxy: {
@@ -29,4 +29,4 @@ module.exports = {
   //   },
   // },
   runtimeCompiler: true
-};
+}

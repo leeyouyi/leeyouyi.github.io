@@ -100,7 +100,6 @@ export default {
 .movie {
   padding-top: 30px;
   padding-bottom: 30px;
-  min-height: 700px;
 }
 .item {
   width: 1200px;
@@ -134,6 +133,46 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .movie {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .item {
+    width: 100%;
+    height: auto;
+    display: block;
+    .title {
+      width: 100%;
+      height: 30px;
+      writing-mode: unset;
+      padding-bottom: 20px;
+    }
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0px 10px;
+      justify-content: center;
+      li {
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 200px;
+        }
+        p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
