@@ -31,7 +31,8 @@ export default {
 
   mounted() {
     // console.log(this.$store.state);
-    const url = "/data.json";
+    // console.log(process.env);
+    const url = process.env.VUE_APP_BASE_JSON + "data.json";
     axios.get(url).then((res) => {
       // console.log(res.data);
       this.obj = res.data;
