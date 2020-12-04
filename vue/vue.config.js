@@ -14,7 +14,7 @@ module.exports = {
     config.module.rules.delete('eslint') //remove the eslint rule
   },
 
-  publicPath: process.env.NODE_ENV === 'production' ? '/vue/web/' : '/',
+  // publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   productionSourceMap: false,
   // devServer: {
   //   proxy: {
