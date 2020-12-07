@@ -158,6 +158,9 @@ export default {
         padding-bottom: 10px;
         a {
           color: #fff;
+          &:hover {
+            color: chocolate;
+          }
         }
       }
       .loginAfter {
@@ -173,11 +176,33 @@ export default {
     position: relative;
     padding-bottom: 10px;
   }
+
+  .login {
+    cursor: pointer;
+    &:hover {
+      color: chocolate;
+    }
+  }
+  .loginAfter {
+    span {
+      &:first-child {
+        color: salmon;
+        font-size: 20px;
+        padding-right: 30px;
+      }
+      &:last-child {
+        cursor: pointer;
+      }
+    }
+  }
   .langBox {
     position: absolute;
     top: 5px;
     right: 15px;
     font-size: 14px;
+    &:hover {
+      color: chocolate;
+    }
     &:hover .lang {
       display: block;
     }
@@ -192,21 +217,6 @@ export default {
         padding: 5px;
         padding-top: 0;
         padding-bottom: 10px;
-        cursor: pointer;
-      }
-    }
-  }
-  .login {
-    cursor: pointer;
-  }
-  .loginAfter {
-    span {
-      &:first-child {
-        color: salmon;
-        font-size: 20px;
-        padding-right: 30px;
-      }
-      &:last-child {
         cursor: pointer;
       }
     }

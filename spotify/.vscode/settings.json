@@ -1,0 +1,5 @@
+{
+  "files.autoSave": "onWindowChange", // 切換視窗自動存檔
+  "editor.formatOnSave": true, // 存檔時自動 format
+  // "editor.defaultFormatter": "numso.prettier-standard-vscode" // 預設 format 使用 prettier
+}
