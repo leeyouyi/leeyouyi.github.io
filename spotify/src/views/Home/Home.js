@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import HomeBanner from '@/views/Home/HomeBanner'
 import HomeContent from '@/views/Home/HomeContent'
 const Home = props => {
@@ -20,7 +21,8 @@ const Home = props => {
     <div>
       <Header />
       <HomeBanner />
-      {data !== '' && <HomeContent jsonData={data} txt={'txt'} />}
+      {data !== '' && <HomeContent jsonData={data} />}
+      <Footer />
     </div>
   )
 }

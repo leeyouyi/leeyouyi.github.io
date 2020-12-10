@@ -6,8 +6,11 @@ import PopularChinese from '@/views/PopularChinese'
 import JapanAndSouthKorea from '@/views/JapanAndSouthKorea'
 import WesternMusic from '@/views/WesternMusic'
 import Podcast from '@/views/Podcast'
+import Login from '@/components/Login'
+import { useSelector } from 'react-redux'
 
 function App () {
+  const isMask = useSelector(state => state.maskReducer.mask)
   return (
     <BrowserRouter>
       <div className='App'>
@@ -18,6 +21,7 @@ function App () {
           <Route path='/WesternMusic' component={WesternMusic} />
           <Route path='/Podcast' component={Podcast} />
         </Switch>
+        {isMask && <Login />}
       </div>
     </BrowserRouter>
   )

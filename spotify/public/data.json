@@ -1,109 +1,145 @@
 {
-    "movie": {
-        "title": "好看電影",
-        "title_en": "Movie",
+    "chinese": {
+        "title": "華語流行",
+        "title_en": "PopularChinese",
         "imgs": [
             {
-                "text": "聲命線索",
-                "text_en": "CALL",
-                "img": "movie01.jpg"
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
             },
             {
-                "text": "聲命線索",
-                "text_en": "CALL",
-                "img": "movie01.jpg"
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
             },
             {
-                "text": "聲命線索",
-                "text_en": "CALL",
-                "img": "movie01.jpg"
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
             },
             {
-                "text": "聲命線索",
-                "text_en": "CALL",
-                "img": "movie01.jpg"
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
             },
             {
-                "text": "聲命線索",
-                "text_en": "CALL",
-                "img": "movie01.jpg"
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
             },
             {
-                "text": "聲命線索",
-                "text_en": "CALL",
-                "img": "movie01.jpg"
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
             }
         ]
     },
-    "drama": {
-        "title": "精彩影集",
-        "title_en": "Drama",
+    "japan_korea": {
+        "title": "日韓熱門",
+        "title_en": "Japan_Korea",
         "imgs": [
             {
-                "text": "后羿棄兵",
-                "text_en": "The Queen's Gambit",
-                "img": "album02.jpg"
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
             },
             {
-                "text": "后羿棄兵",
-                "text_en": "The Queen's Gambit",
-                "img": "album02.jpg"
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
             },
             {
-                "text": "后羿棄兵",
-                "text_en": "The Queen's Gambit",
-                "img": "album02.jpg"
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
             },
             {
-                "text": "后羿棄兵",
-                "text_en": "The Queen's Gambit",
-                "img": "album02.jpg"
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
             },
             {
-                "text": "后羿棄兵",
-                "text_en": "The Queen's Gambit",
-                "img": "album02.jpg"
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
             },
             {
-                "text": "后羿棄兵",
-                "text_en": "The Queen's Gambit",
-                "img": "album02.jpg"
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
             }
         ]
     },
-    "animation": {
-        "title": "熱血動畫",
-        "title_en": "Animation",
+    "western": {
+        "title": "西洋音樂",
+        "title_en": "Western music",
         "imgs": [
             {
-                "text": "鬼滅之刃",
-                "text_en": "Kimetsu no Yaiba",
-                "img": "animation01.png"
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
             },
             {
-                "text": "鬼滅之刃",
-                "text_en": "Kimetsu no Yaiba",
-                "img": "animation01.png"
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
             },
             {
-                "text": "鬼滅之刃",
-                "text_en": "Kimetsu no Yaiba",
-                "img": "animation01.png"
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
             },
             {
-                "text": "鬼滅之刃",
-                "text_en": "Kimetsu no Yaiba",
-                "img": "animation01.png"
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
             },
             {
-                "text": "鬼滅之刃",
-                "text_en": "Kimetsu no Yaiba",
-                "img": "animation01.png"
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
             },
             {
-                "text": "鬼滅之刃",
-                "text_en": "Kimetsu no Yaiba",
-                "img": "animation01.png"
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
+            }
+        ]
+    },
+    "podcast": {
+        "title": "Podcast",
+        "title_en": "Podcast",
+        "imgs": [
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
             }
         ]
     }

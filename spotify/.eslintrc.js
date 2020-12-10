@@ -23,5 +23,6 @@ module.exports = {
     // allow jsx syntax in js files (for next.js project)
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }], //should add ".ts" if typescript project
     semi: ['error', 'never']
+    // 'multiline-ternary': ['error', 'always-multiline']
   }
 }

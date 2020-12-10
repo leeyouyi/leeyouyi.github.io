@@ -1,7 +1,21 @@
-// import React from 'react'
+import React, { useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { mask } from '@/action'
 const Header = props => {
+  const isLogin = useSelector(state => state.loginReducer.login)
+  const isMask = useSelector(state => state.maskReducer.mask)
+  const dispatch = useDispatch()
+  const doLoin = useCallback(() => dispatch(mask(true)), [])
+  // const doSingOut = useCallback(() => dispatch(mask(false)), [])
+  useEffect(() => {
+    console.log({ isLogin })
+  }, [isLogin])
+  useEffect(() => {
+    console.log({ isMask })
+  }, [isMask])
+
   const menu = [
     {
       text: '首頁',
@@ -46,6 +60,20 @@ const Header = props => {
               )
             })}
           </ul>
+          <div className='loginBxo'>
+            <div className='login' onClick={doLoin}>
+              登入
+            </div>
+            {/* {!isLogin ? (
+              <div className='login' onClick={doLoin}>
+                登入
+              </div>
+            ) : (
+              <div className='loginAfter' onClick={doSingOut}>
+                登出
+              </div>
+            )} */}
+          </div>
         </div>
       </header>
     </HeaderStyle>
@@ -73,7 +101,7 @@ const HeaderStyle = styled.div`
         }
       }
       .menu {
-        width: 80%;
+        width: 70%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -88,6 +116,15 @@ const HeaderStyle = styled.div`
           .on {
             color: #ff8000;
           }
+        }
+      }
+      .loginBxo {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .login {
+          cursor: pointer;
         }
       }
     }

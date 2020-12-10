@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">copyright 2020</div>
+  <div class="footer">copyright ©2020</div>
 </template>
 
 <script>
