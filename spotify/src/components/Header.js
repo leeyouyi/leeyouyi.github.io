@@ -1,20 +1,23 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { mask } from '@/action'
+import { login, mask } from '@/action'
 const Header = props => {
   const isLogin = useSelector(state => state.loginReducer.login)
-  const isMask = useSelector(state => state.maskReducer.mask)
+  // const isMask = useSelector(state => state.maskReducer.mask)
   const dispatch = useDispatch()
   const doLoin = useCallback(() => dispatch(mask(true)), [])
-  // const doSingOut = useCallback(() => dispatch(mask(false)), [])
-  useEffect(() => {
-    console.log({ isLogin })
-  }, [isLogin])
-  useEffect(() => {
-    console.log({ isMask })
-  }, [isMask])
+  const doSingOut = useCallback(() => {
+    dispatch(login(false))
+    alert('已登出')
+  }, [])
+  // useEffect(() => {
+  //   console.log({ isLogin })
+  // }, [isLogin])
+  // useEffect(() => {
+  //   console.log({ isMask })
+  // }, [isMask])
 
   const menu = [
     {
@@ -39,6 +42,7 @@ const Header = props => {
     }
   ]
   const logo = require('@/static/images/logo.png')
+  const ary = [0, 1, 2]
   return (
     <HeaderStyle>
       <header>
@@ -48,7 +52,24 @@ const Header = props => {
               <img src={logo} alt='logo' />
             </NavLink>
           </div>
-
+          <div className='nav'>
+            <div className='iconbox'>
+              {ary.map((item, index) => {
+                return <p key={index}></p>
+              })}
+              <ul>
+                {menu.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      <NavLink exact activeClassName='on' to={item.path}>
+                        {item.text}
+                      </NavLink>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          </div>
           <ul className='menu'>
             {menu.map((item, index) => {
               return (
@@ -61,10 +82,7 @@ const Header = props => {
             })}
           </ul>
           <div className='loginBxo'>
-            <div className='login' onClick={doLoin}>
-              登入
-            </div>
-            {/* {!isLogin ? (
+            {!isLogin ? (
               <div className='login' onClick={doLoin}>
                 登入
               </div>
@@ -72,7 +90,7 @@ const Header = props => {
               <div className='loginAfter' onClick={doSingOut}>
                 登出
               </div>
-            )} */}
+            )}
           </div>
         </div>
       </header>
@@ -81,7 +99,15 @@ const Header = props => {
 }
 
 const HeaderStyle = styled.div`
+  @mixin test {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
   header {
+    @include test() {
+      background: #fff;
+    }
     width: 100%;
     height: 80px;
     background: #000;
@@ -99,6 +125,9 @@ const HeaderStyle = styled.div`
         img {
           width: 80px;
         }
+      }
+      .nav {
+        display: none;
       }
       .menu {
         width: 70%;
@@ -125,6 +154,68 @@ const HeaderStyle = styled.div`
         align-items: center;
         .login {
           cursor: pointer;
+        }
+        .loginAfter {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    header {
+      height: 80px;
+      .header {
+        .menu {
+          display: none;
+        }
+        .logo {
+          width: 33.333%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-start;
+        }
+        .nav {
+          width: 33.333%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .iconbox {
+            position: relative;
+            &:hover ul {
+              display: flex;
+            }
+            p {
+              width: 40px;
+              height: 3px;
+              background: #fff;
+              border-radius: 5px;
+              margin-bottom: 5px;
+            }
+            ul {
+              display: none;
+              position: fixed;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              width: 100vw;
+              padding-bottom: 10px;
+              background: #000;
+              top: 0;
+              left: 0;
+              z-index: 999;
+              li {
+                padding: 10px 0;
+              }
+            }
+          }
+        }
+        .loginBxo {
+          width: 33.333%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-end;
+          padding-right: 15px;
         }
       }
     }

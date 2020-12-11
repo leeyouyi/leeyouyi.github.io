@@ -9,6 +9,7 @@ const Login = props => {
   const doLogin = useCallback(() => {
     dispatch(mask(false))
     dispatch(login(true))
+    alert('登入成功')
   }, [])
   const stop = useCallback(e => e.stopPropagation(), [])
 

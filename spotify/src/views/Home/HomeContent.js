@@ -106,6 +106,35 @@ const ContentStyle = styled.div`
       }
     }
   }
+  @media (max-width: 767px) {
+    .content {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      .item {
+        width: 100%;
+        height: auto;
+        padding-top: 0px;
+        .title {
+          width: 100%;
+          padding-left: 30px;
+        }
+        .list {
+          width: 100%;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 0 10px;
+          li {
+            width: 170px;
+            height: 100%;
+            padding: 0 10px;
+            p {
+              padding: 5px 0;
+            }
+          }
+        }
+      }
+    }
+  }
 `
 HomeContent.propTypes = {
   txt: PropTypes.string,

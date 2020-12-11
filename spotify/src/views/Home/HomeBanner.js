@@ -72,5 +72,18 @@ const BannerStyle = styled.div`
       }
     }
   }
+  @media (max-width: 767px) {
+    .bannerBox {
+      height: 200px;
+      .banner {
+        width: 100%;
+        height: 200px;
+        ul {
+          width: 100%;
+          height: 200px;
+        }
+      }
+    }
+  }
 `
 export default HomeBanner
