@@ -1,23 +1,21 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { login, mask } from '@/action'
+import { login, mask, fetchDataBegin } from '@/action'
 const Header = props => {
   const isLogin = useSelector(state => state.loginReducer.login)
-  // const isMask = useSelector(state => state.maskReducer.mask)
+  const data = useSelector(state => state.fetchDataReducer.data)
   const dispatch = useDispatch()
   const doLoin = useCallback(() => dispatch(mask(true)), [])
   const doSingOut = useCallback(() => {
     dispatch(login(false))
     alert('已登出')
   }, [])
-  // useEffect(() => {
-  //   console.log({ isLogin })
-  // }, [isLogin])
-  // useEffect(() => {
-  //   console.log({ isMask })
-  // }, [isMask])
+  useEffect(() => {
+    console.log({ data })
+    dispatch(fetchDataBegin())
+  }, [])
 
   const menu = [
     {

@@ -17,6 +17,7 @@ const Home = props => {
         console.log(error)
       })
   }, [])
+
   return (
     <div>
       <Header />

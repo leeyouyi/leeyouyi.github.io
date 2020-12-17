@@ -25,3 +25,15 @@ export const maskReducer = (state = mask, action) => {
       return state
   }
 }
+const fetchData = {
+  data: ''
+}
+
+export const fetchDataReducer = (state = fetchData, action) => {
+  switch (action.type) {
+    case actions.FETCH_DATA_SUCCESS:
+      return action.payload
+    default:
+      return state
+  }
+}
