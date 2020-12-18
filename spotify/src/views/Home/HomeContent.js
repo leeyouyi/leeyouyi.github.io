@@ -1,47 +1,66 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { createContext, useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import HomeContentChild from '@/views/Home/HomeContentChild'
 
+const themes = {
+  light: {
+    foreground: '#000000',
+    background: '#eeeeee'
+  },
+  dark: {
+    foreground: '#ffffff',
+    background: '#222222'
+  }
+}
+
+export const ThemeContext = createContext(themes.light)
 const HomeContent = props => {
   const { jsonData } = props
 
   useEffect(() => {
-    // console.log(props)
+    console.log(ThemeContext._currentValue)
     // console.log(jsonData)
   }, [])
   return (
-    <ContentStyle>
-      <div className='content'>
-        <Item
-          title={jsonData.chinese.title}
-          imgs={jsonData.chinese.imgs}
-          path={'/PopularChinese'}
-        />
-        <Item
-          title={jsonData.japan_korea.title}
-          imgs={jsonData.japan_korea.imgs}
-          path={'/JapanAndSouthKorea'}
-        />
-        <Item
-          title={jsonData.western.title}
-          imgs={jsonData.western.imgs}
-          path={'/WesternMusic'}
-        />
-        <Item
-          title={jsonData.podcast.title}
-          imgs={jsonData.podcast.imgs}
-          path={'/Podcast'}
-        />
-      </div>
-    </ContentStyle>
+    <ThemeContext.Provider value={themes}>
+      <ContentStyle>
+        <div className='content'>
+          <Item
+            title={jsonData.chinese.title}
+            imgs={jsonData.chinese.imgs}
+            path={'/PopularChinese'}
+          />
+          <Item
+            title={jsonData.japan_korea.title}
+            imgs={jsonData.japan_korea.imgs}
+            path={'/JapanAndSouthKorea'}
+          />
+          <Item
+            title={jsonData.western.title}
+            imgs={jsonData.western.imgs}
+            path={'/WesternMusic'}
+          />
+          <Item
+            title={jsonData.podcast.title}
+            imgs={jsonData.podcast.imgs}
+            path={'/Podcast'}
+          />
+          <HomeContentChild />
+        </div>
+      </ContentStyle>
+    </ThemeContext.Provider>
   )
 }
 const Item = props => {
   const { title, imgs, path } = props
   const history = useHistory()
   const handleOnClick = useCallback(() => history.push(path), [history])
-
+  // const theme = useContext(ThemeContext)
+  // useEffect(() => {
+  //   console.log(theme)
+  // }, [])
   return (
     <div className='item'>
       <div className='title'>{title}</div>

@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import HomeBanner from '@/views/Home/HomeBanner'
 import HomeContent from '@/views/Home/HomeContent'
+
 const Home = props => {
   const [data, setData] = useState('')
   useEffect(() => {
