@@ -1,4 +1,6 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+// import { BrowserRouter } from 'react-router-dom'
+// import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { HashRouter, Switch, Route } from 'react-router-dom'
 // import logo from './logo.svg'
 import './App.scss'
 import Home from '@/views/Home/Home'
@@ -11,8 +13,9 @@ import { useSelector } from 'react-redux'
 
 function App () {
   const isMask = useSelector(state => state.maskReducer.mask)
+
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className='App'>
         <Switch>
           <Route exact path='/' component={Home} />
@@ -23,7 +26,7 @@ function App () {
         </Switch>
         {isMask && <Login />}
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

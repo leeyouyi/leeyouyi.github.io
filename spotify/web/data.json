@@ -1,0 +1,146 @@
+{
+    "chinese": {
+        "title": "華語流行",
+        "title_en": "PopularChinese",
+        "imgs": [
+            {
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
+            },
+            {
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
+            },
+            {
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
+            },
+            {
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
+            },
+            {
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
+            },
+            {
+                "text": "派對動物",
+                "text_en": "Party Animals",
+                "img": "PartyAnimals.jpg"
+            }
+        ]
+    },
+    "japan_korea": {
+        "title": "日韓熱門",
+        "title_en": "Japan_Korea",
+        "imgs": [
+            {
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
+            },
+            {
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
+            },
+            {
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
+            },
+            {
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
+            },
+            {
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
+            },
+            {
+                "text": "Dynamite",
+                "text_en": "Dynamite",
+                "img": "dynamite.jpg"
+            }
+        ]
+    },
+    "western": {
+        "title": "西洋音樂",
+        "title_en": "Western music",
+        "imgs": [
+            {
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
+            },
+            {
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
+            },
+            {
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
+            },
+            {
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
+            },
+            {
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
+            },
+            {
+                "text": "bad guy",
+                "text_en": "bad guy",
+                "img": "bad_guy.jpg"
+            }
+        ]
+    },
+    "podcast": {
+        "title": "Podcast",
+        "title_en": "Podcast",
+        "imgs": [
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            },
+            {
+                "text": "股癌",
+                "text_en": "Gooaye",
+                "img": "Gooaye.png"
+            }
+        ]
+    }
+}

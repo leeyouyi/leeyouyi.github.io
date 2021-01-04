@@ -6,9 +6,11 @@ import HomeContent from '@/views/Home/HomeContent'
 
 const Home = props => {
   const [data, setData] = useState('')
+  const url = process.env.REACT_APP_BASE_JSON + 'data.json'
   useEffect(() => {
-    fetch('./data.json')
+    fetch(url)
       .then(function (response) {
+        console.log(process.env)
         return response.json()
       })
       .then(function (json) {

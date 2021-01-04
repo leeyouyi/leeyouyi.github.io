@@ -97,15 +97,7 @@ const Header = props => {
 }
 
 const HeaderStyle = styled.div`
-  @mixin test {
-    @media (max-width: 767px) {
-      @content;
-    }
-  }
   header {
-    @include test() {
-      background: #fff;
-    }
     width: 100%;
     height: 80px;
     background: #000;
