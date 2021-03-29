@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.scss"],"names":[],"mappings":"AAAA,EACE,SAAA,CACA,QAAA,CAOF,EACE,oBAAA,CAEF,MACE,eAAA","file":"main.52198b1c.chunk.css","sourcesContent":["*{\n  padding: 0;\n  margin: 0;\n}\n\nbody{\n\n}\n\na{\n  text-decoration: none;\n}\nol,li{\n  list-style: none;\n}"]}
