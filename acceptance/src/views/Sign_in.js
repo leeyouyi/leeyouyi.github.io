@@ -1,8 +1,8 @@
 import React,{ useState } from 'react'
 import styled from 'styled-components'
-import Envelope from '../assets/Icon/FA/Envelope.svg'
-import Lock from '../assets/Icon/FA/Lock.svg'
-import CaretDown from '../assets/Icon/FA/CaretDown.svg'
+import Envelope from '../static/Icon/FA/Envelope.svg'
+import Lock from '../static/Icon/FA/Lock.svg'
+import CaretDown from '../static/Icon/FA/CaretDown.svg'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom'
@@ -13,19 +13,19 @@ const Sign_in = props =>{
     const history = useHistory()
     const lanMenu =[
         {
-            img:require('../assets/Flag/China.svg').default,
+            img:require('../static/Flag/China.svg').default,
             lan:'cn'
         },
         {
-            img:require('../assets/Flag/HongKong.png').default,
+            img:require('../static/Flag/HongKong.png').default,
             lan:'tw'
         },
         {
-            img:require('../assets/Flag/Thailand.png').default,
+            img:require('../static/Flag/Thailand.png').default,
             lan:'th'
         },
         {
-            img:require('../assets/Flag/UnitedStates.svg').default,
+            img:require('../static/Flag/UnitedStates.svg').default,
             lan:'en'
         },
     ]

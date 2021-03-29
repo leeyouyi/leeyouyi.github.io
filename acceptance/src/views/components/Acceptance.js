@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import TimesCircle from '../../assets/Icon/FA/TimesCircle.svg'
-import CheckCircle from '../../assets/Icon/FA/CheckCircle.svg'
+import TimesCircle from '../../static/Icon/FA/TimesCircle.svg'
+import CheckCircle from '../../static/Icon/FA/CheckCircle.svg'
 import { useTranslation } from 'react-i18next'
 
 const Acceptance = props =>{

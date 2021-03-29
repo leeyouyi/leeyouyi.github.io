@@ -1,11 +1,11 @@
 import React,{ useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import Times from '../assets/Icon/FA/Times.svg'
-import SignOutAlt from '../assets/Icon/FA/SignOutAlt.svg'
-import LinkSvg from '../assets/Icon/FA/Link.svg'
-import AngleRight from '../assets/Icon/FA/AngleRight.svg'
-import Bullseye from '../assets/Icon/FA/Bullseye.svg'
+import Times from '../static/Icon/FA/Times.svg'
+import SignOutAlt from '../static/Icon/FA/SignOutAlt.svg'
+import LinkSvg from '../static/Icon/FA/Link.svg'
+import AngleRight from '../static/Icon/FA/AngleRight.svg'
+import Bullseye from '../static/Icon/FA/Bullseye.svg'
 import { useDispatch } from 'react-redux'
 import { list } from '../action'
 import { useTranslation } from 'react-i18next'
@@ -88,19 +88,19 @@ const Menu = props =>{
             text:t('menu.language'),
             subMenu:[
                 {
-                    img:require('../assets/Flag/China.svg').default,
+                    img:require('../static/Flag/China.svg').default,
                     lan:'cn'
                 },
                 {
-                    img:require('../assets/Flag/HongKong.png').default,
+                    img:require('../static/Flag/HongKong.png').default,
                     lan:'tw'
                 },
                 {
-                    img:require('../assets/Flag/Thailand.png').default,
+                    img:require('../static/Flag/Thailand.png').default,
                     lan:'th'
                 },
                 {
-                    img:require('../assets/Flag/UnitedStates.svg').default,
+                    img:require('../static/Flag/UnitedStates.svg').default,
                     lan:'en'
                 },
             ],

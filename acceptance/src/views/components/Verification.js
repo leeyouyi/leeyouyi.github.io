@@ -1,8 +1,8 @@
 import React,{ useState } from 'react'
 import styled from 'styled-components'
-import SideA from '../../assets/Img/SideA.svg'
-import SideAB from '../../assets/Img/SideAB.svg'
-import SideB from '../../assets/Img/SideB.svg'
+import SideA from '../../static/Img/SideA.svg'
+import SideAB from '../../static/Img/SideAB.svg'
+import SideB from '../../static/Img/SideB.svg'
 import { useTranslation } from 'react-i18next'
 
 const Verification = props =>{

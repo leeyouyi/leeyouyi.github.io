@@ -2,8 +2,8 @@ import React,{ useState } from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { list } from '../../action'
-import ASide from '../../assets/Img/ASide.svg'
-import BSide from '../../assets/Img/BSide.svg'
+import ASide from '../../static/Img/ASide.svg'
+import BSide from '../../static/Img/BSide.svg'
 import { useTranslation } from 'react-i18next'
 
 const AddOrEditBankCard = props =>{
