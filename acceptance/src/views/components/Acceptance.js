@@ -3,6 +3,7 @@ import TimesCircle from '../../static/Icon/FA/TimesCircle.svg'
 import CheckCircle from '../../static/Icon/FA/CheckCircle.svg'
 import { useTranslation } from 'react-i18next'
 
+console.log(process.env)
 const Acceptance = props =>{
     const { t } = useTranslation()
     const data = [
