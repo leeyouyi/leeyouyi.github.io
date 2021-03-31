@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .content{
+        width: 100vw;
+        display: flex;
+        margin-top: 20px;
+    }
+    .inputBox{
+        width: 180px;
+        padding: 30px;
+    }
+    input{
+        width: 150px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    #numAry{
+        font-size: 16px;
+        color:#f00;
+    }
+    button{
+        width: 120px;
+        height: 50px;
+        margin: 0px 10px;
+        margin-top: 30px;
+
+    }
+</style>
+<body>
+    <div class="content"> 
+        <div class="inputBox" id="inputBox">
+            <div class="input">
+                <label for="input1">號碼1</label>
+                <input id="input1" type="text" />
+            </div>  
+            <div class="input">
+                <label for="input2">號碼2</label>
+                <input id="input2" type="text" />
+            </div>  
+            <div class="input">
+                <label for="input3">號碼3</label>
+                <input id="input3" type="text" />
+            </div>  
+            <div class="input">
+                <label for="input4">號碼4</label>
+                <input id="input4" type="text" />
+            </div>  
+            <div class="input">
+                <label for="input5">號碼5</label>
+                <input id="input5" type="text" />
+            </div>  
+            <div class="input">
+                <label for="input6">號碼6</label>
+                <input id="input6" type="text" />
+            </div>  
+            <div class="input">
+                <label for="input7">號碼7</label>
+                <input id="input7" type="text" />
+            </div>
+
+            <div>
+                <p>已輸入號碼 : </p>
+                <p id="numAry"></p>
+            </div>
+
+            <button id="btn">重新開獎</button>
+
+        </div>
+
+        <div id="canvas"></div>
+    </div>
+
+    <script>
+    (function(){
+        // 1920*1080
+        let configWith = 1440;
+        let configHeight = 810;
+        var config = {
+            type: Phaser.AUTO,
+            width: configWith,
+            height: configHeight,
+            parent: "canvas",
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 200 }
+                }
+            },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+
+        var game = new Phaser.Game(config);
+        var curve = [] 
+        var graphics =[]
+        var path =[]
+        var inputAry = []
+        var _this 
+        var end = true
+        var nextNum = 1
+        var inputValue = [] //實際號碼
+        var rotation = false
+        var newAry= []
+        var sortAry = []
+        document.querySelector('#btn').addEventListener('click',()=>{
+            location.reload()
+        })
+
+        function getDegree(x1, y1, x2, y2) {
+            var x = Math.abs(x1 - x2);
+            var y = Math.abs(y1 - y2);
+            var z = Math.sqrt(x * x + y * y);
+            return Math.round((Math.asin(y / z) / Math.PI * 180));
+        }
+
+        function preload ()
+        {
+            
+            this.load.image('Panel', './assets/Panel.png')
+            for (let i = 1; i <= 49; i++) {
+                let num = i < 10 ?  '0' + i :  ''+ i
+                this.load.image(`ball${i}`, `./assets/Ball/${num}.png`)
+            }
+            
+        }
+
+        function create ()
+        {  
+       
+            _this = this
+            this.num = 0
+            this.ball = []
+            this.panel =  this.add.image(615 , 600, `Panel`).setScale(.29).setDepth(1)
+
+            this.Z = .29
+            this.Y = true
+            console.log(this.panel)
+            
+            var inputBox = document.querySelector("#inputBox")
+            inputBox.querySelectorAll('input').forEach((item,index)=>{
+                item.addEventListener("keydown", ({key}) => {
+                    if (key === "Enter"){
+                        console.log('keydonw',index)
+                        let value =  item.value
+                        let hasValue = inputValue.indexOf(value)
+                        if(value === '') return
+                        if(isNaN(Number(value))) return
+                        if( Number(value) <= 0  || (Number(value) > 49) ) return
+                        if(hasValue !== -1) return
+                        if(end && (nextNum === index + 1)){
+                            // console.log(hasValue)
+                            inputValue.push(value)
+                            start(index + 1, value)
+                            this.num = index + 1
+                            nextNum = nextNum + 1
+                            console.log(inputValue)
+                            document.querySelector('#numAry').innerText = inputValue
+                        }
+                    
+                    } 
+                })
+            })
+
+
+            for (let i = 0; i < 8; i++) {
+                inputAry[i] = true
+                
+            }
+
+
+        }
+        function start(i,num){
+
+            if(inputAry[i]){
+                let distance = i < 7 ?  i* 101 :  i* 100 + 25
+                _this.ball[i] =  _this.add.image(100 + distance ,  900, `ball${num}`).setScale(.33).setDepth(2)
+                _this.tween = _this.tweens.add({
+                targets: _this.ball[i],
+                props: {
+                    x: { value: 200 + distance , duration: 1000, flipX: false },
+                    y: { value: 600, duration: 1000,  },
+                },
+                    ease: 'Power1',
+                })
+                inputAry[i] = false
+
+                if(i === 7){
+                    setTimeout(()=>{
+                         newAry = inputValue.map(item=>{
+                            return item
+                        })
+                        newAry.splice(6,1)
+                        newAry.sort((a,b)=>{
+                            return a-b
+                        })
+                        newAry.push(inputValue[6])
+                        setTimeout(()=>{
+                            rotation = true
+                            newAry.forEach((el,index)=>{
+                                sortAry[index] =  _this.add.image( _this.ball[ index + 1].x  , _this.ball[ index + 1].y, `ball${el}`).setScale(.33).setDepth(0)
+                            })
+     
+                        },1000)
+
+                    },2000)
+                }
+            }
+
+
+        }
+
+
+        function update ()
+        {
+            
+            if(rotation){
+
+                if(this.Y){
+                    this.panel.setScale(.29, this.Z) 
+                    
+                    inputValue.forEach((el,i)=>{
+                        _this.ball[i + 1].setPosition(_this.ball[i + 1].x+ this.Z / 4, _this.ball[i + 1].y + this.Z *2 )
+                    })
+                    sortAry.forEach((el,i)=>{
+                        el.setPosition(el.x - this.Z / 4 , el.y - this.Z )
+                    })
+                    
+                    this.Z -= .002;
+                    if(this.Z <= 0) {
+                        sortAry.forEach((el,i)=>{
+                            el.setDepth(2)
+                        })
+                        this.Y =false
+                    }
+
+                }
+                if(!this.Y){
+                    if(this.Z >= .29 ) return
+                    this.Z += .002
+                    this.panel.setScale(.29, this.Z) 
+                    inputValue.forEach((el,i)=>{
+                        _this.ball[i + 1].setPosition(_this.ball[i + 1].x - this.Z / 4, _this.ball[i + 1].y - this.Z *2  ).setDepth(0)
+                    })
+                    sortAry.forEach((el,i)=>{
+                        el.setPosition(el.x + this.Z / 4, el.y + this.Z )
+                    })
+                    // if(this.Z >= .29)  this.Y = true
+                }
+
+            }
+
+        }
+
+        })()
+
+
+    </script>
+
+</body>
+</html>
