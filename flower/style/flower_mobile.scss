@@ -1,0 +1,1468 @@
+@import "iconMenu";
+
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body{
+    background: #13774B;
+   
+    font-size: 14px;
+}
+.disabled {
+    pointer-events: none;
+}
+.flower{
+    // height: calc(100vh - 115px);
+    font-family: PingFangTC-Regular;
+    height: 100%;
+}
+.box{
+    height: 100%;
+    overflow: hidden;
+    .cross{
+        position: absolute;
+        transition: .5s;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .svg1,.svg2{
+        transition: 1s !important;
+      }
+    .compare{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.6);
+        transition: 1s;
+        z-index:-1;
+        opacity: 0;
+        // visibility: hidden;
+        .compareTop{
+            width: 100%;
+            height: 35%;
+            margin-top:1%;
+            position: relative;
+            visibility: hidden;
+        }
+        .compareCenter{
+            width: 100%;
+            height: 10%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            visibility: hidden;
+            transition: .5s;
+            span{
+                font-family: Arial-BoldMT;
+                color: #fff;
+                font-size: 4rem;
+                font-weight: bold;
+                transition: .5s;
+            }
+        }
+        .compareBottom{
+            width: 100%;
+            height: 35%;
+            position: relative;
+            margin-bottom: 15%;
+            margin-top: 15%;
+            visibility: hidden;
+            .top{
+                .topWarp{
+                    right: 0;
+                }
+            }
+
+        }
+        .top{
+            width: 100%;
+            height: 20%;
+            position: relative;
+            .topWarp{
+                width: 50%;
+                height: 100%;
+                border: 1px solid #fff;
+                position: absolute;
+                .information{
+                    width: 90%;
+                    height: 100%;
+                    margin: 0 auto;
+                    background: #00B9ED;
+                }
+            }
+        }
+        .bottom{
+            width: 70%;
+            height: 80%;
+            margin: 0 auto;
+            position: relative;
+            .poker{
+                width: 80%;
+                height: 80%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom:0;
+                margin: auto;
+                .pokerImg{
+                    width: 50%;
+                    position: absolute;
+                }
+                .pokerImg:nth-child(2){
+                    left: 25%;
+                }
+                .pokerImg:nth-child(3){
+                    left: 50%;
+                }
+            }
+        }
+        
+    }
+    .pokerImg{
+        box-shadow: 0px 0px 1px 1px rgba(0,0,0,.2);
+        border-radius: 5px;
+    }
+    .progress {
+        width: 100%;
+        height: 13%;
+        background-color: #e9ecef;
+        display: flex;
+        overflow: hidden;
+        background-color: #e9ecef;
+        position: absolute;
+        bottom: -2px;
+        // border-radius: 0 0 5px 5px;
+        .bg-danger {
+          width: 100%;
+          background-image: linear-gradient(270deg, #00FF04 0%, #F9FF00 33%, #FC7C00 68%, #FF0000 100%);
+        }
+  
+        .progress-bar {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: #fff;
+          text-align: center;
+          white-space: nowrap;
+          transition: width .6s ease;
+          height: 100%;
+
+        }
+      }
+
+    .boxTop{
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 5px;
+        .roomNum{
+            font-family: ArialMT;
+            font-size: 12px;
+            color: #F8E71C;
+            line-height: 1.5rem;
+            // margin-left: 5%;
+            // margin-right: 1%;
+        }
+        .roomTxt{
+            font-family: PingFangTC-Regular;
+            font-size: 12px;
+            color: #FFFFFF;
+            line-height:1.5rem;
+            span{
+                margin-right: 5px;
+            }
+            .txt{
+                // margin-left: 5px;
+            }
+        }
+        .icon{
+            width: 8%;
+            // height: 30px;
+            background: url(./images/flowerImage/Info.svg) no-repeat;
+            background-size: contain;
+            // margin-right: 5vw;
+        }
+
+    }
+    .playerContainer{
+        width: calc(100vw - 20px);
+        height: 60%;
+        margin: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        .player{
+            width: calc(50% - 5px);
+            height:  calc(50% - 5px);
+            box-sizing: border-box;
+            position: relative;
+            border: 1px solid #fff;
+            display: flex;
+            flex-wrap: wrap;
+            .playerWarp{
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: absolute;
+                transition: 1s;
+                .addChips{
+                    width: 55%;
+                    height: 20px;
+                    position: relative;
+                    right: 0;
+                    top: 0;
+                    float: right;
+                    margin-top: 5px;
+                    .addChipsImg{
+                        width: 30px;
+                        height: 30px;
+                        position: absolute;
+                        z-index: 2;
+                    }
+                    .moneybox{
+                        width: 80%;
+                        background: rgba(0,0,0,0.50);
+                        box-shadow: inset 0 0 20px 0 rgba(0,0,0,0.50);
+                        border-radius: 30px;
+                        position: absolute;
+                        top: 4px;
+                        left: 10px;
+                        .money{
+                            width: 110%;
+                            font-family: Arial-BoldMT;
+                            font-size: 13px;
+                            color: #F8E71C;
+                            text-align: center;
+                        }
+                    }
+                    &:after{
+                        content: '';
+                        display: block;
+                    }
+                }
+                .Lose{
+                    opacity: 0;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: -1;
+                    transition: .5s;
+                    // bottom: 50%;
+                    transform: scale(1.2);
+                    img{
+                        width: 100%;
+                        // height: 100%;
+                    }
+                }
+            }
+            .information{
+                width: 100%;
+                height: 25%;
+                background: rgba(0,0,0,0.70);
+                // border: 1px solid #FFFFFF;
+                box-sizing: border-box;
+                position: relative;
+                display: flex;
+                transition: 1s;
+                .photo{
+                    width: 25%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .memberBox{
+                    width: 75%;
+                    height: 50%;
+                    text-align: left;
+                    .memberName{
+                        font-family: ArialMT;
+                        font-size: 12px;
+                        color: #FFFFFF;
+                        box-sizing: border-box;
+                        margin-left: 15px;
+                    }
+                    .memberMoney{
+                        font-family: ArialMT;
+                        font-size: 12px;
+                        color: #F8E71C;
+                        box-sizing: border-box;
+                        margin-left: 15px;
+                        .totalSpan{
+                            margin-left: 3px;
+                        }
+                    }
+                }
+
+            }
+            .Poker{
+                width: 100%;
+                height: 75%;
+                position: relative;
+
+                .pokerBox{
+                    visibility: hidden;
+                    width: 100%;
+                    height: 80%;
+                    margin-top: 18%;
+                    box-sizing: border-box;
+                    padding: 10px 30px;
+                    position: relative;
+                    .pokerImgWarp{
+                        transition: 1s;
+                    }
+                    .pokerImg{
+                        position: absolute;
+                        width: 35%;
+                        height: 73%;
+                        &:nth-child(2){
+                            left: 32%;
+                        }
+                        &:nth-child(3){
+                            left: 53%;
+                        }
+     
+                    }
+                    .eye{
+                        display: none;
+                        position: absolute;
+                        width: 30%;
+                        height: 55%;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        transition: 1s;
+                        // z-index: -1;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .aiLose{
+                        display: none;
+                        width: 25%;
+                        height: 25%;
+                        position: absolute;
+                        z-index: 2;
+                        transform: rotate(15deg);
+                       
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .pokerCenter{
+                        width: 35%;
+                        height: 30%;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        display: none;
+                        margin-top: 25%;
+                        span{
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            margin: auto;
+                            font-family: ArialMT;
+                            font-size: 24px;
+                            font-weight: bold;
+                            color: #F8E71C;
+                            text-align: center;
+                            box-sizing: border-box;
+                        }
+                    }
+                    .pokerTxt{
+                        display: none;
+                        position: absolute;
+                        width: 50%;
+                        height: 20%;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        text-align: center;
+                        span{
+                            font-family: NotoSansTC-Bold;
+                            font-size: 20px;
+                            color: #F8E71C;
+                            text-align: center;
+                            text-shadow: 0 0 5px rgba(0,0,0,1);
+                        }
+                    }
+                    .loseMoney{
+                        visibility: hidden;
+                        position: absolute;
+                        transition: 1s;
+                        color: rgb(255, 0, 31);
+                        font-size: 24px;
+                        font-family: Arial-Black;
+                        text-shadow: 0 0 5px;
+                    }
+                }
+
+            }
+            &:nth-child(odd){
+                margin-right: 10px;
+                .photo{
+                    border-right: 1px solid #FFFFFF;
+                }
+            }
+            &:nth-child(even){
+                .addChips{
+                    float: left;
+                    margin-left: 10px;
+                }
+                .photo{
+                    border-left: 1px solid #FFFFFF;
+                }
+
+            }
+            &:nth-child(1){
+                margin-bottom: 10px;
+                border-radius: 5px 0 0 0;
+                .information{
+                    border-bottom: 1px solid #FFFFFF;
+                }
+                .pokerImgWarp{
+                    height: calc(100% - 10px);      
+                }
+                .aiLose{
+                    left: 5%;
+                    bottom: 20%;
+                }
+                .pokerBox{
+                    .loseMoney{
+                        top: -40%;
+                        left: 10px;
+                    }
+                }
+
+            }
+            &:nth-child(2){
+                margin-bottom: 10px;
+                border-radius: 0 5px 0 0 ;
+                .information{
+                    border-bottom: 1px solid #FFFFFF;
+                }
+                .pokerImgWarp{
+                    height: calc(100% - 10px);  
+                        
+                }
+                .aiLose{
+                    right: 5%;
+                    bottom: 20%;
+                }
+                .pokerBox{
+                    .loseMoney{
+                        top: -40%;
+                        right: 10px;
+                    }
+                }
+
+            }
+            &:nth-child(3){
+                border-radius: 0 0 0 5px;
+                .pokerBox{
+                    margin: unset;
+                    padding-top: 15%;
+                    .loseMoney{
+                        left: 10px;
+                        top: -5px;
+                    }
+                }
+                .addChips{
+                    top: -10px;
+                }
+                .information{
+                   border-radius: 0px 0px 0px 5px;
+                    border-top: 1px solid #FFFFFF;
+                }
+                .pokerImgWarp{
+                    height: calc(115%);      
+                }
+                .aiLose{
+                    left:  5%;
+                    bottom: 0%;
+                }
+
+            }
+            &:nth-child(4){
+                border-radius: 0 0 5px 0;
+                .pokerBox{
+                    margin: unset;
+                    padding-top: 15%;
+                    .loseMoney{
+                        right: 10px;
+                        top: -5px;
+                    }
+                }
+                .addChips{
+                    top: -10px;
+                }
+                .information{
+                   border-radius: 0px 0px 5px 0px;
+                    border-top: 1px solid #FFFFFF;
+                }
+                .pokerImgWarp{
+                    height: calc(115%);      
+                }
+                .aiLose{
+                    right:  5%;
+                    bottom: 0%;
+                }
+
+            }
+        }
+     
+        .center{
+            width: 30%;
+            height: 30%;
+            background: #13774B;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border: 1px solid #fff;
+           
+            .crenterWarp{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                border-radius: 50%;
+                z-index: 49;
+                .centerChips{
+                    width: 45%;
+                    height: 30px;
+                    border-radius: 15px;
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    background: rgba(0, 0, 0, 0.4);
+                    text-align: center;
+                    span{
+                        font-family: Arial-BoldMT;
+                        font-size: 16px;
+                        color: #F8E71C;
+                        line-height: 30px;
+                    }
+                }
+            }
+            .pokerBox{
+                width: 35%;
+                height: 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+
+                .pokerImgWarp{
+                    width: 100%;
+                    height: 100%;
+                }
+                .pokerImg{
+                    width:100%;
+                    position: absolute;
+                    transition: 0.8s;
+                }
+
+            }
+        }
+    }
+    .userContainer{
+        width: calc(100vw - 20px);
+        height: 25%;
+        margin: 10px 10px 0px 10px;
+        position: relative;
+        .userBox{
+            width: 100%;
+            height: 100%;
+            .information{
+                width: 77%;
+                height: 28%;
+                background: rgba(0,0,0,1);
+                border: 1px solid #FFFFFF;
+                box-sizing: border-box;
+                border-radius: 2px;
+                display: flex;
+                justify-content: space-evenly;
+                position: absolute;
+                top: -5px;
+                z-index: 2;
+                transition: 1s;
+                .photo{
+                    width: 17%;
+                    height: 100%;
+                    border-right: 1px solid #FFFFFF;
+                    border-radius: 5px 0 0 5px;
+                    box-sizing: border-box;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .memberBox{
+                    width: 87%;
+                    height: 100%;
+                    text-align: left;
+                    .memberName{
+                        font-family: ArialMT;
+                        font-size: 12px;
+                        color: #FFFFFF;
+                        box-sizing: border-box;
+                        margin-left: 15px;
+                    }
+                    .memberMoney{
+                        font-family: ArialMT;
+                        font-size: 12px;
+                        color: #F8E71C;
+                        box-sizing: border-box;
+                        margin-left: 15px;
+                        .totalMoney{
+                            margin: 0 3px;
+                        }
+                        .totalBg{
+                            width: 15px;
+                            display: inline-block;
+                            margin-right: 3px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+    
+            }
+            .eyeBox{
+                width: 23%;
+                height: 28%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 2;
+                .eye{
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    img{
+                        width: 60%;
+                        // height: 100%;                
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+                    #userFlod,#userLose{
+                        display: none;
+                        width: 50%;
+                        height: unset;
+                        position: absolute;
+                        top: 45%;
+                        left: 20%;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+                    #userLose{
+                        transform: rotate(20deg)
+                    }
+            }
+            }
+            .userWarp{
+                width: 100%;
+                height: 100%;
+                border: 1px solid #FFFFFF;
+                border-radius: 15px;
+                position: relative;
+                box-sizing: border-box;
+                position: relative;
+                // overflow: hidden;
+                .userPlayer{
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    overflow: hidden;
+                    .addChips{
+                        width: 40%;
+                        height: 20px;
+                        position: relative;
+                        margin-top: 12%;
+                        margin-left: 2%;
+                        .addChipsImg{
+                            width: 30px;
+                            height: 30px;
+                            position: absolute;
+                            z-index: 2;
+                        }
+                        .moneybox{
+                            width: 90%;
+                            background: rgba(0,0,0,0.50);
+                            box-shadow: inset 0 0 20px 0 rgba(0,0,0,0.50);
+                            border-radius: 30px;
+                            position: absolute;
+                            top: 2px;
+                            left: 10px;
+                            .money{
+                                font-family: Arial-BoldMT;
+                                font-size: 14px;
+                                color: #F8E71C;
+                                text-align: center;
+                            }
+                        }
+                        &:after{
+                            content: '';
+                            display: block;
+                            clear: both;
+                        }
+                    }
+                    .PokerLeft{
+                        width: 40%;
+                        height: 25%;
+                        position: relative;
+                        display: flex;
+
+                        .loseMoney{
+                            width: 50%;
+                            height: 100%;
+                            transition: 1s;
+                            font-size: 30px;
+                            padding-left: 10px;
+                            position: relative;
+                            color: rgb(255, 0, 31);
+                            font-family: Arial-Black;
+                            text-shadow: 0 0 5px;
+                        }
+                        .txtBox{
+                            width: 50%;
+                            height: 100%;
+                            position: relative;
+                            p{
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                margin: auto;
+                                font-family: ArialMT;
+                                font-size: 24px;
+                                font-weight: bold;
+                                color: #F8E71C;
+                                text-align: center;
+                                box-sizing: border-box;
+                                padding: 5%;
+                            }
+                        }
+        
+                    }
+                    .Poker{
+                        width: 55%;
+                        height: 100%;
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        .pokerBox{
+                            width: 100%;
+                            height: 100%;
+                            top: 30%;
+                            position: relative;
+                            .pokerImgWarp{
+                                width: 100%;
+                                height: 70%;
+                                transition:1s;
+                                .Lose{
+                                    opacity: 0;
+                                    width: 100%;
+                                    // left: 0;
+                                    // right: 0;
+                                    // margin: auto;
+                                    height: 100%;
+                                    position: absolute;
+                                    z-index: 1;
+                                    transition: .5s;
+                                    bottom: 70%;
+                                    transform: scale(1.2);
+                                    // display: none;
+                                    img{
+                                        width: 100%;
+                                        // height: 100%;
+                                    }
+                                }
+                            }
+                            .pokerImg{
+                                position: absolute;
+                                width: 55%;
+                                height: 100%;
+                                &:nth-child(2){
+                                    left: 22%;
+                                }
+                                &:nth-child(3){
+                                    left: 44%;
+                                }
+                            }
+                        }
+                    }
+                    #userPoker{
+                        visibility: hidden;
+                    }
+                    .unfold{
+                        .pokerBox{
+                            top: 27%;
+                            .pokerImg{
+                                width: 60%;
+                                box-shadow: 0px 5px 10px rgba(0, 0, 0, .8);
+                                border-radius:5px; 
+                            }
+                            .pokerImg:nth-child(1){
+                                transform:  rotate(-15deg);
+                                top: 0%;
+                            }
+                            .pokerImg:nth-child(2){
+                                top: -5%;
+                            }
+                            .pokerImg:nth-child(3){
+                                transform:  rotate(10deg);
+                                top: 3%;
+                                left: 50%;
+                            }
+                        }
+
+                    }
+                }
+                nav{
+                    width: 100%;
+                    height: 25%;
+                    border-radius: 15px;
+                    position: absolute;
+                    left: 0;
+                    bottom:0;
+                    background: rgba(0, 0, 0, 0.5);
+                    display: flex;
+                    z-index: 2;
+                    .navBtn{
+                        width: 25%;
+                        height: 65%;
+                        border-radius: 10px;
+                        margin: 2% 0;
+                        margin-right: 2%;
+                        border: 1px solid #fff;
+                        box-sizing: border-box;
+                        display: flex;
+                        img{
+                            width: 25%;
+                            height: 70%;
+                            margin-top: 5%;
+                            margin-left: 5%;
+                           
+                        }
+                        >span{
+                            width: 75%;
+                            display: inline-block;
+                            margin-left: 10%;
+                            color: #fff;
+    
+                        }
+                        &:nth-child(1){
+                            margin-left: 3%;
+                            background: #631E97;
+                        }
+                        &:nth-child(2){
+                            background: #00B9ED;
+                        }
+                        &:nth-child(3){
+                            background:  #EA8242;
+                            span{
+                             margin-left: 0;   
+                            }
+                        }
+                        &:nth-child(4){
+                            background:  #D94297;
+                            span{
+                                margin-left: 0;   
+                               }
+                        }
+                    }
+                }
+    
+            }
+            .progress{
+                bottom: -5px;
+                border-radius: 0 0 5px 5px;
+            }
+        }
+
+        .chipsWarp{
+            width: 100%;
+            height: 25%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            .chipsBox{
+                width: 100%;
+                height: 100%;
+                background: #633B1C;
+                border: 3px solid #856146;
+                box-shadow: inset 0 0 30px 0 rgba(0,0,0,0.7);
+                position: absolute;
+                bottom: -12px;
+                left: 0;
+                right: 0;
+                margin: auto;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                .chipsimgBox{
+                    position: relative;
+                    display: inline-block;
+                    width: 15%;
+                    height: 100%;
+                    margin-left: .5%;
+                    top:-100%;
+                    cursor: pointer;
+                    z-index: 3;
+                    .imgWarp{
+                        position: relative;
+                        img{
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            margin: 0 auto;
+                            cursor: pointer;
+                        }
+                        p{
+                            width: 50%;
+                            height:70%;;
+                            font-size: 20px;
+                            font-weight: bold;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto;
+                            cursor: pointer;
+                            text-align: center;
+                            padding-top: 5%;
+                        }
+                    }
+                }
+            }
+
+            .chipsCenter{
+                width: 20%;
+                height: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0; 
+                margin: auto;
+                >.chipsimgBox{
+                    width: 30px;
+                    height: 30px;
+                    visibility: hidden;
+                    position: absolute;
+                    img{
+                        width: 100%;
+                    }
+                    p{
+                        width: 50%;
+                        height: 60%;
+                        font-size: 12px;
+                        font-weight: bold;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        cursor: pointer;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .showdown{ //攤牌
+        .pokerImg:nth-child(1){
+            transform: rotate(-15deg);
+            top: 5%;
+        }
+        .pokerImg:nth-child(2){
+            top: -3%;
+        }
+        .pokerImg:nth-child(3){
+            transform: rotate(15deg);
+            top: 5%;
+        }
+    }
+    .showdown2{ //攤牌
+        .pokerImg:nth-child(1){
+            transform: rotate(-15deg);
+            top: 20%;
+        }
+        .pokerImg:nth-child(2){
+            top: 12%;    
+        }
+        .pokerImg:nth-child(3){
+            transform: rotate(15deg);
+            top: 20%;    
+        }
+    }
+    .FoldPokerImg{
+        transform: scale(1.2) rotate(90deg) !important;
+        left: 32% !important;
+        height: 85% !important;
+        filter: brightness(0.5);
+        // top:unset !important;
+        // top: 0% !important;
+
+    }
+    .Flod{
+        display: none;
+        position: absolute;
+        width: 20%;
+        height: 45%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        img{
+            width: 100%;
+        }
+    }
+    .createBox{
+        position: absolute;
+        z-index: 1;
+        .createWarp{
+            width: 50%;
+            height: 100%;
+            position: relative;
+            margin: 0 auto;
+            .chips,.chips2{
+                width: 50%;
+                height: 50%;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+
+            }
+            .chipsimgBox{
+                position: relative;
+                display: inline-block;
+                width: 15%;
+                height: 100%;
+                margin-left: .5%;
+                top:-50%;
+                cursor: pointer;
+                padding-bottom: 3%;
+                transition: 1s;
+                .imgWarp{
+                    position: relative;
+                    img{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        margin: 0 auto;
+                        cursor: pointer;
+                        // visibility: visible;
+                    }
+                    p{
+                        width: 50%;
+                        height:60%;;
+                        font-size: 12px;
+                        font-weight: bold;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        cursor: pointer;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .borderClass{
+        z-index: 51;
+        cursor: pointer;
+        border: unset !important;
+    }
+
+}
+.wating-link-box{
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(22,24,51,0.9)));
+    background-image: linear-gradient(-270deg, rgba(22,24,51,0.9) 0%);
+    -webkit-box-shadow: inset 0 -2px 0 0 #F19410, inset 0 2px 0 0 #F19410;
+    box-shadow: inset 0 -2px 0 0 #F19410, inset 0 2px 0 0 #F19410;
+    width: 100vw;
+    height: 15vw;
+    position: absolute;
+    top: calc((100% - 15vw) /2);
+    z-index: 20;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 10vmin;
+    color: #E9BB1E;
+    span{
+        text-align: center;
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        line-height: 1.5;
+        font-weight: bold;
+        -webkit-filter: drop-shadow(5px 4px 3px rgba(0,0,0,0.7));
+        filter: drop-shadow(5px 4px 3px rgba(0,0,0,0.7));
+        -webkit-text-stroke: 8px #ffffff;
+        -webkit-text-stroke: 0.8vw #ffffff;
+        &::before{
+            content: attr(data-text0);
+            position: absolute;
+            -webkit-text-stroke: 3px #4F0202;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), color-stop(50%, #F8E71C), to(#FE6102));
+            background: linear-gradient(top, #fff 20%, #F8E71C 50%, #FE6102 100%);
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-stroke: 0.3vw #4F0202;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }   
+        .point{
+            position: absolute;
+            display: inline-block;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), color-stop(50%, #F8E71C), to(#FE6102));
+            background: linear-gradient(top, #fff 20%, #F8E71C 50%, #FE6102 100%);
+            -webkit-background-clip: text;
+            -webkit-text-stroke: 8px #ffffff;
+            color: transparent;
+            font-weight: bold;
+            -webkit-text-stroke: 0.8vw #ffffff;
+            &::before{
+                content: attr(data-text1);
+                display: inline-block;
+                position: absolute;
+                -webkit-text-stroke: 3px #4F0202;
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(68%, #fff), color-stop(72%, #F8E71C), color-stop(78%, #FE6102));
+                -webkit-background-clip: text;
+                color: transparent;
+                -webkit-text-stroke: 0.3vw #4F0202;
+            }
+        }
+    }
+}
+.gameStart{
+    width: 100%;
+    height: 15vw;
+    position: absolute;
+    top: calc((100% - 30vw) / 2);
+    z-index: 9999;
+    color: #e9bb1e;
+    /* display: none; */
+    font-size: 5vw;
+    .gameStart-text-0{
+      display: inline-block;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(15%, #fff), color-stop(50%, #f8e71c), to(#ff5800));
+      background: linear-gradient(to bottom, #fff 15%, #f8e71c 50%, #ff5800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      position: absolute;
+      -webkit-text-stroke: 7px #ffffff;
+      -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.7));
+      filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.7));
+      width: 200px;
+      left: 0;
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      -webkit-animation: text-animation 0.3s forwards ease-out;
+      animation: text-animation 0.3s forwards ease-out;
+      &:before{
+        content: attr(data-text2);
+        position: absolute;
+        -webkit-text-stroke: 3px #4F0202;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), color-stop(50%, #F8E71C), to(#FE6102));
+        background: linear-gradient(top, #fff 20%, #F8E71C 50%, #FE6102 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+    .gameStart-text-1{
+      display: block;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fff), color-stop(60%, #f8e71c), to(#ff5800));
+      background: linear-gradient(to bottom, #fff 5%, #f8e71c 60%, #ff5800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      position: absolute;
+      -webkit-text-stroke: 7px #ffffff;
+      -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.7));
+      filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.7));
+      width: 200px;
+      right: 0;
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      -webkit-animation: text-animation1 0.3s forwards ease-out;
+      animation: text-animation1 0.3s forwards ease-out;
+      &:before{
+        content: attr(data-text3);
+        position: absolute;
+        -webkit-text-stroke: 3px #4F0202;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), color-stop(50%, #F8E71C), to(#FE6102));
+        background: linear-gradient(top, #fff 20%, #F8E71C 50%, #FE6102 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+  @keyframes text-animation {
+    from {
+      left: 0;
+    }
+    to {
+      left: calc(50% - 200px);
+    }
+  }
+  @keyframes text-animation1 {
+    from {
+      right: 0;
+    }
+    to {
+      right: calc(50% - 200px);
+    }
+  }
+  .start{
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:100%;
+    height:20vw;
+    font-weight: bold;
+    z-index: 100;
+    overflow: hidden;
+    @media(max-width:480px){
+        position: absolute;
+        top:40%;
+        left:50%;
+        transform: translate(-50%,-40%);
+    }
+    .game-content{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        white-space:nowrap;
+        span{
+            display: inline-block;
+            font-size:12vmin;
+        }
+        .msg-before{
+            animation: fadeInLeft 0.3S;
+            max-width: 400px;
+            max-height: 200px;
+            font-weight: bold;
+            -webkit-text-stroke: 8px #ffffff;
+            position: relative;
+            filter: drop-shadow(5px 4px 3px rgba(0,0,0,0.7));
+            @media(max-width:480px){
+                -webkit-text-stroke: 0.8vw #ffffff;
+            }
+            &::before{
+                content: attr(data-text2);
+                position: absolute; 
+                left: 0;
+                -webkit-text-stroke: 3px #4F0202;
+                background: linear-gradient(top,#FFFFFF 15%,#F8E71C 50%,#FE6102 100%);
+                -webkit-background-clip: text;
+                color: transparent;
+                @media(max-width: 480px){
+                    -webkit-text-stroke: 0.3vw #4F0202;
+                }
+            }
+            @keyframes fadeInLeft {
+                from {
+                    transform: translateX(-50vw);
+                }                             
+                to {
+                    transform: translateX(0);
+                }
+                }
+        }
+        .msg-after{
+            animation: fadeInRight 0.3S;
+            max-width: 400px;
+            max-height: 200px;
+            -webkit-text-stroke: 8px #ffffff;
+            font-weight: bold;
+            position: relative;
+            filter: drop-shadow(5px 4px 3px rgba(0,0,0,0.7));
+            @media(max-width:480px){
+                -webkit-text-stroke: 0.8vw #ffffff;
+            }
+            &::before{
+                content: attr(data-text3);
+                position: absolute; 
+                left: 0;
+                -webkit-text-stroke: 3px #4F0202;
+                background: linear-gradient(top,#FFFFFF 15%,#F8E71C 50%,#FE6102 100%);
+                -webkit-background-clip: text;
+                color: transparent;
+                @media(max-width: 480px){
+                    -webkit-text-stroke: 0.3vw #4F0202;
+                }
+            }
+
+            @keyframes fadeInRight {
+                from {
+                    transform: translateX(50vw);
+                }                             
+                to {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+}
+.winBoder{
+    padding:1px 5px 0px 0px;
+    border: 3px solid #CAC574;
+    box-shadow: 0 0 5px 0 #CAC574;
+    border-radius: 10px;
+    box-sizing: content-box;
+    animation-name:Border;
+    animation-duration:2s;
+    animation-iteration-count:5; 
+    transition: .5s !important;
+  }
+  @keyframes Border {
+    0%{border: 3px solid #CAC574;}
+    20%{border: 3px solid #CAC503;    box-shadow: 0 0 10px 5px #CAC503;}
+    40%{border: 3px solid #CAC574;}
+    60%{border: 3px solid #CAC503;    box-shadow: 0 0 10px 5px #CAC503;}
+    80%{border: 3px solid #CAC574;}
+    100%{border: 3px solid #CAC503;    box-shadow: 0 0 10px 5px #CAC503;}
+  }
+  .winTxt{
+    display: none;
+    font-family: Arial-BoldItalicMT;
+    font-size: 22px;
+    color: #F8E71C;
+    text-align: center;
+    position: absolute;
+    z-index: 50;
+    top: -27px;
+  }
+  .ReplayBox {
+    display: none;
+
+    .Replay {
+      cursor: pointer;
+      width: 43.8%;
+      height: 15vw;
+      position: absolute;
+      left: calc((100% - 43.8%)/ 2);
+      top: calc((100% - 10vw) /2);
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      font-size: 3vw;
+      justify-content: center;
+      z-index: 100;
+      span {
+        display: inline-block;
+        width: 22vw;
+        height: 10vh;
+        background: url(./images/flowerImage/NewGame.png) no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+    }
+  }
+  #Follow{
+    span{
+        font-size: 12px;
+        // line-height: 24px;
+        margin-left: 0px;
+        padding-top: 1%
+    }
+  } 
+  #Ratio{
+    span{
+        font-size: 12px;
+        padding-top: 1%
+        // line-height: 24px;
+    }
+  }
+  @media screen and (min-height: 0px) and (max-height: 600px) {
+    body{
+        font-size: 12px;
+    }   
+    .box .playerContainer .player .playerWarp .addChips .moneybox .money{
+        font-size: 12px;
+    }
+    .box .playerContainer .player .information{
+        height: 30%;
+    }
+    .box .playerContainer .player .Poker{
+        height: 70%;
+    }
+    .box .userContainer .userBox .information{
+        height: 35%;
+    }
+    #Follow span ,#Ratio span{
+        line-height: unset;
+        margin-left: 0;
+    }
+
+  }
+  .addBorder{
+    border: 1px solid #fff;
+  }

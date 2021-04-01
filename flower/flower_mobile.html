@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flower_mobile</title>
+    <link rel="stylesheet" href="/views/game/public/stylesheets/flower_mobile.min.css">
+
+    <script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
+    <!-- <script src="/views/game/jquery-1.7.1.min.js"></script> -->
+    <script src="/views/game/flowerConnector.js"></script>
+    <script src="/views/game/flowerAudio.js"></script>
+    <script src="/views/game/jquery.i18n.properties-1.0.9.js"></script>
+
+
+</head>
+<body>
+    <div class="flower">
+        <div class="box" id="box2"></div>
+        <div class="box" id="box" style="display: none">
+            <!-- <select id="language" style="z-index:50;">
+                <option value="zh-TW" selected="selected">繁體中文</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="en">English</option>
+            </select> -->
+                <div class="compare" id="compare">
+                    <div class="compareTop" id="compareTop">
+                      <div class="top">
+                          <div class="topWarp">
+                                <div id="topInfo" class="information"></div>
+                          </div>
+                      </div>
+                      <div class="bottom">
+                        <div class="poker" id="topPoker">
+                          <img  class="pokerImg" id="topImg"
+                          src="./images/flowerImage/Poker/Blue.png"/>
+                          <img class="pokerImg"
+                              src="./images/flowerImage/Poker/Blue.png"/>
+                          <img class="pokerImg"
+                              src="./images/flowerImage/Poker/Blue.png"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="compareCenter"><span>V</span><span>S</span></div>
+                    <div class="compareBottom" id="compareBottom">
+                        <div class="top">
+                            <div class="topWarp">
+                                <div id="bottomInfo" class="information"></div>
+                            </div>
+                        </div>
+                      <div class="bottom">
+                        <div class="poker" id="bottomPoker">
+                          <img  class="pokerImg"
+                          src="./images/flowerImage/Poker/Blue.png"/>
+                          <img class="pokerImg"
+                              src="./images/flowerImage/Poker/Blue.png"/>
+                          <img class="pokerImg"
+                              src="./images/flowerImage/Poker/Blue.png"/>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="boxTop">
+                    <div class="roomNum" id="gameId">#12345678</div>
+                    <div class="roomTxt">
+                        <span data-len="07">炸金花</span>
+                        <span data-len="11" id="room">新手房</span>
+                        <span><span data-len="08">底注</span>:<span class="txt" id="base">1</span></span> 
+                        <span><span data-len="09">准入</span>:<span class="txt" id="admission">1</span></span>
+                    </div>
+                    <div class="icon" id="info"></div>
+                </div>
+                <div class="playerContainer">
+                    <div class="player" id="item0">
+                        <div class="playerWarp">
+                            <div class="information">
+                                <div class="photo"><img src="./images/Headshot/1.jpg"></div>
+                                <div class="memberBox">
+                                    <div class="memberName">test123456</div>
+                                    <div class="memberMoney">$<span class="totalSpan">123456789</span></div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger"
+                                        role="progressbar"
+                                        style="width: 100%" aria-valuenow="100"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="addChips">
+                                <img class="addChipsImg"
+                                    src="./images/flowerImage/bluecoin.png"/>
+                                <div class="moneybox">
+                                    <div class="money">1</div>
+                                </div>
+                            </div>
+                            <div class="Poker" >
+   
+                                <div class="pokerBox">
+                                    <div class="pokerImgWarp">
+                                        <img id="pokerImg" class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <img id="pokerImg1" class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <img id="pokerImg2" class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <p class="winTxt">WIN</p>
+                                        <div class="Flod" ><img src="./images/flowerImage/Flod.png"></div>
+                                        <div class="eye">
+                                            <img  src="./images/flowerImage/mobile/Off.png">
+                                        </div>
+                                        <div class="aiLose"><img src="./images/flowerImage/Lose.png"></div>
+                                        
+                                        <svg class="cross cross1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="91px" height="120px" viewBox="0 0 91 120" version="1.1">
+
+                                            <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g class="svg1" transform="translate(-1518.000000, -357.000000)" fill="#fff" fill-rule="nonzero">
+                                                    <path d="M1578.91171,419.910682 C1585.11171,411.810682 1590.91171,403.410682 1596.11171,394.710682 C1599.21171,389.610682 1602.31171,384.310682 1604.81171,378.910682 C1606.11171,376.110682 1606.91171,373.110682 1607.81171,370.110682 C1608.61171,367.610682 1609.01171,364.310682 1608.61171,361.810682 C1608.41171,360.510682 1606.91171,359.910682 1605.91171,360.610682 C1605.71171,360.710682 1605.51171,360.910682 1605.31171,361.010682 C1605.11171,360.710682 1604.81171,360.410682 1604.31171,360.410682 C1603.51171,360.410682 1602.71171,360.510682 1601.91171,360.510682 C1601.71171,360.410682 1601.51171,360.310682 1601.31171,360.110682 C1599.91171,359.210682 1598.61171,358.210682 1597.11171,357.410682 C1595.21171,356.410682 1593.11171,357.310682 1592.51171,359.310682 C1586.61171,377.210682 1578.61171,394.110682 1568.91171,410.210682 C1564.61171,417.310682 1568.91171,410.210682 1564.61171,417.310682 C1555.71171,431.310682 1545.61171,444.610682 1534.91171,457.310682 C1533.41171,458.910682 1531.91171,460.410682 1530.41171,462.010682 C1527.71171,465.010682 1524.91171,468.010682 1522.51171,471.310682 C1521.31171,472.610682 1520.21171,473.910682 1519.01171,475.110682 C1518.31171,475.810682 1519.31171,476.710682 1520.01171,476.110682 C1520.11171,476.010682 1520.21171,475.910682 1520.31171,475.810682 C1520.41171,475.810682 1520.61171,475.810682 1520.71171,475.710682 C1525.61171,472.210682 1530.21171,468.110682 1534.81171,464.210682 C1539.71171,460.110682 1544.61171,456.010682 1549.31171,451.710682 C1558.01171,443.910682 1566.01171,435.410682 1573.41171,426.410682 C1578.91171,419.910682 1573.41171,426.410682 1578.91171,419.910682 Z" id="Path" transform="translate(1563.771223, 416.653658) scale(-1, 1) translate(-1563.771223, -416.653658) "/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <svg  class="cross cross2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="107px" viewBox="0 0 100 107" version="1.1">
+                
+                                            <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g class="svg2" transform="translate(-1510.000000, -373.000000)" fill="#fff" fill-rule="nonzero">
+                                                    <path d="M1608.28108,469.610682 C1607.08108,466.810682 1605.98108,463.910682 1604.38108,461.210682 C1601.38108,456.010682 1597.68108,451.210682 1594.08108,446.410682 C1587.08108,437.110682 1579.48108,428.310682 1571.38108,419.910682 C1561.38108,410.210682 1571.38108,419.910682 1561.38108,410.210682 C1555.08108,404.510682 1548.48108,399.010682 1541.68108,394.010682 C1536.48108,390.210682 1531.28108,386.610682 1525.98108,383.110682 C1520.98108,379.710682 1515.98108,376.210682 1510.78108,373.110682 C1510.38108,372.910682 1509.78108,373.410682 1510.08108,373.810682 C1513.38108,378.310682 1517.68108,382.110682 1521.88108,385.910682 C1526.68108,390.110682 1531.58108,394.110682 1536.48108,398.210682 C1543.68108,404.210682 1550.58108,410.610682 1557.08108,417.310682 C1565.88108,426.410682 1557.08108,417.310682 1565.88108,426.410682 C1572.98108,434.110682 1579.58108,442.210682 1585.68108,450.810682 C1588.98108,455.510682 1591.98108,460.410682 1595.18108,465.210682 C1596.88108,467.810682 1598.98108,470.110682 1600.78108,472.610682 C1602.38108,474.910682 1604.88108,477.510682 1607.38108,478.910682 C1608.58108,479.510682 1609.88108,478.810682 1609.98108,477.410682 C1610.18108,475.210682 1609.38108,472.010682 1608.28108,469.610682 Z" id="Path" transform="translate(1560.005910, 426.095779) scale(-1, 1) translate(-1560.005910, -426.095779) "/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <div class="Lose">
+                                            <img  src="./images/flowerImage/Lose.png">
+                                        </div> 
+                                        <div class="pokerTxt"><span data-len="060" >高牌</span></div>
+                                        
+                                    </div>
+                                    <span class="loseMoney"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="player" id="item1">
+                        <div class="playerWarp">
+                            <div class="information">
+                                <div class="memberBox">
+                                    <div class="memberName">test123456</div>
+                                    <div class="memberMoney">$<span class="totalSpan">123456789</span></div>
+                                </div>
+                                <div class="photo"><img src="./images/Headshot/1.jpg"></div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger"
+                                        role="progressbar"
+                                        style="width: 100%" aria-valuenow="100"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="addChips">
+                                <img class="addChipsImg"
+                                    src="./images/flowerImage/bluecoin.png"/>
+                                <div class="moneybox">
+                                    <div class="money">1</div>
+                                </div>
+                            </div>
+                            <div class="Poker">
+
+                                <div class="pokerBox">
+                                    <div class="pokerImgWarp">
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <p class="winTxt">WIN</p>
+                                        <div class="Flod" ><img src="./images/flowerImage/Flod.png"></div>
+                                        <div class="eye">
+                                            <img  src="./images/flowerImage/mobile/Off.png">
+                                        </div>
+                                        <div class="aiLose"><img src="./images/flowerImage/Lose.png"></div>
+                                          
+                                        <svg class="cross cross1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="91px" height="120px" viewBox="0 0 91 120" version="1.1">
+
+                                            <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g class="svg1" transform="translate(-1518.000000, -357.000000)" fill="#fff" fill-rule="nonzero">
+                                                    <path d="M1578.91171,419.910682 C1585.11171,411.810682 1590.91171,403.410682 1596.11171,394.710682 C1599.21171,389.610682 1602.31171,384.310682 1604.81171,378.910682 C1606.11171,376.110682 1606.91171,373.110682 1607.81171,370.110682 C1608.61171,367.610682 1609.01171,364.310682 1608.61171,361.810682 C1608.41171,360.510682 1606.91171,359.910682 1605.91171,360.610682 C1605.71171,360.710682 1605.51171,360.910682 1605.31171,361.010682 C1605.11171,360.710682 1604.81171,360.410682 1604.31171,360.410682 C1603.51171,360.410682 1602.71171,360.510682 1601.91171,360.510682 C1601.71171,360.410682 1601.51171,360.310682 1601.31171,360.110682 C1599.91171,359.210682 1598.61171,358.210682 1597.11171,357.410682 C1595.21171,356.410682 1593.11171,357.310682 1592.51171,359.310682 C1586.61171,377.210682 1578.61171,394.110682 1568.91171,410.210682 C1564.61171,417.310682 1568.91171,410.210682 1564.61171,417.310682 C1555.71171,431.310682 1545.61171,444.610682 1534.91171,457.310682 C1533.41171,458.910682 1531.91171,460.410682 1530.41171,462.010682 C1527.71171,465.010682 1524.91171,468.010682 1522.51171,471.310682 C1521.31171,472.610682 1520.21171,473.910682 1519.01171,475.110682 C1518.31171,475.810682 1519.31171,476.710682 1520.01171,476.110682 C1520.11171,476.010682 1520.21171,475.910682 1520.31171,475.810682 C1520.41171,475.810682 1520.61171,475.810682 1520.71171,475.710682 C1525.61171,472.210682 1530.21171,468.110682 1534.81171,464.210682 C1539.71171,460.110682 1544.61171,456.010682 1549.31171,451.710682 C1558.01171,443.910682 1566.01171,435.410682 1573.41171,426.410682 C1578.91171,419.910682 1573.41171,426.410682 1578.91171,419.910682 Z" id="Path" transform="translate(1563.771223, 416.653658) scale(-1, 1) translate(-1563.771223, -416.653658) "/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <svg  class="cross cross2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="107px" viewBox="0 0 100 107" version="1.1">
+                
+                                            <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g class="svg2" transform="translate(-1510.000000, -373.000000)" fill="#fff" fill-rule="nonzero">
+                                                    <path d="M1608.28108,469.610682 C1607.08108,466.810682 1605.98108,463.910682 1604.38108,461.210682 C1601.38108,456.010682 1597.68108,451.210682 1594.08108,446.410682 C1587.08108,437.110682 1579.48108,428.310682 1571.38108,419.910682 C1561.38108,410.210682 1571.38108,419.910682 1561.38108,410.210682 C1555.08108,404.510682 1548.48108,399.010682 1541.68108,394.010682 C1536.48108,390.210682 1531.28108,386.610682 1525.98108,383.110682 C1520.98108,379.710682 1515.98108,376.210682 1510.78108,373.110682 C1510.38108,372.910682 1509.78108,373.410682 1510.08108,373.810682 C1513.38108,378.310682 1517.68108,382.110682 1521.88108,385.910682 C1526.68108,390.110682 1531.58108,394.110682 1536.48108,398.210682 C1543.68108,404.210682 1550.58108,410.610682 1557.08108,417.310682 C1565.88108,426.410682 1557.08108,417.310682 1565.88108,426.410682 C1572.98108,434.110682 1579.58108,442.210682 1585.68108,450.810682 C1588.98108,455.510682 1591.98108,460.410682 1595.18108,465.210682 C1596.88108,467.810682 1598.98108,470.110682 1600.78108,472.610682 C1602.38108,474.910682 1604.88108,477.510682 1607.38108,478.910682 C1608.58108,479.510682 1609.88108,478.810682 1609.98108,477.410682 C1610.18108,475.210682 1609.38108,472.010682 1608.28108,469.610682 Z" id="Path" transform="translate(1560.005910, 426.095779) scale(-1, 1) translate(-1560.005910, -426.095779) "/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <div class="Lose">
+                                            <img  src="./images/flowerImage/Lose.png">
+                                        </div> 
+                                        <div class="pokerTxt"><span  data-len="061">高牌</span></div>
+                                       
+                                    </div>
+                                    <span class="loseMoney"></span>
+                                </div>
+                            </div> 
+                        </div>
+
+                    </div>
+                    <div class="player" id="item2">
+                        <div class="playerWarp"> 
+                            <div class="Poker">
+                                <div class="pokerBox">
+                                    <div class="pokerImgWarp">
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <p class="winTxt">WIN</p>
+                                        <div class="Flod" ><img src="./images/flowerImage/Flod.png"></div>
+                                        <div class="eye">
+                                            <img  src="./images/flowerImage/mobile/Off.png">
+                                        </div> 
+                                        <div class="aiLose"><img src="./images/flowerImage/Lose.png"></div>
+                                        
+                                        <svg class="cross cross1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="91px" height="120px" viewBox="0 0 91 120" version="1.1">
+
+                                            <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g class="svg1" transform="translate(-1518.000000, -357.000000)" fill="#fff" fill-rule="nonzero">
+                                                    <path d="M1578.91171,419.910682 C1585.11171,411.810682 1590.91171,403.410682 1596.11171,394.710682 C1599.21171,389.610682 1602.31171,384.310682 1604.81171,378.910682 C1606.11171,376.110682 1606.91171,373.110682 1607.81171,370.110682 C1608.61171,367.610682 1609.01171,364.310682 1608.61171,361.810682 C1608.41171,360.510682 1606.91171,359.910682 1605.91171,360.610682 C1605.71171,360.710682 1605.51171,360.910682 1605.31171,361.010682 C1605.11171,360.710682 1604.81171,360.410682 1604.31171,360.410682 C1603.51171,360.410682 1602.71171,360.510682 1601.91171,360.510682 C1601.71171,360.410682 1601.51171,360.310682 1601.31171,360.110682 C1599.91171,359.210682 1598.61171,358.210682 1597.11171,357.410682 C1595.21171,356.410682 1593.11171,357.310682 1592.51171,359.310682 C1586.61171,377.210682 1578.61171,394.110682 1568.91171,410.210682 C1564.61171,417.310682 1568.91171,410.210682 1564.61171,417.310682 C1555.71171,431.310682 1545.61171,444.610682 1534.91171,457.310682 C1533.41171,458.910682 1531.91171,460.410682 1530.41171,462.010682 C1527.71171,465.010682 1524.91171,468.010682 1522.51171,471.310682 C1521.31171,472.610682 1520.21171,473.910682 1519.01171,475.110682 C1518.31171,475.810682 1519.31171,476.710682 1520.01171,476.110682 C1520.11171,476.010682 1520.21171,475.910682 1520.31171,475.810682 C1520.41171,475.810682 1520.61171,475.810682 1520.71171,475.710682 C1525.61171,472.210682 1530.21171,468.110682 1534.81171,464.210682 C1539.71171,460.110682 1544.61171,456.010682 1549.31171,451.710682 C1558.01171,443.910682 1566.01171,435.410682 1573.41171,426.410682 C1578.91171,419.910682 1573.41171,426.410682 1578.91171,419.910682 Z" id="Path" transform="translate(1563.771223, 416.653658) scale(-1, 1) translate(-1563.771223, -416.653658) "/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <svg  class="cross cross2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="107px" viewBox="0 0 100 107" version="1.1">
+                
+                                            <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g class="svg2" transform="translate(-1510.000000, -373.000000)" fill="#fff" fill-rule="nonzero">
+                                                    <path d="M1608.28108,469.610682 C1607.08108,466.810682 1605.98108,463.910682 1604.38108,461.210682 C1601.38108,456.010682 1597.68108,451.210682 1594.08108,446.410682 C1587.08108,437.110682 1579.48108,428.310682 1571.38108,419.910682 C1561.38108,410.210682 1571.38108,419.910682 1561.38108,410.210682 C1555.08108,404.510682 1548.48108,399.010682 1541.68108,394.010682 C1536.48108,390.210682 1531.28108,386.610682 1525.98108,383.110682 C1520.98108,379.710682 1515.98108,376.210682 1510.78108,373.110682 C1510.38108,372.910682 1509.78108,373.410682 1510.08108,373.810682 C1513.38108,378.310682 1517.68108,382.110682 1521.88108,385.910682 C1526.68108,390.110682 1531.58108,394.110682 1536.48108,398.210682 C1543.68108,404.210682 1550.58108,410.610682 1557.08108,417.310682 C1565.88108,426.410682 1557.08108,417.310682 1565.88108,426.410682 C1572.98108,434.110682 1579.58108,442.210682 1585.68108,450.810682 C1588.98108,455.510682 1591.98108,460.410682 1595.18108,465.210682 C1596.88108,467.810682 1598.98108,470.110682 1600.78108,472.610682 C1602.38108,474.910682 1604.88108,477.510682 1607.38108,478.910682 C1608.58108,479.510682 1609.88108,478.810682 1609.98108,477.410682 C1610.18108,475.210682 1609.38108,472.010682 1608.28108,469.610682 Z" id="Path" transform="translate(1560.005910, 426.095779) scale(-1, 1) translate(-1560.005910, -426.095779) "/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <div class="Lose">
+                                            <img  src="./images/flowerImage/Lose.png">
+                                        </div> 
+                                        <div class="pokerTxt"><span data-len="062" >高牌</span></div>
+                                       
+                                    </div>
+                                    <span class="loseMoney"></span>
+                                </div>
+                                <div class="addChips">
+                                    <img class="addChipsImg"
+                                        src="./images/flowerImage/bluecoin.png"/>
+                                    <div class="moneybox">
+                                        <div class="money">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="information">
+                                <div class="photo"><img src="./images/Headshot/1.jpg"></div>
+                                <div class="memberBox">
+                                    <div class="memberName">test123456</div>
+                                    <div class="memberMoney">$<span class="totalSpan">123456789</span></div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger"
+                                        role="progressbar"
+                                        style="width: 100%" aria-valuenow="100"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+ 
+                    </div>
+                    <div class="player" id="item3">
+                        <div class="playerWarp"> 
+                            <div class="Poker">
+                                <div class="pokerBox">
+                                    <div class="pokerImgWarp">
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <img class="pokerImg"
+                                            src="./images/flowerImage/Poker/Blue.png"/>
+                                        <p class="winTxt">WIN</p>
+                                        <div class="Flod" ><img src="./images/flowerImage/Flod.png"></div>
+                                        <div class="eye">
+                                            <img  src="./images/flowerImage/mobile/Off.png">
+                                        </div>
+                                        <div class="aiLose"><img src="./images/flowerImage/Lose.png"></div>
+                                            
+                                        <svg class="cross cross1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="91px" height="120px" viewBox="0 0 91 120" version="1.1">
+
+                                            <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g class="svg1" transform="translate(-1518.000000, -357.000000)" fill="#fff" fill-rule="nonzero">
+                                                    <path d="M1578.91171,419.910682 C1585.11171,411.810682 1590.91171,403.410682 1596.11171,394.710682 C1599.21171,389.610682 1602.31171,384.310682 1604.81171,378.910682 C1606.11171,376.110682 1606.91171,373.110682 1607.81171,370.110682 C1608.61171,367.610682 1609.01171,364.310682 1608.61171,361.810682 C1608.41171,360.510682 1606.91171,359.910682 1605.91171,360.610682 C1605.71171,360.710682 1605.51171,360.910682 1605.31171,361.010682 C1605.11171,360.710682 1604.81171,360.410682 1604.31171,360.410682 C1603.51171,360.410682 1602.71171,360.510682 1601.91171,360.510682 C1601.71171,360.410682 1601.51171,360.310682 1601.31171,360.110682 C1599.91171,359.210682 1598.61171,358.210682 1597.11171,357.410682 C1595.21171,356.410682 1593.11171,357.310682 1592.51171,359.310682 C1586.61171,377.210682 1578.61171,394.110682 1568.91171,410.210682 C1564.61171,417.310682 1568.91171,410.210682 1564.61171,417.310682 C1555.71171,431.310682 1545.61171,444.610682 1534.91171,457.310682 C1533.41171,458.910682 1531.91171,460.410682 1530.41171,462.010682 C1527.71171,465.010682 1524.91171,468.010682 1522.51171,471.310682 C1521.31171,472.610682 1520.21171,473.910682 1519.01171,475.110682 C1518.31171,475.810682 1519.31171,476.710682 1520.01171,476.110682 C1520.11171,476.010682 1520.21171,475.910682 1520.31171,475.810682 C1520.41171,475.810682 1520.61171,475.810682 1520.71171,475.710682 C1525.61171,472.210682 1530.21171,468.110682 1534.81171,464.210682 C1539.71171,460.110682 1544.61171,456.010682 1549.31171,451.710682 C1558.01171,443.910682 1566.01171,435.410682 1573.41171,426.410682 C1578.91171,419.910682 1573.41171,426.410682 1578.91171,419.910682 Z" id="Path" transform="translate(1563.771223, 416.653658) scale(-1, 1) translate(-1563.771223, -416.653658) "/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <svg  class="cross cross2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="107px" viewBox="0 0 100 107" version="1.1">
+                
+                                            <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g class="svg2" transform="translate(-1510.000000, -373.000000)" fill="#fff" fill-rule="nonzero">
+                                                    <path d="M1608.28108,469.610682 C1607.08108,466.810682 1605.98108,463.910682 1604.38108,461.210682 C1601.38108,456.010682 1597.68108,451.210682 1594.08108,446.410682 C1587.08108,437.110682 1579.48108,428.310682 1571.38108,419.910682 C1561.38108,410.210682 1571.38108,419.910682 1561.38108,410.210682 C1555.08108,404.510682 1548.48108,399.010682 1541.68108,394.010682 C1536.48108,390.210682 1531.28108,386.610682 1525.98108,383.110682 C1520.98108,379.710682 1515.98108,376.210682 1510.78108,373.110682 C1510.38108,372.910682 1509.78108,373.410682 1510.08108,373.810682 C1513.38108,378.310682 1517.68108,382.110682 1521.88108,385.910682 C1526.68108,390.110682 1531.58108,394.110682 1536.48108,398.210682 C1543.68108,404.210682 1550.58108,410.610682 1557.08108,417.310682 C1565.88108,426.410682 1557.08108,417.310682 1565.88108,426.410682 C1572.98108,434.110682 1579.58108,442.210682 1585.68108,450.810682 C1588.98108,455.510682 1591.98108,460.410682 1595.18108,465.210682 C1596.88108,467.810682 1598.98108,470.110682 1600.78108,472.610682 C1602.38108,474.910682 1604.88108,477.510682 1607.38108,478.910682 C1608.58108,479.510682 1609.88108,478.810682 1609.98108,477.410682 C1610.18108,475.210682 1609.38108,472.010682 1608.28108,469.610682 Z" id="Path" transform="translate(1560.005910, 426.095779) scale(-1, 1) translate(-1560.005910, -426.095779) "/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <div class="Lose">
+                                            <img  src="./images/flowerImage/Lose.png">
+                                        </div> 
+                                        <div class="pokerTxt"><span  data-len="063" >高牌</span></div>
+                                      
+                                    </div>
+                                    <span class="loseMoney"></span> 
+                                </div>
+                                <div class="addChips">
+                                    <img class="addChipsImg"
+                                        src="./images/flowerImage/bluecoin.png"/>
+                                    <div class="moneybox">
+                                        <div class="money">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="information">
+                                <div class="memberBox">
+                                    <div class="memberName">test123456</div>
+                                    <div class="memberMoney">$<span class="totalSpan">123456789</span></div>
+                                </div>
+                                <div class="photo"><img src="./images/Headshot/1.jpg"></div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger"
+                                        role="progressbar"
+                                        style="width: 100%" aria-valuenow="100"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>         
+                        </div>
+            
+                    </div>
+                    <div class="center" id="center">
+                        <div class="crenterWarp">
+                                <div class="centerChips">
+                                    <span id="totalMoney">20</span>
+                                </div>
+                        </div>
+                        <div class="pokerBox">
+                            <div class="pokerImgWarp">
+                                <img class="pokerImg"
+                                    src="./images/flowerImage/Poker/Blue.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="userContainer" id="item4">
+                    <div class="userBox">
+                        <div class="information" id="userInfo">
+                                <div class="photo"><img src="./images/Headshot/1.jpg"></div>
+                                <div class="memberBox">
+                                    <div class="memberName">test123456</div>
+                                    <div class="memberMoney">
+                                        $<span class="totalMoney totalSpan">123456789</span> <span class="totalBg"><img src="./images/flowerImage/TXC.svg"></span>
+                                        $<span class="totalMoney totalSpan2">123456789</span> <span class="totalBg"><img src="./images/flowerImage/TXS.svg"></span>
+                                    </div>
+    
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger"
+                                        role="progressbar"
+                                        style="width: 100%" aria-valuenow="100"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div> 
+                        </div>
+                        <div class="eyeBox">
+                            <div class="eye" id="eye">
+                                <img id="eyeImg" src="./images/flowerImage/mobile/Off.png"/>
+                                <img id="userFlod" src="./images/flowerImage/Flod.png">
+                                <img id="userLose" src="./images/flowerImage/Lose.png">
+                            </div>
+                        </div>
+                        <div class="userWarp">
+                            <div class="userPlayer">
+                                <div class="addChips">
+                                    <img class="addChipsImg"
+                                        src="./images/flowerImage/bluecoin.png"/>
+                                    <div class="moneybox">
+                                        <div class="money">1</div>
+                                    </div>
+                                </div>
+                                <div class="PokerLeft">
+                                        <div class="loseMoney"></div>
+                                        <div class="txtBox">
+                                                <p data-len="064" id="pokerTxt" style="display: none">高牌</p>
+                                        </div>   
+
+                                </div>
+                                <div class="Poker" id="userPoker" >
+                                    <div class="pokerBox">
+                                        <div class="pokerImgWarp">
+                                            <img class="pokerImg" id="userImg"
+                                                src="./images/flowerImage/Poker/Blue.png"/>
+                                            <img class="pokerImg" id="userImg1"
+                                                src="./images/flowerImage/Poker/Blue.png"/>
+                                            <img class="pokerImg" id="userImg2"
+                                                src="./images/flowerImage/Poker/Blue.png"/>
+                                            <p class="winTxt">WIN</p>
+                                                <svg class="cross cross1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="91px" height="120px" viewBox="0 0 91 120" version="1.1">
+
+                                                    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g class="svg1" transform="translate(-1518.000000, -357.000000)" fill="#fff" fill-rule="nonzero">
+                                                            <path d="M1578.91171,419.910682 C1585.11171,411.810682 1590.91171,403.410682 1596.11171,394.710682 C1599.21171,389.610682 1602.31171,384.310682 1604.81171,378.910682 C1606.11171,376.110682 1606.91171,373.110682 1607.81171,370.110682 C1608.61171,367.610682 1609.01171,364.310682 1608.61171,361.810682 C1608.41171,360.510682 1606.91171,359.910682 1605.91171,360.610682 C1605.71171,360.710682 1605.51171,360.910682 1605.31171,361.010682 C1605.11171,360.710682 1604.81171,360.410682 1604.31171,360.410682 C1603.51171,360.410682 1602.71171,360.510682 1601.91171,360.510682 C1601.71171,360.410682 1601.51171,360.310682 1601.31171,360.110682 C1599.91171,359.210682 1598.61171,358.210682 1597.11171,357.410682 C1595.21171,356.410682 1593.11171,357.310682 1592.51171,359.310682 C1586.61171,377.210682 1578.61171,394.110682 1568.91171,410.210682 C1564.61171,417.310682 1568.91171,410.210682 1564.61171,417.310682 C1555.71171,431.310682 1545.61171,444.610682 1534.91171,457.310682 C1533.41171,458.910682 1531.91171,460.410682 1530.41171,462.010682 C1527.71171,465.010682 1524.91171,468.010682 1522.51171,471.310682 C1521.31171,472.610682 1520.21171,473.910682 1519.01171,475.110682 C1518.31171,475.810682 1519.31171,476.710682 1520.01171,476.110682 C1520.11171,476.010682 1520.21171,475.910682 1520.31171,475.810682 C1520.41171,475.810682 1520.61171,475.810682 1520.71171,475.710682 C1525.61171,472.210682 1530.21171,468.110682 1534.81171,464.210682 C1539.71171,460.110682 1544.61171,456.010682 1549.31171,451.710682 C1558.01171,443.910682 1566.01171,435.410682 1573.41171,426.410682 C1578.91171,419.910682 1573.41171,426.410682 1578.91171,419.910682 Z" id="Path" transform="translate(1563.771223, 416.653658) scale(-1, 1) translate(-1563.771223, -416.653658) "/>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                                <svg  class="cross cross2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="107px" viewBox="0 0 100 107" version="1.1">
+                        
+                                                    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g class="svg2" transform="translate(-1510.000000, -373.000000)" fill="#fff" fill-rule="nonzero">
+                                                            <path d="M1608.28108,469.610682 C1607.08108,466.810682 1605.98108,463.910682 1604.38108,461.210682 C1601.38108,456.010682 1597.68108,451.210682 1594.08108,446.410682 C1587.08108,437.110682 1579.48108,428.310682 1571.38108,419.910682 C1561.38108,410.210682 1571.38108,419.910682 1561.38108,410.210682 C1555.08108,404.510682 1548.48108,399.010682 1541.68108,394.010682 C1536.48108,390.210682 1531.28108,386.610682 1525.98108,383.110682 C1520.98108,379.710682 1515.98108,376.210682 1510.78108,373.110682 C1510.38108,372.910682 1509.78108,373.410682 1510.08108,373.810682 C1513.38108,378.310682 1517.68108,382.110682 1521.88108,385.910682 C1526.68108,390.110682 1531.58108,394.110682 1536.48108,398.210682 C1543.68108,404.210682 1550.58108,410.610682 1557.08108,417.310682 C1565.88108,426.410682 1557.08108,417.310682 1565.88108,426.410682 C1572.98108,434.110682 1579.58108,442.210682 1585.68108,450.810682 C1588.98108,455.510682 1591.98108,460.410682 1595.18108,465.210682 C1596.88108,467.810682 1598.98108,470.110682 1600.78108,472.610682 C1602.38108,474.910682 1604.88108,477.510682 1607.38108,478.910682 C1608.58108,479.510682 1609.88108,478.810682 1609.98108,477.410682 C1610.18108,475.210682 1609.38108,472.010682 1608.28108,469.610682 Z" id="Path" transform="translate(1560.005910, 426.095779) scale(-1, 1) translate(-1560.005910, -426.095779) "/>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                                <div class="Lose">
+                                                    <img  src="./images/flowerImage/Lose.png">
+                                                </div> 
+                                            </div>
+                                        </div>
+
+                                </div>
+                                <div class="Poker unfold" id="unfold" style="display: none">
+                                    <div class="pokerBox">
+                                        <!-- <div class="pokerImgWarp"> -->
+                                            <img class="pokerImg" 
+                                                src="./images/flowerImage/Poker/1.png"/>
+                                            <img class="pokerImg" 
+                                                src="./images/flowerImage/Poker/1.png"/>
+                                            <img class="pokerImg"  
+                                                src="./images/flowerImage/Poker/1.png"/>
+                                        <!-- </div> -->
+                                    </div>
+    
+                                </div>
+                                <nav>
+                                    <div class="navBtn" id="FoldNav">
+                                        <img  src="./images/flowerImage/mobile/Fold.png"/>
+                                        <span data-len="01">棄牌</span>
+                                    </div>
+                                    <div class="navBtn" id="raise">
+                                        <img  src="./images/flowerImage/mobile/Raise.png"/>
+                                        <span data-len="02">加注</span>
+                                    </div>
+                                    <div class="navBtn" id="Ratio">
+                                        <img  src="./images/flowerImage/mobile/Ratio.svg"/>
+                                        <span><span data-len="03">比牌</span>:<span id="RatioMoney">1</span></span>
+                                    </div>
+                                    <div class="navBtn" id="Follow">
+                                        <img  src="./images/flowerImage/mobile/Follow.svg"/>
+                                        <span id="follow_Num" data-len="04" >跟注:<span >1</span></span>
+                                    </div>
+                                </nav>
+        
+                            </div>
+            
+                        </div>
+                    </div>
+                    <div class="chipsWarp">
+                        <div class="chipsBox" style="visibility: hidden;"
+                            id="chipsBox">
+                            <div class="chipsBoxWarp">
+                                <div class="chipsimgBox" id="chipsimgBox1">
+                                    <div class="imgWarp">
+                                        <img class="chipsimg"
+                                            src="./images/flowerImage/green.png"
+                                            />
+                                        <p>2</p>
+                                    </div>
+                                </div>
+                                <div class="chipsimgBox">
+                                    <div class="imgWarp">
+                                        <img class="chipsimg"
+                                            src="./images/flowerImage/orange.png"
+                                            />
+                                        <p>3</p>
+                                    </div>
+                                </div>
+                                <div class="chipsimgBox">
+                                    <div class="imgWarp">
+                                        <img class="chipsimg"
+                                            src="./images/flowerImage/yellow.png"
+                                            />
+                                        <p>4</p>
+                                    </div>
+                                </div>
+                                <div class="chipsimgBox">
+                                    <div class="imgWarp">
+                                        <img class="chipsimg"
+                                            src="./images/flowerImage/pink.png"
+                                            />
+                                        <p>5</p>
+                                    </div>
+                                </div>
+                                <div class="chipsimgBox">
+                                    <div class="imgWarp">
+                                        <img class="chipsimg"
+                                            src="./images/flowerImage/blue.png"
+                                            />
+                                        <p>6</p>
+                                    </div>
+                                </div>
+                                <div class="chipsimgBox">
+                                    <div class="imgWarp">
+                                        <img class="chipsimg"
+                                            src="./images/flowerImage/purple.png"
+                                            />
+                                        <p>7</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chipsCenter"></div>
+                    </div>
+
+                </div>
+                <div id="createBox0" class="createBox">
+                    <div class="createWarp"><div class="chips"></div><div class="chips2"></div> </div>
+                </div>   
+        </div>
+        <div id="prompt-Box" class="wating-link-box">
+            <span data-len="12" data-text0="配對中請稍候">
+                配對中請稍候
+                <div class="point" data-point="0" data-text1="..."></div>
+            </span>                                                         
+        </div>
+
+        <div class="game-message start" style="display: none;">
+            <div class="game-content ">
+                <span data-len="13" data-text2="遊戲" class="msg-before gameStart0">遊戲</span>
+                <span data-len="14" data-text3="開始" class="msg-after gameStart1">開始</span>
+            </div>
+        </div>
+        <div id="ReplayBox" class="ReplayBox">
+            <div  class="Replay">
+                <span id="Replay"></span>
+            </div>
+        </div>
+        
+    </div>
+    <script src="/views/game/flower_mobile.js"></script>
+    <script>
+
+            var sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+            /**產生提示框 */
+            function waitingBox() {
+                let lan =$('#language').data("lan")
+                waitingLan(lan)
+                y();
+                }
+                /**頁面載入完成呼叫倒數提示框 */
+                $(function () {
+                waitingBox();
+                })
+
+                async function x(num) {
+                $("#prompt-Box .point").attr("calss", num).text("..........".slice(0, num))
+                $('#prompt-Box .point').attr('data-point',num)
+                $('#prompt-Box .point').attr('data-text1',"..........".slice(0, num))
+                }
+                /**產生...動畫 */
+                async function y() {
+                for (let i = 0; i < 5; i += 1) {
+                    // console.log("i", i);
+                    for (let j = 0; j < 4; j += 1) {
+                    x(j)
+                    await sleep(500);
+                    }
+                }
+            }
+            function showTime() {
+                $("#prompt-Box").hide(); //刪除提示框
+                $(".game-message").show();
+                playVoice('startMp3')
+                $('#box').show()
+                $('#box2').hide()
+                init()
+                setTimeout(function () {
+                    $(".game-message").hide();
+                    create()
+                },500)
+            }
+
+    </script>
+</body>
+</html>
