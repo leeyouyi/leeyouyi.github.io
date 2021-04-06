@@ -315,7 +315,9 @@ function aiLose(loser, loserCards, loserCardText) {
 }
 //ai 籌碼控制
 function aipay(betId, bet, remain) {
-
+  console.log({betId})
+  console.log({bet})
+  console.log({remain})
   zIndex += 1
   clearTimeout(widthTimeout)
   let play = betId
@@ -1053,8 +1055,8 @@ function changeWidthFun(index, width, actionId) {
           });
         payMoney = nowMoney
         let index = betCoinList.indexOf(nowMoney)
-        doBet(index)
-        chipMove(followChip)
+        // doBet(index)
+        // chipMove(followChip)
         document.querySelector('#compare').style.opacity = '0'
         document.querySelector('#compare').style.height = '50%'
         document.querySelector('#compare').style.zIndex = '1'
@@ -1212,7 +1214,7 @@ function UserPlayerFun() {
     let index = betCoinList.indexOf(nowMoney)
     // console.log(index)
     setTimeout(() => {
-      doBet(index)
+      // doBet(index)
       clearTimeout(widthTimeout)
       chipMove(followChip);
     }, 500)
@@ -1795,7 +1797,7 @@ function flower() {
             document.querySelector('#compare').style.height = '50%'
             let name = el.id;
             let number = name.replace(/item/, "");
-            doCompare(number)
+            // doCompare(number)
             clearTimeout(widthTimeout);
             $('#userInformation').removeClass('userLeftboder')
             document.querySelectorAll(".item").forEach(function (item) {
@@ -1838,24 +1840,146 @@ function flower() {
   }
   noSockect(res)
   var remain = 20
-  var time = 1000
+  // var time = getRandom(5,10) * 1000
+  var time = 5000
   var turns = 0
   var player = 0
-  let gameInterval = setInterval(()=>{
-    //type active
+  var playerAry = [0,1,2,3,4]
+  var outAry =[]
+  //first
+  setTimeout(()=>{
+    type = "active"
     res ={
       player,
-      turns
+      turns,
+      type
     }
     noSockect(res)
-    console.log(remain)
-    turns = turns + 1
-    player = player + 1
-    if(player === 5) player = 0
-    remain = remain - 1
-    if(remain === 0) {
-      clearInterval(gameInterval)
-      console.log('遊戲結束')
+    // turns = turns + 1
+    // player = player + 1
+    // remain = remain - 1
+  },1000)
+
+  testAction()
+
+  function actionFn(type){
+    console.log({player})
+    let random = getRandom(1,5)
+    let action = '' || type
+    console.log({random})
+    switch (random) {
+      case 1: action = 'watchCard'  
+            noSockect({
+              type : action,
+              id: player
+            })
+            actionFn()
+        break;
+      case 2: action = 'giveUp'
+            noSockect({
+              type : action,
+              id: player
+            })
+            outAry.push(player)
+            turns = turns + 1
+            player = player + 1
+            console.log(outAry)
+          //  if(outAry.includes(player)) {
+          //    console.log(outAry)
+          //    console.log(player)
+          //  }
+            // remain = remain - 1
+            setTimeout(()=>{
+              noSockect({
+                  player,
+                  turns,
+                  type:'active'
+              })
+            },1000)
+        
+        break;
+      case 3: action = 'followBet'
+            noSockect({
+              type : action,
+              id: player,
+              coin:'1',
+              remain:'100000'
+            })
+            turns = turns + 1
+            player = player + 1
+            // remain = remain - 1
+            setTimeout(()=>{
+              noSockect({
+                  player,
+                  turns,
+                  type:'active'
+              })
+            },1000)
+        
+        break;
+      case 4: action = 'addBet'
+            noSockect({
+              type : action,
+              id: player,
+              coin:'1',
+              remain:'100000'
+            })
+            turns = turns + 1
+            player = player + 1
+            // remain = remain - 1
+            setTimeout(()=>{
+              noSockect({
+                  player,
+                  turns,
+                  type:'active'
+              })
+            },1000)
+        
+        break;
+      case 5: action = 'compare'
+            noSockect({
+              type : action,
+              id: player,
+              data:{
+                loser:player,
+                winer:4,
+                loserCard:{
+                  type:'test',
+                  cards:[1,2,3]
+                }
+              }
+            })
+            outAry.push(player)
+            console.log(outAry)
+            turns = turns + 1
+            player = player + 1
+            // remain = remain - 1
+            setTimeout(()=>{
+              noSockect({
+                  player,
+                  turns,
+                  type:'active'
+              })
+            },2000)
+              
+        break;   
     }
-  },time)
+  }
+  function testAction(){
+    if(player === 4) return
+    actionFn()
+    setTimeout(testAction,time)
+  }
+}
+    // turns = turns + 1
+    // player = player + 1
+    // if(player === 5) player = 0
+    // remain = remain - 1
+    // if(remain === 0) {
+    //   clearInterval(gameInterval)
+    //   console.log('遊戲結束')
+    // }
+
+function getRandom(min,max){
+  return Math.floor(Math.random()*(max - min + 1))+ min
 }

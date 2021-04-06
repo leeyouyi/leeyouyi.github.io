@@ -49,7 +49,7 @@ var game = {
   base:1,
   gameId:'123456789',
   level:1,
-  betCoinList: [1,2,3,4,5,6,7]
+  betCoinList: ['1','2','3','4','5','6','7']
 }
 
 var type = 'creat'
@@ -299,6 +299,7 @@ function mobileEvent(event) {
       // count = res.turns + 1
       // $('#round').text(count)
     }
+    
     if (res.type === 'watchCard') {
       let watchCradId = res.id
       if (watchCradId !== 4) {
