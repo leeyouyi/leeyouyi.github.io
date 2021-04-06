@@ -12,7 +12,7 @@
     .content{
         width: 100vw;
         display: flex;
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
     .inputBox{
         width: 180px;
@@ -37,6 +37,10 @@
 </style>
 <body>
     <div class="content"> 
+
+        <div id="canvas"></div>
+
+
         <div class="inputBox" id="inputBox">
             <div class="input">
                 <label for="input1">號碼1</label>
@@ -76,12 +80,15 @@
 
         </div>
 
-        <div id="canvas"></div>
+
     </div>
 
     <script>
     (function(){
+        // 4096*2304
         // 1920*1080
+        //2.844
+        //0.3515625
         let configWith = 1440;
         let configHeight = 810;
         var config = {
@@ -114,6 +121,10 @@
         var rotation = false
         var newAry= []
         var sortAry = []
+        var text1
+        var text2
+
+
         document.querySelector('#btn').addEventListener('click',()=>{
             location.reload()
         })
@@ -136,23 +147,29 @@
             
         }
 
+
+
         function create ()
         {  
-       
+
+            text1 = this.add.text(10, 10, '', { fill: '#00ff00' })
+            text2 = this.add.text(500, 10, '', { fill: '#00ff00' })
+
             _this = this
             this.num = 0
             this.ball = []
-            this.panel =  this.add.image(615 , 600, `Panel`).setScale(.29).setDepth(1)
+            this.panel =  this.add.image(682 , 600, `Panel`).setScale(.35).setDepth(1)
 
-            this.Z = .29
+            this.Z = .35
             this.Y = true
-            console.log(this.panel)
-            
+            // console.log(this.panel)
+
+
             var inputBox = document.querySelector("#inputBox")
             inputBox.querySelectorAll('input').forEach((item,index)=>{
                 item.addEventListener("keydown", ({key}) => {
                     if (key === "Enter"){
-                        console.log('keydonw',index)
+                        // console.log('keydonw',index)
                         let value =  item.value
                         let hasValue = inputValue.indexOf(value)
                         if(value === '') return
@@ -165,7 +182,7 @@
                             start(index + 1, value)
                             this.num = index + 1
                             nextNum = nextNum + 1
-                            console.log(inputValue)
+                            // console.log(inputValue)
                             document.querySelector('#numAry').innerText = inputValue
                         }
                     
@@ -181,19 +198,66 @@
 
 
         }
+        
+
         function start(i,num){
 
             if(inputAry[i]){
-                let distance = i < 7 ?  i* 101 :  i* 100 + 25
-                _this.ball[i] =  _this.add.image(100 + distance ,  900, `ball${num}`).setScale(.33).setDepth(2)
-                _this.tween = _this.tweens.add({
-                targets: _this.ball[i],
-                props: {
-                    x: { value: 200 + distance , duration: 1000, flipX: false },
-                    y: { value: 600, duration: 1000,  },
-                },
-                    ease: 'Power1',
-                })
+                
+                let distance = i < 7 ? (i -1)* 123 :  (i-1)* 123 + 20 
+
+                var points = [ 100 + distance, 900, 220 + distance, 500, 300 + distance, 600  ];
+                var curve = new Phaser.Curves.Spline(points);
+
+                var startPoint = new Phaser.Math.Vector2(100 + distance, 900);
+                // var controlPoint1 = new Phaser.Math.Vector2(130 + distance, 520);
+                // var controlPoint2 = new Phaser.Math.Vector2(300 + distance, 450);
+                // var endPoint = new Phaser.Math.Vector2(300 + distance, 600);
+                // var curve = new Phaser.Curves.CubicBezier(startPoint, controlPoint1, controlPoint2, endPoint);
+
+                _this.ball[i] = _this.add.follower(curve, 100 + distance, 900, `ball${num}`).setScale(.36).setDepth(2)
+                _this.ball[i].startFollow({
+                    duration: 1500,
+                    onStart:(()=>{
+                        console.log('start')
+                        _this.ball[i].setScale(1.5)
+                    }),
+                    onUpdate:(()=>{
+                        let num = _this.ball[i]._scaleX
+                        num = num -0.013
+                        if(num <= 0.36) num = 0.36
+                        _this.ball[i].setScale(num)
+                    }),
+                    onComplete:(()=>{
+                        _this.ball[i].setScale(.36)
+                    })
+                });
+ 
+
+    
+                // _this.ball[i] =  _this.add.image(200 + distance ,  900, `ball${num}`).setScale(.36).setDepth(2)
+                // _this.tween = _this.tweens.add({
+                // targets: _this.ball[i],
+                // props: {
+                //     x: { value: 300 + distance , duration: 1000, flipX: false },
+                //     y: { value: 600, duration: 1000,  },
+                // },
+                //     ease: 'Power1',
+                //     onStart:(()=>{
+                //         console.log('start')
+                //         // _this.ball[i].setScale(.90)
+                //     }),
+                //     onUpdate:(()=>{
+                //         // let num = _this.ball[i]._scaleX
+                //         // num = num -0.001
+                //         // if(num <= 0.7) num = 0.7
+                //         // _this.ball[i].setScale(num)
+                //     }),
+                //     onComplete:(()=>{
+
+                //     })
+                // })
+
                 inputAry[i] = false
 
                 if(i === 7){
@@ -209,7 +273,7 @@
                         setTimeout(()=>{
                             rotation = true
                             newAry.forEach((el,index)=>{
-                                sortAry[index] =  _this.add.image( _this.ball[ index + 1].x  , _this.ball[ index + 1].y, `ball${el}`).setScale(.33).setDepth(0)
+                                sortAry[index] =  _this.add.image( _this.ball[ index + 1].x  , _this.ball[ index + 1].y, `ball${el}`).setScale(.36).setDepth(0)
                             })
      
                         },1000)
@@ -224,20 +288,27 @@
 
         function update ()
         {
-            
+            var pointer = this.input.activePointer;
+
+            text1.setText([
+                'x: ' + pointer.worldX,
+                'y: ' + pointer.worldY,
+                // 'isDown: ' + pointer.isDown
+            ])
+
             if(rotation){
 
                 if(this.Y){
-                    this.panel.setScale(.29, this.Z) 
+                    this.panel.setScale(.35, this.Z) 
                     
                     inputValue.forEach((el,i)=>{
-                        _this.ball[i + 1].setPosition(_this.ball[i + 1].x+ this.Z / 4, _this.ball[i + 1].y + this.Z *2 )
+                        _this.ball[i + 1].setPosition(_this.ball[i + 1].x+ this.Z / 4, _this.ball[i + 1].y + this.Z * 3  )
                     })
                     sortAry.forEach((el,i)=>{
-                        el.setPosition(el.x - this.Z / 4 , el.y - this.Z )
+                        el.setPosition(el.x - this.Z / 4 , el.y - this.Z * 3 )
                     })
                     
-                    this.Z -= .002;
+                    this.Z -= .005;
                     if(this.Z <= 0) {
                         sortAry.forEach((el,i)=>{
                             el.setDepth(2)
@@ -247,19 +318,22 @@
 
                 }
                 if(!this.Y){
-                    if(this.Z >= .29 ) return
-                    this.Z += .002
-                    this.panel.setScale(.29, this.Z) 
+                    if(this.Z >= .35 ) return
+                    this.Z += .005
+                    this.panel.setScale(.35, this.Z) 
                     inputValue.forEach((el,i)=>{
-                        _this.ball[i + 1].setPosition(_this.ball[i + 1].x - this.Z / 4, _this.ball[i + 1].y - this.Z *2  ).setDepth(0)
+                        _this.ball[i + 1].setPosition(_this.ball[i + 1].x - this.Z / 4, _this.ball[i + 1].y - this.Z * 3  ).setDepth(0)
                     })
                     sortAry.forEach((el,i)=>{
-                        el.setPosition(el.x + this.Z / 4, el.y + this.Z )
+                        el.setPosition(el.x + this.Z / 4, el.y + this.Z * 3  )
                     })
-                    // if(this.Z >= .29)  this.Y = true
                 }
 
             }
+
+
+
+
 
         }
 
