@@ -15,7 +15,7 @@
 //   $('.game-nav').addClass('disabled')
 // }
 
-
+var isSocket = false
 var userCardAry;
 var aiCardAry = []
 var actionAry = []

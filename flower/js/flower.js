@@ -315,9 +315,9 @@ function aiLose(loser, loserCards, loserCardText) {
 }
 //ai 籌碼控制
 function aipay(betId, bet, remain) {
-  console.log({betId})
-  console.log({bet})
-  console.log({remain})
+  // console.log({betId})
+  // console.log({bet})
+  // console.log({remain})
   zIndex += 1
   clearTimeout(widthTimeout)
   let play = betId
@@ -1437,8 +1437,7 @@ function flower() {
         });
 
       let index = betCoinList.indexOf(nowMoney)
-
-      doBet(index)
+      if(isSocket) doBet(index)
       chipMove(followChip);
       if (
         follow_Txt.innerText == 
@@ -1692,7 +1691,7 @@ function flower() {
       clearTimeout(widthTimeout);
       $('#userInformation').removeClass('userLeftboder')
       let index = betCoinList.indexOf(payMoney)
-      doBet(index + 1)
+      if(isSocket)  doBet(index + 1)
       nowMoney = payMoney
       chipMove(this);
 
@@ -1721,7 +1720,18 @@ function flower() {
         isShow = false
         oneMoney = false
       }
-      doWatchCard()
+      if(isSocket) {
+        doWatchCard()
+      }else{
+        noSockect({
+            type:'cardContent',
+            card:{
+              cards:[1,2,3],
+              type:'test'
+            }
+        })
+      }
+
       playVoice('flop')
       this.style.display = "none";
       Poker.style.display = "none";
@@ -1855,16 +1865,16 @@ function flower() {
       type
     }
     noSockect(res)
-    // turns = turns + 1
-    // player = player + 1
-    // remain = remain - 1
+    setTimeout(()=>{
+      testAction()
+    },1000)
   },1000)
 
-  testAction()
+
 
   function actionFn(type){
     console.log({player})
-    let random = getRandom(1,5)
+    let random = randomFun(1,5)
     let action = '' || type
     console.log({random})
     switch (random) {
@@ -1965,11 +1975,13 @@ function flower() {
         break;   
     }
   }
+
   function testAction(){
     if(player === 4) return
     actionFn()
     setTimeout(testAction,time)
   }
+
 }
     // turns = turns + 1
     // player = player + 1
@@ -1980,6 +1992,3 @@ function flower() {
     //   console.log('遊戲結束')
     // }
 
-function getRandom(min,max){
-  return Math.floor(Math.random()*(max - min + 1))+ min
-}

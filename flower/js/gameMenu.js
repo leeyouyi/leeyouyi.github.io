@@ -161,6 +161,7 @@ class GameInfoMenu {
      * @param {Function} func 函數
      * @returns {GameInfoMenu} 此物件
      */
+ 
     setEvent(type, func) {
         if (!type) return this
 
