@@ -1163,6 +1163,10 @@ function chipMove(el) {
         $.i18n.prop("len_Cancel");
       }
       isUser = false
+      if(!isSocket) {
+        player = 0
+        testAction()
+      }
 
     }, 100);
   });
@@ -1842,147 +1846,152 @@ function flower() {
   i18nFun()
 
 
-  var res ={
-    game,
-    type,
-    players,
-    user
-  }
-  noSockect(res)
-  var remain = 20
-  // var time = getRandom(5,10) * 1000
-  var time = 5000
-  var turns = 0
-  var player = 0
-  var playerAry = [0,1,2,3,4]
-  var outAry =[]
-  //first
-  setTimeout(()=>{
-    type = "active"
-    res ={
-      player,
-      turns,
-      type
-    }
-    noSockect(res)
-    setTimeout(()=>{
-      testAction()
-    },1000)
-  },1000)
 
 
 
-  function actionFn(type){
-    console.log({player})
-    let random = randomFun(1,5)
-    let action = '' || type
-    console.log({random})
-    switch (random) {
-      case 1: action = 'watchCard'  
-            noSockect({
-              type : action,
-              id: player
-            })
-            actionFn()
-        break;
-      case 2: action = 'giveUp'
-            noSockect({
-              type : action,
-              id: player
-            })
-            outAry.push(player)
-            turns = turns + 1
-            player = player + 1
-            console.log(outAry)
-          //  if(outAry.includes(player)) {
-          //    console.log(outAry)
-          //    console.log(player)
-          //  }
-            // remain = remain - 1
-            setTimeout(()=>{
-              noSockect({
-                  player,
-                  turns,
-                  type:'active'
-              })
-            },1000)
-        
-        break;
-      case 3: action = 'followBet'
-            noSockect({
-              type : action,
-              id: player,
-              coin:'1',
-              remain:'100000'
-            })
-            turns = turns + 1
-            player = player + 1
-            // remain = remain - 1
-            setTimeout(()=>{
-              noSockect({
-                  player,
-                  turns,
-                  type:'active'
-              })
-            },1000)
-        
-        break;
-      case 4: action = 'addBet'
-            noSockect({
-              type : action,
-              id: player,
-              coin:'1',
-              remain:'100000'
-            })
-            turns = turns + 1
-            player = player + 1
-            // remain = remain - 1
-            setTimeout(()=>{
-              noSockect({
-                  player,
-                  turns,
-                  type:'active'
-              })
-            },1000)
-        
-        break;
-      case 5: action = 'compare'
-            noSockect({
-              type : action,
-              id: player,
-              data:{
-                loser:player,
-                winer:4,
-                loserCard:{
-                  type:'test',
-                  cards:[1,2,3]
-                }
-              }
-            })
-            outAry.push(player)
-            console.log(outAry)
-            turns = turns + 1
-            player = player + 1
-            // remain = remain - 1
-            setTimeout(()=>{
-              noSockect({
-                  player,
-                  turns,
-                  type:'active'
-              })
-            },2000)
-              
-        break;   
-    }
-  }
 
-  function testAction(){
-    if(player === 4) return
-    actionFn()
-    setTimeout(testAction,time)
-  }
 
 }
+
+
+var res ={
+  game,
+  type,
+  players,
+  user
+}
+noSockect(res)
+var remain = 20
+// var time = getRandom(5,10) * 1000
+var time = 5000
+var turns = 0
+var player = 0
+var playerAry = [0,1,2,3,4]
+var outAry =[]
+//first
+setTimeout(()=>{
+  type = "active"
+  res ={
+    player,
+    turns,
+    type
+  }
+  noSockect(res)
+  setTimeout(()=>{
+    testAction()
+  },1000)
+},1000)
+
+function testAction(){
+  if(player === 4) return
+  actionFn()
+  setTimeout(testAction,time)
+}
+
+function actionFn(type){
+  console.log({player})
+  let random = randomFun(1,5)
+  let action = '' || type
+  console.log({random})
+  switch (random) {
+    case 1: action = 'watchCard'  
+          noSockect({
+            type : action,
+            id: player
+          })
+          actionFn()
+      break;
+    case 2: action = 'giveUp'
+          noSockect({
+            type : action,
+            id: player
+          })
+          outAry.push(player)
+          turns = turns + 1
+          player = player + 1
+          console.log(outAry)
+        //  if(outAry.includes(player)) {
+        //    console.log(outAry)
+        //    console.log(player)
+        //  }
+          // remain = remain - 1
+          setTimeout(()=>{
+            noSockect({
+                player,
+                turns,
+                type:'active'
+            })
+          },1000)
+      
+      break;
+    case 3: action = 'followBet'
+          noSockect({
+            type : action,
+            id: player,
+            coin:'1',
+            remain:'100000'
+          })
+          turns = turns + 1
+          player = player + 1
+          // remain = remain - 1
+          setTimeout(()=>{
+            noSockect({
+                player,
+                turns,
+                type:'active'
+            })
+          },1000)
+      
+      break;
+    case 4: action = 'addBet'
+          noSockect({
+            type : action,
+            id: player,
+            coin:'1',
+            remain:'100000'
+          })
+          turns = turns + 1
+          player = player + 1
+          // remain = remain - 1
+          setTimeout(()=>{
+            noSockect({
+                player,
+                turns,
+                type:'active'
+            })
+          },1000)
+      
+      break;
+    case 5: action = 'compare'
+          noSockect({
+            type : action,
+            id: player,
+            data:{
+              loser:player,
+              winer:4,
+              loserCard:{
+                type:'test',
+                cards:[1,2,3]
+              }
+            }
+          })
+          outAry.push(player)
+          console.log(outAry)
+          turns = turns + 1
+          player = player + 1
+          // remain = remain - 1
+          setTimeout(()=>{
+            noSockect({
+                player,
+                turns,
+                type:'active'
+            })
+          },2000)
+            
+      break;   
+  }
+}
+
     // turns = turns + 1
     // player = player + 1
     // if(player === 5) player = 0
