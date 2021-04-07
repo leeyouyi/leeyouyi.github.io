@@ -114,10 +114,10 @@
             key: 'ball1' ,
             frames: this.anims.generateFrameNumbers('10', {
                 start: 0,
-                end: 19
+                end: 29
             }),
             frameRate: 30,
-            repeat: -1
+            // repeat: -1
         });
 
        b.play('ball1')
@@ -195,28 +195,27 @@
                     start: 0,
                     end: 29
                 }),
-                frameRate: 40,
-                repeat: -1
+                frameRate: 25,
             });
   
             _this.ball[i] = _this.add.follower(curve, 138 + distance, 900, `10`).setScale(.25).setDepth(2)
             // _this.ball[i] = _this.add.follower(curve, 100 + distance, 900, `ball${num}`).setScale(.36).setDepth(2)
             _this.ball[i].startFollow({
-                duration: 1500,
+                duration: 1000,
                 onStart:(()=>{
                     // console.log('start')
                     _this.ball[i].setScale(1.5)
-                    _this.ball[i].play('ball'+ num);
+                    _this.ball[i].play('ball'+ num)
                 }),
                 onUpdate:(()=>{
                     let scaleX = _this.ball[i]._scaleX
-                    scaleX = scaleX -0.013
-                    if(scaleX <= 0.36) scaleX = 0.36
+                    scaleX = scaleX -0.02
+                    if(scaleX <= 0.25) scaleX = 0.25
                     _this.ball[i].setScale(scaleX)
                 }),
                 onComplete:(()=>{
                     _this.ball[i].setScale(.25)
-                    _this.ball[i].setActive(false)
+                    // _this.ball[i].setActive(false)
                     _this.ball[i].setFrame(29).setDepth(2)
 
                 })
