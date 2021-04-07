@@ -345,7 +345,8 @@ const playGame = class palyGame extends Phaser.Scene {
             }
         }
 
-        let fishRandom = Phaser.Math.Between(1, 13)
+        // let fishRandom = Phaser.Math.Between(1, 13)
+        let fishRandom = 13
         let fishRandom2 = Phaser.Math.Between(1, 10)
         let fishEnd = fishRandom > 5 ? 7 : 3
 
