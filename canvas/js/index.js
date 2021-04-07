@@ -90,7 +90,7 @@
         this.num = 0
         this.ball = []
         // this.panel =  this.add.image(682 , 600, `Panel`).setScale(.35).setDepth(1)
-        this.panel = this.add.sprite(0,0, 'Pad' ).setScale(1.40625).setDepth(1).setOrigin(0.0).setFrame(0)
+        this.panel = this.add.sprite(0,0, 'Pad' ).setScale(1.40625).setDepth(1).setOrigin(0.0).setFrame(1)
         this.Z = .35
         this.Y = true
 
@@ -104,7 +104,7 @@
                 start: 0,
                 end: 14
             }),
-            frameRate: 5,
+            frameRate: 30,
         });
 
 
@@ -204,7 +204,7 @@
                 duration: 1000,
                 onStart:(()=>{
                     // console.log('start')
-                    _this.ball[i].setScale(1.5)
+                    _this.ball[i].setScale(2)
                     _this.ball[i].play('ball'+ num)
                 }),
                 onUpdate:(()=>{
@@ -302,7 +302,7 @@
                     el.setPosition(el.x - this.Z / 4 , el.y - this.Z * 3 )
                 })
                 
-                this.Z -= .005;
+                this.Z -= .02;
                 if(this.Z <= 0) {
                     sortAry.forEach((el,i)=>{
                         el.setDepth(2)
@@ -314,7 +314,7 @@
             if(!this.Y){
 
                 if(this.Z >= .35 ) return
-                this.Z += .005
+                this.Z += .02
                 // this.panel.setScale(1.40625, this.Z) 
                 inputValue.forEach((el,i)=>{
                     _this.ball[i + 1].setPosition(_this.ball[i + 1].x - this.Z / 4, _this.ball[i + 1].y - this.Z * 3  ).setDepth(0)
