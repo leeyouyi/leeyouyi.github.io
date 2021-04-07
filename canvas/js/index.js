@@ -111,16 +111,16 @@
 
        let b = this.add.sprite(200,200, '10' ).setScale(.3).setDepth(1)
         this.anims.create({
-            key: 'ball1' ,
+            key: 'ball0' ,
             frames: this.anims.generateFrameNumbers('10', {
                 start: 0,
                 end: 29
             }),
             frameRate: 30,
-            // repeat: -1
+            repeat: -1
         });
 
-       b.play('ball1')
+       b.play('ball0')
 
 
 
