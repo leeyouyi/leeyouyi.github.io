@@ -1165,6 +1165,7 @@ function chipMove(el) {
       isUser = false
       if(!isSocket) {
         player = 0
+        
         testAction()
       }
 
@@ -1731,7 +1732,7 @@ function flower() {
             type:'cardContent',
             card:{
               cards:[1,2,3],
-              type:'test'
+              type:'高牌'
             }
         })
       }
@@ -1907,13 +1908,10 @@ function actionFn(type){
             id: player
           })
           outAry.push(player)
+          console.log(outAry)
+          console.log(outAry.indexOf(player))
           turns = turns + 1
           player = player + 1
-          console.log(outAry)
-        //  if(outAry.includes(player)) {
-        //    console.log(outAry)
-        //    console.log(player)
-        //  }
           // remain = remain - 1
           setTimeout(()=>{
             noSockect({
@@ -1931,6 +1929,7 @@ function actionFn(type){
             coin:'1',
             remain:'100000'
           })
+         if(type === ''){
           turns = turns + 1
           player = player + 1
           // remain = remain - 1
@@ -1941,6 +1940,7 @@ function actionFn(type){
                 type:'active'
             })
           },1000)
+         } 
       
       break;
     case 4: action = 'addBet'
@@ -1970,17 +1970,17 @@ function actionFn(type){
               loser:player,
               winer:4,
               loserCard:{
-                type:'test',
+                type:'高牌',
                 cards:[1,2,3]
               }
             }
           })
-          outAry.push(player)
-          console.log(outAry)
-          turns = turns + 1
-          player = player + 1
+          actionFn('followBet')
+
           // remain = remain - 1
           setTimeout(()=>{
+            turns = turns + 1
+            player = player + 1
             noSockect({
                 player,
                 turns,
