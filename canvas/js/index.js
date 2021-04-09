@@ -42,7 +42,13 @@
     document.querySelector('#btn').addEventListener('click',()=>{
         location.reload()
     })
-
+    document.querySelector('#btn2').addEventListener('click',()=>{
+        for (let i = 0; i < 7; i++) {
+            start(i + 1, i)
+            inputValue.push(i+1)
+        }
+     
+    })
     function getDegree(x1, y1, x2, y2) {
         var x = Math.abs(x1 - x2);
         var y = Math.abs(y1 - y2);
@@ -125,8 +131,10 @@
         this.ball = []
         // this.panel =  this.add.image(682 , 600, `Panel`).setScale(.35).setDepth(1)
         this.panel = this.add.sprite(0,0, 'Pad' ).setScale(1.40625).setDepth(1).setOrigin(0.0).setFrame(0)
-        this.Z = .35
-        this.Y = true
+        // this.Z = .35
+        // this.Y = true
+        this.R = .5
+        this.go = true
 
         this.anims.create({
             key: 'rotat1' ,
@@ -134,29 +142,36 @@
                 start: 0,
                 end: 14
             }),
-            frameRate: 1,
+            frameRate: 15,
         });
 
-        this.panel = this.add.sprite(0,-400, 'Pad' ).setScale(1.40625).setDepth(1).setOrigin(0.0).setFrame(1)
-        // this.balls[1] = this.add.sprite( 340 , 270, `No10`).setScale(.25).setDepth(2)
 
-    //    let b = this.add.sprite(340 , 300, 'No10' ).setScale(.25).setDepth(0).setFrame(2)
-    let n =0
-    let j = 0
-    for (let i = 0; i < 7; i++) {
-        i == 6 ? j = 5  : j = 0
-        this.add.sprite(340 + n , 280 + j, 'No10' ).setScale(.25).setDepth(2).setFrame(2)
-        // this.add.sprite(340 + n , 250 + j, 'No10' ).setScale(.25).setDepth(0).setFrame(2)
-        i < 5 ?  n = n + 123 : n = n  + 144
-        
-    }
-      
-        // this.add.sprite(460 , 280, 'No10' ).setScale(.25).setDepth(2).setFrame(2)
-        // this.add.sprite(336 , 280, 'No10' ).setScale(.25).setDepth(2).setFrame(2)
-        // this.add.sprite(336 , 280, 'No10' ).setScale(.25).setDepth(2).setFrame(2)
-        // this.add.sprite(336 , 280, 'No10' ).setScale(.25).setDepth(2).setFrame(2)
-        // this.add.sprite(336 , 280, 'No10' ).setScale(.25).setDepth(2).setFrame(2)
-        // this.add.sprite(336 , 280, 'No10' ).setScale(.25).setDepth(2).setFrame(2)
+        // this.test=[]
+        // this.test2=[]
+
+        // this.panel2 = this.add.sprite(0,-400, 'Pad' ).setScale(1.40625).setDepth(1).setOrigin(0.0).setFrame(0)
+
+        // this.anims.create({
+        //     key: 'rotat2' ,
+        //     frames: this.anims.generateFrameNumbers('Pad', {
+        //         start: 0,
+        //         end: 14
+        //     }),
+        //     frameRate: 15,
+        //     // repeat: -1,
+
+        // });
+        // this.panel2.play('rotat2')
+     
+        // let n =0
+        // let j = 0
+        // for (let i = 0; i < 7; i++) {
+        //     i == 6 ? j = 5  : j = 0
+        //     this.test[i] = this.add.sprite(340 + n , 260 + j, 'No10' ).setScale(.25).setDepth(2)
+        //     this.test2[i] = this.add.sprite(340 + n , 260 + j, 'No10' ).setScale(.25).setDepth(0)
+        //     i < 5 ?  n = n + 123 : n = n  + 140
+        // }
+
     //     this.anims.create({
     //         key: 'ball0' ,
     //         frames: this.anims.generateFrameNumbers('No10', {
@@ -222,6 +237,7 @@
     
 
     function start(i,num){
+ 
         let no = ''
         let Offset = 0 
         switch (i) {
@@ -255,10 +271,11 @@
 
         if(inputAry[i]){
             
-            let distance = i < 7 ? (i -1)* 123 :  (i-1)* 123 + 18
+            let distance = i < 7 ? (i -1)* 123.5 :  (i-1)* 123 + 18
  
 
-            var points = [ 100 + distance, 900, 220 + distance +Offset , 500, 300 + distance, 660  ];
+            // var points = [ 100 + distance, 900, 220 + distance + Offset, 500, 300 + distance, 660  ];
+            var points = [ 100 + distance, 900, 220 + distance , 500, 300 + distance, 660  ];
             var curve = new Phaser.Curves.Spline(points);
 
             // var startPoint = new Phaser.Math.Vector2(100 + distance, 900);
@@ -328,7 +345,7 @@
 
             inputAry[i] = false
 
-            if(i === 7){
+            if(i === 7 ){
                 setTimeout(()=>{
                      newAry = inputValue.map(item=>{
                         return item
@@ -371,10 +388,7 @@
                             sortAry[index] =  _this.add.sprite( _this.ball[ index + 1].x  , _this.ball[ index + 1].y,  `No${no}`).setScale(.25).setFrame(29).setDepth(0)
                         })
                         _this.panel.play('rotat1')
-                        for (let i = 1; i <= 7; i++) {
-                            // _this.ball[i].setActive(true)
-                            
-                        }
+
 
                     },1000)
 
@@ -388,7 +402,7 @@
 
     function update ()
     {
-        var pointer = this.input.activePointer;
+        // var pointer = this.input.activePointer;
 
         // text1.setText([
         //     'x: ' + pointer.worldX,
@@ -396,36 +410,82 @@
         //     // 'isDown: ' + pointer.isDown
         // ])
 
+       
+        // if(this.go){
+        //     for (let i = 0; i < 7; i++) {
+        //         // console.log( this.test[i])
+        //         this.test[i].setPosition(this.test[i].x - this.R / 8, this.test[i].y + this.R * 5)
+        //         this.test2[i].setPosition(this.test2[i].x - this.R / 8 , this.test2[i].y - this.R * 5).setDepth(0)
+        //     }
+        //     let r = 0
+        //     r +=0.018
+        //     this.R-= r
+
+        //     if(this.R <= 0){
+        //         for (let i = 0; i < 7; i++) {
+        //             this.test2[i].setDepth(0)
+        //             this.test[i].setDepth(0)
+        //         }
+        //         this.go = false
+        //     }
+        // }else{
+        //     if(this.R >= .35){
+        //         return 
+        //         // for (let i = 0; i < 7; i++) {
+        //         //     this.test[i].setDepth(2)
+        //         // }
+        //         // this.go = true
+        //     }
+        //     let r = 0
+        //     r +=0.018
+        //     this.R += r
+        //     for (let i = 0; i < 7; i++) {
+        //         this.test[i].setPosition(this.test[i].x  - this.R / 8, this.test[i].y - this.R * 8).setDepth(0)
+        //         this.test2[i].setPosition(this.test2[i].x  - this.R / 8 , this.test2[i].y + this.R * 8.5).setDepth(2)
+        //     }
+   
+
+        // }
+    
+        
+
+
+
+
         if(rotation){
 
-            if(this.Y){
-                // this.panel.setScale(1.40625, this.Z) 
+            if(this.go){
+
                 inputValue.forEach((el,i)=>{
-                    _this.ball[i + 1].setPosition(_this.ball[i + 1].x+ this.Z / 4, _this.ball[i + 1].y + this.Z * 3  )
+                    _this.ball[i + 1].setPosition(_this.ball[i + 1].x+ this.R / 8, _this.ball[i + 1].y + this.R * 5 )
                 })
                 sortAry.forEach((el,i)=>{
-                    el.setPosition(el.x - this.Z / 4 , el.y - this.Z * 3 )
+                    el.setPosition(el.x - this.R / 8 , el.y - this.R * 5 ).setDepth(0)
                 })
                 
-                this.Z -= .025;
-                if(this.Z <= 0) {
+                let r = 0
+                r +=0.018
+                this.R-= r
+
+                if(this.R <= 0) {
                     sortAry.forEach((el,i)=>{
-                        el.setDepth(2)
+                        el.setDepth(0)
+                        _this.ball[i + 1].setDepth(0)
                     })
-                    this.Y =false
+                    this.go = false
                 }
 
-            }
-            if(!this.Y){
+            }else{
+                if(this.R >= .35 ) return
+                let r = 0
+                r +=0.018
+                this.R += r
 
-                if(this.Z >= .35 ) return
-                this.Z += .025
-                // this.panel.setScale(1.40625, this.Z) 
                 inputValue.forEach((el,i)=>{
-                    _this.ball[i + 1].setPosition(_this.ball[i + 1].x - this.Z / 4, _this.ball[i + 1].y - this.Z * 3  ).setDepth(0)
+                    _this.ball[i + 1].setPosition(_this.ball[i + 1].x - this.R / 8, _this.ball[i + 1].y - this.R * 8  ).setDepth(0)
                 })
                 sortAry.forEach((el,i)=>{
-                    el.setPosition(el.x + this.Z / 4, el.y + this.Z * 3  )
+                    el.setPosition(el.x + this.R / 8, el.y + this.R * 8.5 ).setDepth(2)
                 })
             }
 
