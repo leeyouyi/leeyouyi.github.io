@@ -160,10 +160,10 @@
   
   clearInterval(alphaInterval)
 
-  let noSocketTime = 20
+  let noSocketTime = 5
   times.forEach(item=>{item.innerText = noSocketTime })
   function noSocket() {
-    let T = noSocketTime === 20 ? 5000 : 1000
+    let T = noSocketTime === 50 ? 5000 : 1000
     setTimeout(()=>{
       noSocketTime = noSocketTime -1
       if(noSocketTime < 0) {
@@ -206,19 +206,33 @@
         drawDisable()
         clearInterval(shockInterval)
           let res={
-            history:[0,1,2,3,4],
+            history:[
+              ['0,1','1,2','2,3','3,4','4,5','5,4'],
+              ['0,1','1,2','2,3','3,4','4,5','5,4'],
+              ['0,1','1,2','2,3','3,4','4,5','5,4'],
+              ['0,1','1,2','2,3','3,4','4,5','5,4'],
+              ['0,1','1,2','2,3','3,4','4,5','5,4'],
+              // ['12,12','12,12','12,12','12,12','12,12','12,12'],
+              // ['12,12','12,12','12,12','12,12','12,12','12,12'],
+              // ['12,12','12,12','12,12','12,12','12,12','12,12'],
+              // ['12,12','12,12','12,12','12,12','12,12','12,12'],
+
+            ],
             array:[0,1,2,3,4]
           }
-          // postAry = res.history
-          // endAry = res.array
-          // numAry.unshift(endAry)
-          // for (let i = 0; i < 5; i++) {
-          //   mapAry[i] = []
-          //   for (let j = 0; j < postAry[i].length; j++) {
-          //     let map = postAry[i][j].split(',')
-          //     mapAry[i].push(map)
-          //   }
-          // }
+          postAry = res.history
+          endAry = res.array
+          numAry.unshift(endAry)
+          for (let i = 0; i < 5; i++) {
+            mapAry[i] = []
+            for (let j = 0; j < postAry[i].length; j++) {
+              let map = postAry[i][j].split(',')
+              mapAry[i].push(map)
+         
+            }
+            // console.log(mapAry)
+          }
+     
         randomFn()
       }
       noSocket()
@@ -1046,6 +1060,7 @@
     testGraphics.splice(0)
     // console.log(testGraphics.length)
     for (let i = 0; i < mapAry.length; i++) {
+      // console.log(mapAry.length)
      
       for (let j = 0; j < mapAry[i].length; j++) {
        
@@ -1055,6 +1070,8 @@
           let y = Number(mapAry[i][j][1]) * Y2 + Y
           let a = (Number(mapAry[i][j + 1][0])) * X2 + X
           let b = Number(mapAry[i][j][1]) * Y2 + Y
+          // console.log(mapAry[i][j][0])
+          // console.log(mapAry[i][j][1])
           let test = new Phaser.Curves.Line(new Phaser.Math.Vector2(x, y), new Phaser.Math.Vector2(a, b))
           testGraphics[k] = scene.add.graphics().setDepth(.5);
           testGraphics[k].lineGradientStyle(10, 0x5E5E5E, 0x5E5E5E, 0xCBCBCB, 0xCBCBCB, 1)
@@ -1072,7 +1089,7 @@
   }
 
   function start() {
-
+    // console.log(mapAry.length)
     if (mapAry.length === 0) return false
     pathGraphics.splice(0)
     pathGraphics2.splice(0)
@@ -1246,7 +1263,7 @@
             });
           }
           
-          getreveals()
+          // getreveals()
           betRecordEnd()
           userEmit =false
           // test()
