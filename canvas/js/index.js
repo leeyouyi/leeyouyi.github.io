@@ -5,12 +5,14 @@
     //0.3515625
     let configWith = 1440;
     let configHeight = 810;
+
+    var backgroundColor = location.hash.replace(/#bg=/,'') || '#00ff00'
     var config = {
         type: Phaser.AUTO,
         width: configWith,
         height: configHeight,
         parent: "canvas",
-        backgroundColor: '#00ff00',
+        backgroundColor: backgroundColor,
         physics: {
             default: 'arcade',
             arcade: {
@@ -35,10 +37,18 @@
     var sortAry = []
     var text1
 
+    document.querySelector('#inputBg').addEventListener('keydown',(e)=>{
+        if(e.key === 'Enter'){
+            window.location = `#bg=${e.target.value}`
+            location.reload()
+        }
+
+    })
 
     document.querySelector('#btn').addEventListener('click',()=>{
         location.reload()
     })
+
     // document.querySelector('#btn2').addEventListener('click',()=>{
     //     for (let i = 0; i < 7; i++) {
     //         start(i + 1, i)
@@ -423,13 +433,13 @@
 
     function update ()
     {
-        var pointer = this.input.activePointer;
+        // var pointer = this.input.activePointer;
 
-        text1.setText([
-            'x: ' + pointer.worldX,
-            'y: ' + pointer.worldY,
-            // 'isDown: ' + pointer.isDown
-        ])
+        // text1.setText([
+        //     'x: ' + pointer.worldX,
+        //     'y: ' + pointer.worldY,
+        //     // 'isDown: ' + pointer.isDown
+        // ])
 
 
         if(rotation){

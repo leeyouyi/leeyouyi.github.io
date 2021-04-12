@@ -984,8 +984,6 @@
 
   }
 
- 
- 
   function update() {
    
     if (test4Ary.length !== 0) {
@@ -1046,6 +1044,7 @@
       $('#box .money').attr('disabled',true)
     }
   }
+
   function randomFn() {
 
     //橫線
@@ -1070,7 +1069,7 @@
           let y = Number(mapAry[i][j][1]) * Y2 + Y
           let a = (Number(mapAry[i][j + 1][0])) * X2 + X
           let b = Number(mapAry[i][j][1]) * Y2 + Y
-          // console.log(mapAry[i][j][0])
+          // console.log('x',mapAry[i][j][0])
           // console.log(mapAry[i][j][1])
           let test = new Phaser.Curves.Line(new Phaser.Math.Vector2(x, y), new Phaser.Math.Vector2(a, b))
           testGraphics[k] = scene.add.graphics().setDepth(.5);
