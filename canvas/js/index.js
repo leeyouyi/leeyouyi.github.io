@@ -6,7 +6,7 @@
     let configWith = 1440;
     let configHeight = 810;
 
-    var backgroundColor = location.hash.replace(/#bg=/,'') || '#00ff00'
+    var backgroundColor = location.hash.replace(/#bg=/,'') || '#ff00ff'
     var config = {
         type: Phaser.AUTO,
         width: configWith,
@@ -60,6 +60,7 @@
     function preload ()
     {
         
+        this.load.image('marksix', './assets/marksix.png')
         this.load.image('Panel', './assets/Panel.png')
 
         for (let i = 1; i <= 49; i++) {
@@ -193,7 +194,9 @@
         _this = this
         this.num = 0
         this.ball = []
+
         this.panel = this.add.sprite(0,0, 'Pad' ).setScale(1.40625).setDepth(1).setOrigin(0.0).setFrame(0)
+        this.marksix = this.add.sprite(310,535, 'marksix' ).setScale(.8).setDepth(1).setOrigin(0.0)
 
         this.R = .5
         this.go = true
