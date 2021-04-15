@@ -5,14 +5,18 @@
 
   import en from './en'
   import tw from './tw'
+  import cn from './cn'
+  import th from './th'
 
   Vue.use(VueI18n)
 
-  const locale = 'tw'
+  const locale = 'cn'
 
   const messages = {
     tw,
-    en
+    en,
+    cn,
+    th
   }
 
   // const i18n = createI18n({

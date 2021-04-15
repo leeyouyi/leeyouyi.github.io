@@ -10,7 +10,7 @@
                 <div class="avatar"></div>
                 <div class="info">
                     <p class="number">15818333930</p>
-                    <p class="text">{t('menu.acceptor')}</p>
+                    <p class="text">{{$t('menu.acceptor')}}</p>
                 </div>
                 <div class="sign_out">
                      <router-link to="/Sign_in">
@@ -19,68 +19,39 @@
                 </div>
             </div>
             <div class="money">
-                <span>USDT{t('menu.unit_price')} : </span> 
+                <span>USDT{{$t('menu.unit_price')}} : </span> 
                 <span class="num">6.420000</span>
             </div>
             <div class="listBox">
-            <!-- {
-                data.map((item,index)=>{
-                    return(
-                        <div key={index}>
-                            <div class="list" onClick={()=>{
-                                    click(index)
-                                }}>
-                                <div>
-                                    <img src={LinkSvg} alt="icon" />
-                                    <span>{item.text}</span>
-                                </div>
-                                <div>
-                                    <img src={AngleRight} alt ="icon" style={{
-                                            transition: '.1s',
-                                            transform: item.subMenu && clickShow[index] ? 'rotate(90deg)' : 'rotate(0deg)'
-                                    }}/>
-                                </div>
-                            </div>
-                            {
-                                item.subMenu &&
-                                <ul style={{
-                                        display: clickShow[index] ? 'flex' : 'none',
-                                        flexDirection: index === 5 ? 'row' : 'column' 
-                                    }}>
-                                    {
-                                        item.subMenu.map((li,i)=>{
-                                            return(
-                                                <li key={i}>
-                                                    {
-                                                        li.text &&
-                                                        <>
-                                                            <img src={Bullseye} alt="icon" />
-                                                            <span onClick={()=>{
-                                                                subClick(li.text, li.src)
-                                                            }}>{li.text}</span>
-                                                            {/* <Link to={'/Verification'}></Link> */}
-                                                        </>                                                   
-
-                                                    }
-                                                    {
-                                                        li.img &&                                                            li.img &&
-                                                        <img src={li.img} alt="icon"  style={{paddingRight:'10px'}} onClick={()=>{
-                                                            changeLanguage(li.lan)
-                                                        }}/>
-
-                                                    }
-                                                
-                                                </li>
-                                            )
-                                        })
-                                    }
-                                </ul>
-                            }
-
+ 
+                <div v-for="(item,index) in data" :key="index">
+                    <div class="list" @click="click(index)">
+                        <div>
+                            <img :src="imgs.LinkSvg" alt="icon" />
+                            <span>{{$t(item.text)}}</span>
+                        </div>
+                        <div>
+                            <img :src="imgs.AngleRight" alt ="icon" :style="{
+                                    'transition': '.1s',
+                                    'transform': item.subMenu && item.clickShow ? 'rotate(90deg)' : 'rotate(0deg)'
+                            }"/>
+                        </div>
                     </div>
-                    )
-                })
-            } -->
+
+                     <ul  v-if="item.subMenu" :style="{
+                            display: item.clickShow ? 'flex' : 'none',
+                            flexDirection: index === 5 ? 'row' : 'column' 
+                        }">
+                        <li v-for="(li,i) in item.subMenu" :key="i">
+
+                            <img v-if="li.text" :src="imgs.Bullseye" alt="icon" />
+                            <span v-if="li.text" @click="subClick(li.text, li.src)">{{$t(li.text)}}</span>
+                            <img  v-if="li.img" :src="li.img" alt="icon"  style="{paddingRight:'10px'}"  @click="changeLanguage(li.lan)"/>
+                        
+                        </li>
+                    </ul> 
+
+                </div>
 
             </div>
         
@@ -97,6 +68,7 @@ import SignOutAlt from '@/assets/images/Icon/FA/SignOutAlt.svg'
 import LinkSvg from '@/assets/images/Icon/FA/Link.svg'
 import AngleRight from '@/assets/images/Icon/FA/AngleRight.svg'
 import Bullseye from '@/assets/images/Icon/FA/Bullseye.svg'
+import i18n from "@/i18n"
 
 export default{
   props: {
@@ -113,93 +85,93 @@ export default{
           },
           data:[
                {
-            // text:t('menu.order'),
-            subMenu:[
-                {
-                    // text:t('menu.acceptance_order'),
-                    src:'Order',
+                    text: 'menu.order',
+                    subMenu:[
+                        {
+                            text:'menu.acceptance_order',
+                            src:'Order',
+                        },
+                        {
+                            text:'menu.coin_order',
+                            src:'CoinOrder',
+                        },
+                    ],
+                    clickShow: false,
                 },
                 {
-                    // text:t('menu.coin_order'),
-                    src:'CoinOrder',
-                },
-            ],
-            show: false,
-        },
-        {
-            // text:t('menu.review'),
-            subMenu:[
-                {
-                    // text:t('menu.acceptance_review'),
-                    src:'Acceptance',
-                }
-            ],
-            show: false
-        },
-        {
-            // text:t('menu.billing_information'),
-            subMenu:[
-                {
-                    // text:t('menu.fund_inquiry'),
-                    src:'AmountQuery',
+                    text:'menu.review',
+                    subMenu:[
+                        {
+                            text:'menu.acceptance_review',
+                            src:'Acceptance',
+                        }
+                    ],
+                    clickShow: false
                 },
                 {
-                    // text:t('menu.capital_change_flow'),
-                    src:'FundingChanges',
+                    text:'menu.billing_information',
+                    subMenu:[
+                        {
+                            text:'menu.fund_inquiry',
+                            src:'AmountQuery',
+                        },
+                        {
+                            text:'menu.capital_change_flow',
+                            src:'FundingChanges',
+                        },
+                        {
+                            text:'menu.user_funds_inquiry',
+                            src:'MoneyManagement',
+                        },
+                    ],
+                    clickShow:false
                 },
                 {
-                    // text:t('menu.user_funds_inquiry'),
-                    src:'MoneyManagement',
-                },
-            ],
-            show:false
-        },
-        {
-            // text:t('menu.account_management'),
-            subMenu:[
-                {
-                    // text:t('menu.name_verification'),
-                    src:'Verification',
-                },
-                {
-                    // text:t('menu.password_modification'),
-                    src:'Password',
-                },
-            ],
-            show:false
-        },
-        {
-            // text:t('menu.system_management'),
-            subMenu:[
-                {
-                    // text:t('menu.bank_card_management'),
-                    src:'BankCard',
-                }
-            ],
-            show:false
-        },
-        {
-            // text:t('menu.language'),
-            subMenu:[
-                {
-                    img:require('@/assets/images/Flag/China.svg').default,
-                    lan:'cn'
+                    text:'menu.account_management',
+                    subMenu:[
+                        {
+                            text:'menu.name_verification',
+                            src:'Verification',
+                        },
+                        {
+                            text:'menu.password_modification',
+                            src:'Password',
+                        },
+                    ],
+                    clickShow:false
                 },
                 {
-                    img:require('@/assets/images/Flag/HongKong.png').default,
-                    lan:'tw'
+                    text:'menu.system_management',
+                    subMenu:[
+                        {
+                            text:'menu.bank_card_management',
+                            src:'BankCard',
+                        }
+                    ],
+                    clickShow:false
                 },
                 {
-                    img:require('@/assets/images/Flag/Thailand.png').default,
-                    lan:'th'
+                    text:'menu.language',
+                    subMenu:[
+                        {
+                            img:require('@/assets/images/Flag/China.svg'),
+                            lan:'cn'
+                        },
+                        {
+                            img:require('@/assets/images/Flag/HongKong.png'),
+                            lan:'tw'
+                        },
+                        {
+                            img:require('@/assets/images/Flag/Thailand.png'),
+                            lan:'th'
+                        },
+                        {
+                            img:require('@/assets/images/Flag/UnitedStates.svg'),
+                            lan:'en'
+                        },
+                    ],
+                    clickShow:false
                 },
-                {
-                    img:require('@/assets/images/Flag/UnitedStates.svg').default,
-                    lan:'en'
-                },
-            ],
-            show:false
-        },
           ]
       }
   },
@@ -210,7 +182,22 @@ export default{
   },
   methods:{
       close(){
-          this.$emit('setMenu');
+          this.$emit('setMenu')
+      },
+      click(i){
+          this.data[i].clickShow = !this.data[i].clickShow
+
+      },
+      subClick(text,src){
+        if(src !== ''){
+            let title = this.$t(text)
+            this.$store.dispatch("list", {title,src})
+            this.close()
+        }
+      },
+      changeLanguage(lan){
+        i18n.locale = lan
+        localStorage.setItem("locale", lan)
       }
   }
 }

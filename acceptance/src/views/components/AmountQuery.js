@@ -41,7 +41,7 @@ const AmountQuery = props =>{
         }
     ]
     const coinHandeler = (type)=>{
-        console.log('coinHandeler')
+        // console.log('coinHandeler')
         const title =  type === 'set' ? '充币' : '提币'
         dispactch(
             list( title,'Coin')

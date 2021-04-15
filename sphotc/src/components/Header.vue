@@ -6,7 +6,7 @@
       </div>
       <h1>{{headerTitle}}</h1>
       <div class="right" v-if=" right !== '' ">
-        <img :src="img" alt="icon" />
+        <img  v-if="img !== ''" :src="img" @click="clickHandler" alt="icon" />
       </div>
       <Menu :show="menuShow" @setMenu="setMenu"/>
     </div>
@@ -18,7 +18,7 @@
 import Menu from '@/components/Menu.vue'
 import Plus from '@/assets/images/Icon/FA/Plus.svg'
 import SyncAlt from '@/assets/images/Icon/FA/SyncAlt.svg'
-
+// import i18n from "@/i18n";
 
 export default {
   name: 'Header',
@@ -40,12 +40,13 @@ export default {
    
   },
   mounted(){
-  // console.log('this.right')
+  // console.log(i18n)
+  // console.log(this.right)
 
   },
   computed:{
     headerTitle(){
-       return this.title || 'SPHOTC'
+       return this.$store.state.list.title || 'SPHOTC'
     },
     img(){
       return  this.right === 'BankCard' ? Plus :  this.right === 'AmountQuery' ? SyncAlt : ''
@@ -57,6 +58,14 @@ export default {
     },
     setMenu(){
       this.menuShow = false
+    },
+    clickHandler(){
+        if(this.right === 'BankCard'){
+          this.addCard( this.$t('title.add_bank_card'),'AddBankCard')
+      }
+    },
+    addCard(title,src){
+      this.$store.dispatch("list", {title,src})
     }
   }
 }
