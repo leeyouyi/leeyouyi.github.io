@@ -68,12 +68,12 @@ export default {
   methods:{
     dispatch(){
         this.$store.dispatch("list",{
-          title:'提款',
+          title: 'coin.withdrawal',
           src:'Withdrawal'
         })
     },
     coinHandeler(type){
-        const title =  type === 'set' ? '充币' : '提币'
+        const title =  type === 'set' ? 'coin.recharge': 'coin.withdraw'
         this.$store.dispatch("list",{
           title,
           src:'Coin'

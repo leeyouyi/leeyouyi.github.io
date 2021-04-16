@@ -2,13 +2,13 @@
     <div class="content">
         <div class="top">
             <div class="input">
-                <label>代付信息</label>
+                <label>{{$t('form.payment_info')}}</label>
                 <select>
-                    <option>请选择</option>
+                    <option>{{$t('form.choose')}}</option>
                 </select>
             </div>
             <div class="btn">
-                <button>保存银行信息</button>
+                <button>{{$t('form.save_bank_info')}}</button>
             </div>
             
         </div>
@@ -18,7 +18,7 @@
                 <div class="text">
                   <span v-if="!item.optional">*</span>
                 
-                <label>{{item.text}}</label>
+                <label>{{$t(item.text)}}</label>
                 </div>
 
                 <input type="text" />
@@ -28,7 +28,7 @@
         </div>
 
         <div class="button">
-            <button @click="submitHandler">提交</button>
+            <button @click="submitHandler">{{$t('button.submit')}}</button>
         </div>
         
     </div>
@@ -41,35 +41,35 @@ export default {
     return{
      data : [
                 {
-                    text:'持卡人'
+                    text:'table.cardholder'
                 },
                 {
-                    text:'银行名称'
+                    text:'table.bank_name'
                 },
                 {
-                    text:'卡号'
+                    text:'table.card_number'
                 },
                 {
-                    text:'支行名称'
+                    text:'table.branch_name'
                 },
                 {
-                    text:'资金限额'
+                    text:'table.funding_limit'
                 },
 
                 {
-                    text:'开户省',
+                    text:'form.account_province',
                     optional:true  
                 },
                 {
-                    text:'开户市',
+                    text:'form.account_city',
                     optional:true
                 },
                 {
-                    text:'手机',
+                    text:'table.cell_phone',
                     optional:true
                 },
                 {
-                    text:'身分证号',
+                    text:'table.identity_number',
                     optional:true
                 }
         ]
@@ -78,7 +78,7 @@ export default {
   methods:{
     submitHandler(){
         this.$store.dispatch("list",{
-          title:'资金查询',
+          title:'menu.fund_inquiry',
           src:'AmountQuery'
         })
     },
@@ -104,7 +104,7 @@ export default {
             button{
                 width:110px;
                 height:40px;
-                ont-family: PingFangTC-Medium;
+                font-family: PingFangTC-Medium;
                 font-size: 14px;
                 color: #FFFFFF;
                 text-align: center;

@@ -81,7 +81,9 @@ export default {
           "account_city":"Account City",
           "cell_phone":"Cell phone",
           "upper_limit":"Upper limit",
-          "lower_limit":"Lower limit"
+          "lower_limit":"Lower limit",
+          "payment_info":"Payment information",
+          "save_bank_info":"Save bank information",
       },
       "table":{
           "system_number":"system number",
@@ -130,5 +132,16 @@ export default {
           "confirm_to_deactivate":"Confirm to deactivation",
           "confirm":"confirm",
           "cancel":"cancel"
-      }
+      },
+      "coin":{
+        "recharge":"recharge",
+        "withdraw":"withdraw",
+        "withdrawal":"withdrawal",
+        "rechargeAddress":"recharge address",
+        "withdrawAddress":"withdraw address",
+        "rechargeQuantity":"recharge quantity",
+        "withdrawQuantity":"withdraw quantity",
+        "agreementType":"agreement type",
+        "remarks":"remarks"
+    }
 }

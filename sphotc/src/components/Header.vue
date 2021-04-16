@@ -4,7 +4,7 @@
       <div class="menu" @click="setMenuShow">
           <img src="@/assets/images/Icon/FA/Bars.svg" alt="icon" />
       </div>
-      <h1>{{headerTitle}}</h1>
+      <h1>{{$t(headerTitle)}}</h1>
       <div class="right" v-if=" right !== '' ">
         <img  v-if="img !== ''" :src="img" @click="clickHandler" alt="icon" />
       </div>
@@ -61,7 +61,7 @@ export default {
     },
     clickHandler(){
         if(this.right === 'BankCard'){
-          this.addCard( this.$t('title.add_bank_card'),'AddBankCard')
+          this.addCard('title.add_bank_card','AddBankCard')
       }
     },
     addCard(title,src){

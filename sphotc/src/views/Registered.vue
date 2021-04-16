@@ -1,50 +1,48 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next';
-
-const Registered = ()=>{
-    const { t } = useTranslation();
-    return(
-        <Style>
-            <div className="Registered">
-                <h1>
-                    SPHOTC
-                </h1>
-                <div className="box">
-                    <h3>{t('registered.registered')}</h3>
-                    <div className="input">
-                        <h6><span>*</span>{t('registered.username')}</h6>
-                        <input type="text" placeholder={t('registered.enter')}/>
-                    </div>
-                    <div className="input">
-                        <h6>{t('registered.real_name')}</h6>
-                        <input type="text"/>
-                    </div>
-                    <div className="input">
-                        <h6><span>*</span>{t('registered.password')}</h6>
-                        <input type="password" placeholder={t('registered.length')}/>
-                    </div>
-                    <div className="input">
-                        <h6><span>*</span>{t('registered.password2')}</h6>
-                        <input type="password" placeholder={t('registered.length')}/>
-                    </div>
-                    <div className="input">
-                        <h6><span>*</span>email</h6>
-                        <input type="text"/>
-                    </div>
-                    <div className="bottom">
-                        <div className="wrap">
-                            <Link to={'/Home'}>{t('button.submit')}</Link>
-                            <Link to={'/Sign_in'}>{t('button.return')}</Link>
-                        </div>
-                    </div>
+<template>
+    <div class="Registered">
+        <h1>
+            SPHOTC
+        </h1>
+        <div class="box">
+            <h3>{{$t('registered.registered')}}</h3>
+            <div class="input">
+                <h6><span>*</span>{{$t('registered.username')}}</h6>
+                <input type="text" :placeholder="$t('registered.enter')"/>
+            </div>
+            <div class="input">
+                <h6>{{$t('registered.real_name')}}</h6>
+                <input type="text"/>
+            </div>
+            <div class="input">
+                <h6><span>*</span>{{$t('registered.password')}}</h6>
+                <input type="password" :placeholder="$t('registered.length')"/>
+            </div>
+            <div class="input">
+                <h6><span>*</span>{{$t('registered.password2')}}</h6>
+                <input type="password" :placeholder="$t('registered.length')"/>
+            </div>
+            <div class="input">
+                <h6><span>*</span>email</h6>
+                <input type="text"/>
+            </div>
+            <div class="bottom">
+                <div class="wrap">
+                    <router-link to="/Home">{{$t('button.submit')}}</router-link>
+                    <router-link to="/">{{$t('button.return')}}</router-link>
                 </div>
             </div>
-        </Style>
-    )
+        </div>
+    </div>
+</template>
 
+<script>
+
+export default {
+  name: 'Registered'
 }
-const Style = styled.div`
+</script>
+
+<style lang="scss" scoped>
 
 .Registered{
     max-width: 1024px;
@@ -154,5 +152,5 @@ const Style = styled.div`
     }
 }
 
-`
-export default Registered
+</style>
+

@@ -1,22 +1,27 @@
 <template>
     <div class="content">
-        <div class="inpotBox">
+        <div class="inputBox">
             <div class="input" v-for="(item,index) in inputData" :key="index">
                 <div class="text">
-                    <label style="{
-                        justifyContent: 'flex-start'
-                    }">{{$t(item.text)}}</label>
+                    <label :style="{
+                        'justify-Content': item.end ?'center':'flex-start',
+                        'marginRight': item.end ?'10px' : '0'
+                    }">{{item.text === '~' ? item.text  : $t(item.text) }}</label>
                 </div>
-
                 <select v-if="item.select">
-                    <option v-for="(el,i) in item.select" :key="i">{{ index ===2 && i !== 0 ? el : $t(el) }}</option>
+                    <option v-for="(el,i) in item.select" :key="i">{{ i=== 0 ? $t(el): el }}</option>
                 </select>
                 <input v-if="!item.select" :type="item.time ? 'date' : 'text'" />
                 
-            </div>          
+            </div>     
 
             <div class="button">
                 <button>{{$t('button.search')}}</button>
+                <button>{{$t('button.export')}}</button>
+            </div>
+
+            <div class="information">
+                {{information}}
             </div>
         </div>
 
@@ -27,15 +32,14 @@
                         <tr>
                             <th v-for="(item,index) in infoData" :key="index" :style="{
                                 'width': item.long && item.long +'px'
-                            }">{{ item.text === 'USDT' ? item.text  : $t(item.text) }}</th>
+                            }">{{ $t(item.text) }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td v-for="(item,index) in userData" :key="index" :style="{
-                                'width': item.long && item.long +'px'
-                            }">{{ item.text && item.text}} </td>
-
+                        <td v-for="(item,index) in userData" :key="index" :style="{
+                            'width': item.long && item.long +'px'
+                        }">{{ item.text && item.text}} </td>
                         </tr>
                     </tbody>
 
@@ -47,64 +51,86 @@
 
 <script>
 export default {
-  name: 'MoneyManagement',
+  name: 'CoinOrder',
   data(){
     return{
-         inputData :[
+        inputData : [
             {
-                text: 'form.username'
+                text:'form.system_number'
             },
             {
-                text: 'form.merchant_code'
+                text:'form.username'
             },
             {
-                text: 'form.channel_type',
+                text:'form.order_status',
                 select:[
                     'form.choose','test1','test2','test3'
                 ]
             },
             {
-                text: 'form.channel_name'
-            },
-            {
-                text: 'form.status',
+                text:'form.order_type',
                 select:[
-                    'form.choose', 'form.enable','form.disable'
+                    'form.order_type','test1','test2','test3'
                 ]
-            }
+            },
+            {
+                text:'form.time_limit',
+                time:true
+            },
+            {
+                text: '~',
+                time:true,
+                end:true
+            },
         ],
-        infoData :[
+        infoData : [
             {
-                text: 'table.username',
+                text:'table.order_type',
             },
             {
-                text: 'table.agent_name',
+                text:'table.username',
             },
             {
-                text: 'table.quantity_balance',
+                text:'table.quantity',
             },
             {
-                text: 'table.amount_balance'
+                text:'table.cost',
             },
             {
-                text: 'table.quantity_freeze',
+                text:'table.number_of_credits',
             },
             {
-                text: 'table.fund_freeze',
+                text:'table.order_status',
             },
             {
-                text: 'table.status',
-            }
+                text:'table.detailed_status',
+            },
+            {
+                text:'table.remarks',
+            },
+            {
+                text:'table.type',
+            },
+            {
+                text:'table.address',
+            },
+            {
+                text:'table.system_number',
+            },
+            {
+                text:'table.creation_time',
+                long:150
+            },
         ],
-        userData :[
+        userData : [
+            {
+                text:'xxxxxxxxxxxx',
+            },
             {
                 text:'吴巧红',
             },
             {
-                text:'XXXXXX'
-            },
-            {
-                text:'1000000',
+                text:'1000000'
             },
             {
                 text:'1000000',
@@ -117,21 +143,29 @@ export default {
                 text:'1000000'
             },
             {
-                text:'XXXXX'
+                text:'1000000'
+            },
+            {
+                text:'XXXXXXXXXX'
+            },
+            {
+                text:'XXXXXXXXXX'
+            },
+            {
+                text:'XXXXXXXXXX'
+            },
+            {
+                text:'XXXXXXXXXX'
+            },
+            {
+                text:'2020-12-04 09:55:00',
+                long:150
             }
-
-        ]
+        ],
+        information : '确认金额：0.00  数量(USDT)：0.00  费用(USDT)：0.00  入账数量(USDT)：0.00'
     }
   },
-  methods:{
-    submitHandler(){
-        this.$store.dispatch("list",{
-          title:'资金查询',
-          src:'AmountQuery'
-        })
-    },
 
-  }
 }
 </script>
 
@@ -139,7 +173,7 @@ export default {
 .content{
     width:100vw;
     margin-top:60px;
-    .inpotBox{
+    .inputBox{
         display:flex;
         align-items:center;
         flex-direction:column;
@@ -208,12 +242,22 @@ export default {
                 margin-top:20px;
             }
         }
+        .information{
+            width:90%;
+            padding-top:20px;
+            font-family: PingFangTC-Medium;
+            font-size: 14px;
+            color: #ADADAD;
+            font-weight: 500;
+            display:flex;
+        }
     }
     .infoBox{
         width:100%;
         display:flex;
         justify-content:center;
         margin-top:30px;
+        padding-bottom:15px;
         .info{
             width:90%;
             border-top:solid 1px #ccc;

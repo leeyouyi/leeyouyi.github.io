@@ -81,7 +81,9 @@ export default {
         "account_city":"เมืองบัญชี",
         "cell_phone":"โทรศัพท์มือถือ",
         "upper_limit":"ขีด จำกัด บน",
-        "lower_limit":"ขีด จำกัด ล่าง"
+        "lower_limit":"ขีด จำกัด ล่าง",
+        "payment_info":"ข้อมูลการชำระเงิน",
+        "save_bank_info":"บันทึกข้อมูลธนาคาร",
     },
     "table":{
         "system_number":"หมายเลขติดตามระบบ",
@@ -130,5 +132,16 @@ export default {
         "confirm_to_deactivate":"ยืนยันการปิดใช้งาน",
         "confirm":"ยืนยัน",
         "cancel":"ยกเลิก"
+    },
+    "coin":{
+        "recharge":"เติมเงิน",
+        "withdraw":"ถอน",
+        "withdrawal":"การถอน",
+        "rechargeAddress":"ที่อยู่ที่ฝาก",
+        "withdrawAddress":"ที่อยู่ถอน",
+        "rechargeQuantity":"จำนวนเงินฝาก",
+        "withdrawQuantity":"จำนวนเงินฝาก",
+        "agreementType":"ประเภทข้อตกลง",
+        "remarks":"หมายเหตุ"
     }
 }

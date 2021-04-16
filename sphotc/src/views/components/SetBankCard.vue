@@ -23,9 +23,6 @@ export default {
   props:{
       data: Array
   },
-  mounted(){
-
-  }
 }
 </script>
 

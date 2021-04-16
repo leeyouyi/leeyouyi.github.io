@@ -13,7 +13,7 @@
                     <p class="text">{{$t('menu.acceptor')}}</p>
                 </div>
                 <div class="sign_out">
-                     <router-link to="/Sign_in">
+                     <router-link to="/">
                         <img :src=imgs.SignOutAlt alt="icon" />
                     </router-link>
                 </div>
@@ -190,7 +190,7 @@ export default{
       },
       subClick(text,src){
         if(src !== ''){
-            let title = this.$t(text)
+            let title = text
             this.$store.dispatch("list", {title,src})
             this.close()
         }

@@ -4,18 +4,18 @@
             <div class="input" v-for="(item,index) in data" :key="index">
                 <div class="text">
                     <span v-if="!item.optional">*</span>
-                    <label>{{item.text}}</label>
+                    <label>{{$t(item.text)}}</label>
                 </div>
 
                 <select v-if="item.select">
-                    <option v-for="(el,i) in item.select" :key="i">{{el}}</option>
+                    <option v-for="(el,i) in item.select" :key="i">{{ i===0 ?$t(el): el}}</option>
                 </select>
                 <input v-if="!item.select" type="text" />
                 
             </div>
         </div>
         <div class="button">
-            <button @click="submitHandler">提交</button>
+            <button @click="submitHandler">{{ this.$t('button.submit')}}</button>
         </div>
     </div>
 </template>
@@ -30,29 +30,34 @@ export default {
     return{
         data : [
             {
-                text:'协议类型',
+                text: 'coin.agreementType',
                 select:[
-                    '请选择','test1','test2','test3'
+                   'form.choose','test1','test2','test3'
                 ]
             },
             {
-                text: this.title === '充币' ? '充币地址' : '提币地址'
+                text: this.title === 'coin.recharge' ? 'coin.rechargeAddress' : 'coin.withdrawAddress'
             },
             {
-                text: this.title === '充币' ? '充币数量' : '提币数量'
+                text: this.title === 'coin.recharge' ? 'coin.rechargeQuantity': 'coin.withdrawQuantity'
             },
             {
-                text:'备注 ',
+                text: 'coin.remarks' ,
                 optional:true
             }
         ]
 
     }
   },
+  computed:{
+    //   hedarTitle(){
+    //       return  this.title
+    //   }
+  },
   methods:{
     submitHandler(){
         this.$store.dispatch("list",{
-          title:'资金查询',
+          title:'menu.fund_inquiry',
           src:'AmountQuery'
         })
     }

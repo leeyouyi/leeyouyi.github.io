@@ -27,7 +27,7 @@
                         <tr>
                             <th v-for="(item,index) in infoData" :key="index" :style="{
                                 'width': item.long && item.long +'px'
-                            }">{{ item.text === 'USDT' ? item.text  : $t(item.text) }}}}</th>
+                            }">{{ item.text === 'USDT' ? item.text  : $t(item.text) }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -188,7 +188,7 @@ export default {
   methods:{
     submitHandler(){
         this.$store.dispatch("list",{
-          title:'资金查询',
+          title:'menu.fund_inquiry',
           src:'AmountQuery'
         })
     }

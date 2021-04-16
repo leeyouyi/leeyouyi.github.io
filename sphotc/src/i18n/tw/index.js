@@ -81,7 +81,9 @@ export default {
         "account_city":"開戶市",
         "cell_phone":"手機",
         "upper_limit":"上限",
-        "lower_limit":"下限"
+        "lower_limit":"下限",
+        "payment_info":"代付信息",
+        "save_bank_info":"保存银行信息",
     },
     "table":{
         "system_number":"系統單號",
@@ -130,5 +132,16 @@ export default {
         "confirm_to_deactivate":"確認停用",
         "confirm":"確認",
         "cancel":"取消"
+    },
+    "coin":{
+        "recharge":"充幣",
+        "withdraw":"提幣",
+        "withdrawal":"提款",
+        "rechargeAddress":"充幣地址",
+        "withdrawAddress":"提幣地址",
+        "rechargeQuantity":"充币数量",
+        "withdrawQuantity":"充幣數量",
+        "agreementType":"協議類型",
+        "remarks":"備註"
     }
 }

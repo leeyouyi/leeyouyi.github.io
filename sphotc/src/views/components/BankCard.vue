@@ -167,7 +167,7 @@ export default {
         if(type === 'status'){
            this.mask = true
         }else if(type === 'edit'){
-            let title = this.$t('title.edit_bank_card')
+            let title = 'title.edit_bank_card'
             this.$store.dispatch("list", {
                 title,
                 src:'EditBankCard'

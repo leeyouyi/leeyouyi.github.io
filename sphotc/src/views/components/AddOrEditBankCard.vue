@@ -32,7 +32,7 @@
 
 import ASide from '@/assets/images/Img/ASide.svg'
 import BSide from '@/assets/images/Img/BSide.svg'
-import SetBankCard from '@/views/SetBankCard.vue'
+import SetBankCard from '@/views/components/SetBankCard.vue'
 export default {
   name: 'AddOrEditBankCard',
   components:{
@@ -141,7 +141,7 @@ export default {
     },
     submitHandler(){
         this.$store.dispatch("list",{
-            title:'银行卡管理',
+            title:'menu.bank_card_management',
             src:'BankCard'
         })
     },

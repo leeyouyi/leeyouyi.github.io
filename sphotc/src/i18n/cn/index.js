@@ -81,7 +81,10 @@ export default {
         "account_city":"开户市",
         "cell_phone":"手机",
         "upper_limit":"上限",
-        "lower_limit":"下限"
+        "lower_limit":"下限",
+        "payment_info":"代付信息",
+        "save_bank_info":"保存银行信息",
+
     },
     "table":{
         "system_number":"系统单号",
@@ -130,5 +133,18 @@ export default {
         "confirm_to_deactivate":"确认停用",
         "confirm":"确认",
         "cancel":"取消"
+    },
+    "coin":{
+        "recharge":"充币",
+        "withdraw":"提币",
+        "withdrawal":"提款",
+        "rechargeAddress":"充币地址",
+        "withdrawAddress":"提币地址",
+        "rechargeQuantity":"充币数量",
+        "withdrawQuantity":"提币数量",
+        "agreementType":"协议类型",
+        "remarks":"备注",
+
     }
+    
 }
