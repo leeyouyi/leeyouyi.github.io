@@ -84,7 +84,7 @@ export default {
             localStorage.setItem("locale", lan)
         },
         Sign_in(){
-            this.$router.push({name: 'Home'})
+            this.$router.push({name: 'Entrance'})
         }
     }
 

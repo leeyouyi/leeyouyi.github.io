@@ -13,7 +13,7 @@
                     <p class="text">{{$t('menu.acceptor')}}</p>
                 </div>
                 <div class="sign_out">
-                     <router-link to="/">
+                     <router-link to="/Sign_in">
                         <img :src=imgs.SignOutAlt alt="icon" />
                     </router-link>
                 </div>

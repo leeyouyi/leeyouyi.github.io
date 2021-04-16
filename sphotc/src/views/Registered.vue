@@ -27,8 +27,8 @@
             </div>
             <div class="bottom">
                 <div class="wrap">
-                    <router-link to="/Home">{{$t('button.submit')}}</router-link>
-                    <router-link to="/">{{$t('button.return')}}</router-link>
+                    <router-link to="/Entrance">{{$t('button.submit')}}</router-link>
+                    <router-link to="/Sign_in">{{$t('button.return')}}</router-link>
                 </div>
             </div>
         </div>

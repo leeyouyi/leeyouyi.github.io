@@ -63,20 +63,17 @@
         this.load.image('marksix', './assets/marksix.png')
         this.load.image('Panel', './assets/Panel.png')
 
-        for (let i = 1; i <= 49; i++) {
-            let num = i < 10 ?  '0' + i :  ''+ i
-            this.load.image(`ball${i}`, `./assets/Ball/${num}.png`)
-        }
+        // for (let i = 1; i <= 49; i++) {
+        //     let num = i < 10 ?  '0' + i :  ''+ i
+        //     this.load.image(`ball${i}`, `./assets/Ball/${num}.png`)
+        // }
         
 
         this.load.spritesheet('Pad', './assets/Pad.png', {
             frameWidth: 1024,
             frameHeight: 576
         });
-        this.load.spritesheet('fish1', './assets/fish1.png', {
-            frameWidth: 120,
-            frameHeight: 100
-        });
+
 
         this.load.spritesheet('No10', './assets/balls/No10.png', {
             frameWidth: 500,
@@ -113,71 +110,71 @@
             frameHeight: 500
         });
 
-        this.load.spritesheet('BF10', './assets/balls/BF10.png', {
+        this.load.spritesheet('BF10', './assets/balls/BF/BF10.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('BF16', './assets/balls/BF16.png', {
+        this.load.spritesheet('BF16', './assets/balls/BF/BF16.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('BF22', './assets/balls/BF22.png', {
+        this.load.spritesheet('BF22', './assets/balls/BF/BF22.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('BF40', './assets/balls/BF40.png', {
+        this.load.spritesheet('BF40', './assets/balls/BF/BF40.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('BF44', './assets/balls/BF44.png', {
+        this.load.spritesheet('BF44', './assets/balls/BF/BF44.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('BF45', './assets/balls/BF45.png', {
+        this.load.spritesheet('BF45', './assets/balls/BF/BF45.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('BF49', './assets/balls/BF49.png', {
+        this.load.spritesheet('BF49', './assets/balls/BF/BF49.png', {
             frameWidth: 500,
             frameHeight: 500
         });
-        this.load.spritesheet('FB10', './assets/balls/FB10.png', {
-            frameWidth: 500,
-            frameHeight: 500
-        });
-
-        this.load.spritesheet('FB16', './assets/balls/FB16.png', {
+        this.load.spritesheet('FB10', './assets/balls/FB/FB10.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('FB22', './assets/balls/FB22.png', {
+        this.load.spritesheet('FB16', './assets/balls/FB/FB16.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('FB40', './assets/balls/FB40.png', {
+        this.load.spritesheet('FB22', './assets/balls/FB/FB22.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('FB44', './assets/balls/FB44.png', {
+        this.load.spritesheet('FB40', './assets/balls/FB/FB40.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('FB45', './assets/balls/FB45.png', {
+        this.load.spritesheet('FB44', './assets/balls/FB/FB44.png', {
             frameWidth: 500,
             frameHeight: 500
         });
 
-        this.load.spritesheet('FB49', './assets/balls/FB49.png', {
+        this.load.spritesheet('FB45', './assets/balls/FB/FB45.png', {
+            frameWidth: 500,
+            frameHeight: 500
+        });
+
+        this.load.spritesheet('FB49', './assets/balls/FB/FB49.png', {
             frameWidth: 500,
             frameHeight: 500
         });

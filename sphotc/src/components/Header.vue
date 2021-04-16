@@ -4,7 +4,7 @@
       <div class="menu" @click="setMenuShow">
           <img src="@/assets/images/Icon/FA/Bars.svg" alt="icon" />
       </div>
-      <h1>{{$t(headerTitle)}}</h1>
+      <h1>{{headerTitle === 'SPHOTC' ? headerTitle : $t(headerTitle)}}</h1>
       <div class="right" v-if=" right !== '' ">
         <img  v-if="img !== ''" :src="img" @click="clickHandler" alt="icon" />
       </div>
