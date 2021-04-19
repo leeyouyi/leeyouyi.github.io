@@ -13,3 +13,44 @@ a{
 ol,li{
   list-style: none;
 }
+.swiper-pagination {
+  // position: fixed !important;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  span{
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+  }
+
+}
+
+// .VueCarousel{
+//   width: 300px;
+//   height: 320px;
+//   margin: 0 auto;
+//   .VueCarousel-wrapper{
+//       width:280px !important;
+//       height: 320px !important;
+//       overflow: unset;
+
+//     .VueCarousel-slide{
+//       width:280px !important;
+//       height: 320px !important;
+//       // overflow: unset;
+//       background: #FFFFFF;
+//       border: 1px solid #3D8DBC;
+//       border-radius: 20px;
+//       margin: 0 20px;
+//       position: absolute;
+//     }
+//     img{
+//       width: 280px;
+//       height: 120px;
+//       margin: 0 auto;
+//       margin-top: 40px;
+//     }
+//   }
+// }
