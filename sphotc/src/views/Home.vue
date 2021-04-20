@@ -44,22 +44,24 @@
 
             <h2 class="h2title">穩定幣的穩定機制</h2>
             <HomeSwiper />
+
         </div>
-
-
+         <Footer />
     </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
 import HomeSwiper from '@/components/HomeSwiper.vue'
+import Footer from '@/components/Footer.vue'
 import bitcoinbanner from '@/assets/images/Icon/bitcoinbanner.png'
 
 export default {
     name: 'Home',
     components: {
         Header,
-        HomeSwiper
+        HomeSwiper,
+        Footer
     },
 
   data(){
@@ -176,7 +178,6 @@ export default {
     max-width: 1024px;
     margin: auto;
     display: flex;
-    height:100vh;
     overflow: scroll;
     flex-direction: column;
     .banner{

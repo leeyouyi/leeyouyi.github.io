@@ -11,6 +11,11 @@ const routes = [
     component: () => import('@/views/Home.vue')
   },
   {
+    path: '/Buy',
+    name: 'Buy',
+    component: () => import('@/views/Buy.vue')
+  },
+  {
     path: '/Sign_in',
     name: 'Sign_in',
     component: () => import('@/views/Sign_in.vue')
@@ -26,6 +31,10 @@ const routes = [
     name: 'Entrance',
     component: () => import('@/views/Entrance.vue')
   },
+  {
+    path: '*',
+    redirect: '/'
+  }
 ]
 
 const router = new VueRouter({
