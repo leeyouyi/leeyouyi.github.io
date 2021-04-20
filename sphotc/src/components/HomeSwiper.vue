@@ -9,7 +9,7 @@
       >
       <div class="box">
         <img :src="item.img" />
-        <p>{{item.text}}</p>
+        <p>{{$t(item.text)}}</p>
       </div>
 
       </Slide>
@@ -20,7 +20,8 @@
 </template>
 
 <script>
-import { Swiper, Slide } from "vue-swiper-component";
+// import { Swiper, Slide } from "vue-swiper-component";
+import { Swiper, Slide } from "@/components/vue-swiper-component";
 
 
 export default {
@@ -35,15 +36,15 @@ export default {
       list: [
         { 
           img: require("@/assets/images/Icon/Hands/Balance.png"),
-          text:'MGP使用的是第三代稳定币系统，其开发的BITEX基于公链底层，所以可以直接用USDT付转账手续费，降低用户学习成本，并且性能强大，转账3秒到账。并由4大机制保证其价值稳定。'
+          text:'home.imgText'
         },
         { 
           img: require("@/assets/images/Icon/Hands/Phone.png"),
-          text:'MGP使用的是第三代稳定币系统，其开发的BITEX基于公链底层，所以可以直接用USDT付转账手续费，降低用户学习成本，并且性能强大，转账3秒到账。并由4大机制保证其价值稳定。'
+          text:'home.imgText'
         },
         { 
           img: require("@/assets/images/Icon/Hands/Pinches.png") ,
-          text:'MGP使用的是第三代稳定币系统，其开发的BITEX基于公链底层，所以可以直接用USDT付转账手续费，降低用户学习成本，并且性能强大，转账3秒到账。并由4大机制保证其价值稳定。'
+          text:'home.imgText'
         },
       ],
 
@@ -63,14 +64,13 @@ export default {
 
 .wh_content {
     width: 100%;
-    height: 320px;
-    overflow: unset;
+    height: 350px;
     margin: 0 auto;
     .wh_slide {
       width: 100%;
       .box{
         width: 90%;
-        height: 310px;
+        height: 320px;
         background: #FFFFFF;
         border: 1px solid #3D8DBC;
         border-radius: 20px;
@@ -81,7 +81,7 @@ export default {
           height: 120px;
           margin: 0 auto;
           margin-top: 40px;
-          margin-bottom: 50px;
+          margin-bottom: 30px;
         }
         p{
           font-family: PingFangSC-Regular;

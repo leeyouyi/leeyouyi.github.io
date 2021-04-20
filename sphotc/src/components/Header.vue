@@ -8,23 +8,18 @@
       <div class="right" v-if=" right !== '' ">
         <img  v-if="img !== ''" :src="img" @click="clickHandler" alt="icon" />
       </div>
-      <Menu :show="menuShow" @setMenu="setMenu"/>
+      
     </div>
 
 
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue'
 import Plus from '@/assets/images/Icon/FA/Plus.svg'
 import SyncAlt from '@/assets/images/Icon/FA/SyncAlt.svg'
-// import i18n from "@/i18n";
 
 export default {
   name: 'Header',
-  components: {
-    Menu
-  },
   props: {
     title: String,
     right: String,
@@ -32,21 +27,11 @@ export default {
   data(){
     return{
       test: 'SPHOTC',
-      menuShow: false
-      // img:require('@/assets/images/Icon/FA/Bars.svg')
     }
-  },
-  created(){
-   
-  },
-  mounted(){
-  // console.log(i18n)
-  // console.log(this.right)
-
   },
   computed:{
     headerTitle(){
-       return this.$store.state.list.title || 'SPHOTC'
+       return  this.$router.currentRoute.name ==='Entrance' ? this.$store.state.list.title || 'SPHOTC' : 'SPHOTC'
     },
     img(){
       return  this.right === 'BankCard' ? Plus :  this.right === 'AmountQuery' ? SyncAlt : ''
@@ -54,11 +39,9 @@ export default {
   },
   methods:{
     setMenuShow(){
-      this.menuShow = true
+      this.$emit('setMenuOpen')
     },
-    setMenu(){
-      this.menuShow = false
-    },
+ 
     clickHandler(){
         if(this.right === 'BankCard'){
           this.addCard('title.add_bank_card','AddBankCard')
@@ -71,7 +54,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .header{
         width:100%;

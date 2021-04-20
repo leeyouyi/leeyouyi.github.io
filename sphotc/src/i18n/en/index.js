@@ -1,4 +1,22 @@
 export default {
+    "home":{
+        "home":"Home",
+        "title1":"Real-time quote",
+        "title2":"Stability mechanism of stablecoin",
+        "text1":"latest price",
+        "text2":"Ups and downs",
+        "text3":"Volume",
+        "imgText":"MGP uses the third-generation stablecoin system. The BITEX developed by it is based on the bottom layer of the public chain, so it can directly use USDT to pay the transfer fee, reduce user learning costs, and has powerful performance. The transfer will arrive in 3 seconds. And the stability of its value is guaranteed by 4 major mechanisms."
+    },
+    "buy":{
+        "buy":"Buy",
+        "sell":"Sell",
+        "select1":"buy by amount",
+        "select2":"buy by quantity",
+        "placeholder":"at least",
+        "text":"Please enter the quantity to get a quote",
+        "confirm":"Confirm",
+    },
     "welcome":{
       "top":"Welcome to the system",
       "bottom":"Please contact the administrator for questions during use"
@@ -27,7 +45,8 @@ export default {
           "username":"username",
           "password":"password",
           "code":"Verification code,double-click one first login",
-          "language":"language"
+          "language":"language",
+          "text":"Please login first"
       },
       "registered":{
           "registered":"registered",

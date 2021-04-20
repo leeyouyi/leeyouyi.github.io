@@ -84,7 +84,10 @@ export default {
             localStorage.setItem("locale", lan)
         },
         Sign_in(){
-            this.$router.push({name: 'Entrance'})
+            this.$store.dispatch("login", true)
+            localStorage.setItem("login", true)
+            // this.$router.push({name: 'Entrance'})
+            this.$router.go(-1)
         }
     }
 

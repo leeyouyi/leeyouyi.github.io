@@ -1,14 +1,15 @@
 <template>
-    <div class="home">
-        <Header :title="title" :right="src"/>
+    <div class="home" :class="{open:menuShow}">
+        <Header :title="title" :right="src" @setMenuOpen="setMenuOpen"/>
+        <Menu :show="menuShow" @setMenu="setMenu"/>
         <div class="banner">
             <img :src="bitcoinbanner" alt="banner" />
         </div>
 
         <div class="content">
-            <h2>即時報價</h2>
+            <h2>{{$t('home.title1')}}</h2>
             <ul class="country">
-                <li v-for="(item,index) in country" :key="index">
+                <li :class="{ active: item.click }" v-for="(item,index) in country" :key="index" @click="chooseCountry(item)" >
                     <div class="imgwarp">
                         <img :src="item.img" alt="flag">  
                     </div>
@@ -18,9 +19,9 @@
 
             <ul class="liBox">
                 <div class="top">
-                    <span  v-for="(item,index) in topTitle" :key="index">{{item.text}}</span>
+                    <span  v-for="(item,index) in topTitle" :key="index">{{ index===0 ? '':  index===1 ? $t(item.text) : '24h'+ $t(item.text)}}</span>
                 </div>
-                <li v-for="(item,index) in coinData" :key="index">
+                <li v-for="(item,index) in coinData" :key="index" @click="goBuy(item.img,item.type,item.bg)">
                     <div class="leftWrap">
                         <div class="imgwrap" :style="{
                             background: item.bg
@@ -42,7 +43,7 @@
                 </li>
             </ul>
 
-            <h2 class="h2title">穩定幣的穩定機制</h2>
+            <h2 class="h2title">{{$t('home.title2')}}</h2>
             <HomeSwiper />
 
         </div>
@@ -52,6 +53,7 @@
 
 <script>
 import Header from '@/components/Header.vue'
+import Menu from '@/components/Menu.vue'
 import HomeSwiper from '@/components/HomeSwiper.vue'
 import Footer from '@/components/Footer.vue'
 import bitcoinbanner from '@/assets/images/Icon/bitcoinbanner.png'
@@ -61,104 +63,110 @@ export default {
     components: {
         Header,
         HomeSwiper,
-        Footer
+        Footer,
+        Menu
     },
 
-  data(){
-      return{
-        bitcoinbanner,
-        country : [
-            {
-                img:require('@/assets/images/flags/M/UnitedStates.svg'),
-                text:'USD'
-            },
-            {
-                img:require('@/assets/images/flags/M/China.svg'),
-                text:'CNY'
-            },
-            {
-                img:require('@/assets/images/flags/M/Taiwan.svg'),
-                text:'TWD'
-            },
-            {
-                img:require('@/assets/images/flags/M/Thailand.svg'),
-                text:'THB'
-            },
+    data(){
+        return{
+            menuShow: false,
+            bitcoinbanner,
+            country : [
+                {
+                    img:require('@/assets/images/flags/M/UnitedStates.svg'),
+                    text:'USD',
+                    click:true
+                },
+                {
+                    img:require('@/assets/images/flags/M/China.svg'),
+                    text:'CNY',
+                    click:false
+                },
+                {
+                    img:require('@/assets/images/flags/M/Taiwan.svg'),
+                    text:'TWD',
+                    click:false
+                },
+                {
+                    img:require('@/assets/images/flags/M/Thailand.svg'),
+                    text:'THB',
+                    click:false
+                },
 
-        ] ,
-        topTitle:[
-            {
-                text:''
-            },
-            {
-                text:'最新價格'
-            },
-            {
-                text:'24h漲跌'
-            },
-            {
-                text:'24h成交量'
-            },
-        ],
-        coinData:[
-            {
-                img:require('@/assets/images/Icon/Cryptocurrency/BTC.svg'),
-                type:'BTC',
-                bg:'#F89F36 ',
-                price:'1.0006',
-                upDownText:'0.05%',
-                upDown: 1,
-                volume:'10006',
+            ] ,
+            topTitle:[
+                {
+                    text:''
+                },
+                {
+                    text:'home.text1'
+                },
+                {
+                    text:'home.text2'
+                },
+                {
+                    text:'home.text3'
+                },
+            ],
+            coinData:[
+                {
+                    img:require('@/assets/images/Icon/Cryptocurrency/BTC.svg'),
+                    type:'BTC',
+                    bg:'#F89F36 ',
+                    price:'1.0006',
+                    upDownText:'0.05%',
+                    upDown: 1,
+                    volume:'10006',
 
-            },
-            {
-                img:require('@/assets/images/Icon/Cryptocurrency/USDT.svg'),
-                type:'USDT',
-                bg:'#26A17B',
-                price:'58120',
-                upDownText:'0.05%',
-                upDown: 1,
-                volume:'58120'
-            },
-            {
-                img:require('@/assets/images/Icon/Cryptocurrency/ETH.svg'),
-                type:'ETH',
-                bg:'#6D75B6',
-                price:'6.1908',
-                upDownText:'0.05%',
-                upDown: 1,
-                volume:'20242'
-            },
-            {
-                img:require('@/assets/images/Icon/Cryptocurrency/EOS.svg'),
-                type:'EOS',
-                bg:'#2D2C2C',
-                price:'1.0006',
-                upDownText:'0.05%',
-                upDown: 0,
-                volume:'45'
-            },
-            {
-                img:require('@/assets/images/Icon/Cryptocurrency/LTC.svg'),
-                type:'LTC',
-                bg:'#355D9D',
-                price:'58120',
-                upDownText:'0.05%',
-                upDown: -1,
-                volume:'58120'
-            },
-            {
-                img:require('@/assets/images/Icon/Cryptocurrency/BTC.svg'),
-                type:'TXS',
-                bg:'#101319',
-                price:'1.0006',
-                upDownText:'0,05%',
-                upDown:1,
-                volume:'276'
-            },
-        ]
-      }
-  },
+                },
+                {
+                    img:require('@/assets/images/Icon/Cryptocurrency/USDT.svg'),
+                    type:'USDT',
+                    bg:'#26A17B',
+                    price:'58120',
+                    upDownText:'0.05%',
+                    upDown: 1,
+                    volume:'58120'
+                },
+                {
+                    img:require('@/assets/images/Icon/Cryptocurrency/ETH.svg'),
+                    type:'ETH',
+                    bg:'#6D75B6',
+                    price:'6.1908',
+                    upDownText:'0.05%',
+                    upDown: 1,
+                    volume:'20242'
+                },
+                {
+                    img:require('@/assets/images/Icon/Cryptocurrency/EOS.svg'),
+                    type:'EOS',
+                    bg:'#2D2C2C',
+                    price:'1.0006',
+                    upDownText:'0.05%',
+                    upDown: 0,
+                    volume:'45'
+                },
+                {
+                    img:require('@/assets/images/Icon/Cryptocurrency/LTC.svg'),
+                    type:'LTC',
+                    bg:'#355D9D',
+                    price:'58120',
+                    upDownText:'0.05%',
+                    upDown: -1,
+                    volume:'58120'
+                },
+                {
+                    img:require('@/assets/images/Icon/Cryptocurrency/BTC.svg'),
+                    type:'TXS',
+                    bg:'#101319',
+                    price:'1.0006',
+                    upDownText:'0,05%',
+                    upDown:1,
+                    volume:'276'
+                },
+            ]
+        }
+    },
     computed:{
         title(){
         return this.$store.state.list.title
@@ -167,8 +175,30 @@ export default {
         return this.$store.state.list.src
         }
     },
-  methods:{
-  }
+    methods:{
+        setMenu(){
+            this.menuShow = false
+        },
+        setMenuOpen(){
+            this.menuShow = true
+        },
+        chooseCountry(item){
+            this.country.forEach(el => {
+                el.click = false
+            });
+            item.click  = true
+        },
+        goBuy(img,type,bg){
+            this.$router.push({ 
+                name: 'Buy',
+                params:{
+                    img,
+                    type,
+                    bg
+                }
+            })
+        }
+    }
 
 }
 </script>
@@ -233,6 +263,9 @@ export default {
                     font-weight: 400;
                     margin: 0 5px;
                 }
+            }
+            .active{
+                border:solid 1px #3D8DBc;
             }
         }
         .liBox{
@@ -312,6 +345,9 @@ export default {
             }
         }
     }
+}
+.open{
+    height: 100vh;
 }
 </style>
 

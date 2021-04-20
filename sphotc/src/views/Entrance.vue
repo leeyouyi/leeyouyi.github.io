@@ -1,6 +1,7 @@
 <template>
-  <div class="entrance">
-    <Header :title="title" :right="src"/>
+  <div class="entrance" :class="{open:menuShow}">
+    <Header :title="title" :right="src" @setMenuOpen="setMenuOpen"/>
+    <Menu :show="menuShow" @setMenu="setMenu"/>
     <Welcome v-if="title === '' "/>
     <Verification v-if="src === 'Verification' "/>
     <BankCard v-if="src === 'BankCard' "/>
@@ -20,6 +21,7 @@
 <script>
 
 import Header from '@/components/Header.vue'
+import Menu from '@/components/Menu.vue'
 import Welcome from '@/views/components/Welcome.vue'
 import Verification from '@/views/components/Verification.vue'
 import BankCard from '@/views/components/BankCard.vue'
@@ -38,6 +40,7 @@ export default {
   name: 'Entrance',
   components: {
     Header,
+    Menu,
     Welcome,
     Verification,
     BankCard,
@@ -52,7 +55,11 @@ export default {
     Order,
     CoinOrder
   },
-
+  data(){
+    return{
+      menuShow: false,
+    }
+  },
   computed:{
     title(){
       return this.$store.state.list.title
@@ -60,6 +67,14 @@ export default {
     src(){
       return this.$store.state.list.src
     }
+  },
+  methods:{
+    setMenu(){
+      this.menuShow = false
+    },
+    setMenuOpen(){
+        this.menuShow = true
+    },
   }
 }
 </script>
@@ -71,6 +86,9 @@ export default {
     display: flex;
     height:100vh;
     overflow: scroll;
+}
+.open{
+    height: 100vh;
 }
 </style>
 

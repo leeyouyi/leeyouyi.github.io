@@ -1,4 +1,22 @@
 export default {
+    "home":{
+        "home":"首頁",
+        "title1":"即時報價",
+        "title2":"穩定幣的穩定機制",
+        "text1":"最新價格",
+        "text2":"漲跌",
+        "text3":"成交量",
+        "imgText":"MGP使用的是第三代稳定币系统，其开发的BITEX基于公链底层，所以可以直接用USDT付转账手续费，降低用户学习成本，并且性能强大，转账3秒到账。并由4大机制保证其价值稳定。"
+    },
+    "buy":{
+        "buy":"購買",
+        "sell":"出售",
+        "select1":"按金額購買",
+        "select2":"按數量購買",
+        "placeholder":"至少",
+        "text":"請輸入數量獲取報價",
+        "confirm":"確認購買",
+    },
   "welcome":{
       "top":"歡迎使用系統",
       "bottom":"使用期間問題請聯繫管理員"
@@ -27,7 +45,8 @@ export default {
         "username":"用戶名",
         "password":"密碼",
         "code":"驗證碼，首登雙擊取二維碼",
-        "language":"語言"
+        "language":"語言",
+        "text":"請先登入"
     },
     "registered":{
         "registered":"註冊",

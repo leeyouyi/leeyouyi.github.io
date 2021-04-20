@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 const types = {
   LIST: 'LIST',
+  LOGIN: 'LOGIN'
 }
 
 export default new Vuex.Store({
@@ -12,18 +13,24 @@ export default new Vuex.Store({
     list:{
       title:'',
       src:''
-    }
+    },
+    login: false
   },
   mutations: {
     [types.LIST](state,payload){
       state.list = payload
+    },
+    [types.LOGIN](state,payload){
+      state.login = payload
     }
   },
   actions: {
-    list: (({commit},val)=>{
+    list: (({commit}, val)=>{
       commit(types.LIST,val)
-    })
+    }),
+    login: (({commit}, val)=>{
+      commit(types.LOGIN, val)
+    }),
   },
-  modules: {
-  }
+
 })

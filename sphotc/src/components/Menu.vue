@@ -9,21 +9,18 @@
             <div class="profile">
                 <div class="avatar"></div>
                 <div class="info">
-                    <p class="number">15818333930</p>
-                    <p class="text">{{$t('menu.acceptor')}}</p>
+                    <p class="number">{{ login ? '15818333930' : $t('sign_in.text')}}</p>
+                    <p class="text">{{ login ? $t('menu.acceptor') : ''}}</p>
                 </div>
                 <div class="sign_out">
-                     <router-link to="/Sign_in">
-                        <img :src=imgs.SignOutAlt alt="icon" />
-                    </router-link>
+                    <img :src=" !login ? imgs.SignInAlt : imgs.SignOutAlt" alt="icon" @click="sign_out" />
                 </div>
             </div>
             <div class="money">
                 <span>USDT{{$t('menu.unit_price')}} : </span> 
-                <span class="num">6.420000</span>
+                <span class="num">{{login ? '6.420000' : '0.00'}}</span>
             </div>
             <div class="listBox">
- 
                 <div v-for="(item,index) in data" :key="index">
                     <div class="list" @click="click(index)">
                         <div>
@@ -40,9 +37,9 @@
 
                      <ul  v-if="item.subMenu" :style="{
                             display: item.clickShow ? 'flex' : 'none',
-                            flexDirection: index === 5 ? 'row' : 'column' 
+                            flexDirection: index === 6 ? 'row' : 'column' 
                         }">
-                        <li v-for="(li,i) in item.subMenu" :key="i">
+                        <li v-for="(li,i) in item.subMenu" :key="i" >
 
                             <img v-if="li.text" :src="imgs.Bullseye" alt="icon" />
                             <span v-if="li.text" @click="subClick(li.text, li.src)">{{$t(li.text)}}</span>
@@ -65,6 +62,7 @@
 <script>
 import Times from '@/assets/images/Icon/FA/Times.svg'
 import SignOutAlt from '@/assets/images/Icon/FA/SignOutAlt.svg'
+import SignInAlt from '@/assets/images/Icon/FA/SignInAlt.svg'
 import LinkSvg from '@/assets/images/Icon/FA/Link.svg'
 import AngleRight from '@/assets/images/Icon/FA/AngleRight.svg'
 import Bullseye from '@/assets/images/Icon/FA/Bullseye.svg'
@@ -79,11 +77,18 @@ export default{
           imgs:{
             Times,
             SignOutAlt,
+            SignInAlt,
             LinkSvg,
             AngleRight,
             Bullseye
           },
           data:[
+               {
+                    text: 'home.home',
+                    subMenu:[
+                    ],
+                    clickShow: false,
+                },
                {
                     text: 'menu.order',
                     subMenu:[
@@ -172,32 +177,63 @@ export default{
                     ],
                     clickShow:false
                 },
-          ]
+          ],
+
       }
   },
   computed:{
       left(){
           return !this.show ? '-100vw' : 0
+      },
+      login(){
+          return this.$store.state.login
       }
+  },
+  mounted(){
   },
   methods:{
       close(){
           this.$emit('setMenu')
       },
       click(i){
-          this.data[i].clickShow = !this.data[i].clickShow
+          if(i ===  0){
+              if(this.$router.currentRoute.name === 'Home') return 
+              this.$router.push({name:'Home'})
+          }else{
+            this.data[i].clickShow = !this.data[i].clickShow
+          }
 
       },
       subClick(text,src){
-        if(src !== ''){
-            let title = text
-            this.$store.dispatch("list", {title,src})
-            this.close()
+        if(!this.login){
+            this.$router.push({name:'Sign_in'})
+             return false
+        }else{
+            if(this.$router.currentRoute.name !== 'Entrance'){
+                this.$router.push({name:'Entrance'})
+            }
+            if(src !== ''){
+                let title = text
+                this.$store.dispatch("list", {title,src})
+                this.close()
+            }
         }
+
       },
       changeLanguage(lan){
         i18n.locale = lan
         localStorage.setItem("locale", lan)
+      },
+      sign_out(){
+          if(this.login){
+            this.$store.dispatch("login", false)
+            localStorage.setItem("login", false)
+            if(this.$router.currentRoute.name === 'Home') return 
+            this.$router.push({name:'Home'})
+          }else{
+              this.$router.push({name:'Sign_in'})
+          }
+
       }
   }
 }
@@ -212,6 +248,7 @@ export default{
         position:absolute;
         top:0;
         transition: 1s;
+        z-index: 999;
         .menuWrap{
             width:100vw;
             height:calc(100vh - 40px);
