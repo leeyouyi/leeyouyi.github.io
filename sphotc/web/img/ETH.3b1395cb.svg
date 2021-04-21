@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Cryptocurrency/ETH</title>
+    <g id="Icon/Cryptocurrency/ETH" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(5.000000, 2.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <polygon id="Path" points="5.31590414 12.043573 5.31590414 16 10.2309368 9.11546841"></polygon>
+            <g transform="translate(5.315904, 0.000000)" id="Path">
+                <polygon points="4.72331155 7.84313725 0 -6.19209356e-16 0 5.69934641"></polygon>
+                <polygon points="0 6.13507625 0 11.0152505 4.68845316 8.2788671"></polygon>
+            </g>
+            <g transform="translate(0.191721, 0.000000)" id="Path">
+                <polygon points="0 7.84313725 4.72331155 -6.19209356e-16 4.72331155 5.69934641"></polygon>
+                <polygon points="4.72331155 6.13507625 4.72331155 11.0152505 0.0348583878 8.2788671"></polygon>
+            </g>
+            <polygon id="Path" points="4.89760349 12.043573 4.89760349 16 0 9.11546841"></polygon>
+        </g>
+    </g>
+</svg>
