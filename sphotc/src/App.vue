@@ -14,7 +14,8 @@ export default {
     if(login){
       this.$store.dispatch("login", login)
     } 
-
+    
   }
 }
+
 </script>
