@@ -12,7 +12,7 @@
     "core-js": "^3.6.5",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
-    "swiper": "^6.3.5",
+    "swiper": "^6.5.1",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1",
     "vue-i18n": "^8.22.2",
