@@ -76,3 +76,5 @@ function onApplePayButtonClicked() {
   session.begin();
   console.log(session);
 }
+
+console.log("load js");
