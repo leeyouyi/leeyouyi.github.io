@@ -5,12 +5,30 @@ if (window.ApplePaySession) {
   promise.then(function (canMakePayments) {
     if (canMakePayments) {
       // Display Apple Pay button here.
-      console.log("Display Apple Pay button here.");
+      console.log("Apple Pay is supported");
     }
   });
 }
 
-function handleClick() {
+async function validateMerchant(validationURL) {
+  const data = { validationURL: validationURL };
+  const response = await fetch("yourAPIEndpoint", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  return response.json();
+}
+
+function onApplePayButtonClicked() {
+  // Ensure browser supports Apple Pay
+  if (!ApplePaySession) {
+    return;
+  }
   // Define ApplePayPaymentRequest
   /** Apple Pay付款請求 */
   const request = {
@@ -31,7 +49,14 @@ function handleClick() {
   /**  驗證商戶 */
   session.onvalidatemerchant = async (event) => {
     // Call your own server to request a new merchant session.
-    const merchantSession = await validateMerchant();
+    const hostName = window.location.host;
+    const merchantSession = await validateMerchant(
+      applePayConfig,
+      event.validationURL,
+      hostName
+    );
+    console.log("merchantSession", merchantSession);
+    // const merchantSession = await validateMerchant();
     session.completeMerchantValidation(merchantSession);
   };
 
