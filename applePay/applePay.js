@@ -1,4 +1,5 @@
 function onApplePayButtonClicked() {
+  console.log("onApplePayButtonClicked");
   if (!ApplePaySession) {
     return;
   }
@@ -73,4 +74,5 @@ function onApplePayButtonClicked() {
   };
 
   session.begin();
+  console.log(session);
 }
