@@ -49,12 +49,7 @@ function onApplePayButtonClicked() {
   /**  驗證商戶 */
   session.onvalidatemerchant = async (event) => {
     // Call your own server to request a new merchant session.
-    const hostName = window.location.host;
-    const merchantSession = await validateMerchant(
-      applePayConfig,
-      event.validationURL,
-      hostName
-    );
+    const merchantSession = await validateMerchant(event.validationURL);
     console.log("merchantSession", merchantSession);
     // const merchantSession = await validateMerchant();
     session.completeMerchantValidation(merchantSession);
