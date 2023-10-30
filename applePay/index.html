@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>applePay</title>
   </head>
-  <script
-    async
-    crossorigin
-    src="https://applepay.cdn-apple.com/jsapi/v1.1.0/apple-pay-sdk.js"
-  ></script>
+
   <style>
     apple-pay-button {
       --apple-pay-button-width: 150px;
@@ -29,4 +25,10 @@
   </body>
 
   <script src="/applePay/applePay.js"></script>
+  <script
+    async
+    crossorigin
+    src="https://applepay.cdn-apple.com/jsapi/v1.1.0/apple-pay-sdk.js"
+    onload="onApplePayLoad"
+  ></script>
 </html>
