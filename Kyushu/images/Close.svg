@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="8px" height="8px" viewBox="0 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Icon/Close</title>
-    <g id="Icon/Close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="-7.10542736e-15" y1="-1.50990331e-14" x2="7.77817459" y2="7.77817459" id="Line-2" stroke="#121213"></line>
-        <line x1="-7.10542736e-15" y1="-1.50990331e-14" x2="7.77817459" y2="7.77817459" id="Line-2" stroke="#121213" transform="translate(3.889087, 3.889087) scale(-1, 1) translate(-3.889087, -3.889087) "></line>
-    </g>
-</svg>
