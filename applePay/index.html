@@ -20,15 +20,13 @@
       buttonstyle="black"
       type="plain"
       locale="en-US"
-      onclick="onApplePayButtonClicked"
     ></apple-pay-button>
   </body>
-
   <script src="/applePay/applePay.js"></script>
   <script
     async
     crossorigin
     src="https://applepay.cdn-apple.com/jsapi/v1.1.0/apple-pay-sdk.js"
-    onload="onApplePayLoad"
+    onload="onApplePayLoad()"
   ></script>
 </html>
