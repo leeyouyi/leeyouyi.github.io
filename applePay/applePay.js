@@ -1,3 +1,4 @@
+/** 檢查apple pAy 可不可用 */
 if (window.ApplePaySession) {
   var merchantIdentifier = "example.com.store";
   var promise =
@@ -8,6 +9,8 @@ if (window.ApplePaySession) {
       console.log("Apple Pay is supported");
     }
   });
+} else {
+  console.log("Please open on a supported browser");
 }
 
 async function validateMerchant(validationURL) {
@@ -48,8 +51,9 @@ function onApplePayButtonClicked() {
 
   /**  驗證商戶 */
   session.onvalidatemerchant = async (event) => {
+    console.log("event", event);
     // Call your own server to request a new merchant session.
-    const merchantSession = await validateMerchant(event.validationURL);
+    const merchantSession = await validateMerchant(event);
     console.log("merchantSession", merchantSession);
     // const merchantSession = await validateMerchant();
     session.completeMerchantValidation(merchantSession);
@@ -59,12 +63,14 @@ function onApplePayButtonClicked() {
   session.onpaymentmethodselected = (event) => {
     // Define ApplePayPaymentMethodUpdate based on the selected payment method.
     // No updates or errors are needed, pass an empty object.
+    console.log("paymentChange", event);
     const update = {};
     session.completePaymentMethodSelection(update);
   };
 
   /** 出貨方式已選擇  */
   session.onshippingmethodselected = (event) => {
+    console.log("shippingMethodChange", event);
     // Define ApplePayShippingMethodUpdate based on the selected shipping method.
     // No updates or errors are needed, pass an empty object.
     const update = {};
@@ -73,6 +79,7 @@ function onApplePayButtonClicked() {
 
   /** 出貨聯絡方式已選擇 */
   session.onshippingcontactselected = (event) => {
+    console.log("onshippingcontactselected", event);
     // Define ApplePayShippingContactUpdate based on the selected shipping contact.
     const update = {};
     session.completeShippingContactSelection(update);
@@ -80,6 +87,7 @@ function onApplePayButtonClicked() {
 
   /** 授權付款 */
   session.onpaymentauthorized = (event) => {
+    console.log("onpaymentauthorized", event);
     // Define ApplePayPaymentAuthorizationResult
     const result = {
       status: ApplePaySession.STATUS_SUCCESS,
