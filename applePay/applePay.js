@@ -42,14 +42,14 @@ function onApplePayButtonClicked() {
   // Define ApplePayPaymentRequest
   /** Apple Pay付款請求 */
   const request = {
-    countryCode: "US",
-    currencyCode: "USD",
+    countryCode: "TW",
+    currencyCode: "TWD",
     merchantCapabilities: ["supports3DS"],
     supportedNetworks: ["visa", "masterCard", "amex", "discover"],
     total: {
       label: "Demo (Card is not charged)",
       type: "final",
-      amount: "1.99",
+      amount: "100",
     },
   };
 
