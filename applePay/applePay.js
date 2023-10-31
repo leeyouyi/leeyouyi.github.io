@@ -63,8 +63,10 @@ function onApplePayButtonClicked() {
     // Call your own server to request a new merchant session.
     const merchantSession = await validateMerchant();
     console.log("merchantSession", merchantSession);
-    // const merchantSession = await validateMerchant();
-    session.completeMerchantValidation(merchantSession);
+    //  const merchantSession = await validateMerchant();
+    const completeMerchantValidation =
+      session.completeMerchantValidation(merchantSession);
+    console.log(completeMerchantValidation);
   };
 
   /** 已選擇付款方式 */
