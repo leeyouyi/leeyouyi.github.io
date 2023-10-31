@@ -1,6 +1,7 @@
 /** 檢查apple pAy 可不可用 */
 if (window.ApplePaySession) {
-  var merchantIdentifier = "example.com.store";
+  var merchantIdentifier =
+    "6e893fcb7edc03dc5374185df379ee5a23b44a98e46e3c1861982077470d7ee7";
   var promise =
     ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
   promise.then(function (canMakePayments) {
