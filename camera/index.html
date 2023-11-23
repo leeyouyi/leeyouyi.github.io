@@ -142,22 +142,24 @@
     document.addEventListener("DOMContentLoaded", scanner);
 
     function scanner() {
-      var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
-        fps: 10,
-        qrbox: 250,
-        useBarCodeDetectorIfSupported: true,
-        willReadFrequently: true,
-        showZoomSliderIfSupported: true,
-        defaultZoomValueIfSupported: 5,
-      });
-      function onScanSuccess(decodedText, decodedResult) {
-        // Handle on success condition with the decoded text or result.
-        console.log(`Scan result: ${decodedText}`, decodedResult);
-        // ...
-        // html5QrcodeScanner.clear();
-        // ^ this will stop the scanner (video feed) and clear the scan area.
-      }
-      html5QrcodeScanner.render(onScanSuccess);
+      // var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
+      //   fps: 10,
+      //   qrbox: 250,
+      //   useBarCodeDetectorIfSupported: true,
+      //   willReadFrequently: true,
+      //   showZoomSliderIfSupported: true,
+      //   defaultZoomValueIfSupported: 5,
+      // });
+
+      // function onScanSuccess(decodedText, decodedResult) {
+      //   // Handle on success condition with the decoded text or result.
+      //   console.log(`Scan result: ${decodedText}`, decodedResult);
+      //   // ...
+      //   html5QrcodeScanner.clear();
+      //   // ^ this will stop the scanner (video feed) and clear the scan area.
+      // }
+
+      // html5QrcodeScanner.render(onScanSuccess, onScanError);
       // const html5QrCode = new Html5Qrcode("reader");
       // const config = {
       //   fps: 10,
@@ -176,27 +178,24 @@
       //   config,
       //   qrCodeSuccessCallback
       // );
-      // var resultContainer = document.getElementById("qr-reader-results");
-      // var lastResult,
-      //   countResults = 0;
-      // function onScanSuccess(qrCodeMessage) {
-      //   console.log(qrCodeMessage);
-      //   if (qrCodeMessage !== lastResult) {
-      //     ++countResults;
-      //     lastResult = qrCodeMessage;
-      //     resultContainer.innerHTML += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
-      //   }
-      // }
-      // var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
-      //   fps: 10,
-      //   qrbox: 250,
-      //   aspectRatio: 1,
-      //   useBarCodeDetectorIfSupported: true,
-      //   willReadFrequently: true,
-      //   showZoomSliderIfSupported: true,
-      //   defaultZoomValueIfSupported: 5,
-      // });
-      // html5QrcodeScanner.render(onScanSuccess);
+      var resultContainer = document.getElementById("qr-reader-results");
+      var lastResult,
+        countResults = 0;
+
+      function onScanSuccess(qrCodeMessage) {
+        console.log(qrCodeMessage);
+        if (qrCodeMessage !== lastResult) {
+          ++countResults;
+          lastResult = qrCodeMessage;
+          resultContainer.innerHTML += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
+        }
+      }
+
+      var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
+        fps: 10,
+        qrbox: 250,
+      });
+      html5QrcodeScanner.render(onScanSuccess);
     }
 
     // Html5Qrcode.getCameras()
