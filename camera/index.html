@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>camera</title>
-    <!-- <script type="text/javascript" src="./js/instascan.min.js"></script> -->
+
     <script
       src="https://unpkg.com/html5-qrcode"
       type="text/javascript"
@@ -12,172 +12,14 @@
   </head>
   <body>
     <div id="qr-reader" style="width: 500px"></div>
-    <!-- <video
-      id="videoElement"
-      class="videoElement"
-      autoplay
-      muted
-      playsinline
-    ></video> -->
-    <!-- <button onclick="switchCamera()">切換鏡頭</button> -->
-    <!-- <button onclick="openScanner()">開始掃描</button> -->
+
     <div id="qr-reader-results"></div>
   </body>
-
-  <!-- <script>
-    const videoElement = document.getElementById("videoElement");
-
-    // 切換鏡頭
-    function switchCamera() {
-      if (videoElement.srcObject) {
-        let videoTracks = videoElement.srcObject.getVideoTracks();
-        if (videoTracks.length > 0) {
-          let currentTrack = videoTracks[0];
-          let facingMode = currentTrack.getSettings().facingMode;
-
-          const constraints = { video: {} };
-          if (facingMode === "user") {
-            constraints.video.facingMode = "environment"; // 切換到後鏡頭
-          } else {
-            constraints.video.facingMode = "user"; // 切換到前鏡頭
-          }
-
-          // 停止原本的視訊串流
-          videoTracks.forEach(function (track) {
-            track.stop();
-          });
-
-          // 確保瀏覽器支援 MediaDevices API
-          if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-            // 取得新的視訊串流
-            navigator.mediaDevices
-              .getUserMedia(constraints)
-              .then(function (stream) {
-                videoElement.srcObject = stream;
-              })
-              .catch(function (error) {
-                console.error("無法取得視訊串流:", error);
-                alert(
-                  "您使用的瀏覽器不支援視訊串流，請使用其他瀏覽器，再重新開啟頁面！"
-                );
-              });
-          } else {
-            alert(
-              "您使用的瀏覽器不支援視訊串流，請使用其他瀏覽器，再重新開啟頁面！"
-            );
-          }
-        }
-      }
-    }
-
-    function startCam() {
-      // 手機前後鏡頭切換 前鏡頭為 'user'，後鏡頭為 'environment'
-      const constraints = { video: { facingMode: "environment" } };
-      // 確保瀏覽器支援MediaDevices API
-      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        // 取得視訊串流
-        navigator.mediaDevices
-          .getUserMedia(constraints)
-          .then(function (stream) {
-            // iOS 手機使用時，必須增加的屬性
-            videoElement.setAttribute("autoplay", "");
-            videoElement.setAttribute("muted", "");
-            videoElement.setAttribute("playsinline", "");
-
-            videoElement.srcObject = stream;
-
-            // 每秒繪製一格畫面
-            setInterval(function () {
-              let canvas = document.createElement("canvas");
-              canvas.width = videoElement.videoWidth;
-              canvas.height = videoElement.videoHeight;
-              canvas
-                .getContext("2d")
-                .drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-
-              // 改變圖片解析度
-              let scaleFactor = 2; // 調整這個數值以增加解析度
-
-              let offscreenCanvas = document.createElement("canvas");
-              offscreenCanvas.width = canvas.width * scaleFactor;
-              offscreenCanvas.height = canvas.height * scaleFactor;
-              let offscreenCtx = offscreenCanvas.getContext("2d");
-              offscreenCtx.drawImage(
-                canvas,
-                0,
-                0,
-                offscreenCanvas.width,
-                offscreenCanvas.height
-              );
-
-              // 直接顯示在前端
-              // 需要動態創建 <img> 元素，因為手機版可能會無法讀取
-              let imageElement = document.createElement("img");
-
-              // 將 <img> 元素添加到 HTML 中的指定元素上
-              let containerElement = document.getElementById("imageContainer");
-              containerElement.innerHTML = "";
-              imageElement.setAttribute("style", "width:100%");
-              containerElement.appendChild(imageElement);
-              imageElement.src = offscreenCanvas.toDataURL("image/jpeg", 1);
-            }, 1000); // 每秒繪製一次畫面
-          })
-          .catch(function (error) {
-            console.log("無法取得視訊串流：", error);
-            alert(
-              "您使用的瀏覽器不支援視訊串流，請使用其他瀏覽器，再重新開啟頁面！"
-            );
-          });
-      } else {
-        alert(
-          "您使用的瀏覽器不支援視訊串流，請使用其他瀏覽器，再重新開啟頁面！"
-        );
-      }
-    }
-    // 初始執行函式
-    startCam();
-  </script> -->
 
   <script>
     document.addEventListener("DOMContentLoaded", scanner);
 
     function scanner() {
-      // var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
-      //   fps: 10,
-      //   qrbox: 250,
-      //   useBarCodeDetectorIfSupported: true,
-      //   willReadFrequently: true,
-      //   showZoomSliderIfSupported: true,
-      //   defaultZoomValueIfSupported: 5,
-      // });
-
-      // function onScanSuccess(decodedText, decodedResult) {
-      //   // Handle on success condition with the decoded text or result.
-      //   console.log(`Scan result: ${decodedText}`, decodedResult);
-      //   // ...
-      //   html5QrcodeScanner.clear();
-      //   // ^ this will stop the scanner (video feed) and clear the scan area.
-      // }
-
-      // html5QrcodeScanner.render(onScanSuccess, onScanError);
-      // const html5QrCode = new Html5Qrcode("reader");
-      // const config = {
-      //   fps: 10,
-      //   qrbox: 250,
-      //   aspectRatio: 1,
-      //   useBarCodeDetectorIfSupported: true,
-      //   willReadFrequently: true,
-      //   showZoomSliderIfSupported: true,
-      //   defaultZoomValueIfSupported: 5,
-      // };
-      // const qrCodeSuccessCallback = (message) => {
-      //   console.log(message);
-      // };
-      // html5QrCode.start(
-      //   { facingMode: "environment" },
-      //   config,
-      //   qrCodeSuccessCallback
-      // );
       var resultContainer = document.getElementById("qr-reader-results");
       var lastResult,
         countResults = 0;
@@ -197,47 +39,5 @@
       });
       html5QrcodeScanner.render(onScanSuccess);
     }
-
-    // Html5Qrcode.getCameras()
-    //   .then((devices) => {
-    //     /**
-    //      * devices would be an array of objects of type:
-    //      * { id: "id", label: "label" }
-    //      */
-    //     if (devices && devices.length) {
-    //       var cameraId = devices[0].id;
-    //       console.log(cameraId);
-    //       // .. use this to start scanning.
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     // handle err
-    //   });
-
-    // const html5QrCode = new Html5Qrcode(
-    //   "01e6b9b95213a0611990c898af5903783051848df89beb96475394b5b2b26a3a",
-    //   "reader"
-    // );
-    // html5QrCode
-    //   .start(
-    //     cameraId,
-    //     {
-    //       fps: 10, // Optional, frame per seconds for qr code scanning
-    //       qrbox: { width: 250, height: 250 }, // Optional, if you want bounded box UI
-    //     },
-    //     (decodedText, decodedResult) => {
-    //       console.log(decodedText);
-    //       console.log(decodedResult);
-    //       // do something when code is read
-    //     },
-    //     (errorMessage) => {
-    //       console.log(errorMessage);
-    //       // parse error, ignore it.
-    //     }
-    //   )
-    //   .catch((err) => {
-    //     console.log(err);
-    //     // Start failed, handle it.
-    //   });
   </script>
 </html>
