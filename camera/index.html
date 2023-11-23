@@ -33,11 +33,16 @@
         }
       }
 
-      var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
-        fps: 10,
-        qrbox: 250,
-      });
-      html5QrcodeScanner.render(onScanSuccess);
+      // var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
+      //   fps: 10,
+      //   qrbox: 250,
+      // });
+      // html5QrcodeScanner.render(onScanSuccess);
+
+      const html5QrCode = new Html5Qrcode("reader");
+
+      const config = { fps: 10, qrbox: 250, aspectRatio: 1 };
+      html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess);
     }
   </script>
 </html>
