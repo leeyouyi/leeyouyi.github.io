@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>applePay</title>
+  </head>
+
+  <style>
+    apple-pay-button {
+      --apple-pay-button-width: 150px;
+      --apple-pay-button-height: 30px;
+      --apple-pay-button-border-radius: 3px;
+      --apple-pay-button-padding: 0px 0px;
+      --apple-pay-button-box-sizing: border-box;
+    }
+  </style>
+  <body>
+    <apple-pay-button
+      buttonstyle="black"
+      type="plain"
+      locale="en-US"
+      onclick="sdk.onApplePayButtonClicked()"
+    ></apple-pay-button>
+  </body>
+  <script src="./pay.js"></script>
+  <script>
+    /** Apple Pay付款請求 */
+    const applePayPaymentRequest = {
+      countryCode: "TW",
+      currencyCode: "TWD",
+      merchantCapabilities: ["supports3DS"],
+      supportedNetworks: ["visa", "masterCard", "jcb"],
+      total: {
+        label: "Demo (Card is not charged)",
+        type: "final",
+        amount: "100",
+      },
+    };
+    const sdk = new paySDK();
+    // 設定付款資訊
+    sdk.setApplePay({ applePayPaymentRequest });
+    // 設定後端取得 Session的回傳的 function
+    sdk.setAppleValidateMerchant(validateMerchant);
+    // 與後端溝通的 function必須回傳 transactionSession
+    async function validateMerchant(validationURL) {
+      // console.log(validationURL);
+      /** 登入api */
+      const loginData = await fetch(
+        "https://vmpp.tradevan.com.tw/tvPayGateway/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: "test_role20",
+            userPw: "test_role20",
+          }),
+        }
+      ).then(function (response) {
+        return response.json();
+      });
+      /** 取得登入 token  */
+      const token = loginData.result.token;
+      /** 建立訂單 */
+      const orderData = {
+        bankId: "956",
+        merchantId: "0130800048",
+        merchantCode: "97162640",
+        terminalId: "70503275",
+        paymentType: "A",
+        amount: 100,
+        validationURL:
+          "https://apple-pay-gateway-cert.apple.com/paymentservices/startSession",
+        domainName: "vmpp.tradevan.com.tw",
+        displayName: "TEST",
+        idNumber: "",
+        prodCode: "",
+        transMode: "0",
+        writeoffNo: "",
+        orderDesc: "",
+        payerCustId: "",
+        payeeCustId: "",
+        products: [
+          {
+            subMid: "12345678",
+            name: "行動測試1",
+            img: "https:www.google.com.tw",
+            unitCount: 1,
+            unitPrice: 200,
+            unitFinalPrice: 200,
+          },
+        ],
+      };
+      /** 訂單api */
+      const addOrder = await fetch(
+        "https://vmpp.tradevan.com.tw/tvPayGateway/order/mobilePay/v2/addOrder",
+        {
+          method: "POST",
+          headers: {
+            authorization: token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderData),
+        }
+      ).then(function (response) {
+        return response.json();
+      });
+      /** 取得訂單號碼 */
+      const responseOrderNo = addOrder.result.orderNo;
+      const getTransactionSessionData = { orderNo: responseOrderNo };
+
+      /** 取得 transactionSession  */
+      const transactionSession = await fetch(
+        "https://vmpp.tradevan.com.tw/tvPayGateway/order/mobilePay/v2/getTransactionSession",
+        {
+          method: "POST",
+          headers: {
+            authorization: token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(getTransactionSessionData),
+        }
+      ).then(function (response) {
+        return response.json();
+      });
+      return transactionSession.result.transactionSession;
+    }
+    sdk.setApplePayCallback(getApplePayToken);
+    // 取得 paymentToken 傳付款資訊到後端
+    function getApplePayToken(paymentToken) {
+      console.log("paymentToken", paymentToken);
+      //回傳成功或失敗
+      let result;
+      if ("success") {
+        result = true;
+      } else {
+        result = false;
+      }
+      // 設定完成付款的狀態(成功或失敗)
+      return sdk.setApplePayCompletePayment(result);
+    }
+  </script>
+</html>
