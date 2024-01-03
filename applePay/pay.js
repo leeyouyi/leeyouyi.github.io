@@ -294,6 +294,7 @@ class paySDK {
 
     /**  驗證商戶 */
     session.onvalidatemerchant = async (event) => {
+      console.log(event);
       // Call your own server to request a new merchant session.
       const merchantSession = await sdk.applePay.validateMerchant(
         event.validationURL
