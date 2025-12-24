@@ -18,7 +18,7 @@ html {
   align-items: center;
   height: 60px;
   margin-top: 0;
-  padding-right: 15px;
+  padding-right: 30px;
 }
 .sign-in .to-home {
   width: 36px;
@@ -89,7 +89,7 @@ html {
   padding-left: 45px;
 }
 .sign-in .pr-45p {
-  padding-right: 15px;
+  padding-right: 45px;
 }
 .sign-in .opacity-2 {
   opacity: 0.2;
@@ -644,7 +644,7 @@ html {
   flex-wrap: wrap;
 }
 .sign-in .stamp-mission .stamp-mission-body .stamp-item {
-  width: 130px;
+  width: 120px;
   height: 135px;
   display: flex;
   flex-direction: column;
@@ -1233,11 +1233,6 @@ html {
   cursor: not-allowed;
 }
 
-@media (max-width: 1400px) {
-  .sign-in .stamp-mission .stamp-mission-wrap {
-    max-width: 300px;
-  }
-}
 @media (max-width: 1280px) {
   .sign-in .d-flex {
     gap: 30px;
@@ -1282,24 +1277,26 @@ html {
     height: unset;
   }
   .sign-in .wrapper .check-in {
-    width: 280px;
+    width: 250px;
   }
   .sign-in .wrapper .sign_in_box button {
-    width: 280px;
+    width: 250px;
   }
   .sign-in .wrapper .stamp-mission-wrap {
-    width: 280px;
+    width: 250px;
   }
   .sign-in #calendar-app {
     max-width: 250px;
   }
   .sign-in #calendar-app .weekdays span {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
   }
   .sign-in #calendar-app .calendar-days span {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
   }
   .sign-in .stamp-mission .stamp-mission-wrap {
     max-width: 460px;
@@ -1308,6 +1305,8 @@ html {
 @media (max-width: 992px) {
   .sign-in ul.top-nav {
     height: 40px;
+    padding-right: 30px;
+    margin-right: 0px !important;
   }
   .sign-in ul.top-nav li a {
     width: auto !important;
@@ -1322,12 +1321,6 @@ html {
   }
   .sign-in .login-out .icon-logout:before {
     font-size: 2.08rem;
-  }
-  .sign-in .pr-45p {
-    padding-right: 5px;
-  }
-  .sign-in .pl-45p {
-    padding-left: 5px;
   }
   .sign-in .d-flex {
     gap: 0px;
@@ -1345,18 +1338,25 @@ html {
   }
   .sign-in .wrapper .achievement .img-box {
     width: 100%;
+    max-width: 90%;
     height: auto;
   }
+  .sign-in .wrapper .achievement .img-box .achievement-left {
+    margin-left: 10%;
+  }
+  .sign-in .wrapper .achievement .img-box .achievement-left img {
+    width: unset;
+    height: unset;
+  }
   .sign-in .wrapper .achievement .welfare {
-    max-width: 335px;
+    max-width: 90%;
     gap: 10px;
-    padding: 10px;
   }
   .sign-in .wrapper .achievement .welfare .welfare-item {
     width: 30%;
   }
   .sign-in .wrapper .stamp-mission-wrap {
-    width: 460px;
+    width: 400px;
   }
   .sign-in .wrapper #calendar-app {
     max-width: 100vw;
@@ -1410,12 +1410,6 @@ html {
   .sign-in .login-out .icon-logout:before {
     font-size: 2.08rem;
   }
-  .sign-in .pr-45p {
-    padding-right: 5px;
-  }
-  .sign-in .pl-45p {
-    padding-left: 5px;
-  }
   .sign-in .d-flex {
     gap: 0px;
     flex-direction: column;
@@ -1434,8 +1428,15 @@ html {
     width: 100%;
     height: auto;
   }
+  .sign-in .wrapper .achievement .img-box .achievement-left {
+    margin-left: unset;
+  }
+  .sign-in .wrapper .achievement .img-box .achievement-left img {
+    width: unset;
+    height: unset;
+  }
   .sign-in .wrapper .achievement .welfare {
-    max-width: 335px;
+    max-width: 90%;
     gap: 10px;
     padding: 10px;
   }
@@ -1482,5 +1483,13 @@ html {
   }
   .achievement-modal .achievement-list .achievement-item .achievement-right {
     height: 140px;
+  }
+}
+@media (max-width: 375px) {
+  .sign-in .pl-45p {
+    padding-left: 10px;
+  }
+  .sign-in .pr-45p {
+    padding-right: 10px;
   }
 } /*# sourceMappingURL=sign-in.css.map */

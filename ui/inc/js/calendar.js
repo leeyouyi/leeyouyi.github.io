@@ -3,7 +3,7 @@ function renderCalendar(currentDate, unsigned, signed) {
   const rocYear = year - 1911;
   const month = currentDate.getMonth(); // 0-11
   const unsignedDates = unsigned || [1, 2, 3, 4, 5, 6];
-  const signedDates = signed || [7, 8, 9, 10, 11, 12];
+  const signedDates = signed || [7, 8, 9, 10, 11, 12, 13];
 
   // 1. 取得當月的第一天是星期幾 (0=週日)
   const firstDay = new Date(year, month, 1).getDay();
@@ -41,7 +41,7 @@ function renderCalendar(currentDate, unsigned, signed) {
     const dayElement = document.createElement("span");
 
     // 額外功能：標記今天的日期
-    const today = new Date();
+    const today = new Date("2025-12-17");
     if (
       year === today.getFullYear() &&
       month === today.getMonth() &&

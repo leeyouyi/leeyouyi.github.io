@@ -968,7 +968,7 @@
 
     <script>
       // 日期初始化
-      const activeDate = new Date();
+      const activeDate = new Date("2025-12-17");
       renderCalendar(activeDate);
       // 導航按鈕功能
       document.getElementById("prev-month").addEventListener("click", () => {
@@ -1094,6 +1094,11 @@
         const signInBtn = document.getElementById("sign-in-btn");
         signInBtn.disabled = true;
         signInBtn.classList.add("disabled");
+        renderCalendar(
+          activeDate,
+          [1, 2, 3, 4, 5, 6],
+          [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        );
       }
     </script>
   </body>
