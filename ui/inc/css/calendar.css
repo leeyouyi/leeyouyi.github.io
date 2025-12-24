@@ -1,0 +1,121 @@
+/* 容器基本樣式 */
+#calendar-app {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  user-select: none;
+  /* 防止選擇文字 */
+}
+
+/* 標頭 (月份和導航按鈕) */
+#calendar-app .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+#calendar-app .header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #007bff;
+  padding: 5px 10px;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+#calendar-app .header button:hover {
+  background-color: #e9ecef;
+}
+
+/* 星期欄位 */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #6c757d;
+}
+
+.weekdays span:nth-child(1), /* 週日 */
+.weekdays span:nth-child(7)  /* 週六 */ {
+  color: #dc3545; /* 週末顏色 */
+}
+
+/* 日期網格 */
+#calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+
+/* 單個日期格子 */
+#calendar-days .day,
+.blank {
+  padding: 8px 0;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* 讓日期看起來像圓形按鈕 */
+  font-size: 0.9em;
+}
+
+/* 實際日期樣式 */
+#calendar-days .day {
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* 滑鼠懸停效果 */
+#calendar-days .day:hover {
+  background-color: #f8f9fa;
+}
+
+/* 今天的日期標記 */
+#calendar-days .day.today {
+  border: 2px solid #007bff;
+  color: #007bff;
+  font-weight: bold;
+  background-color: #eaf3ff;
+}
+
+/* 被選中的日期 */
+#calendar-days .day.selected {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.4);
+}
+
+/* 上個月/下個月的空白格子 */
+#calendar-days .blank {
+  visibility: hidden; /* 隱藏但保持空間 */
+}
+
+/* 讓週日和週六在日曆中顯示不同顏色 */
+#calendar-days span:nth-child(7n + 1) {
+  /* 週日 */
+  color: #dc3545;
+}
+#calendar-days span:nth-child(7n) {
+  /* 週六 */
+  color: #17a2b8;
+}
+
+/* 讓選中的週日/週六顏色為白色 */
+#calendar-days span.selected {
+  color: white !important;
+}

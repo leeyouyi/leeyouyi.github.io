@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<!-- 無障礙 -->
+<html lang="zh-Hant">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta charset="utf-8">
+    <!-- 無障礙 title要標示清楚內頁對應標題-->
+    <title>紙本文化幣-登入頁</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="藝文專用的「文化禮金」，首批受惠者為當年度18~21歲的青年禮物" />
+    <meta name="keywords" content="紙本文化幣,藝FUN券,成年禮金,文化部,文化幣,文化幣消費點平台" />
+    <meta name="author" content="文化部" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="inc/css/icomoon/style.css" rel="stylesheet">
+    <link href="inc/plugin/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+    <link href="inc/plugin/datepicker/datepicker3.css" rel="stylesheet">
+    <link href="inc/css/animate.css" rel="stylesheet">
+    <link href="inc/css/cf-layout.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../inc/js/html5shiv.js"></script>
+    <script src="../../inc/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!--Body-->
+
+<body class="for-login">
+        <!-- 無障礙 -->
+        <noscript>
+            <div style="float: left; color: #f00;">
+                很抱歉，網站的某些功能在JavaScript沒有啟用的狀態下無法正常使用。
+            </div>
+        </noscript>
+        <!-- 無障礙 -->
+        <section>
+          <a href="#content" class="skipnav" title="移到主要內容">跳到主要內容區塊</a>
+        </section>
+
+        <nav class="navbar">
+          <ul class="nav nav-pills">
+            <a href="#U" id="AU" name="U" title="上方功能區塊" accesskey="U" >:::</a>
+              <!-- 230710 -->
+              <li>
+                <a href="javascript: void(0);" data-toggle="modal" data-target=".modal-sitemap" title="[開啟彈跳視窗]網站導覽">網站導覽</a>
+              </li>
+          </ul>
+      </nav>
+
+        <div class="login-content wow fadeInLeft">
+          <!-- 無障礙 -->
+          <a href="#C" title="中央內容區塊" id="AC" accesskey="C" name="C" style="">:::</a><span class="hide">|</span>
+           <!-- 無障礙 增加id content-->
+            <div class="right-form" id="content">
+                <img src="inc/img/global/logo.png" alt="文化幣logo" class="logo"><!-- 無障礙 -->
+                <h1 class="login-title">
+                    <span>紙本文化幣</span>
+                    <p>CULTURE POINTS</p>
+                </h1>
+                <form>
+                    <!-- form-group -->
+                    <div class="form-group has-error">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><i class="icon-people"></i></span>
+                            <!-- 無障礙 增加 label跟input id及aria-label-->
+                            <label for="identity"><span class="sr-only">身分證/居留證統一證號</span></label>
+                            <input class="form-control" placeholder="身分證/居留證統一證號" type="text" id="identity" aria-label="輸入身分證號/居留證統一證號最長10位">
+                        </div>
+                        <!-- 錯誤訊息請在form-group 加上.has-error -->
+                        <span class="help-block">錯誤訊息</span>
+                    </div>
+                    <!-- / form-group -->
+                    <!-- form-group -->
+                    <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><i class="icon-pass-card"></i></span>
+                            <!-- 無障礙 增加 label跟input id及aria-label-->
+                            <label for="healthID"><span class="sr-only">健保卡卡號</span></label>
+                            <input class="form-control" placeholder="健保卡卡號" type="text" id="healthID" aria-label="輸入健保卡卡號">
+
+                        </div>
+                        <!-- 錯誤訊息請在form-group 加上.has-error -->
+                        <span class="help-block">錯誤訊息</span>
+                    </div>
+                    <!-- / form-group -->
+                     <!-- form-group -->
+                     <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><i class="icon-calendar-full"></i></span>
+                            <!-- 無障礙 增加 label跟input id及aria-label-->
+                            <label for="birthday"><span class="sr-only">出生年月日</span></label>
+                            <input class="form-control datepicker" placeholder="出生年月日" type="text" id="birthday" aria-label="輸入出生年月日">
+                        </div>
+                        <span class="help-block">錯誤訊息</span>
+                    </div>
+                    <!-- / form-group -->
+
+                    <div class="row btn-g">
+                        <div class="btn-login">
+                            <div class="col-xs-5 col-sm-4">
+                               <!-- 無障礙 按鈕記得加上title-->
+                                <a href="sign_up.html" class="btn btn-lg btn-primary-green" title="註冊按鈕​">註冊​</a>
+                            </div>
+                            <div class="col-xs-7 col-sm-8">
+                               <!-- 無障礙 按鈕記得加上title-->
+                                <a href="details.html" class="btn btn-lg btn-block btn-primary" title="登入按鈕">登入</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        <!-- 無障礙 img記得加上alt文字說明-->
+        <img src="inc/img/global/slogen.png" alt="文化幣logo" class="login-pic">
+
+
+
+
+            <!-- footer -->
+            <footer class="wow fadeInUp">
+                <div class="foot-btm">
+                    <div class="container">
+                    <!-- 無障礙 -->
+                    <a href="#Z" id="AZ" title="下方功能區塊" accesskey="Z" name="Z" title="下方選單連結區，此區塊列有[服務條款]、[隱私權公告]、[快速鍵使用說明]的連結">:::</a>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="footer-info">
+                    <!-- 無障礙 h4改p標籤 -->
+                    <p>【文化幣消費點平台】</p>
+                    <ul class="div-tb">
+                        <li class="td hd">客服專線：</li>
+                        <!-- 無障礙 a標籤增加title語意-->
+                        <li class="td"><a href="tel:+886-2-77352966" tltle="客服專線">(02)7735-2966</a></li>
+                    </ul>
+                    <ul class="div-tb">
+                      <li class="td hd">服務時間：</li>
+                      <li class="td lt">每日10:00-20:00</li>
+                  </ul>
+                    <ul class="div-tb">
+                        <li class="td hd">客服信箱：</li>
+                        <!-- 無障礙 a標籤增加title語意-->
+                        <li class="td lt"><a href="mailto:cp.service@tradevan.com.tw" title="客服信箱">cp.service@tradevan.com.tw</a></li>
+                    </ul>
+                    <ul class="div-tb">
+                        <li class="td lt">⽂字客服：店家登入後，即可看到文字客服功能</li>
+                    </ul>
+                    </div>
+                        </div>
+                        <div class="col-sm-6 rt">
+                          <ul  class="f-link">
+                            <!-- 無障礙 a標籤增加title語意-->
+                            <li><a href="javascript: void(0);" data-toggle="modal" data-target=".modal-privacy" title="[開啟彈跳視窗]服務條款​">服務條款​​</a></li>
+                            <li><a href="javascript: void(0);" data-toggle="modal" data-target=".modal-Safety" title="[開啟彈跳視窗]隱私權公告">隱私權公告​</a></li>
+                            <li><a href="javascript: void(0);" data-toggle="modal" data-target=".modal-sitemap_Modal" title="[開啟彈跳視窗]快速鍵使用說明">快速鍵使用說明​</a></li>
+                        </ul>
+                        <div class="info">
+                            <p>建議使用 Chrome 101 以上版本之瀏覽器，螢幕解析度1024X768以上瀏覽</p>
+                            <p>文化部文化幣專案辦公室製作 更新⽇期：112年3⽉23⽇</p>
+                        </div>
+                    <!-- <div class="label-aa"></div> -->
+                        </div>
+                    </div>
+                    <!-- row -->
+                    <!-- footer-info -->
+                    </div>
+                    <!-- container -->
+                </div>
+            </footer>
+            <!-- /footer -->
+
+            <!-- 服務條款 -->
+            <!-- 無障礙 增加aria-labelledby aria-hidden-->
+            <div class="modal fade modal-privacy" tabindex="-1" role="dialog" aria-labelledby="privacy" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">×</span>
+                      </button>
+                      <!-- 無障礙 標題增加id h4標籤改p標籤-->
+                      <p class="modal-title" id="privacy">服務條款​​</p>
+                    </div>
+                    <div class="modal-body">
+                      <small>生效日期：112年3月23日</small>
+                      <p>
+                        為了確保文化幣服務（含網站及APP）能持續服務所有的使用者，本服務提供了以下的安全保護措施：
+                      </p>
+                      <ul class="list-num">
+                        <li>
+                          建置防火牆設備，限制特定通訊埠的連結，防止非法入侵，以避免網站遭到非法使用，保障使用者的權益。
+                        </li>
+                        <li>
+                          使用網路入侵偵測系統，監控網路流量，並對有惡意企圖的行為進行阻隔。
+                        </li>
+                        <li>
+                          利用弱點偵測軟體，不定期針對網路系統弱點掃描，並予以補強修正。
+                        </li>
+                        <li>
+                          不定期進行滲透測試，演練發生資訊安全事件時的系統回復程序，提供本服務的持續營運。
+                        </li>
+                        <li>定期進行備份作業。</li>
+                        <li>
+                          定時依相關作業系統廠商或應用程式廠商的安全維護通知，更新適當的修補程式（PATCH）。
+                        </li>
+                        <li>
+                          本服務之應用程式提供了以下安全保護措施：
+                          <br />
+                          (1) 所有密碼資料皆以密文型態存放，並提供密碼管理機制及留存存取紀錄。
+                          (2) 建立帳號權限管理機制，以區分各種角色之權限。 (3)
+                          程式上線前，進行白箱及黑箱測試。 (4)
+                          使用者上傳之檔案以加密方式處理及安全之通訊協定傳輸，以確保資料之安全性。
+                        </li>
+                        <li>
+                          自我保護措施<br />
+                          請妥善保管您的密碼及任何個人資料，不要將任何個人資料，尤其是
+                          密碼提供給任何人。 在您使用完成本服務後，務必記得登出帳號或關閉程
+                          式，並建議避免與他人共享電腦或使用公共電腦，以防止他人讀取您的個
+                          人資料。
+                        </li>
+                        <li>
+                          關於安全政策的修改 <br />
+                          由於科技發展迅速，相關法規訂定未臻完備前及未來可能難以預見的環境變遷等因素，本服務將視需要修改安全政策的說明，
+                          以落實保障您網路安全的立意。當本服務完成安全政策修改時，我們會立即將其刊登並以醒目標示提醒您前往點選閱讀。
+                        </li>
+                        <li>
+                          安全政策諮詢<br />
+                          如果您有任何關於本服務的資訊安全政策的問題，歡迎來信至意見信箱詢問。
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="modal-footer ct">
+                       <!-- 無障礙 button按鈕增加role-->
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" role="button">
+                        關閉
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- 隱私權公告 -->
+            <!-- 無障礙 增加aria-labelledby aria-hidden-->
+            <div class="modal fade modal-Safety" tabindex="-1" role="dialog" aria-labelledby="Safety" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">×</span>
+                    </button>
+                    <!-- 無障礙 標題增加id h4標籤改p標籤-->
+                    <p class="modal-title" id="Safety">隱私權公告</p>
+                  </div>
+                  <div class="modal-body">
+                    <small>生效日期：112年6月6日</small>
+                    <p>
+                      親愛的朋友，感謝您蒞臨文化幣平台
+                      （以下簡稱本平台），您個人的隱私權，本平台應予以尊重並加以保護。為了幫助您瞭解本平台如何蒐集、
+                      處理、利用及保護您所提供的個人資訊，請您務必詳細閱讀下列資訊：
+                    </p>
+                    <p><strong>隱私權公告適用範圍</strong></p>
+                    <p>
+                      本隱私權公告（以下簡稱本公告），適用於您在本平台及本平台提供之軟體辦理各項文化幣註冊、消費服務（以下簡稱本服務）時，
+                      所涉及的個人資料蒐集、處理、利用與保護，但不適用於與本服務功能連結之各政府機關網站。
+                    </p>
+                    <p>
+                      「本服務係由文化部（以下簡稱本部）委託關貿網路公司製作並協助維運協助維運。維運期間凡經由本服務連結之網站，
+                      不論是由全國各級政府機關獨立經營或是其他機關、團體、公司與本服務聯名經營，各網站均有其專屬之隱私權政策，
+                      本服務不負任何連帶責任。當您使用這些網站時，關於個人資料的保護，適用各該網站的隱私權政策
+                      。
+                    </p>
+                    <p><strong>個人資料之蒐集</strong></p>
+                    <p>
+                      利用本服務需申請人提供個人資料時，本服務會請您提供姓名、身份證字號或居留證號、居住地區鄉鎮、聯絡電話等個人最新、最真實之資料。
+                    </p>
+                    <p>
+                      本服務所保有之個人資料項目種類依法公開在本部網站上之個資保護專區，以供您查詢。
+                    </p>
+                    <p>
+                      本平台會記錄使用者連線時間、註冊、領取、抵用時間及在網站內所瀏覽的網頁等資料，
+                      這些資料係供本部作為網站流量與文化幣抵用行為調查的總量分析，以利於提昇本服務的服務品質，
+                      以及進行資料分析，供政策施行參考，且本服務僅對全體使用者行為總和進行分析，並不會對個別使用者進行分析。
+                    </p>
+                    <p>
+                      本服務有義務保護各當事人之隱私，不會自行修改或刪除您的個人資料及檔案。除非經過您事先同意或符合法律規定的情況始得為之。
+                    </p>
+                    <p><strong>個人資料的選擇</strong></p>
+                    <p>
+                      當您註冊時，需要驗證身份，本服務會要求您提供個人資料；您可以拒絕向本服務提供個人資料，不過本服務可能因此無法提供服務。
+                    </p>
+                    <p><strong>個人資料的利用</strong></p>
+                    <p>
+                      本服務絕不會任意提供任何您的個人資料給其他團體、個人或私人企業。
+                      但有下列情形之一者除外：
+                    </p>
+                    <p>
+                      配合司法單位合法的調查。<br />配合相關職權機關依職務需要之調查或使用。<br />已事先徵得您的同意所分享的個人資料。
+                    </p>
+                    <p>
+                      法律要求：本服務於必要時將遵循中華民國法律、命令、傳票、裁判
+                      、判斷及處分要求的內容，提供適當的資訊予法定機構，這有可能包括您的個人資料。
+                    </p>
+                    <p>
+                      分析與研究用途：本服務若需要使用您的資料做為統計分析與研究報告用途時，會先將您的資料做適度去識別化之處理（遮罩、隱碼、區
+                      間化及K-匿名化等）， 使其成為無從識別特定之當事人。
+                    </p>
+                    <p><strong>個人資料的共用</strong></p>
+                    <p>
+                      除本部為振興產業需求之目的使用外，本服務不會任意出售、交換、出租任何您的個人資料予其他團體或個人。
+                    </p>
+                    <p><strong>個人資料的查閱與更正</strong></p>
+                    <p>
+                      當您辦理各項服務時，有權查閱自己的個人資料，或依您的要求將資料刪除。
+                      處理此類要求之前，本部會要求使用者或申請人證明身份，並指明要查閱、修正或移除的資訊。查詢或請求閱覽個人資料或製給複製本者，本部得酌收必要成本費用。
+                    </p>
+                    <p><strong>個人資料正確性</strong></p>
+                    <p>
+                      本服務處理您的個人資料時，會嚴格遵守當初蒐集資訊的目的及本公告或任何適用的特定服務告知事項內容。本服務會參考其他公務機關的資料蒐集、儲存及處理慣例，
+                      以確保僅蒐集、儲存及處理提供或改善本服務執行法定職務所需的個人資料。本服務會採取合理的措施來確保所處理之個人資料的正確性、完整性及即時性，但需仰賴當事人在必要時更新或修正其個人資料。
+                    </p>
+                    <p><strong>資訊安全</strong></p>
+                    <p>
+                      本服務會採取適當的安全措施，來防止未經授權的資料查閱、竄改、揭露或毀損，其中包括就資料的蒐集、儲存、
+                      處理慣例及安全措施進行內部審查，並以實體的安全措施，防止本服務保有的個人資料檔案遭到
+                      未經授權的存取。
+                    </p>
+                    <p><strong>自我保護措施</strong></p>
+                    <p>
+                      請妥善保管您的個人資料，避免將個人資料任意提供給與您無關的任何人或其他機構。當您使用本服務所提供的各項服務功能後，
+                      務必記得登出，並建議避免與他人共享電腦或裝置，以防止他人讀取您的個人資料或信件。
+                    </p>
+                    <p>
+                      所有行為應遵循國內、外法律規範，並且對於個人所屬帳號、密碼所發
+                      生之情事負全部責任。
+                    </p>
+                    <p><strong>Cookies</strong></p>
+                    <p>
+                      當您使用資訊設備經由網際網路使用本服務時，請您務必詳細閱讀下
+                      列有關Cookies之資訊：
+                    </p>
+                    <p>
+                      Cookies是伺服器端為了區別使用者的不同喜好，由瀏覽器寫入使用者硬碟的一些簡短資訊，雖然Cookies會識別使用者的電腦，
+                      但是您可以透過在您的瀏覽器中選擇修改您對於Cookies的接受程度，如果您選擇拒絕所有的Cookies，您可能無法正常使用部分個人化服務。
+                    </p>
+                    <p>
+                      為了提供更好、更個人化的服務及方便您參與個人化的互動活動，Cookies會在您註冊或登入時建立，並在您登出時修改其狀態。
+                    </p>
+                    <p><strong>本公告之修正</strong></p>
+                    <p>
+                      由於社會環境及法令規定變遷或科技技術進步，本服務將採用最新技術與法規以盡全力保護您的隱私權與個人資料，並且定期審查本服務是否遵守本公告，故本服務將不定時修訂與公布本公告以合時宜。
+                    </p>
+                    <p>
+                      為保障您的權益，若本公告賦予您的權利有所變更，本服務會將變更內
+                      容公布於最新消息。
+                    </p>
+                    <p>
+                      本公告的每個版本都會在右上方標示生效日期，本署也會將本公告的存檔版本封存。也請您隨時查閱本公告。
+                    </p>
+                    <p><strong>隱私權保護諮詢與救濟</strong></p>
+                    <p>
+                      如果您有任何關於本公告、其他隱私權管理或本服務使用個人資料的
+                      問題，歡迎來信至意見信箱詢問。
+                    </p>
+                  </div>
+                  <div class="modal-footer ct">
+                    <!-- 無障礙 button按鈕增加role-->
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" role="button">
+                      關閉
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 快速鍵使用說明 -->
+             <!-- 無障礙 增加aria-labelledby aria-hidden-->
+            <div class="modal fade modal-sitemap_Modal" tabindex="-1" role="dialog" aria-labelledby="sitemap" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">×</span>
+                    </button>
+                    <!-- 無障礙 標題增加id h4標籤改p標籤-->
+                    <p class="modal-title" id="sitemap">快速鍵使用說明</p>
+                  </div>
+                  <div class="modal-body">
+                    <div class="text-left">
+                      <p>本網站依無障礙網頁設計原則建置，網站的主要內容分為三大區塊：</p>
+                      <p>1. 上方功能區塊、2. 中央內容區塊、3. 下方選單連結區塊</p><p>本網站的快速鍵﹝Accesskey﹞設定如下：</p>
+                      <p>・Alt+U：選單連結區塊，此區塊列有本網站主要連結。</p><p>・Alt+C：中央內容區塊，為本頁主要內容區。</p>
+                      <p>・Alt+Z：頁尾網站資訊。</p><p class="font-18">當本網站項目頁籤無法以滑鼠點選時，您可利用以下鍵盤操作方式瀏覽資料：</p>
+                      <p>・← → or ↑↓：按左右鍵或上下鍵移動標籤順序。</p><p>・Home or End→：可直接跳至標籤第一項或者最後一項。</p>
+                      <p>・Tab：停留於該標籤後,可利用Tab鍵跳至內容瀏覽該筆資料，遇到radio按鈕時<br>請配合使← → or↑↓鍵移動項目順序。</p>
+                      <p>・Tab + Shift：按Tab + Shift可往回跳至上一筆資料；<br>當跳回至標籤項目時您可繼續利用← → or↑↓鍵移動標籤順序。</p>
+                  </div>
+
+                  </div>
+                  <div class="modal-footer ct">
+                     <!-- 無障礙 button按鈕增加role-->
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" role="button">
+                      關閉
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 230710 網頁導覽-->
+             <div class="modal fade modal-sitemap" tabindex="-1" role="dialog" aria-labelledby="sitemap" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">×</span>
+                    </button>
+                    <!-- 無障礙 標題增加id h4標籤改p標籤-->
+                    <p class="modal-title" id="sitemap">網頁導覽</p>
+                  </div>
+                  <div class="modal-body">
+                    <div class="text-left">
+                      <p>本網站依無障礙網頁設計原則建置，網站的主要內容分為三大區塊：<br>
+                        1. 上方功能區塊、2. 中央內容區塊、3.下方功能區塊。
+                     </p>
+
+                     <p>本網站的快速鍵﹝Accesskey﹞設定如下：<br>
+                         Alt + U：選單連結區塊，此區塊列有本網站主要連結。<br>
+                         Alt + C：中央內容區塊，為本頁主要內容區。<br>
+                         Alt + Z：頁尾網站資訊。
+                     </p>
+                     <ul>
+                         <li class="font-weight-bold"><a href='sign_up.html' title='註冊紙本文化幣'>1. 註冊紙本文化幣</a></li>
+                         <li class="font-weight-bold"><a href='details.html' title="登入紙本文化幣">2. 登入紙本文化幣</a></li>
+                     </ul>
+                  </div>
+
+                  </div>
+                  <div class="modal-footer ct">
+                     <!-- 無障礙 button按鈕增加role-->
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" role="button">
+                      關閉
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+    <script src="inc/js/jquery.min.js"></script>
+    <!-- <script src="inc/js/jquery-migrate-1.2.1.min.js"></script>   -->
+    <script src="inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <!-- <script src="inc/plugin/bootstrap-carousel-swipe-master/carousel-swipe.js"></script> -->
+    <script src="inc/plugin/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="inc/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <!--JS plugins-->
+    <script src="inc/js/base.js"></script>
+    <script src="inc/js/wow.min.js"></script>
+    <script>
+    new WOW().init();
+    </script>
+
+</body>
+
+</html>

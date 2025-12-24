@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- 無障礙 -->
+<html lang="zh-Hant">
+  <head>
+    <!-- 無障礙 title要標示清楚內頁對應標題-->
+    <title>紙本文化幣-測試</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta
+      name="Accessible_website"
+      content="本網站通過 AA 檢測等級無障礙網頁檢測"
+    />
+    <meta charset="utf-8" />
+    <!--Mobile Specific Meta Tag-->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <!--SEO Meta Tags-->
+    <meta name="description" content="文化幣" />
+    <meta
+      name="keywords"
+      content="無障礙,網站無障礙,網站親和力,文化部,文化幣"
+    />
+    <meta name="author" content="文化部版權所有​" />
+    <!--Favicon-->
+    <link href="inc/img/favicon.ico" rel="icon" />
+    <!-- css-->
+    <link href="inc/plugin/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="inc/css/icomoon/style.css" rel="stylesheet" />
+    <link
+      href="inc/plugin/bootstrap-select/css/bootstrap-select.css"
+      rel="stylesheet"
+    />
+    <link href="inc/plugin/datepicker/datepicker3.css" rel="stylesheet" />
+    <link href="inc/css/cf-layout.css" rel="stylesheet" />
+    <link href="inc/css/calendar.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+      <script src="inc/js/html5shiv.js"></script>
+      <script src="inc/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <!--Body-->
+
+  <body class="has-rwd">
+    <!-- 無障礙 -->
+    <noscript>
+      <div style="float: left; color: #f00">
+        很抱歉，網站的某些功能在JavaScript沒有啟用的狀態下無法正常使用。
+      </div>
+    </noscript>
+    <!-- 無障礙 -->
+    <section>
+      <a href="#content" class="skipnav" title="移到主要內容"
+        >跳到主要內容區塊</a
+      >
+    </section>
+    <!-- header -->
+    <!-- 無障礙 -->
+    <a href="#U" id="AU" name="U" title="右上方功能區塊" accesskey="U">:::</a
+    ><span class="hide">|</span>
+    <div class="header">
+      <div class="main-container">
+        <a href="details.html" class="logo taipei" title="文化幣"
+          ><label class="sr-only">文化幣</label></a
+        >
+        <span class="header-tit">文化幣</span>
+
+        <ul class="top-nav for-cframe">
+          <!-- 無障礙 增加span標籤-->
+          <li>
+            <a href="login.html" title="登出按鈕" role="button"
+              ><i class="icon-logout"></i
+              ><span class="sr-only">登出按鈕</span></a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- container -->
+    </div>
+    <!--/ header -->
+    <div class="main-container">
+      <div class="content">
+        <div id="calendar-app">
+          <div class="calendar-header">
+            <button id="prev-month">&lt;</button>
+            <span id="month-year"></span>
+            <button id="next-month">&gt;</button>
+          </div>
+          <div class="weekdays">
+            <span>日</span><span>一</span><span>二</span><span>三</span
+            ><span>四</span><span>五</span><span>六</span>
+          </div>
+          <div id="calendar-days" class="days-grid"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="inc/js/calendar.js"></script>
+</html>

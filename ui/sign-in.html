@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<!-- 無障礙 -->
+<html lang="zh-Hant">
+  <head>
+    <!-- 無障礙 title要標示清楚內頁對應標題-->
+    <title>紙本文化幣-簽到記錄</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta
+      name="Accessible_website"
+      content="本網站通過 AA 檢測等級無障礙網頁檢測"
+    />
+    <meta charset="utf-8" />
+    <!--Mobile Specific Meta Tag-->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <!--SEO Meta Tags-->
+    <meta name="description" content="文化幣" />
+    <meta
+      name="keywords"
+      content="無障礙,網站無障礙,網站親和力,文化部,文化幣"
+    />
+    <meta name="author" content="文化部版權所有​" />
+    <!--Favicon-->
+    <link href="inc/img/favicon.ico" rel="icon" />
+    <!-- css-->
+    <link href="inc/plugin/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="inc/css/icomoon/style.css" rel="stylesheet" />
+    <link
+      href="inc/plugin/bootstrap-select/css/bootstrap-select.css"
+      rel="stylesheet"
+    />
+    <link href="inc/plugin/datepicker/datepicker3.css" rel="stylesheet" />
+    <link href="inc/css/cf-layout.css" rel="stylesheet" />
+    <link href="inc/css/sign-in.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+      <script src="inc/js/html5shiv.js"></script>
+      <script src="inc/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <!--Body-->
+
+  <body class="has-rwd">
+    <!-- 無障礙 -->
+    <noscript>
+      <div style="float: left; color: #f00">
+        很抱歉，網站的某些功能在JavaScript沒有啟用的狀態下無法正常使用。
+      </div>
+    </noscript>
+    <!-- 無障礙 -->
+    <section>
+      <a href="#content" class="skipnav" title="移到主要內容"
+        >跳到主要內容區塊</a
+      >
+    </section>
+
+    <!-- header -->
+    <!-- 無障礙 -->
+    <a href="#U" id="AU" name="U" title="右上方功能區塊" accesskey="U">:::</a
+    ><span class="hide">|</span>
+    <div class="header sign-in">
+      <div class="main-container">
+        <a href="details.html" class="logo taipei" title="文化幣"
+          ><label class="sr-only">文化幣</label></a
+        >
+        <span class="header-tit">文化幣</span>
+
+        <ul class="top-nav for-cframe">
+          <!-- 無障礙 增加span標籤-->
+          <li>
+            <a href="details.html" title="首頁" role="button"
+              ><span class="to-home">首頁</span></a
+            >
+          </li>
+          <li>
+            <a href="sign-in.html" title="任務活動" role="button"
+              ><span class="to-sign-in">任務活動</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="login.html"
+              class="login-out"
+              title="登出按鈕"
+              role="button"
+              ><i class="icon-logout"></i
+              ><span class="sr-only">登出按鈕</span></a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- container -->
+    </div>
+    <!--/ header -->
+
+    <div class="main-container sign-in">
+      <div class="content">
+        <div class="row">
+          <div class="pl-45p pr-45p">
+            <!-- 無障礙 -->
+            <a href="#C" title="中央內容區塊" id="AC" accesskey="C" name="C"
+              >:::</a
+            ><span class="hide">|</span>
+            <h1 class="task mt20">
+              <span class="task-span">任</span>務活動
+              <button
+                type="button"
+                class="search-icon"
+                data-bs-toggle="modal"
+                data-bs-target="#taskModal"
+                title="[開啟彈跳視窗]任務活動"
+              ></button>
+            </h1>
+            <h1 class="action">ACTIVITIES</h1>
+            <div class="d-flex w-100">
+              <!-- 等級成就 -->
+              <div class="w-30">
+                <h2 class="main-title">
+                  等級成就
+                  <!-- 無障礙 彈窗title-->
+                  <button
+                    type="button"
+                    class="search-icon"
+                    data-bs-toggle="modal"
+                    data-bs-target="#achievementModal"
+                    title="[開啟彈跳視窗]等級成就"
+                  ></button>
+                </h2>
+                <div class="wrapper">
+                  <button
+                    class="achievement"
+                    id="achievement01"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="welfare01"
+                    aria-label="開啟初心者成就"
+                  >
+                    <div class="img-box img-box-01">
+                      <div class="achievement-left">
+                        <img
+                          src="./inc/img/sign-in/trophy-1.png"
+                          alt="初心者"
+                        />
+                        <div class="achievement-left-text">
+                          <p>Lv. 1 <span>目前等級</span></p>
+                          <p>初心者</p>
+                        </div>
+                        <div class="achievement-left-bottom">查看等級成就</div>
+                      </div>
+                      <div class="achievement-right">
+                        <img
+                          src="./inc/img/sign-in/Level=1.png"
+                          alt="初心者人像"
+                        />
+                      </div>
+                    </div>
+                    <div id="welfare01" class="welfare welfare01 show-welfare">
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/amount.png"
+                            alt="消費金額"
+                          />
+                        </div>
+                        <p class="welfare-text">消費金額</p>
+                        <p class="welfare-number">100 / 300</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/badge.png"
+                            alt="徽章數量"
+                          />
+                        </div>
+                        <p class="welfare-text">徽章數量</p>
+                        <p class="welfare-number">20 / 20</p>
+                        <p class="welfare-finished">已完成</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            class="sign-in-times-img"
+                            src="./inc/img/sign-in/sign-in-times.png"
+                            alt="簽到次數"
+                          />
+                        </div>
+                        <p class="welfare-text">簽到次數</p>
+                        <p class="welfare-number">02 / 10</p>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    class="achievement"
+                    id="achievement02"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="welfare02"
+                    aria-label="開啟冒險者成就"
+                  >
+                    <div class="img-box img-box-02">
+                      <div class="achievement-left">
+                        <img
+                          src="./inc/img/sign-in/trophy-2.png"
+                          alt="冒險者"
+                        />
+                        <div class="achievement-left-text">
+                          <p>Lv. 2 <span>待升級_</span></p>
+                          <p>冒險者</p>
+                        </div>
+                        <div class="achievement-left-bottom">查看等級成就</div>
+                      </div>
+                      <div class="achievement-right">
+                        <img
+                          src="./inc/img/sign-in/Level=2.png"
+                          alt="冒險者人像"
+                        />
+                      </div>
+                    </div>
+                    <div id="welfare02" class="welfare welfare02">
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/amount.png"
+                            alt="消費金額"
+                          />
+                        </div>
+                        <p class="welfare-text">消費金額</p>
+                        <p class="welfare-number">100 / 300</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/badge.png"
+                            alt="徽章數量"
+                          />
+                        </div>
+                        <p class="welfare-text">徽章數量</p>
+                        <p class="welfare-number">20 / 20</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            class="sign-in-times-img"
+                            src="./inc/img/sign-in/sign-in-times.png"
+                            alt="簽到次數"
+                          />
+                        </div>
+                        <p class="welfare-text">簽到次數</p>
+                        <p class="welfare-number">02 / 10</p>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    class="achievement"
+                    id="achievement03"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="welfare03"
+                    aria-label="開啟菁英成就"
+                  >
+                    <div class="img-box img-box-03">
+                      <div class="achievement-left">
+                        <img src="./inc/img/sign-in/trophy-3.png" alt="菁英" />
+                        <div class="achievement-left-text">
+                          <p>Lv. 3 <span>待升級_</span></p>
+                          <p>菁英</p>
+                        </div>
+                        <div class="achievement-left-bottom">查看等級成就</div>
+                      </div>
+                      <div class="achievement-right">
+                        <img
+                          src="./inc/img/sign-in/Level=3.png"
+                          alt="菁英人像"
+                        />
+                      </div>
+                    </div>
+                    <div id="welfare03" class="welfare welfare03">
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/amount.png"
+                            alt="消費金額"
+                          />
+                        </div>
+                        <p class="welfare-text">消費金額</p>
+                        <p class="welfare-number">100 / 300</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/badge.png"
+                            alt="徽章數量"
+                          />
+                        </div>
+                        <p class="welfare-text">徽章數量</p>
+                        <p class="welfare-number">20 / 20</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            class="sign-in-times-img"
+                            src="./inc/img/sign-in/sign-in-times.png"
+                            alt="簽到次數"
+                          />
+                        </div>
+                        <p class="welfare-text">簽到次數</p>
+                        <p class="welfare-number">02 / 10</p>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    class="achievement"
+                    id="achievement04"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="welfare04"
+                    aria-label="開啟大師成就"
+                  >
+                    <div class="img-box img-box-04">
+                      <div class="achievement-left">
+                        <img src="./inc/img/sign-in/trophy-4.png" alt="大師" />
+                        <div class="achievement-left-text">
+                          <p>Lv. 4 <span>待升級_</span></p>
+                          <p>大師</p>
+                        </div>
+                        <div class="achievement-left-bottom">查看等級成就</div>
+                      </div>
+                      <div class="achievement-right">
+                        <img
+                          src="./inc/img/sign-in/Level=4.png"
+                          alt="大師人像"
+                        />
+                      </div>
+                    </div>
+                    <div id="welfare04" class="welfare welfare04">
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/amount.png"
+                            alt="消費金額"
+                          />
+                        </div>
+                        <p class="welfare-text">消費金額</p>
+                        <p class="welfare-number">100 / 300</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/badge.png"
+                            alt="徽章數量"
+                          />
+                        </div>
+                        <p class="welfare-text">徽章數量</p>
+                        <p class="welfare-number">20 / 20</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            class="sign-in-times-img"
+                            src="./inc/img/sign-in/sign-in-times.png"
+                            alt="簽到次數"
+                          />
+                        </div>
+                        <p class="welfare-text">簽到次數</p>
+                        <p class="welfare-number">02 / 10</p>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    class="achievement"
+                    id="achievement05"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="welfare05"
+                    aria-label="開啟傳說成就"
+                  >
+                    <div class="img-box img-box-05">
+                      <div class="achievement-left">
+                        <img src="./inc/img/sign-in/trophy-5.png" alt="傳說" />
+                        <div class="achievement-left-text">
+                          <p>Lv. 5 <span>待升級_</span></p>
+                          <p>傳說</p>
+                        </div>
+                        <div class="achievement-left-bottom">查看等級成就</div>
+                      </div>
+                      <div class="achievement-right">
+                        <img
+                          src="./inc/img/sign-in/Level=5.png"
+                          alt="傳說人像"
+                        />
+                      </div>
+                    </div>
+                    <div id="welfare05" class="welfare welfare05">
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/amount.png"
+                            alt="消費金額"
+                          />
+                        </div>
+                        <p class="welfare-text">消費金額</p>
+                        <p class="welfare-number">100 / 300</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/badge.png"
+                            alt="徽章數量"
+                          />
+                        </div>
+                        <p class="welfare-text">徽章數量</p>
+                        <p class="welfare-number">20 / 20</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            class="sign-in-times-img"
+                            src="./inc/img/sign-in/sign-in-times.png"
+                            alt="簽到次數"
+                          />
+                        </div>
+                        <p class="welfare-text">簽到次數</p>
+                        <p class="welfare-number">02 / 10</p>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    class="achievement"
+                    id="achievement00"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="welfare00"
+                    aria-label="開啟見習生成就"
+                  >
+                    <div class="img-box img-box-00 grayscale">
+                      <div class="achievement-left">
+                        <img
+                          src="./inc/img/sign-in/trophy-0.png"
+                          alt="見習生"
+                        />
+                        <div class="achievement-left-text">
+                          <p>Lv. 0 <span>已達成</span></p>
+                          <p>見習生</p>
+                        </div>
+                        <div class="achievement-left-bottom">查看等級成就</div>
+                      </div>
+                      <div class="achievement-right">
+                        <img
+                          src="./inc/img/sign-in/Level=0.png"
+                          alt="見習生人像"
+                        />
+                      </div>
+                    </div>
+                    <div id="welfare00" class="welfare welfare00 grayscale">
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/amount.png"
+                            alt="消費金額"
+                          />
+                        </div>
+                        <p class="welfare-text">消費金額</p>
+                        <p class="welfare-number">100 / 300</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            src="./inc/img/sign-in/badge.png"
+                            alt="徽章數量"
+                          />
+                        </div>
+                        <p class="welfare-text">徽章數量</p>
+                        <p class="welfare-number">20 / 20</p>
+                      </div>
+                      <div class="welfare-item">
+                        <div class="welfare-item-img">
+                          <img
+                            class="sign-in-times-img"
+                            src="./inc/img/sign-in/sign-in-times.png"
+                            alt="簽到次數"
+                          />
+                        </div>
+                        <p class="welfare-text">簽到次數</p>
+                        <p class="welfare-number">02 / 10</p>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <!-- 每周簽到 -->
+              <div class="w-30">
+                <h2 class="main-title">每周簽到</h2>
+                <div class="wrapper">
+                  <div class="sign_in_box">
+                    <img src="./inc/img/sign-in/sign_in.png" alt="大師" />
+                    <button
+                      type="button"
+                      id="sign-in-btn"
+                      class="sign-in-btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#sign-in-Modal"
+                      title="[開啟彈跳視窗]我要簽到"
+                      onclick="signIn()"
+                    >
+                      我要簽到
+                    </button>
+                    <span>每週簽到1次，即可獲得文化幣!</span>
+                  </div>
+
+                  <div class="check-in">
+                    <div class="check-in-box">
+                      <div class="check-in-img">
+                        <img src="./inc/img/sign-in/stamp.png" alt="蓋章" />
+                      </div>
+                      <p>累積週簽到次數：<span id="sign-in-count">1</span></p>
+                    </div>
+                  </div>
+
+                  <div id="calendar-app">
+                    <div class="calendar-header">
+                      <button
+                        title="上一個月"
+                        id="prev-month"
+                        class="month-btn"
+                      >
+                        <img src="./inc/img/sign-in/prev.png" />
+                        <span class="sr-only">上一個月</span>
+                      </button>
+                      <span id="month-year" class="month-year"></span>
+                      <button
+                        title="下一個月"
+                        id="next-month"
+                        class="month-btn"
+                      >
+                        <img src="./inc/img/sign-in/next.png" />
+                        <span class="sr-only">下一個月</span>
+                      </button>
+                    </div>
+                    <div class="weekdays">
+                      <span>週</span>
+                      <span>日</span><span>一</span><span>二</span
+                      ><span>三</span><span>四</span><span>五</span
+                      ><span>六</span>
+                    </div>
+                    <div id="calendar-days" class="calendar-days"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- 集章任務 -->
+              <div class="w-33">
+                <h2 class="main-title">
+                  集章任務
+                  <button
+                    type="button"
+                    class="search-icon"
+                    data-bs-toggle="modal"
+                    data-bs-target="#stampModal"
+                    title="[開啟彈跳視窗]集章任務"
+                  ></button>
+                </h2>
+                <div class="wrapper">
+                  <div class="stamp-mission">
+                    <div class="stamp-mission-header">
+                      <button
+                        title="上一季"
+                        id="prev-season"
+                        class="season-btn"
+                      >
+                        <img src="./inc/img/sign-in/prev.png" />
+                        <span class="sr-only">上一季</span>
+                      </button>
+                      <span id="season-year" class="season-year"></span>
+                      <button
+                        title="下一季"
+                        id="next-season"
+                        class="season-btn"
+                      >
+                        <img src="./inc/img/sign-in/next.png" />
+                        <span class="sr-only">下一季</span>
+                      </button>
+                    </div>
+                    <div class="stamp-mission-wrap">
+                      <div id="stamp-mission-body" class="stamp-mission-body">
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp01"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp02"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp03 opacity-2"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp04"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp05"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp06"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp07"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp08"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp09"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp10"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp11 opacity-2"></div>
+                          <p>極限消耗</p>
+                        </div>
+                        <div class="stamp-item">
+                          <div class="stamp-img-box stamp12"></div>
+                          <p>極限消耗</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 文化幣中獎查詢 -->
+            <!-- 無障礙 增加id content-->
+          </div>
+        </div>
+        <!--/ row -->
+      </div>
+      <!--/ content -->
+
+      <!-- 無障礙增加footer -->
+      <!-- footer -->
+      <footer class="cont-footer">
+        <a
+          href="#Z"
+          id="AZ"
+          title="下方功能區塊"
+          accesskey="Z"
+          name="Z"
+          title="下方版權宣告"
+          >:::</a
+        >
+        <div class="container">
+          <p>
+            Copyright@ 2023 Ministry of Culture,R.O.C. All Rights Reserved.
+            中華民國文化部 版權所有
+          </p>
+        </div>
+      </footer>
+      <!-- /footer -->
+    </div>
+    <!-- main-container -->
+
+    <!-- modal -->
+    <!-- 無障礙 增加aria-labelledby aria-hidden-->
+    <!-- Modal -->
+
+    <!-- 任務活動彈跳視窗 -->
+    <div
+      class="modal fade task-modal"
+      id="taskModal"
+      tabindex="-1"
+      aria-labelledby="taskModalLabel"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-white border-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="task-box">
+              <div class="task-img">
+                <img src="./inc/img/sign-in/task.png" alt="升級攻略" />
+              </div>
+              <p class="taskModalLabel" id="taskModalLabel">升級攻略</p>
+              <p>想獲得「最高成就」嗎？</p>
+              <p>透過以下方式累積經驗值：</p>
+              <div class="has-bg">
+                <div class="task-icon task-money">
+                  <img src="./inc/img/sign-in/money.png" alt="消費金額" />
+                </div>
+                <div class="task-text">累積消費達指定金額</div>
+              </div>
+              <div class="has-bg">
+                <div class="task-icon">
+                  <img src="./inc/img/sign-in/CP.png" alt="消費金額" />
+                </div>
+                <div class="task-text">收集達指定徽章數量</div>
+              </div>
+              <div class="has-bg">
+                <div class="task-icon">
+                  <img src="./inc/img/sign-in/date.png" alt="消費金額" />
+                </div>
+                <div class="task-text">週週簽到達指定次數</div>
+              </div>
+              <p>達到指定等級後，將可獲得文化幣及抽獎機會!</p>
+
+              <div class="btn-area">
+                <button
+                  type="button"
+                  class=""
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  我知道了
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 成就彈跳視窗 -->
+    <div
+      class="modal fade achievement-modal"
+      id="achievementModal"
+      tabindex="-1"
+      aria-labelledby="achievementModalLabel"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-white border-0">
+            <p class="modal-title" id="achievementModalLabel">等級達成標準​</p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="achievement-list">
+              <div class="achievement-item">
+                <div class="achievement-left">
+                  <div class="achievement-img trophy-0"></div>
+                </div>
+                <div class="achievement-right achievement-right-0">
+                  <p>Lv. 0 見習生</p>
+                  <p>歡迎來到新手村，趕快進行各項任務活動，累積經驗!</p>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-left">
+                  <div class="achievement-img trophy-1"></div>
+                </div>
+                <div class="achievement-right achievement-right-1">
+                  <p>Lv. 1 初心者</p>
+                  <p>需累計消費達600點、完成2個集章任務。</p>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-left">
+                  <div class="achievement-img trophy-2"></div>
+                </div>
+                <div class="achievement-right achievement-right-2">
+                  <p>Lv. 2 冒險者</p>
+                  <p>需累計消費達1200點、完成6個集章任務，及累積8次簽到。</p>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-left">
+                  <div class="achievement-img trophy-3"></div>
+                </div>
+                <div class="achievement-right achievement-right-3">
+                  <p>Lv. 3 菁英</p>
+                  <p>需累計消費達1,400點、完成9個集章任務，及累積12次簽到。</p>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-left">
+                  <div class="achievement-img trophy-4"></div>
+                </div>
+                <div class="achievement-right achievement-right-4">
+                  <p>Lv. 4 大師</p>
+                  <p>需累計消費達1,600點、完成12個集章任務，及累積16次簽到。</p>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-left">
+                  <div class="achievement-img trophy-5"></div>
+                </div>
+                <div class="achievement-right achievement-right-5">
+                  <p>Lv. 5 傳說</p>
+                  <p>需累計消費達1,800點、完成14個集章任務，及累積20次簽到。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--我要簽到彈跳視窗 -->
+    <div
+      class="modal fade sign-in-modal"
+      id="sign-in-Modal"
+      tabindex="-1"
+      aria-labelledby="sign-in-ModalLabel"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-white border-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="sign-in-box">
+              <div class="sign-in-img">
+                <img
+                  src="./inc/img/sign-in/sign-in-finish.png"
+                  alt="簽到成功"
+                />
+              </div>
+              <p class="sign-in-ModalLabel" id="sign-in-ModalLabel">簽到成功</p>
+              <p>每週簽到1次，即可獲得文化幣！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--集章任務彈跳視窗 -->
+    <div
+      class="modal fade stamp-modal"
+      id="stampModal"
+      tabindex="-1"
+      aria-labelledby="stampModalLabel"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-white border-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="stamp-box">
+              <p class="stampModalLabel sr-only" id="stampModalLabel">
+                您所不知道的本季徽章小秘密
+              </p>
+              <div class="stamp-title">
+                <p>您所不知道的</p>
+                <p>本季徽章小秘密</p>
+              </div>
+              <div class="stamp-content">
+                <div class="stamp-content-top">
+                  <p>本季徽章邀請知名創作者</p>
+                  <p>「<span>ＸＸＸＸ</span>」攜手合作！</p>
+                </div>
+
+                <p class="stamp-content-middle">
+                  以「以文化幣為能量，開啟四季的冒險任務！」為靈感，透過獨特的筆觸與色彩，描繪出任務中充滿想像力的世界。
+                </p>
+                <p class="stamp-content-bottom">一起來蒐集本季的任務徽章吧！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--集章任務彈跳視窗詳情 -->
+    <div
+      class="modal fade stamp-item-modal"
+      id="stamp-item-Modal"
+      tabindex="-1"
+      aria-labelledby="stamp-item-ModalLabel"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-white border-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="stamp-item-box">
+              <div class="stamp-item-img" id="stamp-item-img"></div>
+              <p class="stamp-item-title" id="stamp-item-ModalLabel">
+                時令感應
+              </p>
+              <div id="stamp-item-content" class="stamp-item-content">
+                <div class="stamp-item-text">
+                  <i class="stamp-item-icon"></i>
+                  <span>參與「結伴看國片 加碼送百點」活動</span>
+                </div>
+                <div class="stamp-item-text">
+                  <i class="stamp-item-icon"></i>
+                  <span>國片2點送1點加碼活動</span>
+                </div>
+                <div class="stamp-item-text">
+                  <i class="stamp-item-icon"></i>
+                  <span>至少完成國片消費2次</span>
+                </div>
+              </div>
+              <button type="button" id="stamp-button" class="stamp-button">
+                <i class="stamp-button-share"></i> 分享
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END modal -->
+
+    <script src="inc/js/jquery.min.js"></script>
+    <script src="inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="inc/plugin/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="inc/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script src="inc/js/base.js"></script>
+    <script src="inc/js/calendar.js"></script>
+
+    <script>
+      // 日期初始化
+      const activeDate = new Date();
+      renderCalendar(activeDate);
+      // 導航按鈕功能
+      document.getElementById("prev-month").addEventListener("click", () => {
+        activeDate.setMonth(activeDate.getMonth() - 1);
+        renderCalendar(activeDate);
+      });
+
+      document.getElementById("next-month").addEventListener("click", () => {
+        activeDate.setMonth(activeDate.getMonth() + 1);
+        renderCalendar(activeDate);
+      });
+
+      const activeDateData = [
+        {
+          className: "stamp01",
+          img: "./inc/img/sign-in/stamp01.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp02",
+          img: "./inc/img/sign-in/stamp02.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp03",
+          img: "./inc/img/sign-in/stamp03.png",
+          taskFinished: [true, false, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp04",
+          img: "./inc/img/sign-in/stamp04.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp05",
+          img: "./inc/img/sign-in/stamp05.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp06",
+          img: "./inc/img/sign-in/stamp06.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp07",
+          img: "./inc/img/sign-in/stamp07.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp08",
+          img: "./inc/img/sign-in/stamp08.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp09",
+          img: "./inc/img/sign-in/stamp09.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp10",
+          img: "./inc/img/sign-in/stamp10.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp11",
+          img: "./inc/img/sign-in/stamp11.png",
+          taskFinished: [true, false, true],
+          mission: "極限消耗",
+        },
+        {
+          className: "stamp12",
+          img: "./inc/img/sign-in/stamp12.png",
+          taskFinished: [true, true, true],
+          mission: "極限消耗",
+        },
+      ];
+      // 集章任務初始化
+      const activeSeasonDate = new Date("2026-01-01");
+      renderSeason(activeSeasonDate, activeDateData);
+      // 導航按鈕功能
+      document.getElementById("prev-season").addEventListener("click", () => {
+        activeSeasonDate.setMonth(activeSeasonDate.getMonth() - 3);
+        renderSeason(activeSeasonDate, activeDateData);
+      });
+
+      document.getElementById("next-season").addEventListener("click", () => {
+        activeSeasonDate.setMonth(activeSeasonDate.getMonth() + 3);
+        renderSeason(activeSeasonDate, activeDateData);
+      });
+
+      document.querySelectorAll(".achievement").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          const welfare = item.querySelector(".welfare");
+          const display = welfare.style.display;
+          if (display === "flex") {
+            welfare.style.display = "none";
+          } else {
+            welfare.style.display = "flex";
+          }
+        });
+      });
+
+      document.querySelectorAll(".welfare").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
+      });
+
+      function signIn() {
+        // 在這裡可以加入簽到的邏輯，例如更新簽到次數等
+        document.getElementById("sign-in-count").innerText =
+          parseInt(document.getElementById("sign-in-count").innerText) + 1;
+        const signInBtn = document.getElementById("sign-in-btn");
+        signInBtn.disabled = true;
+        signInBtn.classList.add("disabled");
+      }
+    </script>
+  </body>
+</html>
