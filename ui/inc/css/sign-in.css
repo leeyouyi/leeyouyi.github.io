@@ -1,4 +1,8 @@
 @charset "UTF-8";
+html {
+  font-size: 12px;
+}
+
 .sign-in {
   font-family: "Noto Sans TC", sans-serif;
 }
@@ -21,7 +25,7 @@
   height: 27px;
   color: #000;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.5rem;
   font-family: "Noto Sans TC", sans-serif;
   padding-right: 5px;
 }
@@ -30,7 +34,7 @@
   height: 27px;
   color: #09897d;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.5rem;
   font-family: "Noto Sans TC", sans-serif;
   padding-right: 10px;
 }
@@ -59,7 +63,7 @@
   background-repeat: no-repeat;
 }
 .sign-in .action {
-  font-size: 60px;
+  font-size: 5rem;
   font-weight: 700;
   font-family: "Noto Sans TC", sans-serif;
   color: #000;
@@ -136,13 +140,13 @@
   margin-bottom: 15px;
 }
 .sign-in .wrapper .achievement .img-box .achievement-left p {
-  font-size: 16px;
+  font-size: 1.33rem;
   font-weight: 700;
   color: #000;
   margin: 0;
 }
 .sign-in .wrapper .achievement .img-box .achievement-left p span {
-  font-size: 14px;
+  font-size: 1.16rem;
   font-weight: 400;
   color: #000;
   margin-left: 5px;
@@ -150,11 +154,21 @@
 .sign-in .wrapper .achievement .img-box .achievement-left p:nth-child(2) {
   margin-bottom: 5px;
 }
-.sign-in .wrapper .achievement .img-box .achievement-left .achievement-left-bottom {
-  font-size: 14px;
+.sign-in
+  .wrapper
+  .achievement
+  .img-box
+  .achievement-left
+  .achievement-left-bottom {
+  font-size: 1.16rem;
   font-weight: 500;
 }
-.sign-in .wrapper .achievement .img-box .achievement-left .achievement-left-bottom::after {
+.sign-in
+  .wrapper
+  .achievement
+  .img-box
+  .achievement-left
+  .achievement-left-bottom::after {
   content: "";
   display: inline-block;
   width: 14px;
@@ -353,20 +367,26 @@
   width: 100%;
   height: 100%;
 }
-.sign-in .wrapper .achievement .welfare .welfare-item .welfare-item-img .sign-in-times-img {
+.sign-in
+  .wrapper
+  .achievement
+  .welfare
+  .welfare-item
+  .welfare-item-img
+  .sign-in-times-img {
   width: 33px;
   height: 33px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 .sign-in .wrapper .achievement .welfare .welfare-text {
-  font-size: 14px;
+  font-size: 1.16rem;
   font-weight: 700;
   color: #4a84b3;
   margin: 0;
 }
 .sign-in .wrapper .achievement .welfare .welfare-number {
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 700;
   color: #000;
   margin: 0;
@@ -380,7 +400,7 @@
 .sign-in .wrapper .achievement .show-welfare .welfare-finished {
   display: block;
   color: #f25f31;
-  font-size: 8px;
+  font-size: 0.66rem;
   font-weight: 900;
   margin-bottom: 0;
 }
@@ -451,7 +471,7 @@
   border: none;
   border-radius: 12px;
   color: #fff;
-  font-size: 16px;
+  font-size: 1.33rem;
   font-weight: 500;
   cursor: pointer;
 }
@@ -463,7 +483,7 @@
   cursor: not-allowed;
 }
 .sign-in .wrapper .sign_in_box span {
-  font-size: 14px;
+  font-size: 1.16rem;
   font-weight: 400;
   color: #606268;
 }
@@ -490,7 +510,7 @@
   height: 100%;
 }
 .sign-in .wrapper .check-in p {
-  font-size: 15px;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #000000;
   margin: 0;
@@ -504,8 +524,8 @@
   padding: 15px;
   background-color: #fff;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none; /* 防止選擇文字 */
+  -moz-user-select: none;
+  user-select: none; /* 防止選擇文字 */
   /* 星期欄位 */
   /* 日期網格 */
 }
@@ -525,7 +545,7 @@
   cursor: pointer;
 }
 .sign-in #calendar-app .calendar-header .month-year {
-  font-size: 20px;
+  font-size: 1.66rem;
   font-weight: 700;
   color: #000;
   padding: 0 10px;
@@ -562,7 +582,7 @@
   width: 36px;
   height: 36px;
   color: #8e8e93;
-  font-size: 16px;
+  font-size: 1.33rem;
   font-family: "Noto Sans TC", sans-serif;
 }
 .sign-in #calendar-app .calendar-days span.week-text {
@@ -606,7 +626,7 @@
   cursor: pointer;
 }
 .sign-in .stamp-mission .stamp-mission-header .season-year {
-  font-size: 20px;
+  font-size: 1.66rem;
   font-weight: 700;
   color: #000;
   padding: 0 10px;
@@ -624,7 +644,7 @@
   flex-wrap: wrap;
 }
 .sign-in .stamp-mission .stamp-mission-body .stamp-item {
-  width: 133px;
+  width: 130px;
   height: 135px;
   display: flex;
   flex-direction: column;
@@ -695,7 +715,7 @@
   background-position: top 5px center;
 }
 .sign-in .stamp-mission .stamp-mission-body .stamp-item p {
-  font-size: 14px;
+  font-size: 1.16rem;
   font-weight: 500;
   color: #000;
   margin: 0;
@@ -744,7 +764,7 @@
 }
 .modal .modal-header p {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.5rem;
   color: #84af53;
   margin-left: 10px;
 }
@@ -769,7 +789,7 @@
   height: 100%;
 }
 .task-modal .task-box p {
-  font-size: 15px;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #000000;
   margin-bottom: 5px;
@@ -777,7 +797,7 @@
 }
 .task-modal .task-box .taskModalLabel {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.5rem;
   color: #84af53;
   margin-bottom: 15px;
 }
@@ -801,7 +821,7 @@
   background-repeat: no-repeat;
 }
 .task-modal .task-box .has-bg .task-text {
-  font-size: 15px;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #000000;
   font-family: Noto Sans TC, sans-serif;
@@ -823,7 +843,7 @@
   background-color: #09897d;
   border: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 1.16rem;
   font-weight: 400;
 }
 
@@ -841,7 +861,10 @@
   padding-top: 10px;
   padding-bottom: 40px;
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left::before {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left::before {
   content: "";
   display: block;
   width: 8px;
@@ -852,7 +875,10 @@
   top: 2px;
   z-index: 1;
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left::after {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left::after {
   content: "";
   display: block;
   width: 8px;
@@ -863,7 +889,11 @@
   bottom: -14px;
   z-index: 1;
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left .achievement-img {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left
+  .achievement-img {
   width: 84px;
   height: 64px;
   position: relative;
@@ -872,25 +902,54 @@
   background-repeat: no-repeat;
   z-index: 2;
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left .achievement-img img {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left
+  .achievement-img
+  img {
   width: 100%;
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left .trophy-0 {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left
+  .trophy-0 {
   background-image: url("../img/sign-in/trophy-0.png");
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left .trophy-1 {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left
+  .trophy-1 {
   background-image: url("../img/sign-in/trophy-1.png");
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left .trophy-2 {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left
+  .trophy-2 {
   background-image: url("../img/sign-in/trophy-2.png");
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left .trophy-3 {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left
+  .trophy-3 {
   background-image: url("../img/sign-in/trophy-3.png");
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left .trophy-4 {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left
+  .trophy-4 {
   background-image: url("../img/sign-in/trophy-4.png");
 }
-.achievement-modal .achievement-list .achievement-item .achievement-left .trophy-5 {
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-left
+  .trophy-5 {
   background-image: url("../img/sign-in/trophy-5.png");
 }
 .achievement-modal .achievement-list .achievement-item .achievement-right {
@@ -902,12 +961,16 @@
 .achievement-modal .achievement-list .achievement-item .achievement-right p {
   background-color: transparent;
   font-family: Noto Sans TC, sans-serif;
-  font-size: 14px;
+  font-size: 1.16rem;
   font-weight: 500;
   margin: 0;
 }
-.achievement-modal .achievement-list .achievement-item .achievement-right p:first-child {
-  font-size: 20px;
+.achievement-modal
+  .achievement-list
+  .achievement-item
+  .achievement-right
+  p:first-child {
+  font-size: 1.66rem;
   font-weight: 500;
   color: #000;
 }
@@ -947,10 +1010,16 @@
 .achievement-modal .achievement-list .achievement-item .achievement-right-5 p {
   color: #5f2486;
 }
-.achievement-modal .achievement-list .achievement-item:first-child .achievement-left::before {
+.achievement-modal
+  .achievement-list
+  .achievement-item:first-child
+  .achievement-left::before {
   display: none;
 }
-.achievement-modal .achievement-list .achievement-item:last-child .achievement-left::after {
+.achievement-modal
+  .achievement-list
+  .achievement-item:last-child
+  .achievement-left::after {
   display: none;
 }
 
@@ -975,12 +1044,12 @@
 }
 .sign-in-modal .sign-in-box .sign-in-ModalLabel {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.5rem;
   color: #84af53;
   margin-bottom: 15px;
 }
 .sign-in-modal .sign-in-box p {
-  font-size: 15px;
+  font-size: 1.25rem;
   font-weight: 500;
   color: #000000;
   margin-bottom: 5px;
@@ -1010,7 +1079,7 @@
 }
 .stamp-modal .stamp-box .stamp-title p {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.5rem;
   color: #84af53;
   line-height: 28px;
   margin-bottom: 0px;
@@ -1025,7 +1094,7 @@
 }
 .stamp-modal .stamp-box .stamp-content .stamp-content-top p {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.25rem;
   color: #000000;
   line-height: 22px;
   margin-bottom: 0px;
@@ -1039,7 +1108,7 @@
 }
 .stamp-modal .stamp-box .stamp-content .stamp-content-middle p {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.25rem;
   color: #000000;
   line-height: 22px;
   margin-bottom: 0px;
@@ -1049,7 +1118,7 @@
 }
 .stamp-modal .stamp-box .stamp-content .stamp-content-bottom p {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.25rem;
   color: #000000;
   line-height: 22px;
   margin-bottom: 0px;
@@ -1081,7 +1150,7 @@
 }
 .stamp-item-modal .stamp-item-box .stamp-item-title {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.5rem;
   color: #84af53;
   line-height: 28px;
   margin-bottom: 15px;
@@ -1098,7 +1167,11 @@
   align-items: center;
   margin-bottom: 10px;
 }
-.stamp-item-modal .stamp-item-box .stamp-item-content .stamp-item-text .stamp-item-icon {
+.stamp-item-modal
+  .stamp-item-box
+  .stamp-item-content
+  .stamp-item-text
+  .stamp-item-icon {
   width: 20px;
   height: 20px;
   background-position: center;
@@ -1107,17 +1180,25 @@
 }
 .stamp-item-modal .stamp-item-box .stamp-item-content .stamp-item-text span {
   font-weight: 500;
-  font-size: 15px;
+  font-size: 1.25rem;
   margin-left: 10px;
   font-family: Noto Sans TC, sans-serif;
 }
-.stamp-item-modal .stamp-item-box .stamp-item-content .finished .stamp-item-icon {
+.stamp-item-modal
+  .stamp-item-box
+  .stamp-item-content
+  .finished
+  .stamp-item-icon {
   background-image: url("../img/sign-in/tick.png");
 }
 .stamp-item-modal .stamp-item-box .stamp-item-content .finished span {
   color: #000000;
 }
-.stamp-item-modal .stamp-item-box .stamp-item-content .unfinished .stamp-item-icon {
+.stamp-item-modal
+  .stamp-item-box
+  .stamp-item-content
+  .unfinished
+  .stamp-item-icon {
   background-image: url("../img/sign-in/tick-grey.png");
 }
 .stamp-item-modal .stamp-item-box .stamp-item-content .unfinished span {
@@ -1130,7 +1211,7 @@
   border-radius: 10px;
   background-color: #09897d;
   color: #fff;
-  font-size: 14px;
+  font-size: 1.16rem;
   font-weight: 400;
   cursor: pointer;
   display: flex;
@@ -1175,13 +1256,18 @@
   }
   .sign-in .wrapper .achievement .img-box .achievement-left {
     width: 50%;
-    font-size: 12px;
+    font-size: 1rem;
   }
   .sign-in .wrapper .achievement .img-box .achievement-left span {
-    font-size: 10px !important;
+    font-size: 0.83rem !important;
   }
-  .sign-in .wrapper .achievement .img-box .achievement-left .achievement-left-bottom {
-    font-size: 12px;
+  .sign-in
+    .wrapper
+    .achievement
+    .img-box
+    .achievement-left
+    .achievement-left-bottom {
+    font-size: 1rem;
   }
   .sign-in .wrapper .achievement .img-box .achievement-left img {
     width: 50%;
@@ -1228,14 +1314,14 @@
     height: auto !important;
   }
   .sign-in .to-home {
-    font-size: 12px;
+    font-size: 1rem;
     padding-right: 10px;
   }
   .sign-in .to-sign-in {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .sign-in .login-out .icon-logout:before {
-    font-size: 25px;
+    font-size: 2.08rem;
   }
   .sign-in .pr-45p {
     padding-right: 5px;
@@ -1296,7 +1382,10 @@
   .achievement-modal .achievement-list .achievement-item .achievement-left {
     padding-top: 15px;
   }
-  .achievement-modal .achievement-list .achievement-item .achievement-left::after {
+  .achievement-modal
+    .achievement-list
+    .achievement-item
+    .achievement-left::after {
     height: 140px;
   }
   .achievement-modal .achievement-list .achievement-item .achievement-right {
@@ -1312,14 +1401,14 @@
     height: auto !important;
   }
   .sign-in .to-home {
-    font-size: 12px;
+    font-size: 1rem;
     padding-right: 10px;
   }
   .sign-in .to-sign-in {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .sign-in .login-out .icon-logout:before {
-    font-size: 25px;
+    font-size: 2.08rem;
   }
   .sign-in .pr-45p {
     padding-right: 5px;
@@ -1385,10 +1474,13 @@
   .achievement-modal .achievement-list .achievement-item .achievement-left {
     padding-top: 15px;
   }
-  .achievement-modal .achievement-list .achievement-item .achievement-left::after {
+  .achievement-modal
+    .achievement-list
+    .achievement-item
+    .achievement-left::after {
     height: 140px;
   }
   .achievement-modal .achievement-list .achievement-item .achievement-right {
     height: 140px;
   }
-}/*# sourceMappingURL=sign-in.css.map */
+} /*# sourceMappingURL=sign-in.css.map */
