@@ -386,7 +386,7 @@ html {
   margin: 0;
 }
 .sign-in .wrapper .achievement .welfare .welfare-number {
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: 700;
   color: #000;
   margin: 0;
@@ -1251,7 +1251,7 @@ html {
   }
   .sign-in .wrapper .achievement .img-box .achievement-left {
     width: 50%;
-    font-size: 1rem;
+    font-size: 1em;
   }
   .sign-in .wrapper .achievement .img-box .achievement-left span {
     font-size: 0.83rem !important;
@@ -1262,7 +1262,7 @@ html {
     .img-box
     .achievement-left
     .achievement-left-bottom {
-    font-size: 1rem;
+    font-size: 1em;
   }
   .sign-in .wrapper .achievement .img-box .achievement-left img {
     width: 50%;
@@ -1291,12 +1291,12 @@ html {
   .sign-in #calendar-app .weekdays span {
     width: 24px;
     height: 24px;
-    font-size: 1rem;
+    font-size: 1em;
   }
   .sign-in #calendar-app .calendar-days span {
     width: 24px;
     height: 24px;
-    font-size: 1rem;
+    font-size: 1em;
   }
   .sign-in .stamp-mission .stamp-mission-wrap {
     max-width: 460px;
@@ -1313,11 +1313,11 @@ html {
     height: auto !important;
   }
   .sign-in .to-home {
-    font-size: 1rem;
+    font-size: 1em;
     padding-right: 10px;
   }
   .sign-in .to-sign-in {
-    font-size: 1rem;
+    font-size: 1em;
   }
   .sign-in .login-out .icon-logout:before {
     font-size: 2.08rem;
@@ -1401,11 +1401,11 @@ html {
     height: auto !important;
   }
   .sign-in .to-home {
-    font-size: 1rem;
+    font-size: 1em;
     padding-right: 10px;
   }
   .sign-in .to-sign-in {
-    font-size: 1rem;
+    font-size: 1em;
   }
   .sign-in .login-out .icon-logout:before {
     font-size: 2.08rem;
